@@ -1,0 +1,329 @@
+.inner_area {
+    background: #d07c00 !important;
+    padding: 0 30px 30px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 40px;
+}
+.all_sme_p {
+	width: 100%;
+	float: left;
+	margin: 30px 0;
+}
+.all_sme_p p {
+	width: 100%;
+	text-align: right;
+	font-weight: 400 !important;
+	margin: 0;
+	color: #fff;
+	font-size: 25px;
+}
+.inner_white {
+	width: 100%;
+	float: left;
+	background: #fff;
+	padding: 15px;
+}
+.tabs_inner {
+	width: 100%;
+	float: left;
+	position: relative;
+}
+.panel.panel-primary {
+	background: #000;
+	width: 100%;
+	float: left;
+}
+.panel-heading {
+	width: 100%;
+	float: left;
+}
+.pull-right {
+	width: 100%;
+	float: left;
+}
+
+/*Panel tabs*/
+.panel-tabs {
+	position: relative;
+	bottom: 57px;
+	clear: both;
+	border-bottom: 1px solid transparent;
+	width: 35%;
+	left: -45px;
+}
+
+.panel-tabs > li {
+	float: left;
+	margin-bottom: -1px;
+	width: 100%;
+	background: #7a6320;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	text-decoration: none;
+}
+
+.panel-tabs > li > a {
+	margin-right: 2px;
+	margin-top: 4px;
+	line-height: .85;
+	border: 1px solid transparent;
+	border-radius: 4px 4px 0 0;
+	color: #ffffff;
+	padding: 9px 17px !important;
+	width: 100%;
+	float: left;
+	margin: 0;
+}
+
+.panel-tabs > li > a:hover {
+    border-color: transparent;
+    color: #ffffff;
+    background-color: transparent;
+	text-decoration:none;
+}
+
+.panel-tabs > li.active > a, .panel-tabs > li.active > a:hover, .panel-tabs > li.active > a:focus {
+	color: #fff;
+	cursor: default;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #a68734;
+	border-bottom-color: transparent;
+	width: 100%;
+	float: left;
+	padding: 9px 17px !important;
+	margin: 0;
+	text-decoration: none;
+}
+.icn_msg img {
+	width: 20px;
+}
+.txt_hr {
+	font-size: 16px;
+	vertical-align: middle;
+	padding-left: 24px;
+}
+
+.ul_ps {
+    border-bottom: 1px solid #ddd;
+    width: 35%;
+    float: left;
+    position: relative;
+    left: -45px;
+    background: #a68734;
+    top: -15px;
+}
+.ul_ps li {
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    float: left;
+}
+.ul_ps li a {
+    color: #fff;
+    cursor: default;
+    -webkit-border-radius: 2px;
+    border-top: 0;
+    -moz-border-radius: 2px;
+    border-bottom: 1px solid#715c1e;
+    background-color: #a68734;
+    width: 100%;
+    float: left;
+    padding: 9px 17px !important;
+    margin: 0;
+    text-decoration: none;
+	cursor: pointer;
+}
+.ul_ps li a:hover {
+    background: #a68734 !important;
+    border-bottom: 1px solid#715c1e;
+    border-top: 0;
+}
+.ul_ps li a:focus {
+    background: #a68734 !important;
+    border-bottom: 1px solid#715c1e;
+    border-top: 0;
+}
+.ul_ps li.active {
+    background: #a68734;
+}
+.show {
+    opacity: 1;
+}
+.tab-content {
+    width: 65%;
+    float: left;
+}
+.form-group_smartfloat {
+    width: 100%;
+    float: left;
+	margin-top: 20px;
+}
+.eze_inputt_ml {
+    width: 100%;
+    padding: 6px 6px;
+}
+.ezzee_lbl {
+    vertical-align: middle;
+    width: 100%;
+    float: left;
+    text-align: right;
+    margin-bottom: 0;
+    padding-top: 11px;
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 15px;
+}
+.spn_txt_ezee {
+    color: #000;
+    font-size: 15px;
+    margin-bottom: 6px;
+    width: 100%;
+    float: left;
+}
+.ezzee_lbl_chng {
+    text-align: right;
+    padding-top: 9px;
+    font-size: 15px;
+    font-weight: normal;
+}
+.eze_chuse_fl {
+    width: 60%;
+    float: left;
+}
+.upld_dcfl {
+    width: 100%;
+    float: left;
+    margin: 10px 0 20px;
+}
+.upld_dcfl .wth_i_icn {
+    font-size: 16px;
+    color: #000;
+}
+.upld_dcfl .i_infrmtn .fa {
+    padding-left: 12px;
+    font-size: 20px;
+    color: #999999d1;
+    cursor: pointer;
+}
+.choose_fl {
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.i_pls_icn .fa {
+    padding-left: 25px;
+    font-size: 20px;
+    color: #999999d1;
+    cursor: pointer;
+}
+.upld_assct {
+    width: 100%;
+    float: left;
+    margin: 10px 0 20px;
+}
+.i_infrmtn_pl .fa {
+    font-weight: 900;
+    padding-left: 12px;
+    font-size: 20px;
+    color: #999999d1;
+    cursor: pointer;
+}
+.upld_assct .wth_i_icn_two {
+    font-size: 16px;
+    color: #000;
+}
+.form-control.pannel {
+    height: auto;
+}
+.txt_ara {
+    width: 100%;
+    float: left;
+}
+.typ_psd {
+    width: 100%;
+    float: left;
+}
+.typ_psd .pswd_inpt {
+    background: #f7f7f7;
+    border-radius: 0;
+    padding: 8px 12px;
+    font-weight: 300;
+    color: #443a44;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    width: 100%;
+    float: left;
+    border-radius: 0;
+    border: 1px solid #515252;
+}
+.snd_btn {
+    width: 100%;
+    float: left;
+    text-align: right;
+	margin: 6px 0 12px;
+}
+.snd_btn .snd_ezz_frst {
+    background-color: #7a6320;
+    color: white;
+    padding: 8px 20px;
+    font-size: 16px;
+    border: none;
+    text-decoration: none;
+}
+.tbl_rs {
+    width: 100%;
+    float: left;
+}
+.smartpadding {
+    width: 100%;
+    float: left;
+    padding: 4px 0 15px;
+}
+.untouched_pristine {
+    width: 100%;
+    float: left;
+}
+.checkbox label, .radio label {
+    padding-left: 24px !important;
+    height: 10px !important;
+    min-height: 0px;
+    position: relative;
+    top: -5px;
+}
+.checkbox, .radio {
+    margin: 0px !important;
+}
+.smartmail th {
+    background: #b49948 !important;
+    float: left;
+    color: #fff;
+    font-size: 15px;
+    font-weight: normal;
+}
+.table-bordered {
+    border: 0 !important;
+}
+.smartmail {
+    width: 100%;
+    float: left;
+}
+.add_cnt {
+    width: 79%;
+    float: left;
+    text-align: right;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.add_cnt .pop_ad_cnt {
+    padding: 8px 15px;
+    background: #b2993f;
+    color: #fff;
+    text-decoration: none;
+}

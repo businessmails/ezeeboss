@@ -1,0 +1,8 @@
+i.arrow.prev {
+    display: none !important;
+  }
+  .arrow-container.prev {
+      position: absolute;
+      top: 42%;
+      background: red;
+  }

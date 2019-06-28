@@ -1,0 +1,182 @@
+
+<div class="wrapper">
+  <app-header></app-header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <app-main-side-bar></app-main-side-bar>
+  
+  <div class="content-wrapper sd_spce">
+    <!-- Content Header (Page header) -->
+    <section class="content-header cntr">
+        <h1>
+            Dashboard
+            <small>(Control panel)</small>
+        </h1>
+        <!-- <ol class="breadcrumb">
+            <li><a href="/UserHomeDashboardComponent"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol> -->
+    </section>
+
+
+     <!-- Main content -->
+     <!-- <section class="content1"> -->
+     <div class="no_container">
+      <div class="row hundrnd_cntr">
+        <div id="div1" class="col-sm-6" >
+			<div class="cmplt_dsh_hdng">
+				<h2>Completed Document</h2>
+			</div>
+
+			<div class="tble_dvv" *ngFor="let document of documents">
+				<table style="width:100%">
+				  <tr class="bg_clr_tble">
+					<th class="bodr_lft">Document</th>
+					<th colspan="1">Name</th>
+					<th>SignedTime</th>
+				  </tr>
+				  <tr class="td_bg">
+					<td class="on_hover_bodr"><a routerLink="/documentdetail/{{document.documentid}}">pdf-{{document.documentid}}</a></td>
+					<td>{{document.sendername}}</td>
+					<td>{{document.signedTime.substr(0,10)}}</td>
+				  </tr>
+				</table>
+			</div>
+           
+
+        </div>
+		
+		
+        <div id="div2" class="col-sm-6">
+			<div class="scmd_clndr_hdng">
+				<h2>Calendar</h2>
+			</div>
+			<div class="row cnt_cnt">
+				<div class="col-md-6">
+					<div class="clndrrr"><input type="date"></div>
+				</div>
+				<div class="col-md-6 no_padding">
+					<div class="ryt_wrk">
+						<div class="same_dc_dsng">
+							<div class="spn_txt">
+								<span class="txt_up">11</span><br><span class="txt_dwn_up">11</span>
+							</div>
+							<div class="ryt_sd_txt">
+								<h4>History of the earth</h4>
+								<span class="smll_txt_hfor">09:30</span>
+							</div>
+						</div>
+						<div class="same_dc_dsng aftrr">
+							<div class="spn_txt cng-clr">
+								<span class="txt_up">11</span><br><span class="txt_dwn_up">11</span>
+							</div>
+							<div class="ryt_sd_txt">
+								<h4>History of the earth</h4>
+								<span class="smll_txt_hfor">09:30</span>
+							</div>
+						</div>
+						<div class="same_dc_dsng afttr_two">
+							<div class="spn_txt">
+								<span class="txt_up">11</span><br><span class="txt_dwn_up">11</span>
+							</div>
+							<div class="ryt_sd_txt">
+								<h4>History of the earth</h4>
+								<span class="smll_txt_hfor">09:30</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+        </div>
+		
+		
+		<div class="row extra_space">
+			<div class="col-md-4">
+				<div class="four_full" >
+					<div class="top_bg_for_hdng">
+						<h2>Pending Document</h2>
+					</div>
+					<div class="again_sme_dv" *ngFor="let pendingdoc of pendingdocuments">
+						<div class="prfl_img">
+							<img src="assets/images/avatar.jpg">
+						</div>
+						<div class="ryt_prfl_txt">
+							<h4>File Name</h4>
+							<span class="sml_txtt_xxx">
+								<a routerLink="/documentdetail/{{pendingdoc.documentid}}">
+									Pdf-{{pendingdoc.documentid}}</a>
+	
+							</span>
+							<p>{{pendingdoc.sendername}}</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			
+			<div class="col-md-8">
+				<div class="eight_fll">
+					<div class="top_bg_for_hdng">
+						<h2>Saved Images</h2>
+					</div>
+					<div class="images_dvv">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="img_div">
+									<img src="https://ezeeboss.com:3001/images/{{userid}}/{{image}}" alt="User Image">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="img_div">
+									<img src="https://ezeeboss.com:3001/images/{{userid}}/{{image}}" alt="User Image">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    
+    </div>
+
+
+
+  <!-- </section> -->
+  <!-- /.content -->
+
+  </div>
+
+
+
+
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+
+  
+  <div class="control-sidebar-bg"></div>
+</div>
+
+

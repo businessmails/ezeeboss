@@ -1,0 +1,19 @@
+// header top bottom symenrtry
+// button hdden on sign up pag
+// profile page par color combination thik karna
+// smart email locks, font on top right
+// follow composemail
+// upload csv csv dwnload icons fix
+// in trash, move to sent item has #, need fix
+// no work on electronic signature
+
+techieformation@gmail.com
+TEch@123!
+
+- composemail: TO field should take multiple emails, currently taking only one
+- email ja rhe hai but late ja rhe hai
+- when email is read, call an API (create it) so that mail is marked as read. Read emails should go to "Read Mail" section
+  params: ip, count, datetimes when it was opneded
+- Action ki image de denge, usper click karenge tab params ka data dikhana hai
+- Sent perfectly chal raha hai, just change order, from asc to desc, latest wala upar ana chahiye
+- 

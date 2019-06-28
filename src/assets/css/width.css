@@ -1,0 +1,867 @@
+.logimg-login img,.logimg-reg img {
+    width: 64%;
+    margin-top: 35%;
+}
+.logimg-login,.logimg-reg {
+    text-align: center;
+}
+.tab-pane {
+    display: block !important;
+}
+.nav-link[_ngcontent-c2] {
+    width: 123px;
+    margin-left: 27px;
+}
+a.navbar-brand[_ngcontent-c2] {
+    width: 40%;
+    text-align: center;
+    float: left;
+    height: 0px !important;
+    padding: 0px !important;
+}
+footer {
+    background: #fff none repeat scroll 0 0;
+    bottom: 0;
+    left: 0;
+    padding: 2px 0px 0 0 !important;
+    width: 100%;
+    border-top: 2px solid #b59848;
+    border-bottom: 2px solid #b59848;
+    float: left;
+    position: fixed;
+    bottom: 0;
+}
+.container56 {
+    font-size: 17px !important;
+    }
+    .nav-link {
+        margin-top: 21px !important;
+        float: left;
+        padding:0px !important;
+        width: 123px !important;
+        margin-left: 27px !important;
+    }
+    .nav-link[_ngcontent-c2] {
+        width: 123px;
+        margin-left: 27px;
+        padding: 0px;
+    }
+    .nav-link img {
+        width: 100%;
+    }
+.remember {color:#fff; font-size: 16px !important; text-transform: capitalize; font-weight: normal;margin-top:5px}
+.forgot{ color:#fff; text-align:right; font-size: 16px !important; text-transform: capitalize;}
+a:hover.forgot {color:#fff;}
+.removediv.appended {
+    width:100% !important;
+}
+.radio label {
+    padding-left: 25px !important;
+}
+
+.checkmark[_ngcontent-c2]::after {
+    width: 7px;
+    height: 7px;
+    top: 1.5px;
+    left: 1.5px;
+}
+
+.radiocheckmark  {
+    position: absolute;
+  top: 6px;
+  left: 0;
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+    border: 2px solid #494d49;
+}
+.innerfixed label.container345 {
+    line-height: 31px !important;
+}    
+.radiocheckmark::after {
+    top: 2px !important;
+    left: 2px !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50%;
+    background: #494d49 !important;
+}
+span.checkmark.radiocheckmark {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid #494d49;
+}
+.formdiv .signbtn {
+    width: 100% !important;
+}
+.tab-content {
+    display: block !important;
+}
+p.pt {
+    padding: 0px !important;
+    font-size: 11px !important;
+}
+.selectdigital {
+    border: 0px solid #c7c0a9 !important;
+    border-radius: 0px !important;
+}
+.smartpadding[_ngcontent-c6] .img-responsive.img1[_ngcontent-c6] {
+	width: 25px;
+}
+.logoimg {
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    display: flow-root;
+}
+.logoimg[_ngcontent-c2] img[_ngcontent-c2] {
+    margin-top: 10px;
+}
+app-root {
+    width: 100%;
+}
+.delbtn {
+    background-color: rgba(234,0,0);
+    color: white !important;
+    border: none;
+    margin-bottom: 14px;
+    float: left;
+    padding: 8px 20px;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+/**/
+@media screen and (max-width:640px) {
+    .logoimg {
+        text-align: center;
+}
+.btn.signbtn {
+    max-width:260px !important;
+}
+.ng-untouched.ng-pristine.ng-invalid {
+
+    padding: 0px 6px !important;
+}
+.loginform-outerdiv[_ngcontent-c2] {
+
+padding:0px !important;
+}
+    
+}
+@media only screen and (min-width : 1650px) and (max-width:2802px) {
+
+    .container {
+        width: 2170px !important;
+    }
+    .control-label2 {
+        margin-bottom: 0;
+        padding-top: 11px;
+        /* font-size: 30px; */
+        color: #4d445f;
+        font-weight: normal;
+    }
+    .particiapnt34 {
+        /* font-size: 35px !important; */
+    }
+    div#refnum {
+        margin-left: 0% !important;
+    }
+    .groups_group1{
+        margin-left: 0% !important;
+    }
+    div#datetimepicker11 {
+        width: 100% !important;
+    }
+    div#datetimepicker2{
+         /* width: 100% !important; */
+    }
+    tr.odd {
+        /* font-size: 35px !important; */
+    }
+    nav.navbar.navbar-inverse {
+        height: auto;
+    }
+    img.img-responsive.logo {
+        height: auto;
+        width: 100%;
+    }
+    p.pt10 {
+        font-size: 45px  !important;
+        margin-top: 23px !important;
+        margin-bottom: 16px !important;
+    }
+    .img-portfolio2 {
+        width: 100% !important;
+    }
+    span.title {
+        color: #fff;
+        /* font-size: 40px !important; */
+    }
+    .nav > li > a {
+        padding: 13px 15px !important;
+    }
+    .nav-tabs6 .fa {
+        color: #fff;
+        background: #858f03;
+        padding: 10px 10px;
+        z-index: 100;
+        width: 60px;
+        /* font-size: 30px; */
+    }
+    .fa.fa-users {
+        /* font-size: 30px; */
+    }
+    p.pt10 {
+        /* font-size: 50px ; */
+       
+    }
+    .form-control { 
+        width: 100%;
+        height: 60px;
+        padding: 6px 12px;
+        font-size: 30px;
+        
+    }
+    .search-btn {
+        
+        /* font-size: 30px; */
+    }
+    #hor-zebra {
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+        margin-left: 0px;
+        margin-top: 15px;
+        font-size: 28px;
+    }
+    #hor-zebra td {
+        color: #fff;
+        padding: 10px;
+    }
+    img.img {
+        width: 200px;
+    }
+    .tab-content {
+        margin-left: 60px!important;
+        margin-bottom: 110px !important;
+    }
+    p.pt {
+        /* font-size: 30px; */
+    }
+    footer#footer img {
+        width: 48px;
+    }
+    p.pt51 {
+        /* font-size: 26px !important; */
+    }
+    .table-striped th {
+        /* font-size: 35px !important; */
+    }
+    .digital input {
+        height: 24px;
+        width: 24px;
+    }
+    .ckb{
+        height: 24px;
+        width: 24px;
+    }
+    img.img-responsive.img2 {
+        width: 200px;
+    }
+    }
+    
+    @media only screen and (min-width : 1650px) and (max-width:2202px) {
+    .container {
+        width: 1770px !important;
+    }
+    .table-striped th {
+        /* font-size: 27px !important; */
+    }
+    .modal-dialog {
+        width: 700px !important;
+    }
+    }
+    
+    @media only screen and (min-width : 1650px) and (max-width:2000px) {
+    .container {
+        width: 1880px !important;
+    }
+    p.pt {
+        /* font-size: 24px; */
+    }
+    .modal-dialog {
+        width: 650px !important;
+    }
+    
+    
+    }
+    
+    
+    @media only screen and (max-width: 2560px) and (min-width: 1600px) {
+       input.btn.btn-primary{
+        font-size:25px !important;
+    }
+   
+    checkmark[_ngcontent-c2] {
+        top: 1px !important;
+    }
+    checkmark[_ngcontent-c2]::after {
+        top: 1.7px;
+    }
+}
+@media (min-width: 1200px)  {
+.container {
+    width: 1200px !important;
+}
+}
+
+    @media only screen and (min-width : 1151px) and (max-width:1649px) {
+        .hdrsec {                                                  
+            background-size: 100% 100%;
+        }
+        
+    }
+    
+    @media only screen and (min-width : 1650px) and (max-width:1920px) {
+        .hdrsec {
+            background-repeat: no-repeat;
+            background-size: 100%;
+            border: 1px solid transparent;
+            width: 100%;
+            float: left;
+        }
+        .for-specificwidth {
+            display: flex;
+        }
+        .logimg img {
+            width: 210px !important;
+        }
+        .modal-dialog {
+            width: 800px !important;
+        }
+    }
+    
+    
+    /* @media only screen and (min-width : 1380px) and (max-width:1640px) {
+    
+    .container {
+        width: 1480px !important;
+    }
+    } */
+    
+    @media only screen and (min-width : 1440px) and (max-width:2652px) {
+    #box45 {
+        width: 100%;
+    }
+    .container56 {
+        padding:0px !important;
+    }
+    .checkmark {
+        top: 3px !important;
+        left: 0 !important;
+    }
+    .checkmark.radiocheckmark {
+      top: 6px !important;
+    }
+    span.title {
+        width: 155px!important;
+        height: auto!important;
+    }
+    .hdrsec {
+        background-size: 100% 100%!important;
+    }
+    .list-part.myprofile.mobilename {
+        max-width: 380px !important;
+    }
+    .downarrow {
+        height: auto!important;
+    }
+        .logimg img {
+            width: 280px !important;
+        }
+        .modal-dialog {
+            width: 1060px !important;
+        }
+        .capimg {
+            height: 410px !important;
+        }
+        .fropicture .regimg {
+            top: 475px !important;
+        }
+        .list-part-home {
+            margin-top: 0px;
+            padding: 12px 22px !important;
+            font-size: 20px;
+        }
+        .slideshow-container .arrow-container .arrow {
+            width: 40px !important;
+            height: 40px !important;
+            border-top: 12px solid #00000066 !important;
+            border-left: 12px solid #00000066 !important;
+        }
+        .ezeelogintext p {
+            font-size: 32px !important;
+            padding: 20px 0 30px !important;
+        }
+        .ezeelogintext img{
+            width: 158px !important;
+        }
+        
+        .error-msg {
+            font-size: 21px;
+        }
+        .checkbox label, .radio label {
+            font-size: 28px;
+            padding-left: 30px !important;
+        }
+        .formdiv .form-group p {
+            font-size: 28px;
+        }
+        .fropicture .regimg {
+            width: 160px !important;
+        }
+    .formdiv .signbtn {
+      
+        padding: 14px !important; 
+        font-size: 20px !important;
+    }
+        .jsttext {
+            font-size: 30px !important;
+        }
+    
+        .social-icondiv ul {
+            padding: 7px 0 !important;
+        }
+        #footer {
+            padding: 10px 0px 10px 0 !important;
+            position:relative;
+        }
+        .log-reg-btn .log {
+            margin-bottom: 35px !important;
+        }
+        .ezeelogintext[_ngcontent-c2] p[_ngcontent-c2] {
+
+            width: 100% !important;
+            margin: 0px !important;
+        }
+        .formdiv {
+            padding-bottom: 45px !important;
+        }
+        .container56 {
+            padding-left: 55px !important;
+        }
+    /*     .checkmark {
+            height: 32px !important;
+            width: 32px !important;
+        } */
+        .container56 .checkmark:after {
+            left: 13px !important;
+            top: 7px !important;
+            width: 10px !important;
+            height: 17px !important;
+            border-width: 0 4px 4px 0 !important;
+        }
+        .logimg {
+            padding: 200px 20px !important;
+        }
+        .caret {
+            border-top: 13px dashed !important;
+            border-right: 10px solid transparent !important;
+            border-left: 10px solid transparent !important;
+        }
+        .mobiledownarrow {
+            width: 55px;
+        }
+        .mobilemenu>li>a {
+            padding: 6px 20px !important;
+            font-size: 24px !important;
+        }
+    
+        
+        #uploaddocbtn {
+            height: 126px;
+            background-size: 100px;
+            background-position-y: 18px;
+        }
+        .box-part {
+            padding: 24px !important;
+            border: 7px #a68734 solid;
+        }
+        .filedroptext{
+            font-size: 43px !important;
+        }
+    }
+    
+    @media only screen and (min-width : 2643px) and (max-width:2652px) {
+        .hdrsec {
+            background-repeat: no-repeat;
+            background-size: 100%;
+            border: 1px solid transparent;
+            height: auto;
+            width: 100%;
+            float: left;
+        }
+    }
+    
+    @media only screen and (min-width : 2250px) and (max-width:2642px) {
+        .hdrsec {
+            background-repeat: no-repeat;
+            background-size: 100%;
+            border: 1px solid transparent;
+            height: 118px;
+            width: 100%;
+            float: left;
+        }
+    }
+    @media only screen and (min-width : 2200px) and (max-width:2249px) {
+        .hdrsec {
+            background-repeat: no-repeat;
+            background-size: 100%;
+            border: 1px solid transparent;
+            height: auto;
+            width: 100%;
+            float: left;
+        }      
+    }  
+    @media only screen and (min-width : 2103px) and (max-width:2201px) {
+        .hdrsec {
+            background-repeat: no-repeat;
+            background-size: 100%;
+            border: 1px solid transparent;
+            height: auto;
+            width: 100%;
+            float: left;
+        }      
+    }   
+    @media only screen and (min-width : 2000px) and (max-width:2102px) {
+        .hdrsec {
+            background-repeat: no-repeat;
+            background-size: 100%;
+            border: 1px solid transparent;
+            height: auto;
+            width: 100%;
+            float: left;   
+        }        
+    }
+    @media only screen and (min-width : 1908px) and (max-width:1999px) {
+        .hdrsec {
+            background-repeat: no-repeat;
+            background-size: 100%;
+            border: 1px solid transparent;
+            height: auto;
+            width: 100%;
+            float: left;   
+        }    
+        .checkmark.checkmarksign::after {
+            left: 3px;
+            top: 3px;
+            width: 8px !important;
+            height: 8px !important;
+        }    
+    }
+    /* 
+    @media only screen and (min-width : 1201px) and (max-width:1320px) {
+        .hdrsec {
+            height: 100px;
+        }  
+        .logoimg img {
+            width: 996px;
+            margin: auto 0;
+        }  
+    }
+    @media only screen and (width:1320px) { 
+        .logoimg img {
+            width: 1070px;
+        }  
+    }
+    @media only screen and (width:1440px) { 
+        .logoimg img {
+            padding: 3px 0;
+        }  
+    }
+    @media only screen and (min-width : 1360px) and (max-width:1440px) {
+        .hdrsec {
+            height: 107px;
+        }  
+        .logoimg img {
+            margin: auto 0;
+        }  
+    }
+    @media only screen and (min-width : 1441px) and (max-width:1489px) {
+        .hdrsec {
+            height: 110px;
+        }  
+        .logoimg img {
+            margin: auto 0;
+        }  
+    }
+    @media only screen and (min-width : 1490px) and (max-width:1649px) {
+        .hdrsec {
+            height: 122px;
+        }  
+        .logoimg img {
+            margin: auto 0;
+            padding: 10px 0;
+        }  
+    } */	
+    @media (max-width: 767px) {
+		.smartheading[_ngcontent-c5] {
+         text-align: left;
+		}
+		.tabs-left .nav-tabs6 {
+    width: 100%;
+		}
+		.table-responsive {
+    border: 0px !important;
+		}
+	}
+    
+    @media only screen and (min-width : 1025px) and (max-width:1130px) {
+     
+        .logoimg img {
+            width: 94%;
+            margin: auto 0;
+        }  
+    }
+    
+    .webcam-wrapper {
+        display: block !important;  
+        margin: 0 15px;  
+    }
+
+@media only screen and (min-width :768px) and (max-width:991px) {
+     
+    .formdiv {
+        padding-bottom:25px !important;
+    }
+}
+
+@media only screen and (min-width :320px) and (max-width:768px) {
+     
+  .mobiledownarrow {
+    height: 41px !important;
+  }
+  .fa-user.list5 {
+    top: -8px !important;
+  }
+}
+
+
+@media only screen and (min-width :1366px) and (max-width:1600px) {
+
+.text-fontsize {
+    font-size: 15px !important;
+}
+
+}
+.using_img h3 {
+    font-size: 18px;
+}
+
+/*18_June_2019*/
+
+/* The container */
+.new_checkbox {
+    display: block;
+    position: relative;
+    padding-left: 0;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	min-height:12px!important;
+}
+
+/* Hide the browser's default checkbox */
+.new_checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: transparent; border: 1px solid #fff;
+}
+
+
+/* On mouse-over, add a grey background color */
+.new_checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.new_checkbox input:checked ~ .checkmark {
+    background-color: #fff;
+}	border: 1px solid #fff;
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.new_checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.new_checkbox .checkmark:after {
+	left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid #ea0000;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.new_checkbox_2 {
+    display: block!important;
+    position: relative;
+    padding-left: 0;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	min-height:18px!important;
+	margin-bottom:0!important;
+}
+
+/* Hide the browser's default checkbox */
+.new_checkbox_2 input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: transparent; border: 1px solid #fff;
+}
+
+
+/* On mouse-over, add a grey background color */
+.new_checkbox_2:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.new_checkbox_2 input:checked ~ .checkmark {
+    background-color: #fff;
+}	border: 1px solid #fff;
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.new_checkbox_2 input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.new_checkbox_2 .checkmark:after {
+	left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid #ea0000;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.login_checkbox_new {
+    display: block!important;
+    position: relative;
+    padding-left: 0;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	min-height:18px!important;
+	margin-bottom:10px!important;
+	padding-left: 25px;
+}
+
+/* Hide the browser's default checkbox */
+.login_checkbox_new input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: transparent; border: 1px solid #fff;
+}
+
+
+/* On mouse-over, add a grey background color */
+.login_checkbox_new:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.login_checkbox_new input:checked ~ .checkmark {
+    background-color: #fff;
+}	border: 1px solid #fff;
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.login_checkbox_new input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.login_checkbox_new .checkmark:after {
+	left: 6px;
+    top: 3px;
+    width: 4px;
+    height: 8px;
+    border: solid #ea0000;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.forgot_margin { margin-bottom:10px;}
