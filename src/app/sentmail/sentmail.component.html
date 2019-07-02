@@ -192,7 +192,7 @@
        
  <div class="">
 
-   <div class="table-responsive jug-2">
+    <div class="table-responsive jug-2">
                <div class="smartpadding"> 
        <a (click)="ngOnInit()" style="cursor: pointer;">
        <img src="assets/img/refresh.png" class="img-responsive img1">
@@ -205,42 +205,42 @@
                    <thead>
                      <tr class="smartmail">
                        <th>
-           <div class="checkbox s_t">
-             <label class="new_checkbox_2">
-               <input  type="checkbox" [checked]="isAllChecked()" (change)="checkAll($event)">
-               <span class="checkmark"></span>
-             </label>
-           </div>
-         </th>
-                       <th>From</th>
-                       <th>To</th>
-                       <th>Subject</th>
-                       <th>Date</th>
-                       <th>Action</th>
-                     </tr>
-                   </thead>
-                   <tbody>
-                      <tr *ngFor="let item of sentmails" class="unread">
-                          <td>
-                       <div class="checkbox s_t">
-                         <label class="new_checkbox_2">
-                           <input type="checkbox" name="checked" value="{{item._id}}" [(ngModel)]="item.selected" >
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </td>
-                         <td>{{item.fromemail}}</td>
-                         <td>{{item.toemail}}</td>
-                         <td class="text-right">{{item.subject}}</td>
-                         <td>{{item.dateadded | amDateFormat: 'MM/DD/YYYY'}}</td>
-                         <td>
-                            <a routerLink="/viewmail/{{item._id}}">
-                              <img src="assets/img/view.png" class="img-responsive"/>
-                            </a>
-                            </td>
-                     </tr>
-                   </tbody>
-                   
+                   <div class="checkbox s_t">
+                     <label class="new_checkbox_2">
+                       <input  type="checkbox" [checked]="isAllChecked()" (change)="checkAll($event)">
+                       <span class="checkmark"></span>
+                     </label>
+                   </div>
+                   </th>
+                         <th>From</th>
+                         <th>To</th>
+                         <th>Subject</th>
+                         <th>Date</th>
+                         <th>Action</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                        <tr *ngFor="let item of sentmails" class="unread">
+                            <td>
+                         <div class="checkbox s_t">
+                           <label class="new_checkbox_2">
+                             <input type="checkbox" name="checked" value="{{item._id}}" [(ngModel)]="item.selected" >
+                             <span class="checkmark"></span>
+                           </label>
+                         </div>
+                       </td>
+                           <td>{{item.fromemail}}</td>
+                           <td>{{item.toemail}}</td>
+                           <td class="text-right">{{item.subject}}</td>
+                           <td>{{item.dateadded | amDateFormat: 'MM/DD/YYYY'}}</td>
+                           <td>
+                              <a routerLink="/viewmail/{{item._id}}">
+                                <img src="assets/img/view.png" class="size_image"/>
+                              </a>
+                              </td>
+                       </tr>
+                     </tbody>
+                     
                  </table>
                 
               
@@ -250,7 +250,7 @@
             <button class="delbtn"> Delete</button>
        </a> 
        </div>
-   </div>
+    </div>
 
  </div>			  
    

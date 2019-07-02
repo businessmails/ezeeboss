@@ -505,19 +505,18 @@ span.tooltiptext.camera {
 }
 /* beating button css end */
 
-h4#exampleModalLabel {
-    padding: 12px 0 0;
-}
 button#fclose {
     background: #050505;
     color: #fff;
-    padding: 3px 7px;
     position: absolute;
     right: 6px;
     top: 5px;
     opacity: 1;
-    border-radius: 30px;
-    border: 2px solid #fff;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    right: -15px;
+    top: -15px;
 }
 
 

@@ -184,64 +184,57 @@
        
  <div class="">
 
-   <div class="table-responsive jug-2">
-               <div class="smartpadding"> 
-      
-               </div>
-               <div class="clearfix"></div>
-               <form name="home2">
-                   
-                 <table class="table table-bordered table-hover table-striped">
-                   <thead>
-                     <tr class="smartmail">
-                       <th>
-           <div class="checkbox">
-             <label class="new_checkbox_2">
-               <input  type="checkbox" [checked]="isAllChecked()" (change)="checkAll($event)">
-               <span class="checkmark"></span>
-             </label>
-           </div>
-         </th>
-                       <th>To</th>
-                       <th>Subject</th>
-                       <th>Date</th>
-                       <th>Time</th>
-                       <th>Action</th>
-                     </tr>
-                   </thead>
-                   <tbody>
-                      <tr *ngFor="let item of sentmails" class="unread">
-                          <td>
-                       <div class="checkbox">
-                         <label class="new_checkbox_2">
-                           <input type="checkbox" name="checked" value="{{item._id}}" [(ngModel)]="item.selected" >
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </td>
-                         <td>{{item.toemail}}</td>
-                         <td class="text-right">{{item.subject}}</td>
-                         <td>{{item.dateadded | amDateFormat: 'MM/DD/YYYY'}}</td>
-                         <td>{{item.dateadded | amDateFormat: 'h:mm:ss a'}}</td>
-
-                         <td>
-                            <a routerLink="/viewmail/{{item._id}}">
-                              <img src="assets/img/view.png" class="img-responsive"/>
-                            </a>
-                            </td>
-                     </tr>
-                   </tbody>
-                   
-                 </table>
-                
-              
-               </form>
-                   <div class="smartdelete"> 
-       <a (click)="deletemails()">
-            <button _ngcontent-c4="" class="delbtn"> Delete</button>
-          </a> 
-       </div>
-   </div>
+    <div class="table-responsive jug-2">
+      <div class="smartpadding"></div>
+      <div class="clearfix"></div>
+      <form name="home2">                   
+        <table class="table table-bordered table-hover table-striped">
+          <thead>
+            <tr class="smartmail">
+             <th>
+                <div class="checkbox">
+                  <label class="new_checkbox_2">
+                    <input  type="checkbox" [checked]="isAllChecked()" (change)="checkAll($event)">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </th>
+              <th>To</th>
+              <th>Subject</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of sentmails" class="unread">
+              <td>
+                <div class="checkbox">
+                  <label class="new_checkbox_2">
+                    <input type="checkbox" name="checked" value="{{item._id}}" [(ngModel)]="item.selected" >
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </td>
+              <td>{{item.toemail}}</td>
+              <td class="text-right">{{item.subject}}</td>
+              <td>{{item.dateadded | amDateFormat: 'MM/DD/YYYY'}}</td>
+              <td>{{item.dateadded | amDateFormat: 'h:mm:ss a'}}</td>
+              <td>
+                <a routerLink="/viewmail/{{item._id}}">
+                  <img src="assets/img/view.png" class="size_image"/>
+                </a>
+              </td>
+           </tr>
+          </tbody>
+        </table>
+      </form>
+      <div class="smartdelete"> 
+        <a (click)="deletemails()">
+          <button _ngcontent-c4="" class="delbtn"> Delete</button>
+        </a> 
+      </div>
+    </div>
 
  </div>			  
    

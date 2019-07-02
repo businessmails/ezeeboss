@@ -1099,6 +1099,7 @@ button.start_btttn {
 }
 .latest-trend {
 	margin: 0px 0px 80px 0px;
+	display: inline-block;
 }
 .latest-trend-box {
 	margin-bottom: 45px;
@@ -3509,5 +3510,9 @@ button.btn.signbtn.recap_img {
 .mail_info { font-size: 15px; font-weight: 600; padding-bottom: 8px; text-align: left; border-bottom: 1px solid #f1f1f1; padding-top: 4px; margin-bottom:0; }
 .attachment_btn { background: #494d49; padding: 15px; color: #fff;}
 
-.send_edit_profile { float: right; background: rgb(89,169,35); color: #fff; font-size: 16px; padding: 5px 25px!important; text-transform: uppercase!important; }
+.send_edit_profile { float: right; background: rgb(89,169,35); color: #fff; font-size: 16px; padding: 5px 25px!important; text-transform: uppercase!important; border-radius: 0!important; }
 button:hover.send_edit_profile { color:#fff;}
+.forgot_password_popup{border-radius:0px; background:#fff;}
+.forget_passs { font-family:'Century Gothic'; text-align: center; color: #494d49; padding: 15px; font-weight: 600; text-transform: capitalize;}
+.table>tbody>tr>td, .table>t>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {vertical-align: middle!important;}
+.size_image { max-width: 35px; margin: 0 auto }

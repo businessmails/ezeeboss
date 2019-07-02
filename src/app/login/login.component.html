@@ -1,128 +1,32 @@
-<!-- <div class="container">
-
-  <div class="row">
-    
-    <div class="col-md-6">
-
-      <h1 class="form-signin-heading">Sign in</h1>
-      <p class="lead">Not a member? Please <a routerLink="/register">register</a> instead.</p>
-      <div class="alert alert-danger" *ngIf="error">{{error}}</div>
-
-      <form (submit)="login()">
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="credentials.email">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="credentials.password">
-        </div>
-        <button type="submit" class="btn btn-default">Sign in!</button>
-      </form>
-    </div>
-  </div>
-
-</div> -->
 
 <section class="hdrsec">
     <div class="container">
-    <nav class="navbar navbar-expand-lg">
-        <div class="navbar-left" style="visibility: hidden;">
+        <nav class="navbar navbar-expand-lg">
+            <div class="navbar-left" style="visibility: hidden;">
                 <ul class="navbar-nav"> 
-                        <li class="nav-item">
-                            <a class="nav-link" routerLink='/register'>
-                              <img src="../../assets/img/sign-up.png">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink='/register'>
+                          <img src="../../assets/img/sign-up.png">
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                          <a class="nav-link" routerLink='/login'>
+                           <img src="../../assets/img/log-in.png">
                           </a>
-                        </li>
-                        <li class="nav-item">
-                              <a class="nav-link" routerLink='/login'>
-                               <img src="../../assets/img/log-in.png">
-                              </a>
-                        </li>
-                    </ul>
-        </div>
-        <a class="navbar-brand" >
+                    </li>
+                </ul>
+            </div>
+            <a class="navbar-brand" >
                 <a routerLink='/'>
                 <div class="logoimg">
                         <img style="margin-top: 0px;" src="../../assets/img/ezee-logo.png" />
                     </div>
                 </a>
-        </a>
-        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-expanded="false">
-        <span class="navbar-toggler-icon"></span>
-        </button> --->
-        <div class="navbar-right" id="navbar1">
-         <!-- <ul class="navbar-nav"> 
-              <li class="nav-item">
-                  <a class="nav-link" routerLink='/register'>
-                    <img src="../../assets/img/sign-up.png">
-                </a>
-              </li>
-              <li class="nav-item">
-                    <a class="nav-link" routerLink='/login'>
-                        <img src="../../assets/img/log-in.png">
-                    </a>
-              </li>
-          </ul> -->
-        </div>
-      </nav>
+            </a>
+            <div class="navbar-right" id="navbar1"></div>
+        </nav>
     </div>
-    </section>
-
-<!--<section class="hdrsec">
-    <div class="logoimg">
-      <a href="/">  <img src="../../assets/img/ezee-logo.png" /></a>
-    </div>
-
-
-    <div class="drp drpnw">
-
-        <div class="">
-
-            <div class="hide_mob">
-                <a href='/register'>
-
-                    <div class="list-part-home loginbtn">SIGN UP
-
-                    </div>
-                </a>
-
-                <a href='/login'>
-                    <div class='list-part-home loginbtn' style="padding: 8px;color: #b59848;">LOG IN
-
-                    </div>
-                </a>
-            </div>
-
-            <div class="list-part-home lm">
-
-                <li class='dropdown'>
-
-                    <a class='dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>
-                        <span class='title'>
-                            <i class="fa fa-bars"></i>&nbsp;&nbsp;</span>
-                    </a>
-
-                    <ul class='dropdown-menu'>
-
-                        <li>
-                            <a href='/login'>LOG IN</a>
-                        </li>
-
-                        <li>
-                            <a href='/regiser'>SIGN UP</a>
-                        </li>
-
-                    </ul>
-
-                </li>
-
-            </div>
-        </div>
-    </div>
-
-</section> -->
-
+</section>
 <section>
     <div class="my-container">
         <!-- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' , fullScreenBackdrop: true}"></ngx-loading> -->
@@ -241,13 +145,13 @@
 								   <i class="fa fa-camera" aria-hidden="true"></i> Open Camera</button>loginbtn -->
 								   
 								   <div class="tooltip124">
-                            <button [ngClass]="{'pulse green': loginbtn }" *ngIf="Camera" type="button" (click)="triggerSnapshot();" class="btn signbtn fullwdth">Capture Image</button>
+                            <button [ngClass]="{'pulse green': loginbtn }" *ngIf="Camera" type="button" (click)="triggerSnapshot();" class="btn signbtn recap_img"><img _ngcontent-c5="" class="img-responsive" src="../../assets/img/cap_image.png"></button>
 								<span class="tooltiptext1">Ezee Login without Face Recognition Sytem
                                             
                                             </span>
 											</div>
 
-               <button type="button" *ngIf="recapture" (click)="toggleWebcam();" class="btn signbtn newrecap">Recapture Image
+               <button type="button" *ngIf="recapture" (click)="toggleWebcam();" class="btn  signbtn recap_img"><img _ngcontent-c2="" class="img-responsive" src="../../assets/img/recap_image.png">
 							
 							</button>
 						
@@ -305,20 +209,19 @@
     <modal #forgetpassword [hideCloseButton]="true" [closeOnOutsideClick]="false">
 
         <modal-content>
-            <div class="my_sec_add" style="border-radius:0px; border:10px solid #688bfc; background:white;">
+            <div class="forgot_password_popup">
                 <div class="modal-headerr">
                     <!--data-dismiss="modal" aria-label="Close"-->
                     <button (click)="forgetpassword.close()" type="button" id="fclose" class="close">
                         <span aria-hidden="true">×</span>
                     </button>
-                    <h4 class="modal-title forget_passs" id="exampleModalLabel">
-                        <span style=" font-family:'Century Gothic';">FORGOT YOUR PASSWORD
-                        </span>
-                    </h4>
+                    <h3 class="modal-title forget_passs" id="exampleModalLabel">
+                        <span>forgot your password</span>
+                    </h3>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <form class="form-horizontal" name="forgotlogin" id="forgotlogin" method="post" style="">
+                        <form class="" name="forgotlogin" id="forgotlogin" method="post" style="">
                             <div class="col-lg-12">
                                 <input type="email" class="form-control" placeholder="Enter your email" name="email" [(ngModel)]="forgotemail" id="forgotemail"
                                     required="">

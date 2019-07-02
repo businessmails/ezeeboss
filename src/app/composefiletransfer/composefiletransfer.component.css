@@ -1119,3 +1119,8 @@ display:none;
 .smartrules{
 	padding: 15px 0;
 }
+button.bottom-nextbtn.tofloat{
+    background: #89b345 !important;
+    width: 111px !important;
+    color: #fff !important;
+}
