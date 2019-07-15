@@ -218,9 +218,12 @@ p.encryption {
 .bottom-nextbtn{
     background-color: #7a6320;
     color: white;
-    padding: 8px 20px;
+    padding: 3px 20px;
     font-size: 16px;
     border: none;
+}
+.tab-content .active {
+    display: block!important;
 }
 .bottom-nextbtn:hover, .bottom-nextbtn:active, .bottom-nextbtn:focus{
     background-color: #977f3c;
@@ -1131,12 +1134,16 @@ display:none;
 .smartrules{
 	padding: 15px 0;
 }
-
+button.bottom-nextbtn.tofloat[_ngcontent-c3] {
+    background: #89b345 !important;
+    width: 111px !important;
+    color: #fff !important;
+}
 .innerviewdiv{
-    width: 93%;
+    width: calc(100% - 30px);
     float: none;
     padding: 10px;
-    margin: 32px auto;
+    margin:32px 15px 80px;
     background-color: #fff;
     display: table;
     font-size: 15px;

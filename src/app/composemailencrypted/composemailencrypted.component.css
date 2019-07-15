@@ -2,7 +2,11 @@
     text-align: center;
     padding: 130px 20px;
 }
-
+button.bottom-nextbtn.tofloat[_ngcontent-c9] {
+    background: #89b345 !important;
+    width: 111px !important;
+    color: #fff !important;
+}
 .bottom-nextbtn {
     margin-top: 15px;
 }

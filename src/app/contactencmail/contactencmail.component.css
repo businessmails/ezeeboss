@@ -9,6 +9,34 @@ a:focus, a:hover{text-decoration: none !important;}
 .logimg img{
     width: 200px;
 }
+.smartmovebtn {
+    background-color: #378d8b;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    padding: 6px 10px;
+    display: inline-block;
+    font-weight: bold;
+    border-radius: 0;
+    margin-right: 10px;
+}
+.smartemptybtn
+ {
+    background-color: #414541;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    font-size: 16px;
+    padding: 6px 10px;
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 0px;
+}
+.smartmovebtn img, .smartemptybtn img {
+    display: inline-block;
+    width: 15px;
+    margin-right: 10px;
+}
 .ezeelogintext{
     width: 100%;
     float: left;
@@ -1006,29 +1034,7 @@ display:none;
     outline: none !important;
     box-shadow: none;
     border-color: #ccc;
-}  
-.smartmovebtn{
-    background-color: #8ec230;
-    color: #fff;
-    border: none;
-    border-radius: 0;
-    font-size: 14px;
-    padding: 3px 10px;
-}
-/* .smartmovebtn:hover, .smartmovebtn:active, .smartmovebtn:focus, .smartmovebtn:focus:active{
-    background-color: #83b52a;
-}
-.smartemptybtn:hover, .smartemptybtn:active, .smartemptybtn:focus, .smartemptybtn:focus:active{
-    background-color: #bd2f02;
-} */
-.smartemptybtn{
-	color: #fff;
-    background-color: #cc3100;
-	border: none;
-    border-radius: 0;
-    font-size: 14px;
-    padding: 3px 10px;
-}
+} 
 .nopadding{
 	padding: 0;
 }

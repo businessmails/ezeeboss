@@ -930,15 +930,18 @@ span.title2 {
 font-size: 35px ;
 }
 .smartheading_new{
-    padding: 13px 0;
+    padding:0;
     width: 100%;
     text-align: right;
-    margin:0;
+    margin:0!important;
 	color:#fff;
     font-weight: 400 ;
 	font-size: 35px ;
     text-transform: uppercase;
+    line-height: 35px;
 }
+.table-responsive {padding-left: 0!important;}
+.p_bottom{ padding-bottom: 20px; }
 .smartheading_new span {
     font-family: 'bod_pstc_1';
 	font-size: 34px;
@@ -1219,7 +1222,7 @@ a .pt51 {
 .inner-part8 {
     position: relative;
     overflow: hidden;
-	margin-bottom: 85px;
+	margin-bottom: 7%;
 }
 img.img-responsive.logo
 {

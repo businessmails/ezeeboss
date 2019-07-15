@@ -984,7 +984,7 @@ display:none;
 .smartfloatform{
     width: 100%;
     float: left;
-    padding: 13px;
+    padding:15px 0;
 }
 .smartfloatform input {
     height: 38px;
@@ -995,6 +995,7 @@ display:none;
 	color:#000;
 	font-weight:600;
 }
+
 .smartfloatform input:focus {
     box-shadow: none;
 	outline: none;

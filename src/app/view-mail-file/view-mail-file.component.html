@@ -38,169 +38,98 @@
 			</div>
 		</div>  
     </div>
-
-
-
-
   <div class="container">
-
-    <div class="row mt_class">
-    
-      <div class="col-lg-3 col-md-3 col-xs-12 mobilepd">
-         
-        <!--Instructions & logo part start-->		
-            
-        <div style="display:block; margin:0 auto;" class="col-lg-12 mobilepd"> 
-            
+    <div class="row mt_class">    
+      <div class="col-lg-3 col-md-3 col-xs-12 mobilepd">         
+        <!--Instructions & logo part start-->		            
+        <div style="display:block; margin:0 auto;" class="col-lg-12 mobilepd">             
           <a routerLink="/"  data-placement="right" data-toggle="tooltip" data-original-title="" class="homeanchor">
              <span class="pt51 pt567 mobilehomebtn">
               <span class="fa fa-home"></span> Home
              </span>
-           </a>
-           
-         </div>	
-              
-          <a href="">
-              
-            <img class="img-responsive compose_lock_image" src="../../assets/img/home-01.png"  alt="" data-placement="right"> 
-              
-          </a>
-
-   
-    
-    <div class="wrapper2">
-   
-   <li style="list-style:none; cursor:pointer;" class="toggle">
-      
-      <a style="cursor: pointer;" class="list-part2 mobilehomebtn" (click)="showinstructions = !showinstructions" data-placement="right">
-   
-       <span class="title2">INSTRUCTIONS</span>
-      
-      </a>
-       
-     <ul *ngIf="showinstructions" class="drop-popup mydroppopup" >
-        
-        <div class="arrow-top"><img src="../../assets/img/arrow-top.png"></div>
-         
-        <div class="inst-popup instnew" style="font-family: Century Gothic; font-size: 14px; text-align: left; font-weight: bold; color: #333;">
-        
-        <ul style="list-style: none; padding: 0;">
-        
-            <li style="margin-bottom: 10px;">Step 1:  Upload or drag and drop PDF file.</li>
-        
-            <li style="margin-bottom: 10px;">Step 2:  Check box, if you require an expiration date (not mandatory).</li>
-            
-          <li style="margin-bottom: 10px;">Step 3:  Add participants.</li>
-            
-          <li style="margin-bottom: 10px;">Step 4:  You can rearrange signing order under "priority". Click on arrow up or down to change signing order (not mandatory). Click next to complete.</li>
-     
-     
-        </ul>
-   
-       </div>
-     
-     </ul>
-     
-     </li>
-   
-   </div>
- 
- 
-     <div class="clearfix mymsg"></div>	    <!--Instructions & logo part end-->
-     
-   </div>
-    
-   <div class="col-lg-9 col-md-9 col-xs-12" *ngIf="!forwardmsg">
-       
-    <div class="inner-part8" style="box-shadow:none !important;">
-   
-        <div class="col-lg-12">
-          
- <div class="col-lg-6">
-    <p class="view_mwssage_new">VIEW MESSAGE</p>
-
-       </div>			   
-     <div class="col-lg-6">
-              
-      <p class="smartheading_new">SMART <span>MAIL</span></p>
-     </div>
-</div>           
-    
-
-<div class="col-lg-12">
-  <div class="innerviewdiv">
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">  
-      <h3>
-        <span>Subject:</span>&nbsp;&nbsp;{{subject}}
-      </h3>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <p class="message-date">
-        {{date | amDateFormat: 'MM/DD/YYYY'}}<br> 
-      </p>
-    </div>
-    
-    <div class="col-lg-12">
-        <hr class="line">
-      <p>From: <span>&nbsp;&nbsp;{{fromemail}}</span></p>
-    </div>
-    
-    <div class="col-lg-12">
-        <hr class="line">
-      <p>To: <span>&nbsp;&nbsp;{{toemail}}</span></p>
-    </div>
-    
-    <div class="col-lg-12">  
-        <hr class="line">
-        <div [innerHTML]="innerhtml | safe: 'html'"></div>
-
-        <div class="attachmentdiv">
-          <p><i class="fa fa-paperclip"></i>&nbsp;&nbsp;{{noofattachment}}&nbsp;&nbsp; Attachment(s)</p>
-          <div class="message-attachment">
-              <div class="" *ngFor="let item of attachment"> 
-                <a href="https://ezeeboss.com:3001/mailattachments/{{item.attachments}}"><p> {{item.attachmentname}}</p></a> 
+           </a>           
+        </div>	             
+        <a href="">              
+          <img class="img-responsive compose_lock_image" src="../../assets/img/home-01.png"  alt="" data-placement="right">               
+        </a>
+        <div class="wrapper2">   
+          <li style="list-style:none; cursor:pointer;" class="toggle">      
+            <a style="cursor: pointer;" class="list-part2 mobilehomebtn" (click)="showinstructions = !showinstructions" data-placement="right">   
+              <span class="title2">INSTRUCTIONS</span>      
+            </a>       
+            <ul *ngIf="showinstructions" class="drop-popup mydroppopup" >
+              <div class="arrow-top"><img src="../../assets/img/arrow-top.png"></div>
+              <div class="inst-popup instnew" style="font-family: Century Gothic; font-size: 14px; text-align: left; font-weight: bold; color: #333;">
+                <ul style="list-style: none; padding: 0;">
+                  <li style="margin-bottom: 10px;">Step 1:  Upload or drag and drop PDF file.</li>
+                  <li style="margin-bottom: 10px;">Step 2:  Check box, if you require an expiration date (not mandatory).</li>
+                  <li style="margin-bottom: 10px;">Step 3:  Add participants.</li>
+                  <li style="margin-bottom: 10px;">Step 4:  You can rearrange signing order under "priority". Click on arrow up or down to change signing order (not mandatory). Click next to complete.</li>
+                </ul>
               </div>
-          </div>
+            </ul>
+          </li>
         </div>
-      <hr class="line">
-
-    </div>
-
-    <div class="message-options pull-right">
-      
-          <button class="btn forwardbtn" (click)="forwardmessage();"><i class="fa fa-arrow-right">&nbsp;&nbsp;</i>Forward</button>
-          <button class="btn printbtn" (click)="print();"><i class="fa fa-print">&nbsp;&nbsp;</i>Print</button>
-        <div class="line2"></div>
+        <div class="clearfix mymsg"></div>	    <!--Instructions & logo part end-->
       </div>
-
-  </div>
-</div>
-
-
-
-
-
- <div class="clearfix"></div>
-  
-
-
-
-
-</div>
-
-</div>
-
-<div class="col-lg-10 col-md-10 col-xs-12" *ngIf="forwardmsg">
-       
-    <div class="inner-part8" style="box-shadow:none !important;">
-   
-        <div class="col-lg-12">
-             
-     <div class="col-lg-12">
-              
-      <p class="pt10 smartheading">SMART MAIL</p>
+      <div class="col-lg-9 col-md-9 col-xs-12" *ngIf="!forwardmsg">
+        <div class="inner-part8" style="box-shadow:none !important;">
+          <div class="col-lg-12">
+            <div class="col-lg-6">
+              <p class="view_mwssage_new">VIEW MESSAGE</p>
+            </div>			   
+            <div class="col-lg-6">              
+              <p class="smartheading_new">SMART <span>MAIL</span></p>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="innerviewdiv">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">  
+                <h3>
+                  <span>Subject:</span>&nbsp;&nbsp;{{subject}}
+                </h3>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <p class="message-date">{{date | amDateFormat: 'MM/DD/YYYY'}}<br></p>
+              </div>    
+              <div class="col-lg-12">
+                <hr class="line">
+                <p>From: <span>&nbsp;&nbsp;{{fromemail}}</span></p>
+              </div>    
+              <div class="col-lg-12">
+                <hr class="line">
+                <p>To: <span>&nbsp;&nbsp;{{toemail}}</span></p>
+              </div>
+              <div class="col-lg-12">  
+                <hr class="line">
+                  <div [innerHTML]="innerhtml | safe: 'html'"></div>
+                  <div class="attachmentdiv">
+                    <p><i class="fa fa-paperclip"></i>&nbsp;&nbsp;{{noofattachment}}&nbsp;&nbsp; Attachment(s)</p>
+                    <div class="message-attachment">
+                        <div class="" *ngFor="let item of attachment"> 
+                          <a href="https://ezeeboss.com:3001/mailattachments/{{item.attachments}}"><p> {{item.attachmentname}}</p></a> 
+                        </div>
+                    </div>
+                  </div>
+                  <hr class="line">
+                </div>
+                <div class="message-options pull-right">      
+                  <button class="btn forwardbtn" (click)="forwardmessage();"><i class="fa fa-arrow-right">&nbsp;&nbsp;</i>Forward</button>
+                  <button class="btn printbtn" (click)="print();"><i class="fa fa-print">&nbsp;&nbsp;</i>Print</button>
+                  <div class="line2"></div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="col-md-9 col-xs-12" *ngIf="forwardmsg">       
+        <div class="inner-part8" style="box-shadow:none !important;">   
+          <div class="col-lg-12">             
+            <div class="col-lg-12">              
+              <p class="smartheading_new">SMART<span>MAIL</span></p>
              </div>
-</div>           
+            </div>           
     
  <div class="col-lg-12">
       
@@ -306,23 +235,26 @@
                   <label for="smartfile" class="bottom-nextbtn smartchoose">Choose File</label>
                   <input type="file" (change)="fileChange($event)" class="form-control" id="smartfile" style="display: none;" multiple >
                </div>
-               <div *ngFor="let item of attachment" class="col-md-12 col-sm-12 col-xs-12 f_n" style="text-align: right;">
-                {{item.attachmentname}}<span  *ngIf="attachment"  style=" padding: 0 6px; color: red;"><i (click)="removeattachment(item.attachmentname);" class="fa fa-times" aria-hidden="true"></i></span>
-              </div>
+               <div class="col-xs-offset-2 col-xs-10">
+                  <div class="file_preview">
+                    <div *ngFor="let item of attachment" class="let item of filesname"> 
+                      {{item.attachmentname}}<span  *ngIf="attachment"  style=" padding: 0 6px; color: red;"><i (click)="removeattachment(item.attachmentname);" class="fa fa-times" aria-hidden="true"></i></span>
+                    </div>
+                  </div>
+                </div>
              </div>
            </form>
        
        <div class="smarteditordiv">
            <!-- editorbox starts -->
-           <div class="col-lg-2"></div>
-           <div class="col-lg-10 col-md-10 col-xs-12">        
+           <div class="col-xs-12">        
                <div class="editorbox">
                 <!-- <div [froalaEditor] [(froalaModel)]="editorContent"></div> -->
-                <quill-editor [theme]="bubble" [(ngModel)] = "innerhtml"></quill-editor>
+                <quill-editor [theme]="bubble" [(ngModel)] = "innerhtml" [style]="{height: '105px'}"></quill-editor>
                </div>
            </div>
            <!-- editorbox ends -->
-           <div class="col-md-12 col-sm-12 col-xs-12 mobilepd"> 
+           <div class="col-md-12 col-sm-12 col-xs-12 mobilepd" id="SEndd"> 
               <button (click)="sendsmartmail()" class="bottom-nextbtn tofloat">SEND</button>
            </div>
            
