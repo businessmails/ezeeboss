@@ -50,7 +50,8 @@ export class ViewMailFileComponent implements OnInit {
       this.email = this.details.email;
       this.activatedRoute.params.subscribe((params: Params) => {
       const mailid = params['mailid'];
-      this.http.get(this.AppComponent.BASE_URL+'/api/viewsmartmail/'+ mailid)
+      this.http.get(this.AppComponent.BASE_URL + '/api/viewsmartmail/' + mailid)
+      // this.http.get(this.AppComponent.BASE_URL+'/api/viewsmartmail/'+ mailid)
       .subscribe(data => {
        this.data = data;
        this.attachment = this.data.message;

@@ -83,6 +83,8 @@ import { ContactmailComponent } from './contactmail/contactmail.component';
 import { ContactencmailComponent } from './contactencmail/contactencmail.component';
 
 import { ViewMailFileComponent } from './view-mail-file/view-mail-file.component';
+import { ViewFileComponent } from './view-file-transfer/view-file-transfer.component';
+
 import { ComposefiletransferComponent } from './composefiletransfer/composefiletransfer.component';
 import { DicomviewerComponent } from './dicomviewer/dicomviewer.component';
 import { FiletransferreadComponent } from './filetransferread/filetransferread.component';
@@ -125,6 +127,8 @@ const routes: Routes = [
   { path: 'trashmail', component: TrashmailComponent },
   { path: 'trashencmail', component: TrashencmailComponent },
   { path: 'viewmail/:mailid', component: ViewMailFileComponent },
+  { path: 'viewfilemail/:mailid', component: ViewFileComponent },
+
   { path: 'contactmail', component: ContactmailComponent },
   { path: 'contactencmail', component: ContactencmailComponent },
 
@@ -209,6 +213,7 @@ const routes: Routes = [
     ContactmailComponent,
     ContactencmailComponent,
     ViewMailFileComponent,
+    ViewFileComponent,
     ComposefiletransferComponent,
     DicomviewerComponent,
     FiletransferreadComponent,
