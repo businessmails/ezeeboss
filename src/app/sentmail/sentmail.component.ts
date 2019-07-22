@@ -37,7 +37,11 @@ export class SentmailComponent implements OnInit {
      this.http.post(this.AppComponent.BASE_URL+'/api/getsmartmail', {userid:this.userid})
      .subscribe(data => {
        this.mails = data;
-       this.sentmails= this.mails.data;
+       this.sentmails= this.mails.data.reverse();
+      //  console.log(this.sentmails)
+
+      //  console.log(this.sentmails.reverse())
+
      });
     });
   }
@@ -45,8 +49,7 @@ export class SentmailComponent implements OnInit {
      this.http.post(this.AppComponent.BASE_URL+'/api/getsmartmail', {userid:this.userid})
      .subscribe(data => {
        this.mails = data;
-       this.sentmails= this.mails.data;
-      //  console.log(this.sentmails)
+       this.sentmails= this.mails.data.reverse();
      });
   }
   logout() {
