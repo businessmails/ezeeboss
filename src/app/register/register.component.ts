@@ -191,6 +191,8 @@ export class RegisterComponent {
   }
   registerwithoutimage() {
     // alert(this.withoutImage)
+    // alert("this.withoutImage")
+// return;
 // alert(this.animatecamera);
 if(this.animatecamera == false){
   this.animatecamera=true;
@@ -433,7 +435,8 @@ this.animatebtn=false;
     // console.log(this.phoneerror)
   }
   register() {
-    //  alert()
+    //  alert("this.withoutImage"+this.withoutImage)
+    //  return;
     this.spinnerService.show();
     // console.log('im---');
     if (this.withoutImage != null) {
@@ -453,18 +456,19 @@ this.animatebtn=false;
       //  this.loading = true;
       // this.spinnerService.show();
       ///////// ------------------------- api to train bot------------------------////////////////
-
+// console.log(JSON.stringify(this.credentials))
       this.auth.register(this.credentials).subscribe(
 
         user => {
 
-          // console.log(user);
-          if (user.image === 'none') {
+          console.log("user",user);
+          if (user.image == 'none') {
             // console.log('you');
             this.opensuccesspop();
             const newreq = this.http.post('https://ezeeboss.com:3001/api/sendmail', {
               id: user.id,
-              imageurl: user.imgurl.replace('mybitrade','ezeeboss'),
+              // imageurl: user.imgurl.replace('mybitrade','ezeeboss'),
+              imageurl: "none",
               to: user.to,
               name: user.name,
               location: this.cityname,
@@ -472,21 +476,12 @@ this.animatebtn=false;
               url: 'https://ezeeboss.com/confirm/' + user.id
             })
               .subscribe(
-                // tslint:disable-next-line:no-shadowed-variable
                 res => {
-                  //   this.loading = false;
-                  // this.error = 'Your Face Was Not Detected.Please Try Again';
-
                   this.userregistered = user.to;
                   localStorage.clear();
-
                   this.spinnerService.hide();
-
-                  //   this.moveToSpecificView();
                 }
               );
-            // this.loading = false;
-            // console.log(user.to);
             this.spinnerService.hide();
             this.userregistered = user.to;
             this.credentials.lname = null;
@@ -497,15 +492,9 @@ this.animatebtn=false;
             this.credentials.phonenumber = null;
             this.credentials.image = null;
             this.webcamImage = null;
-            // this.credentials = null;
-            // this.router.navigateByUrl('/digital_sign');
             localStorage.clear();
           } else {
-            // console.log('me');
-            // console.log(user);
-            // console.log(user.to);
             const userimage = user.image + '.jpg';
-            // console.log('imageis->', userimage);
             const req = this.http.get('https://ezeeboss.com:5000/api/detect?filename=' + userimage)
 
               .subscribe(
@@ -517,11 +506,9 @@ this.animatebtn=false;
                       .subscribe(
                         // tslint:disable-next-line:no-shadowed-variable
                         res => {
-                          // this.loading = false;
                           this.spinnerService.hide();
                           this.error = 'Your Face Was Not Detected.Please Try Again';
                           localStorage.clear();
-                          // this.auth.logout();
                         }
                       );
                   } else {

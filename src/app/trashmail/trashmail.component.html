@@ -241,11 +241,12 @@
                      <td>{{item.toemail}}</td>
                      <td class="text-right">{{item.subject}}</td>
                      <td>{{item.dateadded | amDateFormat: 'MM/DD/YYYY'}}</td>
-                     <td>
-                        <a href="#">
-                          <img src="assets/img/view.png" class="img-responsive"/>
-                        </a>
-                        </td>
+                     
+                        <td>
+                              <a routerLink="/viewmail/{{item._id}}">
+                                <img src="assets/img/view.png" class="size_image"/>
+                              </a>
+                              </td>
                  </tr>
                    </tbody>
                    

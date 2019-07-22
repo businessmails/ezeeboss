@@ -28,7 +28,6 @@ export class SentmailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  //  alert()
     this.auth.profile().subscribe(user => {
       this.details = user;
       this.fullname = this.details.name;
@@ -41,6 +40,14 @@ export class SentmailComponent implements OnInit {
        this.sentmails= this.mails.data;
      });
     });
+  }
+  refresh(){
+     this.http.post(this.AppComponent.BASE_URL+'/api/getsmartmail', {userid:this.userid})
+     .subscribe(data => {
+       this.mails = data;
+       this.sentmails= this.mails.data;
+      //  console.log(this.sentmails)
+     });
   }
   logout() {
     this.auth.logout();

@@ -24,6 +24,7 @@ export class ComposemailComponent implements OnInit {
    formData: FormData = new FormData();
    @ViewChild('toemail') toemail: ElementRef;
    @ViewChild('subject') subject: ElementRef;
+  hide: boolean =false;
 
   constructor(
     private http: HttpClient,
@@ -43,6 +44,8 @@ export class ComposemailComponent implements OnInit {
   }
 
   fileChange(fileInput: any) {
+  
+    this.hide=true;
        this.filesToUpload = <Array<File>>fileInput.target.files;
        const fileList: FileList = fileInput.target.files;
        const files: Array<File> = this.filesToUpload;
@@ -73,7 +76,10 @@ export class ComposemailComponent implements OnInit {
       this.formData.delete("uploads[]");
       for(let i =0; i < attachfiles.length; i++){
         this.formData.append("uploads[]", attachfiles[i], attachfiles[i]['name']);
-    }     
+    }
+    if(attachfiles.length==0){
+this.hide=false;
+    }  
   }
 
   checkEmail(email) {
@@ -90,7 +96,7 @@ export class ComposemailComponent implements OnInit {
       if(this.checkEmail(emailArray[i])){
         this.emailerror = ''
             } else{
-              invEmails += emailArray[i] + "\n";
+              invEmails += emailArray[i].toLowerCase(); + "\n";
       }
     }
     if(invEmails != ""){
@@ -123,7 +129,7 @@ export class ComposemailComponent implements OnInit {
             this.formData.append('from',this.userid);
             this.formData.append('data',this.editorContent);
             this.formData.append('fromemail',this.email);
-            this.formData.append('toemail',this.toemail.nativeElement.value);
+            this.formData.append('toemail',this.toemail.nativeElement.value.toLowerCase());
             this.formData.append('subject',this.subject.nativeElement.value);
             this.http.post(this.AppComponent.BASE_URL+'/api/sendsmartmail', this.formData)
                 .subscribe(data => {

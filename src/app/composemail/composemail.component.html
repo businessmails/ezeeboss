@@ -229,8 +229,8 @@
                                                             <input type="file" (change)="fileChange($event)" class="form-control" id="smartfile" style="display: none;" multiple>
                                                         </div>
 														<div class="col-xs-offset-2 col-xs-10">
-															<div class="file_preview">
-                                                            <div *ngFor="let item of filesname">
+															<div class="file_preview" *ngIf='hide'>
+                                                            <div class="cross" *ngFor="let item of filesname">
                                                                 {{item.filename}}<span *ngIf="filesname" style=" padding: 0 6px; color: red;"><i (click)="removeattachment(item.filename);" class="fa fa-times" aria-hidden="true"></i></span>
                                                             </div>
                                                         </div>

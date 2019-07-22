@@ -39,6 +39,9 @@ export class ReadmailComponent implements OnInit {
   lasttime: any;
   lastdate: any;
   @ViewChild('info') info: any;
+  id: any;
+  data2: any;
+  length: any;
 
   constructor(
     private http: HttpClient,
@@ -62,25 +65,37 @@ export class ReadmailComponent implements OnInit {
     });
   }
 
-  clickme(id) {
+  clickme(idd) {
     //alert(id)
-    //console.log('clicked')
+    console.log(idd)
+ this.http.get(this.AppComponent.BASE_URL + '/api/getreadmail/'+idd._id)
+        .subscribe(data => {
+          // this.mails = data;
+          // this.sentmails = this.mails.data;
 
-    this.fromemail = id.fromemail;
-    this.toemail = id.toemail;
-    this.subject = id.subject;
-    this.mailcontent = id.mailcontent;
-    this.mailread = id.mailread;
-    this.mailtrash = id.mailtrash;
-    this.dateadded = id.dateadded;
+ this.id = data;
+ this.data2=this.id.data[0]
+          console.log(this.data2[0])
+
+   this.fromemail = this.data2.fromemail;
+    this.toemail = this.data2.toemail;
+    this.subject = this.data2.subject;
+    this.mailcontent = this.data2.mailcontent;
+    this.mailread = this.data2.mailread;
+    this.mailtrash = this.data2.mailtrash;
+    this.dateadded = this.data2.dateadded;
     // var res = this.dateadded.split("T");
     // this.date=res[0];
-    this.readdate = id.readdate;
-    this.firstreaddate = id.firstreaddate;
-    this.readcount = id.readcount;
-    this.ip = id.ip;
-    this.lastreadip = id.lastreadip;
+    this.readdate = this.data2.readdate;
+    this.firstreaddate = this.data2.firstreaddate;
+    this.readcount = this.data2.readcount;
+    this.ip = this.data2.ip;
+    this.lastreadip = this.data2.lastreadip;
+    this.length = this.id.attachmets.length
     this.info.open();
+
+        });
+ 
   }
   logout() {
     this.auth.logout();
