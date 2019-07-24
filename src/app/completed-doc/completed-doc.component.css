@@ -18,16 +18,15 @@
 }
 
 /* Create a custom checkbox */
-.checkmark1 {
+.checkmark {
     position: absolute;
-    top: 4px;
-    left: -6px;
+    top: 0;
+    left: 0;
     height: 15px;
     width: 15px;
-    background-color: #eee;
-    border: 1px solid #7a6320;
+    background-color: #e1dfdf;
 }
-
+.mynewtable img { width: 33px; }
 /* On mouse-over, add a grey background color */
 .container57:hover input ~ .checkmark1 {
     background-color: #ccc;

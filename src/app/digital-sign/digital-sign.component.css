@@ -399,7 +399,7 @@ p.encryption {
     margin: 0;
 }
 
-.calbtn{
+.calbtn, .calbtn:focus{
     padding: 6px 8px !important;
     float: left;
     color: #414541;
@@ -1239,6 +1239,7 @@ display:none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    padding-left: 30px;
 }
 
 /* Hide the browser's default checkbox */
@@ -1259,8 +1260,8 @@ display:none;
     left: 0;
     height: 18px;
     width: 18px;
-    background-color: #dedede;
-    border:1px solid #7b6627
+    background-color: #fff;
+    border:1px solid #ccc
 }
 
 /* On mouse-over, add a grey background color */
@@ -1273,7 +1274,7 @@ display:none;
 
 /* When the checkbox is checked, add a blue background */
 .container56 input:checked ~ .checkmark {
-    background-color: #715732;
+    background-color: #fff;
 }
 .myradiodiv input:checked ~ .checkmark_b {
     background-color: #fff;
@@ -1303,10 +1304,10 @@ input:checked ~ .checkmark_b:after {
 /* Style the checkmark/indicator */
 .container56 .checkmark:after {
     left: 7px;
-    top: 2px;
+    top: 3px;
     width: 5px;
     height: 10px;
-    border: solid white;
+    border: solid #ea0000;
     border-width: 0 2px 2px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);

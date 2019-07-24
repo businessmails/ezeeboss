@@ -48,21 +48,18 @@
 
 #div1 {
 	background: white;
-	border: 1px solid #d9d9d9;
+	
 }
 
 #div2{
     background-color: #a2ae06;
 }
 #div1 {
-	width: 400px;
-	height: 280px;
-	float: left;
-	padding: 0;
+	min-height: 280px;
 	overflow: scroll;
 }
 
-#div2 { width: 450px; height: 280px; float: right; padding:0px;}
+#div2 { min-height: 280px; }
 
 .sd_spce {
 	padding: 20px 70px;
@@ -79,6 +76,7 @@
 .cmplt_dsh_hdng,.scmd_clndr_hdng {
 	background: #494d49;
 	padding: 10px 15px;
+	border: 1px solid #d9d9d9;
 }   
 .tble_dvv {
 	width: 100%;
@@ -188,7 +186,7 @@
 	height: 10px;
 	width: 10px;
 	left: -4px;
-	background: #ffbe0b;
+	background: #515906;
 	border-radius: 50%;
 	top: 93px;
 }
@@ -247,12 +245,13 @@
 	float: left;
 	padding: 10px 0;
 	border-bottom: 1px solid #e2e2e2;
+	border-left: 3px solid transparent;
 }
 .again_sme_dv:hover {
 	border-left: 3px solid #a5aa0f;
 }
 .ryt_prfl_txt {
-	width: 78%;
+	width: 77%;
 	float: left;
 	padding-left: 15px;
 	line-height: 17px;
