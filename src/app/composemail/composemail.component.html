@@ -197,17 +197,18 @@
 
                                                     <label for="inputEmail" class="col-lg-2 control-label1">From:</label>
                                                     <div class="col-lg-10">
-                                                        <input type="text" [(ngModel)]="email" class="form-control" name="from">
+                                                        <input type="text"  [(ngModel)]="email" class="form-control" name="from">
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group smartfloat">
 
                                                     <label for="inputEmail" class="col-lg-2 control-label1 lable2" style="margin-top:18px;">To:</label>
-                                                    <div class="col-lg-10">
+                                                    <div class="col-lg-10 custom_ul_new">
                                                         <span style="font-family:&#39;Century Gothic&#39;; color:#000; font-size:15px;">use comma(,) to separate email id</span>
-                                                        <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" (blur)="validateemail()" #toemail class="form-control ui-autocomplete-input" name="emailid" value=""
+                                                        <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input (keyup)="search($event.target.value)" type="text" (blur)="validateemail()" #toemail class="form-control ui-autocomplete-input" name="emailid" value=""
                                                             autocomplete="off">
+                                                            <ul *ngIf="showsearch"><li *ngFor="let email of serchedmail">{{email.email}}</li></ul>
                                                         <span class="error-msg">{{emailerror}}</span>
                                                     </div>
                                                 </div>
