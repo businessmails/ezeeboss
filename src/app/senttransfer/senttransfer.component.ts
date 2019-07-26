@@ -38,7 +38,7 @@ export class SenttransferComponent implements OnInit {
      this.http.post(this.AppComponent.BASE_URL+'/api/getfiletransfermail', {userid:this.userid})
      .subscribe(data => {
        this.mails = data;
-       this.sentmails= this.mails.data;
+       this.sentmails= this.mails.data.reverse();
      });
     });
   }
@@ -81,7 +81,7 @@ export class SenttransferComponent implements OnInit {
         this.http.post(this.AppComponent.BASE_URL+'/api/getfiletransfermail', {userid:this.userid})
         .subscribe(data => {
           this.mails = data;
-          this.sentmails= this.mails.data;
+          this.sentmails= this.mails.data.reverse();
         });
        });  
     }
