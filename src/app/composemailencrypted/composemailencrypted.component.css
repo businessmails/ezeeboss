@@ -1007,6 +1007,9 @@ display:none;
 }
 .control-label1 {
 	padding: 0px;
+        height: 38px;
+    color: #000;
+    line-height: 44px;
 }
 .smartfloat .mobilepd .smartchoose {
 	float: right;
@@ -1104,6 +1107,7 @@ display:none;
     height: 15px;
     width: 15px;
     background-color: #e1dfdf;
+    border: 1px solid #414541;
 }
 
 /* On mouse-over, add a grey background color */

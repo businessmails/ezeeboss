@@ -20,6 +20,7 @@ export class ComposemailComponent implements OnInit {
   emailerror: string;
   filesToUpload: Array<File> = [];
   filesname = [];
+  selectedMails:any=[];
   editorContent: string
   formData: FormData = new FormData();
   @ViewChild('toemail') toemail: ElementRef;
@@ -44,6 +45,26 @@ showsearch=false;
 
     });
   }
+
+  selectmail(email){
+    // alert(email)
+    this.selectedMails=[];
+    var str=this.toemail.nativeElement.value.toLowerCase();
+    this.selectedMails=str.split(",");
+    this.selectedMails.pop();
+    if (this.selectedMails.indexOf(email) === -1) {
+  // console.log("element doesn't exist");
+  this.selectedMails.push(email);
+this.toemail.nativeElement.value=this.selectedMails.join();
+ this.emailerror ='';
+}
+
+
+this.serchedmail=[];
+    this.showsearch=false;
+
+  }
+
   search(email) {
     // alert(email)
 
@@ -107,6 +128,8 @@ email=mailarray[mailarray.length-1];
   }
 
   validateemail() {
+    // this.serchedmail=[];
+    // this.showsearch=false;
     var emails = this.toemail.nativeElement.value;
     var emailArray = emails.split(",");
     var invEmails = "";

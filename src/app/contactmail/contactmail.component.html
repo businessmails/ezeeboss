@@ -245,9 +245,9 @@
                            </label>
                                                                 </div>
                                                             </td>
-                                                            <td><input type="text" class="form-control input-sm" #name value="{{item.name}}"></td>
-                                                            <td><input type="text" class="form-control input-sm" #company value="{{item.company}}"></td>
-                                                            <td><input type="text" class="form-control input-sm" #contact value="{{item.contact}}"></td>
+                                                            <td><input type="text" class="form-control input-sm color_black" #name value="{{item.name}}"></td>
+                                                            <td><input type="text" class="form-control input-sm color_black" #company value="{{item.company}}"></td>
+                                                            <td><input type="text" class="form-control input-sm color_black" #contact value="{{item.contact}}"></td>
                                                             <td>
                                                                 <span *ngIf="item.mailsent !=0" style="color:red;">
            <a href=""><font color="green">Mail Sent <br>({{item.mailsent}})</font></a>
@@ -257,7 +257,7 @@
           </span>
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control input-sm" #email value="{{item.email}}">
+                                                                <input type="text" class="form-control input-sm color_black" #email value="{{item.email}}">
                                                             </td>
                                                             <td>
                                                                 <button (click)="updatecontact(item._id,name.value,company.value,contact.value,email.value)" class="smartremovebtn">

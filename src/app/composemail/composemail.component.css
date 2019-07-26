@@ -648,8 +648,8 @@ display:none;
     .mobiledownarrow{
         width: 47px;
         height: 42px;
-        right: -54px;
-        top: -6px;
+        right: 0px;
+        top: 0px;
         padding: 10px;
     }
     .mobilemenu{
