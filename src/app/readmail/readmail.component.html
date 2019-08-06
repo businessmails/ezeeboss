@@ -280,7 +280,7 @@
 				<div class="innerpopup">       
                     <div class="col-xs-6">
                       <div class="mail_subject">
-                        <span>Subject:</span>{{subject}}                
+                        <span>Subject:</span> {{subject}}                
                       </div>
                     </div>
                     <div class="col-xs-6">
@@ -288,8 +288,8 @@
                     </div>
                     
                     <div class="col-xs-12">
-						<p class="mail_info">Message Read By:{{toemail}}</p>
-						<p class="mail_info">From:{{fromemail}}</p>
+						<p class="mail_info"><b>Mail read by:</b> {{toemail}}</p>
+						<p class="mail_info"><b>From:</b> {{fromemail}}</p>
 						<div class="mail_info" [innerHtml]="mailcontent"></div>
 						<table class="table table-bordered table-striped" style="border:1px solid;">
 							<tr>
