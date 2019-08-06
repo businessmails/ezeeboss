@@ -27,6 +27,10 @@ export class ComposefiletransferComponent implements OnInit {
   @ViewChild('subject') subject: ElementRef;
   @ViewChild('data') data: ElementRef;
   @ViewChild('password') password: ElementRef;
+  selectedMails: any[];
+  serchedmail: any[];
+  showsearch: boolean;
+  result: any;
 
   constructor(
     private http: HttpClient,
@@ -102,6 +106,43 @@ export class ComposefiletransferComponent implements OnInit {
      // alert("Invalid emails:\n" + invEmails);
     }
    } 
+
+
+
+
+  selectmail(email) {
+    this.selectedMails = [];
+    var str = this.toemail.nativeElement.value.toLowerCase();
+    this.selectedMails = str.split(",");
+    this.selectedMails.pop();
+    if (this.selectedMails.indexOf(email) === -1) {
+      this.selectedMails.push(email);
+      this.toemail.nativeElement.value = this.selectedMails.join();
+      this.emailerror = '';
+    }
+    this.serchedmail = [];
+    this.showsearch = false;
+
+  }
+
+  search(email) {
+    var mailarray = email.split(',');
+    email = mailarray[mailarray.length - 1];
+    if (email != '') {
+      this.showsearch = true;
+      this.http.post(this.AppComponent.BASE_URL + '/api/filetransferSerchmail', { email: email })
+        .subscribe(data => {
+          this.result = data;
+          this.serchedmail = this.result.result;
+        });
+    } else {
+      this.showsearch = false;
+      this.serchedmail = []
+    }
+
+  }
+
+
   sendmail() {
     //  console.log(this.editorContent)
  

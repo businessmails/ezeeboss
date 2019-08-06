@@ -1168,6 +1168,19 @@ button.bottom-nextbtn.tofloat[_ngcontent-c3] {
     color: #fff !important;
     transition: .5s;
 }
+.backbtn{
+    background-color: #000000;
+    border-radius: 0px !important;
+    border: 0px !important;
+    color: #fff;
+    font-size: 16px !important; 
+    margin-bottom: 14px !important;
+}
+.backbtn:hover, .backbtn:focus, .backbtn:active{
+    background-color: #3d3f39;
+    color: #fff !important;
+    transition: .5s;
+}
 .printbtn{
     background-color: #01b0f1;
     border-radius: 0px !important;

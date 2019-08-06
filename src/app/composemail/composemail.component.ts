@@ -20,15 +20,15 @@ export class ComposemailComponent implements OnInit {
   emailerror: string;
   filesToUpload: Array<File> = [];
   filesname = [];
-  selectedMails:any=[];
+  selectedMails: any = [];
   editorContent: string
   formData: FormData = new FormData();
   @ViewChild('toemail') toemail: ElementRef;
   @ViewChild('subject') subject: ElementRef;
   hide: boolean = false;
-  serchedmail: any=null;
+  serchedmail: any = null;
   result: any;
-showsearch=false;
+  showsearch = false;
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
@@ -46,40 +46,39 @@ showsearch=false;
     });
   }
 
-  selectmail(email){
+  selectmail(email) {
     // alert(email)
-    this.selectedMails=[];
-    var str=this.toemail.nativeElement.value.toLowerCase();
-    this.selectedMails=str.split(",");
+    this.selectedMails = [];
+    var str = this.toemail.nativeElement.value.toLowerCase();
+    this.selectedMails = str.split(",");
     this.selectedMails.pop();
     if (this.selectedMails.indexOf(email) === -1) {
-  // console.log("element doesn't exist");
-  this.selectedMails.push(email);
-this.toemail.nativeElement.value=this.selectedMails.join();
- this.emailerror ='';
-}
+      // console.log("element doesn't exist");
+      this.selectedMails.push(email);
+      this.toemail.nativeElement.value = this.selectedMails.join();
+      this.emailerror = '';
+    }
 
 
-this.serchedmail=[];
-    this.showsearch=false;
+    this.serchedmail = [];
+    this.showsearch = false;
 
   }
 
   search(email) {
-    // alert(email)
 
-    var mailarray= email.split(',');
-email=mailarray[mailarray.length-1];
+    var mailarray = email.split(',');
+    email = mailarray[mailarray.length - 1];
     if (email != '') {
-      this.showsearch=true;
+      this.showsearch = true;
       this.http.post(this.AppComponent.BASE_URL + '/api/serchmail', { email: email })
         .subscribe(data => {
           this.result = data;
           this.serchedmail = this.result.result;
         });
-    }else{
-       this.showsearch=false;
-      this.serchedmail =[]
+    } else {
+      this.showsearch = false;
+      this.serchedmail = []
     }
 
   }

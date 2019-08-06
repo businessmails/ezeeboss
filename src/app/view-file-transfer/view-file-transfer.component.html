@@ -107,7 +107,11 @@
                   </div>
                   <hr class="line">
                 </div>
-                <div class="message-options pull-right">      
+                <div class="message-options pull-right"> 
+                        <a class="btn backbtn" routerLink="/senttransfer">
+                        <i class="fa fa-arrow-left">&nbsp;&nbsp;</i>Back
+                        </a>  
+                      <!-- <button class="btn backbtn" (click)="back();"></button>   -->
                   <button class="btn forwardbtn" (click)="forwardmessage();"><i class="fa fa-arrow-right">&nbsp;&nbsp;</i>Forward</button>
                   <button class="btn printbtn" (click)="print();"><i class="fa fa-print">&nbsp;&nbsp;</i>Print</button>
                   <div class="line2"></div>

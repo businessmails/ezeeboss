@@ -72,7 +72,9 @@ export class ViewFileComponent implements OnInit {
 forwardmessage(){
 this.forwardmsg = true;
 }
-
+back(){
+this.forwardmsg = true;
+}
 print(printSectionId: string) {
   window.print();
        let popupWinindow
