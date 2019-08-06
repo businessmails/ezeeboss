@@ -505,7 +505,8 @@ p.encryption {
     padding: 0 !important;
 }
 .nav-tabs6 > li.active > a, .nav-tabs6 > li.active > a:hover, .nav-tabs6 > li.active > a:focus {
-    background: #d07c00 !important;    
+    /*background: #d07c00 !important;    */
+    background: rgb(188, 123, 57) !important ;
 }
 .frmgrp input{
     margin-bottom: 0;
@@ -516,7 +517,8 @@ p.encryption {
     margin-bottom: 20px;
 }
 .inner-part8 {
-    background-color: #d07c00 !important;
+    /*background-color: #d07c00 !important;*/
+    background: rgb(188, 123, 57) !important ;
 }
 .fullpage{
     width: 100%;
