@@ -232,7 +232,7 @@
                                                         <span style="color:red" *ngIf="filerror">{{filerror}}</span>
                                                     </div>
                                                     <div class="col-xs-offset-2 col-xs-10">
-                                                        <div class="file_preview" *ngIf='hide'>
+                                                        <div class="file_preview" *ngIf='!hide'>
                                                             <div class="cross" *ngFor="let item of filesname">
                                                                 {{item.filename}}
                                                                 <span *ngIf="filesname" style=" padding: 0 6px; color: red;">

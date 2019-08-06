@@ -122,9 +122,9 @@
  <div class="col-lg-6">
    <form class="">
              <div class="input-group list stylish-input-group">
-               <input type="text" class="form-control" style="border-radius:0px;" placeholder="Search....." name="pcode" id="pcode">
+               <input [(ngModel)]="searchdata"   type="text" class="form-control" style="border-radius:0px;" placeholder="Search....." name="pcode" id="pcode">
                <span class="input-group-addon" style="border-radius:0px;">
-               <button type="submit"> <span class="fa fa-search"></span> </button>
+               <button type="submit" (click)="filterarray()"> <span class="fa fa-search"></span> </button>
                </span> </div>
            </form>
        </div>			   
@@ -197,8 +197,9 @@
          </th>
          
                        <th>From</th>
+                       <th>To</th>
                        <th>Subject</th>
-                       <th>Messege</th>
+                       <!-- <th>Messege</th> -->
                        <th>Date</th>
                        <th>Action</th>
                      </tr>
@@ -213,9 +214,11 @@
                          </label>
                        </div>
                      </td>
+                     <!-- {{item |json}} -->
                          <td>{{item.fromemail}}</td>
                          <td>{{item.toemail}}</td>
                          <td class="text-right">{{item.subject}}</td>
+                         <!-- <td class="text-right">{{item.subject}}</td> -->
                          <td>{{item.dateadded | amDateFormat: 'MM/DD/YYYY'}}</td>
                          <td>
                             <a  (click)="clickme(item)" style="cursor: pointer;">

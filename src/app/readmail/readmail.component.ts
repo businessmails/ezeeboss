@@ -106,12 +106,18 @@ export class ReadmailComponent implements OnInit {
   }
   filterarray() {
     var search = this.searchdata;
-    var filteredarray = this.mails.data.filter(function (el) {
+    if(search!=''){
+ var filteredarray = this.mails.data.filter(function (el) {
       // return el.fromemail == search || el.toemail == search || el.subject == search
-
+console.log('search',search)
       return el.fromemail.indexOf(search) > -1 || el.toemail.indexOf(search) > -1 || el.subject.indexOf(search) > -1
     });
     this.sentmails = filteredarray;
+    }
+    else{
+this.sentmails = this.mails.data;
+    }
+   
   }
 
   checkAll(ev) {

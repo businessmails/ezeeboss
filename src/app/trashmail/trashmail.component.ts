@@ -20,6 +20,7 @@ export class TrashmailComponent implements OnInit {
   email:string;
   trashmails:any;
   isSelected = false;
+  searchdata: any;
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
@@ -101,6 +102,21 @@ export class TrashmailComponent implements OnInit {
     }
   }
 
+  filterarray() {
+    var search = this.searchdata;
+    if(search!=''){
+ var filteredarray = this.mails.data.filter(function (el) {
+      // return el.fromemail == search || el.toemail == search || el.subject == search
+console.log('search',search)
+      return el.fromemail.indexOf(search) > -1 || el.toemail.indexOf(search) > -1 || el.subject.indexOf(search) > -1
+    });
+    this.trashmails = filteredarray;
+    }
+    else{
+this.trashmails = this.mails.data;
+    }
+   
+  }
   emptytrash() {
     this.http.post(this.AppComponent.BASE_URL+'/api/emptysmartmailtrash', {userid:this.userid})
     .subscribe(data => {

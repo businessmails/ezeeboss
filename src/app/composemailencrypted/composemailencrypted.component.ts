@@ -32,6 +32,7 @@ export class ComposemailencryptedComponent implements OnInit {
    @ViewChild('subject') subject: ElementRef;
    @ViewChild('message') message: ElementRef;
    @ViewChild('ccemail') ccemail: ElementRef;
+  hide: boolean = true;
   //  @ViewChild('password') password: ElementRef;
   constructor(
     private http: HttpClient,
@@ -61,8 +62,11 @@ export class ComposemailencryptedComponent implements OnInit {
         this.formData.append("uploads[]", files[i], files[i]['name']);
     }
        for(var i = 0;i<fileList.length;i++) {
+         this.hide=false;
+         
        const file: File = fileList[i];
        this.filesname.push({filename:file.name});
+       console.log("file",this.filesname)
        }
   }
 
