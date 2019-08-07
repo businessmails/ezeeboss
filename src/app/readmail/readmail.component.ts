@@ -67,7 +67,6 @@ export class ReadmailComponent implements OnInit {
 
   clickme(idd) {
     //alert(id)
-    console.log(idd)
  this.http.get(this.AppComponent.BASE_URL + '/api/getreadmail/'+idd._id)
         .subscribe(data => {
           // this.mails = data;
@@ -75,8 +74,6 @@ export class ReadmailComponent implements OnInit {
 
  this.id = data;
  this.data2=this.id.data[0]
-          console.log(this.data2[0])
-
    this.fromemail = this.data2.fromemail;
     this.toemail = this.data2.toemail;
     this.subject = this.data2.subject;
@@ -101,7 +98,6 @@ export class ReadmailComponent implements OnInit {
     this.auth.logout();
   }
   close() {
-    console.log('clicked')
     this.info.close();
   }
   filterarray() {
@@ -109,7 +105,6 @@ export class ReadmailComponent implements OnInit {
     if(search!=''){
  var filteredarray = this.mails.data.filter(function (el) {
       // return el.fromemail == search || el.toemail == search || el.subject == search
-console.log('search',search)
       return el.fromemail.indexOf(search) > -1 || el.toemail.indexOf(search) > -1 || el.subject.indexOf(search) > -1
     });
     this.sentmails = filteredarray;
@@ -121,7 +116,6 @@ this.sentmails = this.mails.data;
   }
 
   checkAll(ev) {
-    alert()
     this.sentmails.forEach(x => x.selected = ev.target.checked);
     this.isSelected = true;
   }

@@ -31,6 +31,7 @@ export class ComposefiletransferComponent implements OnInit {
   serchedmail: any[];
   showsearch: boolean;
   result: any;
+  filerror: string;
 
   constructor(
     private http: HttpClient,
@@ -145,7 +146,13 @@ export class ComposefiletransferComponent implements OnInit {
 
   sendmail() {
     //  console.log(this.editorContent)
- 
+ var x =this.formData.getAll("uploads[]")
+console.log(x)
+    if(x.length==0){
+      this.filerror="Please Select File"
+      return false;
+    //  alert(this.formData.getAll("uploads[]"))
+    }
 
           if(this.toemail.nativeElement.value === '')
       {

@@ -190,7 +190,7 @@
                         <div class="form-group smartfloat smartnofloat" *ngIf="useridentity">
 
                           <label for="inputEmail" class="col-lg-2 control-label1">From:</label>
-                          <div class="col-lg-10">
+                          <div class="col-lg-10 ">
                             <input type="text" [(ngModel)]="email" class="form-control" name="from">
                           </div>
                         </div>
@@ -201,7 +201,7 @@
                               to separate email id, avoid spacing between email ids.</span>
                           </div>
                           <label for="inputEmail" class="col-lg-2 control-label1 lable2">To:</label>
-                          <div class="col-lg-10">
+                          <div class="col-lg-10 custom_ul_new">
                             <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input
                               type="text" #toemail (keyup)="search($event.target.value)" (blur)="validateemail()"
                               class="form-control ui-autocomplete-input" name="emailid" id="emailid" value=""
@@ -230,6 +230,9 @@
                               <label for="smartfile" class="bottom-nextbtn smartchoose">Choose File</label>
                               <input type="file" multiple (change)="fileChange($event)" class="form-control"
                                 id="smartfile" style="display: none;">
+<span class="fileerror" style="color:red" *ngIf='filerror'>{{filerror}}</span>
+
+                                
                             </div>
                             <div class="col-xs-10 col-xs-offset-2">
                               <div class="file_preview">

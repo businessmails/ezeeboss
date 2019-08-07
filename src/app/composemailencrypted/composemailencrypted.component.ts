@@ -153,7 +153,7 @@ var x =this.formData.getAll("uploads[]")
     //  alert(this.formData.getAll("uploads[]"))
     }
     else{
-    
+    this.filerror='';
       if(this.toemail.nativeElement.value === '')
       {
       this.emailerror = 'Enter a valid Email'
