@@ -359,7 +359,14 @@
                                                     <button class="delbtn"> Delete</button>
                                                 </a>
                                             </div>
-
+  <div  class="col-lg-6 pagination"> 
+                    <a *ngIf='showprev' (click)="pageination('p')">
+                        <button class="prebtn"> Previous</button>
+       </a> 
+             <a *ngIf='shownext' (click)="pageination('n')">
+                        <button class="nxtbtn"> Next</button>
+       </a> 
+       </div>
                                             <div class="col-lg-12">
                                                 <div class="smartrules">
                                                     <p class="smartp">1. Select from contact list and click compose to send your email, you can select multiple contacts to share an email including attachments.</p>

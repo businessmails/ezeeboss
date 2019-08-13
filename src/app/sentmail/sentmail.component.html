@@ -250,6 +250,14 @@
             <button class="delbtn"> Delete</button>
        </a> 
        </div>
+       <div  class="pagination"> 
+                    <a *ngIf='showprev' (click)="pageination('p')">
+                        <button class="prebtn"> Previous</button>
+       </a> 
+             <a *ngIf='shownext' (click)="pageination('n')">
+                        <button class="nxtbtn"> Next</button>
+       </a> 
+       </div>
     </div>
 
  </div>			  

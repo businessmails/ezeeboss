@@ -66,14 +66,12 @@ export class ReadmailComponent implements OnInit {
       this.fullname = this.details.name;
       this.userid = this.details._id;
       this.email = this.details.email;
-      // console.log(this.useremail)
       this.http.post(this.AppComponent.BASE_URL + '/api/getreadmail/' + page + '/' + limit, { userid: this.userid })
         .subscribe(data => {
           this.mails = data;
           this.records = this.mails.count;
           this.sentmails = this.mails.data.reverse();
           this.lastpage = Math.ceil(this.records / limit);
-          console.log(page,"last page ",this.lastpage)
           if (page == (this.lastpage-1)) {
             this.shownext = false;
           }
