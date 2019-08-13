@@ -236,6 +236,15 @@
                         <button class="delbtn"> Delete</button>
        </a> 
        </div>
+          <div  class="pagination"> 
+                    <a *ngIf='showprev' (click)="pageination('p')">
+                        <button class="prebtn"> Previous</button>
+       </a> 
+             <a *ngIf='shownext' (click)="pageination('n')">
+                        <button class="nxtbtn"> Next</button>
+       </a> 
+       </div>
+
    </div>
 
  </div>			  
@@ -290,7 +299,7 @@
                     <div class="col-xs-12">
 						<p class="mail_info"><b>Mail read by:</b> {{toemail}}</p>
 						<p class="mail_info"><b>From:</b> {{fromemail}}</p>
-						<div class="mail_info"><b>From:</b> {{ mailcontent}}</div>
+						<div class="mail_info"><b>Subject:</b> {{ subject}}</div>
 						<table class="table table-bordered table-striped" style="border:1px solid;">
 							<tr>
 								<th style="text-left">Mail Read</th>

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails} from '../authentication.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AppComponent} from '../app.component';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-view-transfer-file',
@@ -40,7 +41,9 @@ export class ViewFileComponent implements OnInit {
     private http: HttpClient,
     private auth: AuthenticationService,
     private AppComponent:AppComponent,
-    private router: Router
+    private router: Router,
+    private _location: Location
+
 
   ) { }
 
@@ -69,6 +72,12 @@ export class ViewFileComponent implements OnInit {
   })
 } 
 
+
+ backClicked() {
+    this._location.back();
+  }
+
+  
 forwardmessage(){
 this.forwardmsg = true;
 }

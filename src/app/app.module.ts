@@ -39,12 +39,12 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { DataTableModule } from "angular2-datatable";
 import { MomentModule } from 'angular2-moment';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
-import { NgProgressModule  } from "ngx-progressbar";
+import { NgProgressModule } from "ngx-progressbar";
 
 // import { NgxHmCarouselModule } from 'ngx-hm-carousel';
 import { SignpdfComponent } from './signpdf/signpdf.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
-import {ProgressBarModule} from "angular-progress-bar"
+import { ProgressBarModule } from "angular-progress-bar"
 // import { AddparticipantdialogComponent } from './addparticipantdialog/addparticipantdialog.component';
 import { ModalModule } from 'ngx-modal';
 import { ActionrequiredComponent } from './actionrequired/actionrequired.component';
@@ -103,6 +103,8 @@ import { ReadmailencComponent } from './readencmail/readencmail.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { UserHomeDashboardComponent } from './user-home-dashboard/user-home-dashboard.component';
 // import { ConfirmComponent } from './confirm/confirm.component';
+import { FileTransferTrashmailComponent } from './filetrashmail/filetrashmail.component';
+
 // .component.spec
 
 // import pagination component
@@ -166,8 +168,9 @@ const routes: Routes = [
   { path: 'dicomview', component: DicomviewComponent },
   { path: 'forgetpassword/:userid', component: ForgotpasswordComponent },
   { path: 'apppricing', component: PricingComponent },
-  { path : 'UserHomeDashboardComponent', component: UserHomeDashboardComponent},
-  {path : 'DicomViewer',component: DicomViewerComponent}
+  { path: 'UserHomeDashboardComponent', component: UserHomeDashboardComponent },
+  { path: 'DicomViewer', component: DicomViewerComponent },
+  { path: 'fileTranferTrash', component: FileTransferTrashmailComponent }
 
 
 ];
@@ -233,7 +236,8 @@ const routes: Routes = [
     PricingComponent,
     UserHomeDashboardComponent,
     JwPaginationComponent,
-    DicomViewerComponent
+    DicomViewerComponent,
+    FileTransferTrashmailComponent
     // AddparticipantdialogComponent
   ],
   imports: [
@@ -242,7 +246,11 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    // RouterModule.forRoot(routes),
+    RouterModule.forRoot(
+      routes,
+      { enableTracing: false } // <-- debugging purposes only
+    ),
     WebcamModule,
     ModalModule,
     PdfViewerModule,
@@ -264,7 +272,7 @@ const routes: Routes = [
     NgxPayPalModule,
     NgProgressModule,
     ProgressBarModule,
-     SlimLoadingBarModule.forRoot(),
+    SlimLoadingBarModule.forRoot(),
     Ng4LoadingSpinnerModule.forRoot()
   ],
   providers: [

@@ -147,7 +147,7 @@ export class ComposefiletransferComponent implements OnInit {
   sendmail() {
     //  console.log(this.editorContent)
  var x =this.formData.getAll("uploads[]")
-console.log(x)
+
     if(x.length==0){
       this.filerror="Please Select File"
       return false;
