@@ -4,6 +4,7 @@ import { AuthenticationService, UserDetails, TokenPayload } from '../authenticat
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent } from '../app.component';
 import { Router } from '@angular/router'
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-composemail',
   templateUrl: './composemail.component.html',
@@ -33,7 +34,8 @@ export class ComposemailComponent implements OnInit {
     private http: HttpClient,
     private auth: AuthenticationService,
     private AppComponent: AppComponent,
-    private router: Router
+    private router: Router,
+    public _location :Location
   ) { }
 
   ngOnInit() {
@@ -44,6 +46,10 @@ export class ComposemailComponent implements OnInit {
       this.email = this.details.email;
 
     });
+  }
+
+  backClicked() {
+    this._location.back();
   }
 
   selectmail(email) {

@@ -17,7 +17,7 @@
       <div class="col-xs-9 text-right">
                 <div class="row">
                     <div class="col-xs-6 text-left">
-                        <a href="#" class="top_back_button"><i class="fa fa-caret-left"></i><span>Back</span></a>    
+                        <a href="#" class="top_back_button" (click)='backClicked()'><i class="fa fa-caret-left"></i><span>Back</span></a>    
                     </div>
                     <!-- menu start -->
                     <div class="col-xs-6 text-right">
@@ -124,9 +124,10 @@
                   <hr class="line">
                 </div>
                 <div class="message-options pull-right">     
-                  <a class="btn backbtn" routerLink="/sentmail">
+                  <!-- <a class="btn backbtn" routerLink="/sentmail">
                         <i class="fa fa-arrow-left">&nbsp;&nbsp;</i>Back
-                        </a>  
+                        </a>   -->
+                        <button class="btn backbtn" (click)='backClicked()'> <i class="fa fa-arrow-left">&nbsp;&nbsp;</i>Back </button>
                   <button class="btn forwardbtn" (click)="forwardmessage();"><i class="fa fa-arrow-right">&nbsp;&nbsp;</i>Forward</button>
                   <button class="btn printbtn" (click)="print();"><i class="fa fa-print">&nbsp;&nbsp;</i>Print</button>
                   <div class="line2"></div>

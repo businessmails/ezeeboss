@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails, TokenPayload } from '../authentication.service';
 import { AppComponent } from '../app.component';
+// import { Math } from 'es6-shim';
 @Component({
   selector: 'app-readmail',
   templateUrl: './readmail.component.html',
@@ -42,57 +43,90 @@ export class ReadmailComponent implements OnInit {
   id: any;
   data2: any;
   length: any;
-
+  records: any;
+  page = 0;
+  limit = 10;
+  lastpage: any;
+  showprev: boolean =true;
+  shownext: boolean =true;
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
     private AppComponent: AppComponent
   ) { }
-
-  ngOnInit() {
-    // alert()
+  getReadMails(page, limit) {
+    if (page == 0) {
+      this.showprev = false;
+    } else {
+      this.showprev = true;
+    }
+// console.log(page, limit)
     this.auth.profile().subscribe(user => {
       this.details = user;
       this.fullname = this.details.name;
       this.userid = this.details._id;
       this.email = this.details.email;
       // console.log(this.useremail)
-      this.http.post(this.AppComponent.BASE_URL + '/api/getreadmail', { userid: this.userid })
+      this.http.post(this.AppComponent.BASE_URL + '/api/getreadmail/' + page + '/' + limit, { userid: this.userid })
         .subscribe(data => {
           this.mails = data;
-          this.sentmails = this.mails.data;
+          this.records = this.mails.count;
+          this.sentmails = this.mails.data.reverse();
+          this.lastpage = Math.ceil(this.records / limit);
+          console.log(page,"last page ",this.lastpage)
+          if (page == (this.lastpage-1)) {
+            this.shownext = false;
+          }
+          else {
+            this.shownext = true;
+          }
         });
     });
   }
+  ngOnInit() {
+    // alert()
+    this.getReadMails(this.page, this.limit)
 
+    // this.getReadMails()
+  }
+
+  pageination(move) {
+    if (move == 'p') {
+      this.page = this.page - 1;
+    }
+    else if (move == 'n') {
+      this.page = this.page + 1;
+    }
+    console.log(this.page, this.limit)
+    this.getReadMails(this.page, this.limit)
+
+
+  }
   clickme(idd) {
     //alert(id)
- this.http.get(this.AppComponent.BASE_URL + '/api/getreadmail/'+idd._id)
-        .subscribe(data => {
-          // this.mails = data;
-          // this.sentmails = this.mails.data;
+    this.http.get(this.AppComponent.BASE_URL + '/api/getreadmail/' + idd._id)
+      .subscribe(data => {
+        this.id = data;
+        this.data2 = this.id.data[0]
+        this.fromemail = this.data2.fromemail;
+        this.toemail = this.data2.toemail;
+        this.subject = this.data2.subject;
+        this.mailcontent = this.data2.mailcontent;
+        this.mailread = this.data2.mailread;
+        this.mailtrash = this.data2.mailtrash;
+        this.dateadded = this.data2.dateadded;
+        // var res = this.dateadded.split("T");
+        // this.date=res[0];
+        this.readdate = this.data2.readdate;
+        this.firstreaddate = this.data2.firstreaddate;
+        this.readcount = (parseInt(this.data2.readcount) - 1);
+        this.ip = this.data2.ip;
+        this.lastreadip = this.data2.lastreadip;
+        this.length = this.id.attachmets.length
+        this.info.open();
 
- this.id = data;
- this.data2=this.id.data[0]
-   this.fromemail = this.data2.fromemail;
-    this.toemail = this.data2.toemail;
-    this.subject = this.data2.subject;
-    this.mailcontent = this.data2.mailcontent;
-    this.mailread = this.data2.mailread;
-    this.mailtrash = this.data2.mailtrash;
-    this.dateadded = this.data2.dateadded;
-    // var res = this.dateadded.split("T");
-    // this.date=res[0];
-    this.readdate = this.data2.readdate;
-    this.firstreaddate = this.data2.firstreaddate;
-    this.readcount = this.data2.readcount;
-    this.ip = this.data2.ip;
-    this.lastreadip = this.data2.lastreadip;
-    this.length = this.id.attachmets.length
-    this.info.open();
+      });
 
-        });
- 
   }
   logout() {
     this.auth.logout();
@@ -102,17 +136,17 @@ export class ReadmailComponent implements OnInit {
   }
   filterarray() {
     var search = this.searchdata;
-    if(search!=''){
- var filteredarray = this.mails.data.filter(function (el) {
-      // return el.fromemail == search || el.toemail == search || el.subject == search
-      return el.fromemail.indexOf(search) > -1 || el.toemail.indexOf(search) > -1 || el.subject.indexOf(search) > -1
-    });
-    this.sentmails = filteredarray;
+    if (search != '') {
+      var filteredarray = this.mails.data.filter(function (el) {
+        // return el.fromemail == search || el.toemail == search || el.subject == search
+        return el.fromemail.indexOf(search) > -1 || el.toemail.indexOf(search) > -1 || el.subject.indexOf(search) > -1
+      });
+      this.sentmails = filteredarray;
     }
-    else{
-this.sentmails = this.mails.data;
+    else {
+      this.sentmails = this.mails.data.reverse();
     }
-   
+
   }
 
   checkAll(ev) {
@@ -125,25 +159,25 @@ this.sentmails = this.mails.data;
       return this.sentmails.every(_ => _.selected);
   }
   movetotrash() {
-    this.checkedmails= this.sentmails.filter(_ => _.selected);
-    if(this.checkedmails.length == 0 ) {
+    this.checkedmails = this.sentmails.filter(_ => _.selected);
+    if (this.checkedmails.length == 0) {
       alert('Please Check At Least One Record')
     }
     else {
-      if(confirm("Are you sure to delete the selected records")) {
+      if (confirm("Are you sure to delete the selected records")) {
         this.checkedid = [];
-       for( let i = 0;i<this.checkedmails.length;i++) {
-        this.checkedid.push({id:this.checkedmails[i]._id});
-       }
-       this.http.post(this.AppComponent.BASE_URL+'/api/removemail', {mailid:this.checkedid})
-       .subscribe(data => {
-        this.http.post(this.AppComponent.BASE_URL+'/api/getreadmail', {userid:this.userid})
-        .subscribe(data => {
-          this.mails = data;
-          this.sentmails= this.mails.data;
-        });
-       });  
-    }
+        for (let i = 0; i < this.checkedmails.length; i++) {
+          this.checkedid.push({ id: this.checkedmails[i]._id });
+        }
+        this.http.post(this.AppComponent.BASE_URL + '/api/removemail', { mailid: this.checkedid })
+          .subscribe(data => {
+            this.http.post(this.AppComponent.BASE_URL + '/api/getreadmail', { userid: this.userid })
+              .subscribe(data => {
+                this.mails = data;
+                this.sentmails = this.mails.data.reverse();
+              });
+          });
+      }
 
     }
   }

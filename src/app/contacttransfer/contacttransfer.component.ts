@@ -94,8 +94,9 @@ export class ContacttransferComponent implements OnInit {
     }identifierName
    } 
 
-  updatecontact(id) {
-    this.http.post(this.AppComponent.BASE_URL+'/api/updatefiletransfercontact', {name:this.contactname.nativeElement.value,email:this.contactupemail.nativeElement.value,company:this.contactcompany.nativeElement.value,contact:this.contactcontact.nativeElement.value,id:id})
+  updatecontact(id,name,company,contact,email) {
+ 
+    this.http.post(this.AppComponent.BASE_URL+'/api/updatefiletransfercontact', {name:name,email:email,company:company,contact:contact,id:id})
     .subscribe(data => {
       this.updatedcontacts = data;
       this.myupdatedcontacts = this.updatedcontacts.message;

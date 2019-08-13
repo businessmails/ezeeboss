@@ -108,10 +108,10 @@
                   <hr class="line">
                 </div>
                 <div class="message-options pull-right"> 
-                        <a class="btn backbtn" routerLink="/senttransfer">
+                        <!-- <a class="btn backbtn" routerLink="/senttransfer">
                         <i class="fa fa-arrow-left">&nbsp;&nbsp;</i>Back
-                        </a>  
-                      <!-- <button class="btn backbtn" (click)="back();"></button>   -->
+                        </a>   -->
+                      <button class="btn backbtn" (click)="backClicked()">Back</button>  
                   <button class="btn forwardbtn" (click)="forwardmessage();"><i class="fa fa-arrow-right">&nbsp;&nbsp;</i>Forward</button>
                   <button class="btn printbtn" (click)="print();"><i class="fa fa-print">&nbsp;&nbsp;</i>Print</button>
                   <div class="line2"></div>
@@ -137,7 +137,7 @@
 <ul class="nav nav-tabs6">
 
       <li class="active">
-          <a routerLink="/composemail">
+          <a routerLink="/composefiletransfer">
               <span class="iconimg"><img src="assets/img/envelope.png"/></span>
               &nbsp;&nbsp;
               <span class="pt6">Compose</span>
@@ -145,7 +145,7 @@
       </li>
      
      <li class="">
-         <a routerLink="/readmail">
+         <a routerLink="/readmailtransfer">
              <span class="iconimg">
              <img src="assets/img/message-closed-envelope.png"/>
              </span>
@@ -155,7 +155,7 @@
      </li>
 
     <li class="">
-        <a routerLink="/sentmail">
+        <a routerLink="/senttransfer">
             <span class="iconimg">
                <img src="assets/img/sent-mail.png"/>
             </span>
@@ -165,7 +165,7 @@
     </li>
    
     <li class="">
-        <a routerLink="/trashmail">
+        <a routerLink="#">
             <span class="iconimg">
                <img src="assets/img/trash.png"/>
             </span>
@@ -174,7 +174,7 @@
         </a>
     </li>
     <li class="">
-        <a routerLink="/contactmail">
+        <a routerLink="/contacttransfer">
             <span class="iconimg">
                <img src="assets/img/phone-receiver.png"/>
             </span>
