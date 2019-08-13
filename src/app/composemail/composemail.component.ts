@@ -174,7 +174,7 @@ export class ComposemailComponent implements OnInit {
         this.http.post(this.AppComponent.BASE_URL + '/api/sendsmartmail', this.formData)
           .subscribe(data => {
             this.loading = false;
-            alert('Mail Sent Successfully');
+            alert('Mail sent successfully');
             this.router.navigateByUrl('/sentmail');
           });
       }

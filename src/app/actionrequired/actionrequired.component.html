@@ -26,7 +26,7 @@
                             <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
                         </a>
 
-                        <ul *dropdownMenu class="dropdown-menu mobilemenu">
+                        <ul *dropdownMenu class="my_drop_down">
 
                             <li><a (click)="logout();">Logout</a></li>
 
@@ -69,7 +69,7 @@
 
                 <a href="">
 
-                    <img class="img-responsive img-portfolio2 digitalimg mobiledigital" src="../../assets/img/home-02.png" alt="" data-placement="right">
+                    <img class="img-responsive compose_lock_image" src="../../assets/img/home-02.png" alt="" data-placement="right">
 
                 </a>
 
@@ -126,7 +126,7 @@
 
                         <div class="col-lg-12">
 
-                            <p class="smartheading_new">e-signature</p>
+                            <p class="smartheading_new">Electronic <span>signature</span></p>
                         </div>
                     </div>
 
@@ -262,7 +262,7 @@
         <th>
 
             <div id="checkDocId" class="checkbox" style="display:none">
-                <label class="container57">
+                <label class="new_checkbox_2">
 <input type="checkbox" [checked]="isAllChecked()" (change)="checkAll($event)">
 <!-- <input type="checkbox" > -->
 

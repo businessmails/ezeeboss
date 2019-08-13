@@ -142,6 +142,7 @@ text-align:center;
 }
 .content.draggcont {
     font-size: 16px !important;
+    font-weight: 600;
 }
 /*.cnclbtn ,img.closepar.commn_btn.cnclbtn.d_c ,.commn_btn {
 	background-color:transparent !important;
@@ -1647,6 +1648,7 @@ p.pt5 {
 }
 input {
 	outline:none !important;
+	    font-weight: 600!important;
 }
 .tabs-left {
 	margin-top: 0;
@@ -3521,3 +3523,7 @@ td { color: #000!important; font-weight: 600!important; }
 .innerviewdiv, .control-label, .smartfloatform input { color: #000; font-weight: 600; }
 .view_mail_attachment { width: 100%; background: #f5f5f5; padding: 10px; margin-bottom: 5px;}
 .fileerror { color: red; padding: 10px; margin-top: -5px; display: inline-block; font-weight: 600; }
+.control-label2, .pannel-1 { font-weight: 600!important }
+.top_back_button, a:hover.top_back_button { background: #494d49!important; position: relative; height: 46px; line-height: 46px; display: inline-block; margin-top: 25px; color: #fff; font-size: 22px; padding-left: 20px; padding-right: 20px; }
+.top_back_button i { font-size: 30px; margin-right: 13px; vertical-align: middle; margin-top: -3px; }
+.logoimg img { margin-top: 10px; }

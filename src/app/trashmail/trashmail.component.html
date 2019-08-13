@@ -11,31 +11,41 @@
 <section class="fullpage">
 	<div class="container" >                  
 		<div class="row">
-			<div class="col-xs-12 text-right">
-			<!-- menu start -->
-				<div class="new_custom_drop_down">
-					<li class="dropdown" dropdown>
-						<i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;
-						<span class="title">{{fullname}} &nbsp;</span>
-						<a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
-							<div class="downarrow mobiledownarrow"><b class="caret"></b></div>
-						</a>
-						<ul *dropdownMenu class="my_drop_down">
+            <div class="col-xs-3 text-right">
+            </div>
+      <div class="col-xs-9 text-right">
+                <div class="row">
+                    <div class="col-xs-6 text-left">
+                        <a href="#" class="top_back_button"><i class="fa fa-caret-left"></i><span>Back</span></a>    
+                    </div>
+                    <!-- menu start -->
+                    <div class="col-xs-6 text-right">
+                        <div class="new_custom_drop_down">
+                            <li class="dropdown" dropdown>
+                                <i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;
 
-							<li><a (click)="logout();">Logout</a></li>
+                                <span class="title">{{fullname}} &nbsp;</span>
+                                <a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
+                                    <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
+                                </a>
+                                <ul *dropdownMenu class="my_drop_down">
 
-							<li><a routerLink="/profile">View Profile</a></li>
+                                    <li><a (click)="logout();">Logout</a></li>
 
-							<li id=""><a href="#">Change Password</a></li>
+                                    <li><a routerLink="/profile">View Profile</a></li>
 
-							<li><a href="#">Membership Order</a></li>
+                                    <li id=""><a href="#">Change Password</a></li>
 
-						</ul>
-					</li>
-				</div>
-			<!-- menu end -->
-			</div>
-		</div>  
+                                    <li><a href="#">Membership Order</a></li>
+
+                                </ul>
+                            </li>
+                        </div>
+                    </div>
+                    <!-- menu end -->
+                </div>  
+        </div>
+    </div> 
 	</div>
 
 
@@ -132,57 +142,38 @@
  <div class="col-lg-12">
       
   <div class="tabs-left">
-
-    <ul class="nav nav-tabs6">
-
-      <li class="">
-          <a routerLink="/composemail">
-              <span class="iconimg"><img src="assets/img/envelope.png"/></span>
-              &nbsp;&nbsp;
-              <span class="pt6">Compose</span>
-          </a>
-      </li>
-     
-     <li class="">
-         <a routerLink="/readmail">
-             <span class="iconimg">
-             <img src="assets/img/message-closed-envelope.png"/>
-             </span>
-         &nbsp;&nbsp;
-             <span class="pt6">Read Mail</span>
-         </a>
-     </li>
-
-    <li class="">
-        <a routerLink="/sentmail">
-            <span class="iconimg">
-               <img src="assets/img/sent-mail.png"/>
-            </span>
-            &nbsp;&nbsp;
-            <span class="pt6">Sent</span>
-        </a>
-    </li>
-   
-    <li class="active">
-        <a routerLink="/trashmail">
-            <span class="iconimg">
-               <img src="assets/img/trash.png"/>
-            </span>
-            &nbsp;&nbsp;
-            <span class="pt6">Trash</span>
-        </a>
-    </li>
-    <li class="">
-        <a routerLink="/contactmail">
-            <span class="iconimg">
-               <img src="assets/img/phone-receiver.png"/>
-            </span>
-            &nbsp;&nbsp;
-            <span class="pt6">Contact</span>
-        </a>
-    </li>
-
-</ul>             
+<ul class="nav nav-tabs6">
+                                <li class="">
+                                    <a routerLink="/composemail">
+                                        <span class="iconimg"><img src="assets/img/envelope.png"/></span>
+                                        <span class="pt6">Compose</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a routerLink="/readmail">
+                                        <span class="iconimg"><img src="assets/img/message-closed-envelope.png"/></span>
+                                        <span class="pt6">Read Mail</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a routerLink="/sentmail">
+                                        <span class="iconimg"><img src="assets/img/sent-mail.png"/></span>
+                                        <span class="pt6">Sent</span>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a routerLink="/trashmail">
+                                        <span class="iconimg"><img src="assets/img/trash.png"/></span>
+                                        <span class="pt6">Trash</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a routerLink="/contactmail">
+                                        <span class="iconimg"><img src="assets/img/phone-receiver.png"/></span>
+                                        <span class="pt6">Contact</span>
+                                    </a>
+                                </li>
+                            </ul>      
   
 <div id="myTabContent" class="tab-content mobilecontent" style="opacity: 1;">			  
 

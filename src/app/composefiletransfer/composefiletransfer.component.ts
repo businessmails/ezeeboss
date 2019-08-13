@@ -183,7 +183,7 @@ console.log(x)
           this.http.post(this.AppComponent.BASE_URL+'/api/sendfiletransfermail', this.formData)
               .subscribe(data => {
                 this.loading = false;
-                alert('Mail Sent Successfully');
+                alert('Mail sent successfully');
                 this.router.navigateByUrl('/senttransfer');
               });
         }

@@ -33,6 +33,7 @@ footer {
 }
 .container56 {
     font-size: 17px !important;
+    font-weight: 600!important;
     }
     .nav-link {
         margin-top: 21px !important;
@@ -125,7 +126,7 @@ app-root {
     width: 100%;
 }
 .delbtn {
-    background-color: rgba(234,0,0);
+    background-color: rgba(234,0,0,1);
     color: white !important;
     border: none;
     margin-bottom: 14px;
