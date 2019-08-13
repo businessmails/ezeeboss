@@ -185,7 +185,7 @@ var x =this.formData.getAll("uploads[]")
             this.http.post(this.AppComponent.BASE_URL+'/api/encryptfile', this.formData)
                 .subscribe(data => {
             this.loading = false;
-            alert('Mail Sent Successfully');
+            alert('Mail sent successfully');
            this.router.navigateByUrl('/sentencmail');
                 });
         }
