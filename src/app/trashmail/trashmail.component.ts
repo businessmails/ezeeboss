@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails, TokenPayload } from '../authentication.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent } from '../app.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-trashmail',
@@ -27,11 +28,18 @@ export class TrashmailComponent implements OnInit {
   showprev: boolean = true;
   shownext: boolean = true;
   records: any;
+  empty: Object;
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
-    private AppComponent: AppComponent
+    private AppComponent: AppComponent,
+    private _location: Location
+
   ) { }
+
+  backClicked() {
+    this._location.back();
+  }
 
   ngOnInit() {
     this.getmails(this.page, this.limit)
@@ -39,7 +47,7 @@ export class TrashmailComponent implements OnInit {
 
 
 
-  
+
   pageination(move) {
     if (move == 'p') {
       this.page = this.page - 1;
@@ -67,17 +75,27 @@ export class TrashmailComponent implements OnInit {
       // console.log(this.useremail)
       this.http.post(this.AppComponent.BASE_URL + '/api/gettrashmail/' + page + '/' + limit, { userid: this.userid })
         .subscribe(data => {
-          this.mails = data;
-          this.trashmails = this.mails.data;
 
-          this.records = this.mails.count;
-          this.lastpage = Math.ceil(this.records / limit);
-          if (page == (this.lastpage - 1)) {
-            this.shownext = false;
+          if (data != "NO records Found") {
+            this.mails = data;
+            this.trashmails = this.mails.data;
+            this.empty = ""
+            this.records = this.mails.count;
+            console.log("this.mails.count"), this.mails.count
+            this.lastpage = Math.ceil(this.records / limit);
+            if (page == (this.lastpage - 1)) {
+              this.shownext = false;
+            }
+            else {
+              this.shownext = true;
+            }
           }
           else {
-            this.shownext = true;
+            this.shownext = false;
+            this.showprev = false;
+            this.empty = "No records found";
           }
+
         });
     });
   }
@@ -107,11 +125,7 @@ export class TrashmailComponent implements OnInit {
         }
         this.http.post(this.AppComponent.BASE_URL + '/api/movesmartmailstosent', { mailid: this.checkedid })
           .subscribe(data => {
-            // this.http.post(this.AppComponent.BASE_URL + '/api/gettrashmail', { userid: this.userid })
-            //   .subscribe(data => {
-            //     this.mails = data;
-            //     this.trashmails = this.mails.data;
-            //   });
+
             this.getmails(this.page, this.limit)
 
           });

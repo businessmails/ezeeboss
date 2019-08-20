@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails, TokenPayload } from '../authentication.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent } from '../app.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-sentmail',
@@ -27,11 +28,18 @@ export class SentmailComponent implements OnInit {
   showprev: boolean = true;
   shownext: boolean = true;
   records: any;
+  empty: Object;
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
-    private AppComponent: AppComponent
+    private AppComponent: AppComponent,
+    private _location: Location
+
   ) { }
+
+  backClicked() {
+    this._location.back();
+  }
   getMails(page, limit) {
 
     if (page == 0) {
@@ -47,18 +55,23 @@ export class SentmailComponent implements OnInit {
       // console.log(this.useremail)
       this.http.post(this.AppComponent.BASE_URL + '/api/getsmartmail/' + page + '/' + limit, { userid: this.userid })
         .subscribe(data => {
-          this.mails = data;
-          this.sentmails = this.mails.data.reverse();
-          //  console.log(this.sentmails)
-
-          //  console.log(this.sentmails.reverse())
+          if (data != "NO records Found") {
+            this.mails = data;
+            this.empty =""
+            this.sentmails = this.mails.data;
             this.records = this.mails.count;
             this.lastpage = Math.ceil(this.records / limit);
-if (page == (this.lastpage-1)) {
-            this.shownext = false;
+            if (page == (this.lastpage - 1)) {
+              this.shownext = false;
+            }
+            else {
+              this.shownext = true;
+            }
           }
           else {
-            this.shownext = true;
+            this.shownext = false;
+            this.showprev = false;
+            this.empty = "No records found";
           }
         });
     });
@@ -85,7 +98,7 @@ if (page == (this.lastpage-1)) {
     else if (move == 'n') {
       this.page = this.page + 1;
     }
-    console.log(this.page, this.limit)
+ 
     this.getMails(this.page, this.limit)
 
 

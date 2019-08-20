@@ -77,7 +77,7 @@ export class ComposemailComponent implements OnInit {
     email = mailarray[mailarray.length - 1];
     if (email != '') {
       this.showsearch = true;
-      this.http.post(this.AppComponent.BASE_URL + '/api/serchmail', { email: email })
+      this.http.post(this.AppComponent.BASE_URL + '/api/serchmail', { email: email,userId:this.userid })
         .subscribe(data => {
           this.result = data;
           this.serchedmail = this.result.result;
@@ -133,12 +133,13 @@ export class ComposemailComponent implements OnInit {
   }
 
   validateemail() {
+    this.showsearch = false;
     // this.serchedmail=[];
     // this.showsearch=false;
     var emails = this.toemail.nativeElement.value;
     var emailArray = emails.split(",");
     var invEmails = "";
-    //	console.log("emailArray-",emailArray)
+    	console.log("emailArray-",emailArray)
     for (var i = 0; i <= (emailArray.length - 1); i++) {
       if (this.checkEmail(emailArray[i])) {
         this.emailerror = ''
@@ -148,7 +149,7 @@ export class ComposemailComponent implements OnInit {
     }
     if (invEmails != "") {
       this.emailerror = 'Invalid Email: ' + invEmails
-      // alert("Invalid emails:\n" + invEmails);
+     // alert("Invalid emails:\n" + invEmails);
     }
   }
 

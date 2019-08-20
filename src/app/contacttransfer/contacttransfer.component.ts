@@ -36,6 +36,16 @@ export class ContacttransferComponent implements OnInit {
   @ViewChild('name') contactname: any;
   @ViewChild('company') contactcompany: any;
   @ViewChild('contact') contactcontact: any;
+  showprev: boolean;
+  res: boolean;
+  empty: string;
+  csvcontacts: any;
+  mycsvcontact: any;
+  records: any;
+  lastpage: number;
+    page = 0;
+  limit = 2;
+  shownext: boolean;
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
@@ -49,11 +59,13 @@ export class ContacttransferComponent implements OnInit {
       this.userid = this.details._id;
       this.email = this.details.email;
      // console.log(this.useremail)
-     this.http.post(this.AppComponent.BASE_URL+'/api/getfiletransfercontacts', {userid:this.userid})
-     .subscribe(data => {
-       this.filetransfercontact = data;
-       this.myfiletransfercontact = this.filetransfercontact.data;
-     });
+
+       this.getmails(this.page, this.limit)
+    //  this.http.post(this.AppComponent.BASE_URL+'/api/getfiletransfercontacts', {userid:this.userid})
+    //  .subscribe(data => {
+    //    this.filetransfercontact = data;
+    //    this.myfiletransfercontact = this.filetransfercontact.data;
+    //  });
     });
   }
   checkAll(ev) {
@@ -70,6 +82,57 @@ export class ContacttransferComponent implements OnInit {
     if(this.name != null) {
       this.nameerror = ''
     } 
+  }
+
+
+  getmails(page, limit) {
+ if (page == 0) {
+      this.showprev = false;
+    } else {
+      this.showprev = true;
+    }
+    this.auth.profile().subscribe(user => {
+      this.details = user;
+      this.fullname = this.details.name;
+      this.userid = this.details._id;
+      this.email = this.details.email;
+      // console.log(this.useremail)
+      this.http.post(this.AppComponent.BASE_URL + '/api/getfiletransfercontacts/' + page + '/' + limit, { userid: this.userid })
+        .subscribe(data => {
+          this.res=true;
+           if (data != "NO records Found") {
+             this.empty =""
+          this.csvcontacts = data;
+          this.mycsvcontact = this.csvcontacts.data;
+          this.myfiletransfercontact = this.csvcontacts.data;
+            this.records = this.csvcontacts.count;
+            // console.log("this.csvcontacts.count"),this.csvcontacts.count
+          this.lastpage = Math.ceil(this.records / limit);
+          if (page == (this.lastpage - 1)) {
+            this.shownext = false;
+          }
+          else {
+            this.shownext = true;
+          }
+           }
+            else{
+             this.shownext = false;
+             this.showprev =false;
+             this.empty="No records found";
+          }
+        });
+    });
+
+  }
+
+  pageination(move) {
+    if (move == 'p') {
+      this.page = this.page - 1;
+    }
+    else if (move == 'n') {
+      this.page = this.page + 1;
+    }
+    this.getmails(this.page, this.limit)
   }
 
   checkEmail(email) {
@@ -101,12 +164,14 @@ export class ContacttransferComponent implements OnInit {
       this.updatedcontacts = data;
       this.myupdatedcontacts = this.updatedcontacts.message;
       if(this.myupdatedcontacts == 'Success') {
-        this.http.post(this.AppComponent.BASE_URL+'/api/getfiletransfercontacts', {userid:this.userid})
-        .subscribe(data => {
-          alert('Updated successfully');
-          this.filetransfercontact = data;
-          this.myfiletransfercontact = this.filetransfercontact.data;
-        });
+          this.getmails(this.page, this.limit)
+
+        // this.http.post(this.AppComponent.BASE_URL+'/api/getfiletransfercontacts', {userid:this.userid})
+        // .subscribe(data => {
+        //   alert('Updated successfully');
+        //   this.filetransfercontact = data;
+        //   this.myfiletransfercontact = this.filetransfercontact.data;
+        // });
       } else {
         alert('Something Went Wrong.Please try Again')
       }
@@ -177,12 +242,14 @@ export class ContacttransferComponent implements OnInit {
        }
        this.http.post(this.AppComponent.BASE_URL+'/api/deletefiletransfercontacts', {id:this.checkedid})
        .subscribe(data => {
-        this.http.post(this.AppComponent.BASE_URL+'/api/getfiletransfercontacts', {userid:this.userid})
-        .subscribe(data => {
-          //this.contactModal.close();
-          this.filetransfercontact = data;
-          this.myfiletransfercontact = this.filetransfercontact.data;
-        });
+        // this.http.post(this.AppComponent.BASE_URL+'/api/getfiletransfercontacts', {userid:this.userid})
+        // .subscribe(data => {
+        //   //this.contactModal.close();
+        //   this.filetransfercontact = data;
+        //   this.myfiletransfercontact = this.filetransfercontact.data;
+        // });
+          this.getmails(this.page, this.limit)
+
        });  
     }
 

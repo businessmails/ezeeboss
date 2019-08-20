@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails, TokenPayload } from '../authentication.service';
 import { AppComponent } from '../app.component';
+import { Location } from '@angular/common';
+
 // import { Math } from 'es6-shim';
 @Component({
   selector: 'app-readmail',
@@ -47,20 +49,28 @@ export class ReadmailComponent implements OnInit {
   page = 0;
   limit = 10;
   lastpage: any;
-  showprev: boolean =true;
-  shownext: boolean =true;
+  showprev: boolean = true;
+  shownext: boolean = true;
+  empty: boolean = false;
+  emptyMsg: string;
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
-    private AppComponent: AppComponent
+    private AppComponent: AppComponent,
+    private _location: Location
+
   ) { }
+
+  backClicked() {
+    this._location.back();
+  }
   getReadMails(page, limit) {
     if (page == 0) {
       this.showprev = false;
     } else {
       this.showprev = true;
     }
-// console.log(page, limit)
+    // console.log(page, limit)
     this.auth.profile().subscribe(user => {
       this.details = user;
       this.fullname = this.details.name;
@@ -68,15 +78,25 @@ export class ReadmailComponent implements OnInit {
       this.email = this.details.email;
       this.http.post(this.AppComponent.BASE_URL + '/api/getreadmail/' + page + '/' + limit, { userid: this.userid })
         .subscribe(data => {
-          this.mails = data;
-          this.records = this.mails.count;
-          this.sentmails = this.mails.data.reverse();
-          this.lastpage = Math.ceil(this.records / limit);
-          if (page == (this.lastpage-1)) {
-            this.shownext = false;
+          if (data != "NO records Found") {
+
+            this.empty = false;
+            this.mails = data;
+            this.records = this.mails.count;
+            this.sentmails = this.mails.data;
+            this.lastpage = Math.ceil(this.records / limit);
+            if (page == (this.lastpage - 1)) {
+              this.shownext = false;
+            }
+            else {
+              this.shownext = true;
+            }
           }
           else {
-            this.shownext = true;
+            this.shownext = false;
+            this.showprev = false;
+            this.empty = true;
+            this.emptyMsg = "No records found";
           }
         });
     });
@@ -95,7 +115,6 @@ export class ReadmailComponent implements OnInit {
     else if (move == 'n') {
       this.page = this.page + 1;
     }
-    console.log(this.page, this.limit)
     this.getReadMails(this.page, this.limit)
 
 
@@ -142,7 +161,7 @@ export class ReadmailComponent implements OnInit {
       this.sentmails = filteredarray;
     }
     else {
-      this.sentmails = this.mails.data.reverse();
+      this.sentmails = this.mails.data;
     }
 
   }
@@ -169,11 +188,8 @@ export class ReadmailComponent implements OnInit {
         }
         this.http.post(this.AppComponent.BASE_URL + '/api/removemail', { mailid: this.checkedid })
           .subscribe(data => {
-            this.http.post(this.AppComponent.BASE_URL + '/api/getreadmail', { userid: this.userid })
-              .subscribe(data => {
-                this.mails = data;
-                this.sentmails = this.mails.data.reverse();
-              });
+            this.getReadMails(this.page, this.limit);
+
           });
       }
 

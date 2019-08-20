@@ -216,7 +216,7 @@
                       <th>Action</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody  *ngIf='!empty'>
                      <tr *ngFor="let item of sentmails" class="unread">
                          <td>
                       <div class="checkbox s_t">
@@ -240,12 +240,21 @@
                   </tbody>
                   
                 </table>
+                <div *ngIf='emptyMsg' class="empty">{{emptyMsg}}</div>
                </form>
-                   <div class="smartdelete"> 
+                   <div  *ngIf='!empty' class="smartdelete"> 
                     <a  (click)="movetotrash()">
                         <button _ngcontent-c4="" class="delbtn"> Delete</button>
              </a> 
        </div>
+        <div class="pagination">
+                          <a *ngIf='showprev' (click)="pageination('p')">
+                            <button class="prebtn"> Previous</button>
+                          </a>
+                          <a *ngIf='shownext' (click)="pageination('n')">
+                            <button class="nxtbtn"> Next</button>
+                          </a>
+                        </div>
    </div>
 
  </div>			  

@@ -41,12 +41,61 @@ export class ReadmailtranferComponent implements OnInit {
   id: any;
   data2: any;
   length: any;
-
+  empty: boolean;
+  showprev: boolean;
+  records: any;
+  lastpage: number;
+  shownext: boolean;
+  emptyMsg: string;
+  page = 0;
+  limit = 10;
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
     private AppComponent: AppComponent
   ) { }
+getReadMails(page, limit) {
+    if (page == 0) {
+      this.showprev = false;
+    } else {
+      this.showprev = true;
+    }
+      this.http.post(this.AppComponent.BASE_URL + '/api/getreadfiletransfermail/' + page + '/' + limit, { userid: this.userid })
+        .subscribe(data => {
+          if (data != "NO records Found") {
+            this.empty = false;
+            this.mails = data;
+            this.records = this.mails.count;
+            this.sentmails = this.mails.data;
+            this.lastpage = Math.ceil(this.records / limit);
+            if (page == (this.lastpage - 1)) {
+              this.shownext = false;
+            }
+            else {
+              this.shownext = true;
+            }
+          }
+          else {
+            this.shownext = false;
+            this.showprev = false;
+            this.empty = true;
+            this.emptyMsg = "No records found";
+          }
+        });
+  }
+
+   pageination(move) {
+    if (move == 'p') {
+      this.page = this.page - 1;
+    }
+    else if (move == 'n') {
+      this.page = this.page + 1;
+    }
+    this.getReadMails(this.page, this.limit)
+
+
+  }
+
 
   ngOnInit() {
 
@@ -55,13 +104,15 @@ export class ReadmailtranferComponent implements OnInit {
       this.fullname = this.details.name;
       this.userid = this.details._id;
       this.email = this.details.email;
+      this.getReadMails(this.page, this.limit)
       // console.log(this.useremail)
-      this.http.post(this.AppComponent.BASE_URL + '/api/getreadfiletransfermail', { userid: this.userid })
-        .subscribe(data => {
-          this.mails = data;
-          this.sentmails = this.mails.data;
-        });
+      // this.http.post(this.AppComponent.BASE_URL + '/api/getreadfiletransfermail', { userid: this.userid })
+      //   .subscribe(data => {
+      //     this.mails = data;
+      //     this.sentmails = this.mails.data;
+      //   });
     });
+    
 
   }
 clickme(idd) {
@@ -128,13 +179,14 @@ clickme(idd) {
        for( let i = 0;i<this.checkedmails.length;i++) {
         this.checkedid.push({id:this.checkedmails[i]._id});
        }
-       this.http.post(this.AppComponent.BASE_URL+'/api/removfiletransferemail', {mailid:this.checkedid})
+       this.http.post(this.AppComponent.BASE_URL+'/api/movefiletransfermailstotrash', {mailid:this.checkedid})
        .subscribe(data => {
-        this.http.post(this.AppComponent.BASE_URL+'/api/getreadfiletransfermail', {userid:this.userid})
-        .subscribe(data => {
-          this.mails = data;
-          this.sentmails= this.mails.data;
-        });
+           this.getReadMails(this.page, this.limit);
+        // this.http.post(this.AppComponent.BASE_URL+'/api/getreadfiletransfermail', {userid:this.userid})
+        // .subscribe(data => {
+        //   this.mails = data;
+        //   this.sentmails= this.mails.data;
+        // });
        });  
     }
 

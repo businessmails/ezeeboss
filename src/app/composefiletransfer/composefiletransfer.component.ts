@@ -4,6 +4,7 @@ import { AuthenticationService, UserDetails, TokenPayload} from '../authenticati
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent} from '../app.component';
 import { Router } from '@angular/router'
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -37,10 +38,13 @@ export class ComposefiletransferComponent implements OnInit {
     private http: HttpClient,
     private auth: AuthenticationService,
     private AppComponent:AppComponent,
-    private router: Router
+    private router: Router,
+    public _location :Location
 
   ) { }
-
+backClicked() {
+    this._location.back();
+  }
   ngOnInit() {
     this.auth.profile().subscribe(user => {
       this.details = user;
@@ -92,6 +96,7 @@ export class ComposefiletransferComponent implements OnInit {
     }
     
    validateemail() {
+     this.showsearch =false;
     var emails = this.toemail.nativeElement.value;
     var emailArray = emails.split(",");
     var invEmails = "";
@@ -131,7 +136,7 @@ export class ComposefiletransferComponent implements OnInit {
     email = mailarray[mailarray.length - 1];
     if (email != '') {
       this.showsearch = true;
-      this.http.post(this.AppComponent.BASE_URL + '/api/filetransferSerchmail', { email: email })
+      this.http.post(this.AppComponent.BASE_URL + '/api/filetransferSerchmail', { email: email ,userId:this.userid })
         .subscribe(data => {
           this.result = data;
           this.serchedmail = this.result.result;

@@ -4,7 +4,7 @@
 <!-- <link rel="stylesheet" href="assets/css/mycustom.css">  -->
 <section class="hdrsec">
   <div class="logoimg">
-      <a href="#"><img src="assets/img/ezee-logo.png"/></a>
+      <a ><img src="assets/img/ezee-logo.png"/></a>
   </div>
 </section>
 
@@ -16,7 +16,7 @@
       <div class="col-xs-9 text-right">
                 <div class="row">
                     <div class="col-xs-6 text-left">
-                        <a href="#" class="top_back_button"><i class="fa fa-caret-left"></i><span>Back</span></a>    
+                        <a (click)="backClicked()" class="top_back_button"><i class="fa fa-caret-left"></i><span>Back</span></a>    
                     </div>
                     <!-- menu start -->
                     <div class="col-xs-6 text-right">
@@ -218,7 +218,7 @@
                        <th>Action</th>
                      </tr>
                    </thead>
-                   <tbody>
+                   <tbody *ngIf='!empty'>
                     <tr *ngFor="let item of trashmails" class="unread">
                       <td>
                    <div class="checkbox s_t">
@@ -242,8 +242,9 @@
                    </tbody>
                    
                  </table>
+                 <div *ngIf='empty' class="empty">{{empty}}</div>
                </form>
-                   <div class="smartdelete"> 
+                   <div *ngIf='!empty' class="smartdelete"> 
        <a (click)="deletesmartmail()">
             <button class="delbtn"> Delete</button>
        </a> 

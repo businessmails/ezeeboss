@@ -185,8 +185,13 @@
                                         <div class="">
 
                                             <div class="table-responsive">
+                                                <div class="smartpadding"> 
+       <a (click)="ngOnInit()" class="pointer">
+       <img src="assets/img/refresh.png" class="img-responsive img1" style="width: 25px;">
+       </a> 
+               </div>
                                                 <div class="smartpadding">
-                                                    <!-->
+                                                    <!--
                                                     <div class="col-md-6 col-sm-6 col-xs-12 nopadding">
                                                         <a href="#">
                                                             <img src="assets/img/smartmail.png" class="img-responsive mailimg" />
@@ -227,7 +232,7 @@
 
 
 
-                                                    <tbody>
+                                                    <tbody  *ngIf='!empty'>
                                                         <tr *ngFor="let item of myfiletransfercontact">
                                                             <td>
                                                                 <div class="checkbox">
@@ -251,91 +256,10 @@
 
                                                         </tr>
 
-                                                        <!--  <tr>
-                     <td>
-         <div class="checkbox">
-                           <label class="container57">
-                               <input type="checkbox">
-                               <span class="checkmark"></span>
-                           </label>
-                       </div>
-         </td>
-                     <td><input type="search" class="form-control input-sm" ></td>
-                     <td><input type="search" class="form-control input-sm"></td>
-                     <td><input type="search" class="form-control input-sm"></td>
-                     <td>
-         <span style="color:red;">
-           <a href="#"><font color="green">Mail Sent <br>(1)</font></a>
-         </span>
-         </td>
-                     <td>
-         <input type="text" class="form-control input-sm">						 
-         </td>
-                     <td>
-         <button type="submit" class="smartremovebtn">
-           <img src="assets/img/smartremove.png">
-         </button>
-         </td>
-                   
-                   </tr>
-       
-       <tr>
-                     <td>
-         <div class="checkbox">
-                           <label class="container57">
-                               <input type="checkbox">
-                               <span class="checkmark"></span>
-                           </label>
-                       </div>
-         </td>
-                     <td><input type="search" class="form-control input-sm" ></td>
-                     <td><input type="search" class="form-control input-sm"></td>
-                     <td><input type="search" class="form-control input-sm"></td>
-                     <td>
-         <span style="color:red;">
-           <b>No</b>
-         </span>
-         </td>
-                     <td>
-         <input type="text" class="form-control input-sm">						 
-         </td>
-                     <td>
-         <button type="submit" class="smartremovebtn">
-           <img src="assets/img/smartremove.png">
-         </button>
-         </td>
-                   
-                   </tr>
-       
-       <tr>
-                     <td>
-         <div class="checkbox">
-                           <label class="container57">
-                               <input type="checkbox">
-                               <span class="checkmark"></span>
-                           </label>
-                       </div>
-         </td>
-                     <td><input type="search" class="form-control input-sm" ></td>
-                     <td><input type="search" class="form-control input-sm"></td>
-                     <td><input type="search" class="form-control input-sm"></td>
-                     <td>
-         <span style="color:red;">
-           <b>No</b>
-         </span>
-         </td>
-                     <td>
-         <input type="text" class="form-control input-sm">						 
-         </td>
-                     <td>
-         <button type="submit" class="smartremovebtn" >
-           <img src="assets/img/smartremove.png">
-         </button>
-         </td>
-                   
-                   </tr> -->
+                                                      
                                                     </tbody>
                                                 </table>
+                                                <div *ngIf='empty' class="empty">{{empty}}</div>
                                             </div>
 
                                             <modal #contactModal [hideCloseButton]="true" [closeOnOutsideClick]="false">
@@ -383,13 +307,20 @@
 
                                             </modal>
 
-                                            <div class="col-lg-6">
+                                            <div *ngIf='!empty'  class="col-lg-6">
                                                 <a (click)="deletecontact()">
                                                         <button _ngcontent-c4="" class="delbtn"> Delete</button>
                                                             </a>
                                             </div>
 
-
+ <div class="col-lg-6 pagination">
+                        <a *ngIf='showprev' (click)="pageination('p')">
+                          <button class="prebtn"> Previous</button>
+                        </a>
+                        <a *ngIf='shownext' (click)="pageination('n')">
+                          <button class="nxtbtn"> Next</button>
+                        </a>
+                      </div>
 
                                         </div>
 

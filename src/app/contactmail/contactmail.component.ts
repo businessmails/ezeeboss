@@ -4,6 +4,7 @@ import { AuthenticationService, UserDetails, TokenPayload } from '../authenticat
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 import { AppComponent } from '../app.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-contactmail',
@@ -29,17 +30,29 @@ export class ContactmailComponent implements OnInit {
   showprev: boolean = true;
   shownext: boolean = true;
   records: any;
+  empty: Object;
+  res: boolean =false;
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
-    private AppComponent: AppComponent) { }
+    private AppComponent: AppComponent,
+     private _location: Location
 
+  ) { }
+
+  backClicked() {
+    this._location.back();
+  }
   ngOnInit() {
   this.getmails(this.page, this.limit)
   }
 
   getmails(page, limit) {
-
+ if (page == 0) {
+      this.showprev = false;
+    } else {
+      this.showprev = true;
+    }
     this.auth.profile().subscribe(user => {
       this.details = user;
       this.fullname = this.details.name;
@@ -48,15 +61,25 @@ export class ContactmailComponent implements OnInit {
       // console.log(this.useremail)
       this.http.post(this.AppComponent.BASE_URL + '/api/getcsvcontacts/' + page + '/' + limit, { userid: this.userid })
         .subscribe(data => {
+          this.res=true;
+           if (data != "NO records Found") {
+             this.empty =""
           this.csvcontacts = data;
           this.mycsvcontact = this.csvcontacts.data;
             this.records = this.csvcontacts.count;
+            // console.log("this.csvcontacts.count"),this.csvcontacts.count
           this.lastpage = Math.ceil(this.records / limit);
           if (page == (this.lastpage - 1)) {
             this.shownext = false;
           }
           else {
             this.shownext = true;
+          }
+           }
+            else{
+             this.shownext = false;
+             this.showprev =false;
+             this.empty="No records found";
           }
         });
     });
@@ -70,7 +93,6 @@ export class ContactmailComponent implements OnInit {
     else if (move == 'n') {
       this.page = this.page + 1;
     }
-    console.log(this.page, this.limit)
     this.getmails(this.page, this.limit)
   }
   uploadcsvcontacts(event) {
