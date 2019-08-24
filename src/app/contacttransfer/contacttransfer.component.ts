@@ -44,7 +44,7 @@ export class ContacttransferComponent implements OnInit {
   records: any;
   lastpage: number;
     page = 0;
-  limit = 2;
+  limit = 10;
   shownext: boolean;
   constructor(
     private http: HttpClient,

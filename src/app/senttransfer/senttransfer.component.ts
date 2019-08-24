@@ -23,7 +23,7 @@ export class SenttransferComponent implements OnInit {
   searchdata:string;
   email: string;
    page = 0;
-  limit = 1;
+  limit = 10;
   showprev: boolean;
   empty: boolean;
   records: any;

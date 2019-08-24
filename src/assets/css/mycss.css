@@ -429,20 +429,18 @@ text-align:center;
 	padding-left: 6px;
 	font-weight: normal;
 }
-.pagination {
-	margin: 4px auto;
-	/* padding: 12px 0; */
-    /* text-align: center; */
-    float: right;/* border-top: none; *//* width: 20%; */
+.pagination{
+	margin: 0!important; float: right;
 }
-.pagination a {
-	border:solid 1px #d2d2d2;
-	background-color:#00C0EF;
-	color:#FFFFFF;
-	margin-right:2px;
-}
-.pagination span {
-	margin-right:2px;
+.smartdelete { display: inline-block; width: auto!important; }
+.pagination a  button{ background: #c1c1c1!important;
+    color: #fff!important;
+    border: 0!important;
+    border-radius: 0!important;
+    padding: 8px 20px;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-bottom: 14px;
 }
 .pagination .active {
 	color:#000;
@@ -458,9 +456,8 @@ text-align:center;
 	padding:6px 10px;
 	text-decoration:none;
 }
-.pagination a:hover {
-	border:solid 1px #b2b2b2;
-}
+.smartpadding {display: inline-block; width: auto!important;}
+.smartpadding_2 {display: inline-block; width: auto!important; float: right; white-space: nowrap;}
 .error-message {
 	PADDING-RIGHT: 8px;
 	PADDING-LEFT: 32px;
@@ -3478,6 +3475,7 @@ button.btn.signbtn.recap_img {
 .custom_plus { position: unset!important;}
 .popuplog-close {position:absolute; top:-15px; right:-15px;}
 .top_popup_header { background:#378d8b; }
+.top_popup_header_file_tranfer{ background: rgb(188, 123, 57) !important }
 .top_popup_header_e_sign { background: #5a731b }
 .mail_subject { font-size:20px;     margin-top: 10px;}
 .mail_subject span { font-weight: bold; }
@@ -3511,3 +3509,4 @@ td { color: #000!important; font-weight: 600!important; }
 .popuplog-close { width: 30px; height: 30px; padding-top: 0px; display: inline-block; position: absolute; top: 0px !important; right: 0px!important; -webkit-transition: ease 0.25s all; transition: ease 0.25s all; -webkit-transform: translate(50%, -50%); transform: translate(50%, -50%); border-radius: 1000px; background: rgba(0,0,0,0.8); font-size: 20px; text-align: center; line-height: 100%; color: #fff; cursor: pointer;  border: 0}
 #selectpati1, #selectpati_new { padding: 15px 0!important; }
 .addbtnnew_e_sign { background-color: #fff!important; border: 0px; border-radius: 0px ! important; color: #5a731b!important; position: absolute; right: 25px; top: 11px; font-size: 15px!important; box-shadow: 0px 5px 8px 0px #747474 !important; -webkit-box-shadow: 0px 5px 8px 0px #747474 !important; font-weight: 600!important;}
+.add_contact_popup { display: inline-block; padding: 20px; width: 100% }

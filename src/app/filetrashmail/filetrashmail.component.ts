@@ -3,9 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails, TokenPayload } from '../authentication.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent } from '../app.component';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-file-trashmail',
+  selector: 'app-trashmail',
   templateUrl: './filetrashmail.component.html',
   styleUrls: ['./filetrashmail.component.css']
 })
@@ -21,23 +22,80 @@ export class FileTransferTrashmailComponent implements OnInit {
   trashmails: any;
   isSelected = false;
   searchdata: any;
+  page = 0;
+  limit = 10;
+  lastpage: any;
+  showprev: boolean = true;
+  shownext: boolean = true;
+  records: any;
+  empty: Object;
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
-    private AppComponent: AppComponent
+    private AppComponent: AppComponent,
+    private _location: Location
+
   ) { }
 
+  backClicked() {
+    this._location.back();
+  }
+
   ngOnInit() {
+    this.getmails(this.page, this.limit)
+  }
+
+
+
+
+  pageination(move) {
+    if (move == 'p') {
+      this.page = this.page - 1;
+    }
+    else if (move == 'n') {
+      this.page = this.page + 1;
+    }
+    console.log(this.page, this.limit)
+    this.getmails(this.page, this.limit)
+  }
+
+  getmails(page, limit) {
+
+    if (page == 0) {
+      this.showprev = false;
+    } else {
+      this.showprev = true;
+    }
+
     this.auth.profile().subscribe(user => {
       this.details = user;
       this.fullname = this.details.name;
       this.userid = this.details._id;
       this.email = this.details.email;
       // console.log(this.useremail)
-      this.http.post(this.AppComponent.BASE_URL + '/api/gettrashmail', { userid: this.userid })
+      this.http.post(this.AppComponent.BASE_URL + '/api/gettrashmailtransfer/' + page + '/' + limit, { userid: this.userid })
         .subscribe(data => {
-          this.mails = data;
-          this.trashmails = this.mails.data;
+
+          if (data != "NO records Found") {
+            this.mails = data;
+            this.trashmails = this.mails.data;
+            this.empty = ""
+            this.records = this.mails.count;
+            console.log("this.mails.count"), this.mails.count
+            this.lastpage = Math.ceil(this.records / limit);
+            if (page == (this.lastpage - 1)) {
+              this.shownext = false;
+            }
+            else {
+              this.shownext = true;
+            }
+          }
+          else {
+            this.shownext = false;
+            this.showprev = false;
+            this.empty = "No records found";
+          }
+
         });
     });
   }
@@ -67,11 +125,9 @@ export class FileTransferTrashmailComponent implements OnInit {
         }
         this.http.post(this.AppComponent.BASE_URL + '/api/movesmartmailstosent', { mailid: this.checkedid })
           .subscribe(data => {
-            this.http.post(this.AppComponent.BASE_URL + '/api/gettrashmail', { userid: this.userid })
-              .subscribe(data => {
-                this.mails = data;
-                this.trashmails = this.mails.data;
-              });
+
+            this.getmails(this.page, this.limit)
+
           });
       }
 
@@ -89,13 +145,16 @@ export class FileTransferTrashmailComponent implements OnInit {
         for (let i = 0; i < this.checkedmails.length; i++) {
           this.checkedid.push({ id: this.checkedmails[i]._id });
         }
-        this.http.post(this.AppComponent.BASE_URL + '/api/deletesmartmail', { mailid: this.checkedid })
+        this.http.post(this.AppComponent.BASE_URL + '/api/deletefiletransfermail', { mailid: this.checkedid })
           .subscribe(data => {
-            this.http.post(this.AppComponent.BASE_URL + '/api/gettrashmail', { userid: this.userid })
-              .subscribe(data => {
-                this.mails = data;
-                this.trashmails = this.mails.data;
-              });
+            // this.http.post(this.AppComponent.BASE_URL + '/api/gettrashmail', { userid: this.userid })
+            //   .subscribe(data => {
+            //     this.mails = data;
+            //     this.trashmails = this.mails.data;
+            //   });
+
+            this.getmails(this.page, this.limit)
+
           });
       }
 
@@ -118,7 +177,7 @@ export class FileTransferTrashmailComponent implements OnInit {
 
   }
   emptytrash() {
-    this.http.post(this.AppComponent.BASE_URL + '/api/emptysmartmailtrash', { userid: this.userid })
+    this.http.post(this.AppComponent.BASE_URL + '/api/emptyfiletransfermailtrash', { userid: this.userid })
       .subscribe(data => {
         this.mails = data;
         this.trashmails = this.mails.data;

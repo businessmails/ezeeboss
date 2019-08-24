@@ -15,6 +15,7 @@ a:focus, a:hover{text-decoration: none !important;}
 .logimg img{
     width: 200px;
 }
+
 .formdiv{
     width: 100%;
     float: left;
@@ -969,10 +970,9 @@ width: 15px !important;
 
 
 
-
 .inner-part8 {
-    background:#378d8b !important;
-    margin-bottom: 3%;
+    background: rgb(188, 123, 57) !important;
+    padding: 0 20px;
 }
 .smartusericon{
 	cursor: pointer; 
@@ -997,9 +997,10 @@ width: 15px !important;
     margin: 9px 0 0 0 !important;
     font-weight: 400 !important;
 }
-.nav-tabs6[_ngcontent-c9] > li.active[_ngcontent-c9] > a[_ngcontent-c9], .nav-tabs6[_ngcontent-c9] > li.active[_ngcontent-c9] > a[_ngcontent-c9]:hover, .nav-tabs6[_ngcontent-c9] > li.active[_ngcontent-c9] > a[_ngcontent-c9]:focus {
-    background: #378d8b !important;
-	}
+.nav-tabs6 > li.active > a, .nav-tabs6 > li.active > a:hover, .nav-tabs6 > li.active > a:focus {
+    /*background: #d07c00 !important;    */
+    background: rgb(188, 123, 57) !important ;
+}
 .smartfloatform input {
     height: 38px;
     padding: 6px 12px;
@@ -1035,7 +1036,7 @@ width: 15px !important;
     border-color: #ccc;
 }  
 .smartmovebtn{
-    background-color: #378d8b;
+    background-color: rgb(188, 123, 57) !important;
     color: #fff;
     border: none;
     border-radius: 0;
