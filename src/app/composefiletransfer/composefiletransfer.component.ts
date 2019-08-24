@@ -96,7 +96,7 @@ backClicked() {
     }
     
    validateemail() {
-     this.showsearch =false;
+    //  this.showsearch =false;
     var emails = this.toemail.nativeElement.value;
     var emailArray = emails.split(",");
     var invEmails = "";
@@ -117,12 +117,15 @@ backClicked() {
 
 
   selectmail(email) {
+    // console.log("as")
     this.selectedMails = [];
     var str = this.toemail.nativeElement.value.toLowerCase();
     this.selectedMails = str.split(",");
     this.selectedMails.pop();
+    // console.log("---",email)
     if (this.selectedMails.indexOf(email) === -1) {
       this.selectedMails.push(email);
+      console.log(this.selectedMails.join())
       this.toemail.nativeElement.value = this.selectedMails.join();
       this.emailerror = '';
     }
@@ -138,8 +141,16 @@ backClicked() {
       this.showsearch = true;
       this.http.post(this.AppComponent.BASE_URL + '/api/filetransferSerchmail', { email: email ,userId:this.userid })
         .subscribe(data => {
+          console.log("-----",data)
           this.result = data;
+          if(this.result.length>0){
           this.serchedmail = this.result.result;
+
+          }
+          else{
+  this.showsearch = false;
+          }
+          
         });
     } else {
       this.showsearch = false;

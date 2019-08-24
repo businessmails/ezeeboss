@@ -166,7 +166,14 @@
                     <span class="pt6">Sent</span>
                   </a>
                 </li>
-
+ <li class="">
+                  <a routerLink="/fileTranferTrash">
+                    <span class="iconimg">
+                     <img src="assets/img/trash.png" />
+                    </span> &nbsp;&nbsp;
+                    <span class="pt6">Trash</span>
+                  </a>
+                </li>
                 <li class="">
                   <a routerLink="/contacttransfer">
                     <span class="iconimg">
@@ -238,6 +245,7 @@
                               </tr>
                             </tbody>
                           </table>
+                          <div *ngIf='emptyMsg' class="empty">{{emptyMsg}}</div>
                         </form>
                         <div *ngIf='!empty' class="smartdelete">
                           <a (click)="deletemails()">

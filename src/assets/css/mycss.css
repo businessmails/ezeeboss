@@ -3527,7 +3527,3 @@ td { color: #000!important; font-weight: 600!important; }
 .top_back_button, a:hover.top_back_button { background: #494d49!important; position: relative; height: 46px; line-height: 46px; display: inline-block; margin-top: 25px; color: #fff; font-size: 22px; padding-left: 20px; padding-right: 20px; }
 .top_back_button i { font-size: 30px; margin-right: 13px; vertical-align: middle; margin-top: -3px; }
 .logoimg img { margin-top: 10px; }
-
-.pointer{
-	cursor: pointer;
-}
