@@ -2,20 +2,13 @@
     text-align: center;
     padding: 130px 20px;
 }
-button.bottom-nextbtn.tofloat[_ngcontent-c9] {
-    background: #89b345 !important;
-    width: 111px !important;
-    color: #fff !important;
-}
-.bottom-nextbtn {
-    margin-top: 15px;
-}
 .logimg img{
     width: 200px;
 }
-.log-reg-btn{
+.formdiv{
     width: 100%;
     float: left;
+    padding-bottom: 60px;
 }
 .ezeelogintext{
     width: 100%;
@@ -63,10 +56,6 @@ button.bottom-nextbtn.tofloat[_ngcontent-c9] {
     color: white;
     margin: 0;
 }
-a.homeanchor {
-    text-decoration: none !important;
-}
-.bottom-nextbtn[_ngcontent-c0]{margin-top: 17px;}
 .jsttext{
     text-align: center;
     width: 100%;
@@ -100,9 +89,6 @@ a.homeanchor {
 .socialbtns .googlebtn a:hover, .socialbtns .googlebtn a:focus, .socialbtns .googlebtn a:active {
     background-color: #c53c2b;
 }
-a.list-part2.mobilehomebtn {
-    text-decoration: none;
-}
 .capimg{
     width: 100%;
     float: left;
@@ -116,9 +102,9 @@ a.list-part2.mobilehomebtn {
     float: left;
     overflow: hidden;
 	position: absolute;
-	top: 0;
+	top: 230px;
 	left: 0;
-	bottom: 0;
+	bottom: 12px;
 	right: 0;
 	margin: auto;
 }
@@ -165,12 +151,7 @@ a.list-part2.mobilehomebtn {
     width: 285px;
 }
 /*header end*/
-.editorbox.s_mail .ql-container.ql-snow {
-    min-height: 105px;
-}
-label.bottom-nextbtn.smartchoose {
-    cursor: pointer;
-}
+
 
 /*footer start*/
 .msgimgdiv {
@@ -196,7 +177,7 @@ footer {
     width: 100%;
     border-top: 2px solid #b59848;
     border-bottom: 2px solid #b59848;
-    float: left;  position: fixed; bottom:0;  z-index: 99;
+    float: left;position: fixed; bottom:0;
 }
 .social-icondiv{
     width: 100%;
@@ -216,9 +197,9 @@ footer {
 img.ng-untouched.ng-pristine.ng-valid {
     width: 100%;
 }
-video {
+/* video {
     width: 300%;
-}
+} */
 /*footer end*/
 
 .um-jap {
@@ -235,12 +216,19 @@ p.encryption {
 }
 
 .bottom-nextbtn{
-    background-color: #414541;
+    background-color: #7a6320;
     color: white;
     padding: 3px 20px;
     font-size: 16px;
     border: none;
-    font-weight: 400;
+}
+.tab-content .active {
+    display: block!important;
+}
+.bottom-nextbtn:hover, .bottom-nextbtn:active, .bottom-nextbtn:focus{
+    background-color: #977f3c;
+    color: white;
+    border: none;
 }
 .tofloat{
     float: right;
@@ -417,10 +405,6 @@ p.encryption {
     box-shadow: 0px 3px 4px 0px #aaa !important;
     transition: all 0.7s ease-in-out;
 }
-.nav-tabs6 > li.active > a, .nav-tabs6 > li.active > a:hover, .nav-tabs6 > li.active > a:focus{
-    background: #521629 !important;
-}
-
 .nav-tabs6 {
     border: none !important;
 }
@@ -468,7 +452,7 @@ p.encryption {
 }
 .cnclbtn{
     position: absolute !important;
-    background: #cc3100;
+    background: rgb(234,0,0);
     font-size: 14px;
     border-radius: 0px !important;
     border: 0px solid transparent;
@@ -502,6 +486,7 @@ p.encryption {
 .fullpage{
     width: 100%;
     float: left;
+    
 }
 
 
@@ -579,6 +564,7 @@ display:none;
 
   color: #b49948;
 } 
+
 @media screen and (min-width: 1920px)
 {
 .latest-trend-box a img {
@@ -603,6 +589,7 @@ display:none;
   
 }
 /* internal css end */
+
 .mobilebg{
     border: 2px #858f03 solid; 
     margin-top:10px; 
@@ -967,7 +954,7 @@ display:none;
 
 
 .inner-part8 {
-    background: #521629 !important;
+    background: #378d8b;
     margin-bottom: 3%;
 }
 .smartusericon{
@@ -1005,16 +992,8 @@ display:none;
 	outline: none;
 	border: 1px #515252 solid;
 }
-.control-label1 {
-	padding: 0px;
-        height: 38px;
-    color: #000;
-    line-height: 44px;
-}
 .smartfloat .mobilepd .smartchoose {
 	float: right;
-    margin-top: 0;
-    margin-left: 0px;
 }
 .smartnofloat{
 	margin-bottom: 0px !important;
@@ -1107,7 +1086,6 @@ display:none;
     height: 15px;
     width: 15px;
     background-color: #e1dfdf;
-    border: 1px solid #414541;
 }
 
 /* On mouse-over, add a grey background color */
@@ -1156,25 +1134,64 @@ display:none;
 .smartrules{
 	padding: 15px 0;
 }
-.encyt {
-    padding-top: 10px;
-    padding-bottom: 7px;
+button.bottom-nextbtn.tofloat[_ngcontent-c3] {
+    background: #89b345 !important;
+    width: 111px !important;
+    color: #fff !important;
 }
-.form-control{border-radius: 0px;}
-  @media (max-width: 767px) {
-		p.pt10 {
-         text-align: left !important;
-		}
-  }
-
-  .custom_ul_new { position: relative;}
-.custom_ul_new ul { margin: 0;
-    padding: 0 0 10px 0;
-    list-style: none;
-    border: 1px solid #000;
-    position: absolute;
-    z-index: 9;
+.innerviewdiv{
     width: calc(100% - 30px);
-    left: 15px;
-    background: #fff;}
-.custom_ul_new ul li { padding: 10px 10px 0 10px; color: #000; font-weight: 600}
+    float: none;
+    padding: 10px;
+    margin:32px 15px 80px;
+    background-color: #fff;
+    display: table;
+    font-size: 15px;
+}  
+.innerviewdiv .message-date{
+    margin: 23px 0 0;
+    text-align: right;
+}
+.attachmentdiv{
+    padding: 40px 0;
+}
+.forwardbtn{
+    background-color: #91c12d;
+    border-radius: 0px !important;
+    border: 0px !important;
+    color: #fff;
+    font-size: 16px !important; 
+    margin-bottom: 14px !important;
+}
+.forwardbtn:hover, .forwardbtn:focus, .forwardbtn:active{
+    background-color: #84b125;
+    color: #fff !important;
+    transition: .5s;
+}
+
+.backbtn{
+    background-color: #000000;
+    border-radius: 0px !important;
+    border: 0px !important;
+    color: #fff;
+    font-size: 16px !important; 
+    margin-bottom: 14px !important;
+}
+.backbtn:hover, .backbtn:focus, .backbtn:active{
+    background-color: #3d3f39;
+    color: #fff !important;
+    transition: .5s;
+}
+.printbtn{
+    background-color: #01b0f1;
+    border-radius: 0px !important;
+    border: 0px !important;
+    color: #fff;
+    font-size: 16px !important;  
+    margin-bottom: 14px !important;
+}
+.printbtn:hover, .printbtn:focus, .printbtn:active{
+    background-color: #03a3de;
+    color: #fff !important;  
+    transition: .5s; 
+}

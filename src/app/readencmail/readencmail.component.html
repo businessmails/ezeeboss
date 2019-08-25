@@ -203,7 +203,7 @@
                        <th>Action</th>
                      </tr>
                    </thead>
-                   <tbody>
+                   <tbody  *ngIf='!empty'>
                       <tr *ngFor="let item of sentmails" class="unread">
                           <td>
                           
@@ -230,11 +230,20 @@
                    </tbody>
                    
                  </table>
+                   <div *ngIf='empty' class="empty">{{empty}}</div>
                </form>
                    <div class="smartdelete"> 
                     <a  (click)="movetotrash()">
                         <button _ngcontent-c3="" _ngcontent-c4="" class="delbtn"> Delete</button>
                 </a> 
+       </div>
+       <div  class="pagination"> 
+                    <a *ngIf='showprev' (click)="pageination('p')">
+                        <button class="prebtn"> Previous</button>
+       </a> 
+             <a *ngIf='shownext' (click)="pageination('n')">
+                        <button class="nxtbtn"> Next</button>
+       </a> 
        </div>
    </div>
 
@@ -309,7 +318,7 @@
                     </div>
                     
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                      <p class="centertext">From: <span>&nbsp;&nbsp;{{fromemail}}</span></p>
+                      <p class="centertext">From: <span>&nbsp;&nbsp;{{mail}}</span></p>
                     </div>
                      
                
@@ -359,7 +368,7 @@
                     
               <div class="message-attachments col-lg-12 col-md-12 col-sm-12 col-xs-12 centertext mrbt0">
                 <p><i style="font-size:22px;" class="fa fa-paperclip m-r-xs"></i>
-                  &nbsp;&nbsp;0&nbsp;&nbsp;Attachment(s)</p>
+                  &nbsp;&nbsp;1&nbsp;&nbsp;Attachment(s)</p>
                 <div class="message-attachment"></div>
 
               </div>

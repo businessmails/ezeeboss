@@ -33,6 +33,10 @@ export class ComposemailencryptedComponent implements OnInit {
    @ViewChild('message') message: ElementRef;
    @ViewChild('ccemail') ccemail: ElementRef;
   hide: boolean = true;
+  selectedMails: any[];
+  serchedmail: any[];
+  showsearch: boolean;
+  result: any =[];
   //  @ViewChild('password') password: ElementRef;
   constructor(
     private http: HttpClient,
@@ -98,6 +102,9 @@ export class ComposemailencryptedComponent implements OnInit {
     
    validateemail() {
     var emails = this.toemail.nativeElement.value;
+    if(emails==''){
+      return false
+    }
     var emailArray = emails.split(",");
     var invEmails = "";
     for(var i = 0; i <= (emailArray.length - 1); i++){
@@ -114,6 +121,10 @@ export class ComposemailencryptedComponent implements OnInit {
    } 
    ccvalidateemail() {
     var emails = this.ccemail.nativeElement.value;
+    // alert(emails)
+    if(emails==''){
+      return false;
+    }
     var emailArray = emails.split(",");
     var invEmails = "";
     for(var i = 0; i <= (emailArray.length - 1); i++){
@@ -182,6 +193,9 @@ var x =this.formData.getAll("uploads[]")
             this.formData.append('subject',this.subject.nativeElement.value);
             this.formData.append('password',this.password);
             this.formData.append('userId',this.userid);
+            this.formData.append('email',this.email);
+
+            
             this.http.post(this.AppComponent.BASE_URL+'/api/encryptfile', this.formData)
                 .subscribe(data => {
             this.loading = false;
@@ -194,4 +208,50 @@ var x =this.formData.getAll("uploads[]")
 }
 // alert("else")
 }
+
+
+
+  selectmail(email) {
+    // console.log("as")
+    this.selectedMails = [];
+    var str = this.toemail.nativeElement.value.toLowerCase();
+    this.selectedMails = str.split(",");
+    this.selectedMails.pop();
+    // console.log("---",email)
+    if (this.selectedMails.indexOf(email) === -1) {
+      this.selectedMails.push(email);
+      console.log(this.selectedMails.join())
+      this.toemail.nativeElement.value = this.selectedMails.join();
+      this.emailerror = '';
+    }
+    this.serchedmail = [];
+    this.showsearch = false;
+
+  }
+
+  search(email) {
+    var mailarray = email.split(',');
+    email = mailarray[mailarray.length - 1];
+    if (email != '') {
+      this.http.post(this.AppComponent.BASE_URL + '/api/serchEncmail', { email: email ,userId:this.userid })
+        .subscribe(data => {
+          this.result = data;
+          if(this.result.result.length>0){
+      this.showsearch = true;
+
+          this.serchedmail = this.result.result;
+
+          }
+          else{
+  this.showsearch = false;
+          }
+          
+        });
+    } else {
+      this.showsearch = false;
+      this.serchedmail = []
+    }
+
+  }
+
 }

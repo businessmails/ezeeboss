@@ -138,12 +138,13 @@ backClicked() {
     var mailarray = email.split(',');
     email = mailarray[mailarray.length - 1];
     if (email != '') {
-      this.showsearch = true;
+      
       this.http.post(this.AppComponent.BASE_URL + '/api/filetransferSerchmail', { email: email ,userId:this.userid })
         .subscribe(data => {
           console.log("-----",data)
           this.result = data;
-          if(this.result.length>0){
+          if(this.result.result.length>0){
+            this.showsearch = true;
           this.serchedmail = this.result.result;
 
           }

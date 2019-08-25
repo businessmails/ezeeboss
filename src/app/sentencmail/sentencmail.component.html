@@ -138,7 +138,7 @@
     <ul class="nav nav-tabs6">
 
       <li class="">
-          <a routerLink="/composemail">
+          <a routerLink="/composencryptemail">
               <span class="iconimg"><img src="assets/img/envelope.png"/></span>
               <span class="pt6">Compose</span>
           </a>
@@ -215,7 +215,7 @@
                        <th>Action</th>
                      </tr>
                    </thead>
-                   <tbody>
+                   <tbody  *ngIf='!empty' >
                       <tr *ngFor="let item of sentmails" class="unread">
                           <td>
                        <div class="checkbox s_t">
@@ -239,13 +239,22 @@
                    </tbody>
                    
                  </table>
-                
+                 <div *ngIf='empty' class="empty">{{empty}}</div>
               
                </form>
                    <div class="smartdelete"> 
-       <a  (click)="movetotrash()">
+       <a  *ngIf='!empty' (click)="movetotrash()">
             <button _ngcontent-c3="" _ngcontent-c4="" class="delbtn"> Delete</button>
            </a> 
+       </div>
+
+        <div  class="pagination"> 
+                    <a *ngIf='showprev' (click)="pageination('p')">
+                        <button class="prebtn"> Previous</button>
+       </a> 
+             <a *ngIf='shownext' (click)="pageination('n')">
+                        <button class="nxtbtn"> Next</button>
+       </a> 
        </div>
    </div>
 

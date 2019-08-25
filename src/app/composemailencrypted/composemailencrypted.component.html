@@ -188,9 +188,9 @@
                                                 <i class="fa fa-user" (click)="useridentity = !useridentity" style="font-size:24px !important; color:#b59848;" aria-hidden="true"
                                                     data-placement="left" data-toggle="tooltip" data-original-title="Edit your identity"></i>
                                             </span>
-                                            <form class="smartfloatform">
-
-                                                <div class="form-group smartfloat smartnofloat" *ngIf="useridentity">
+                                            <form class="smartfloatform" autocomplete="off">
+                                                
+                                                    <div class="form-group smartfloat smartnofloat" *ngIf="useridentity">
 
                                                     <label for="inputEmail" class="col-lg-2 control-label1">From:</label>
                                                     <div class="col-lg-10">
@@ -203,10 +203,15 @@
                                                         <span style="font-family:&#39;Century Gothic&#39;; color:#000; font-size:15px;">Use comma(,) to separate email id, avoid spacing between email ids.</span>
                                                     </div>
                                                     <label for="inputEmail" class="col-lg-2 control-label1 lable2">To:</label>
-                                                    <div class="col-lg-10">
+                                                    <div class="col-lg-10 custom_ul_new">
                                                         <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-                                                        <input type="text" (blur)="validateemail()" #toemail class="form-control ui-autocomplete-input" name="emailid" value="" autocomplete="off" required>
-                                                        <span class="error-msg">{{emailerror}}</span>
+                                                        <input type="text" (blur)="validateemail()" #toemail (keyup)="search($event.target.value)" class="form-control ui-autocomplete-input" name="emailid" value="" autocomplete="off" required>
+
+                                                       
+                            <ul *ngIf="showsearch">
+                              <li (click)="selectmail(email.email)" *ngFor="let email of serchedmail">{{email.email}}
+                              </li>
+                                        </ul>                <span class="error-msg">{{emailerror}}</span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group smartfloat">
@@ -232,7 +237,7 @@
 
                                                 <div class="form-group smartfloat">
                                                     <div class="col-md-12 col-sm-12 col-xs-12 mobilepd">
-                                                        <!-- <a><button   class="bottom-nextbtn addpart">Add Participants</button></a> -->
+                                                       
                                                         <label for="inputEmail" class="col-lg-2 control-label1">PDF Only</label>
                                                         <label for="smartfile" class="bottom-nextbtn smartchoose">Choose File</label>
                                                         <input type="file" (change)="fileChange($event)" class="form-control" id="smartfile" style="display: none;" accept="application/pdf" required>
@@ -256,12 +261,11 @@
                                                 <!-- editorbox starts -->
                                                 <div class="col-lg-2"></div>
                                                 <div class="col-lg-10 col-md-10 col-xs-12">
-                                                    <!-- <label for="message" class="col-lg-2 control-label1 lable2" style="margin-top:18px;">Message</label> -->
+                                                  
                                                     <div class="editorbox s_mail">
 
-                                                        <input type="text" #message class="form-control ui-autocomplete-input" name="ccemailid" value="" placeholder="Type Your Message Here" autocomplete="off">
-                                                        <!-- <div [froalaEditor] [(froalaModel)]="editorContent"></div> -->
-                                                        <!-- <quill-editor [theme]="bubble" [(ngModel)]="editorContent" [style]="{height: '105px'}"></quill-editor> -->
+                                                        <input type="message" #message class="form-control " name="msg" value="" placeholder="Type Your Message Here" autocomplete="off" >
+                                                     
                                                     </div>
                                                     <div class="encyt">
 
@@ -272,8 +276,8 @@
                                                           </label>
                                                     </div>
                                                     <div *ngIf="show" class="editorbox s_mail">
-                                                        <!-- <label for="password" class="col-lg-2 control-label1 lable2" style="margin-top:18px;">Password</label> -->
-                                                        <input type="password" #password (blur)="update(password.value)" class="form-control ui-autocomplete-input" name="password" value="" placeholder="Type Your Password Here" autocomplete="off">
+                                                        
+                                                        <input type="password" #password (blur)="update(password.value)" class="form-control" name="password" value="" placeholder="Type Your Password Here" autocomplete="off">
                                                     </div>
                                                 </div>
                                                 <!-- editorbox ends -->
