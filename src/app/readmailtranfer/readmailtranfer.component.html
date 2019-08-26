@@ -147,9 +147,7 @@
 
                 <li class="">
                   <a routerLink="/composefiletransfer">
-                    <span class="iconimg"><img src="assets/img/envelope.png" /></span>
-                    &nbsp;&nbsp;
-                    <span class="pt6">Compose</span>
+                    <span class="iconimg"><img src="assets/img/envelope.png" /></span><span class="pt6">Compose</span>
                   </a>
                 </li>
 
@@ -157,9 +155,7 @@
                   <a routerLink="/readmailtransfer">
                     <span class="iconimg">
                       <img src="assets/img/message-closed-envelope.png" />
-                    </span>
-                    &nbsp;&nbsp;
-                    <span class="pt6">Read Mail</span>
+                    </span><span class="pt6">Read Mail</span>
                   </a>
                 </li>
 
@@ -167,26 +163,21 @@
                   <a routerLink="/senttransfer">
                     <span class="iconimg">
                       <img src="assets/img/sent-mail.png" />
-                    </span>
-                    &nbsp;&nbsp;
-                    <span class="pt6">Sent</span>
+                    </span><span class="pt6">Sent</span>
                   </a>
                 </li>
                 <li class="">
                   <a routerLink="/fileTranferTrash">
                     <span class="iconimg">
                       <img src="assets/img/trash.png" />
-                    </span> &nbsp;&nbsp;
-                    <span class="pt6">Trash</span>
+                    </span><span class="pt6">Trash</span>
                   </a>
                 </li>
                 <li class="">
                   <a routerLink="/contacttransfer">
                     <span class="iconimg">
                       <img src="assets/img/phone-receiver.png" />
-                    </span>
-                    &nbsp;&nbsp;
-                    <span class="pt6">Contact</span>
+                    </span><span class="pt6">Contact</span>
                   </a>
                 </li>
               </ul>
@@ -411,7 +402,7 @@
       <modal #info [hideCloseButton]="true" [closeOnOutsideClick]="false">
         <modal-content class="custom-mod-cont">
           <div class="col-xs-12 nullvoid">
-            <div class="top_popup_header">
+            <div class="top_popup_header_file_tranfer">
               <p class="text-center header_popup">Mail Log</p>
               <a class="popuplog-close" (click)="close()">x</a>
             </div>
@@ -457,7 +448,7 @@
                   <tr>
                     <th style="text-left">Last Read From IP</th>
                     <td style="text-left" *ngIf="lastreadip !=''">{{lastreadip}}</td>
-                    <td style="text-left" *ngIf="!lastreadip">{{ip}}</td>
+                    <!-- <td style="text-left" *ngIf="!lastreadip">{{ip}}</td> -->
                   </tr>
                 </table>
               </div>

@@ -139,8 +139,7 @@
 
                 <li class="active">
                   <a routerLink="/composemail">
-                    <span class="iconimg"><img src="assets/img/envelope.png" /></span> &nbsp;&nbsp;
-                    <span class="pt6">Compose</span>
+                    <span class="iconimg"><img src="assets/img/envelope.png" /></span><span class="pt6">Compose</span>
                   </a>
                 </li>
 
@@ -148,8 +147,7 @@
                   <a routerLink="/readmail">
                     <span class="iconimg">
                       <img src="assets/img/message-closed-envelope.png" />
-                    </span> &nbsp;&nbsp;
-                    <span class="pt6">Read Mail</span>
+                    </span><span class="pt6">Read Mail</span>
                   </a>
                 </li>
 
@@ -157,8 +155,7 @@
                   <a routerLink="/sentmail">
                     <span class="iconimg">
                       <img src="assets/img/sent-mail.png" />
-                    </span> &nbsp;&nbsp;
-                    <span class="pt6">Sent</span>
+                    </span><span class="pt6">Sent</span>
                   </a>
                 </li>
 
@@ -166,16 +163,14 @@
                   <a routerLink="/trashmail">
                     <span class="iconimg">
                       <img src="assets/img/trash.png" />
-                    </span> &nbsp;&nbsp;
-                    <span class="pt6">Trash</span>
+                    </span><span class="pt6">Trash</span>
                   </a>
                 </li>
                 <li class="">
                   <a routerLink="/contactmail">
                     <span class="iconimg">
                       <img src="assets/img/phone-receiver.png" />
-                    </span> &nbsp;&nbsp;
-                    <span class="pt6">Contact</span>
+                    </span><span class="pt6">Contact</span>
                   </a>
                 </li>
 
@@ -218,7 +213,7 @@
                                 type="text" (keyup)="search($event.target.value)" (blur)="validateemail()" #toemail
                                 class="form-control ui-autocomplete-input" name="emailid" value="" autocomplete="off">
                               <ul *ngIf="showsearch">
-                                <li (click)="selectmail(email.email)" *ngFor="let email of serchedmail">{{email.email}}
+                                <li class="pointer" (click)="selectmail(email.email)" *ngFor="let email of serchedmail">{{email.email}}
                                 </li>
 
                               </ul>
@@ -246,7 +241,7 @@
                               <div class="col-xs-offset-2 col-xs-10">
                                 <div class="file_preview" *ngIf='hide'>
                                   <div class="cross" *ngFor="let item of filesname">
-                                    {{item.filename}}<span *ngIf="filesname" style=" padding: 0 6px; color: red;"><i
+                                    {{item.filename}}<span class="pointer" *ngIf="filesname" style=" padding: 0 6px; color: red;"><i 
                                         (click)="removeattachment(item.filename);" class="fa fa-times"
                                         aria-hidden="true"></i></span>
                                   </div>

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails, TokenPayload} from '../authentication.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent} from '../app.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-senttransfer',
@@ -33,9 +34,13 @@ export class SenttransferComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
-    private AppComponent:AppComponent
-  ) { }
+    private AppComponent:AppComponent,
+    public _location :Location
 
+  ) { }
+  backClicked() {
+    this._location.back();
+  }
 getReadMails(page, limit) {
     if (page == 0) {
       this.showprev = false;

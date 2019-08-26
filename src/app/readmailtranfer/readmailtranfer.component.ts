@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails, TokenPayload } from '../authentication.service';
 import { AppComponent } from '../app.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-readmailtranfer',
@@ -52,8 +53,14 @@ export class ReadmailtranferComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
-    private AppComponent: AppComponent
+    private AppComponent: AppComponent,
+    public _location :Location
+
   ) { }
+
+   backClicked() {
+    this._location.back();
+  }
 getReadMails(page, limit) {
     if (page == 0) {
       this.showprev = false;

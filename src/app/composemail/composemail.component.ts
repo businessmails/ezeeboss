@@ -76,11 +76,20 @@ export class ComposemailComponent implements OnInit {
     var mailarray = email.split(',');
     email = mailarray[mailarray.length - 1];
     if (email != '') {
-      this.showsearch = true;
       this.http.post(this.AppComponent.BASE_URL + '/api/serchmail', { email: email,userId:this.userid })
         .subscribe(data => {
-          this.result = data;
-          this.serchedmail = this.result.result;
+          // this.result = data;
+          // this.serchedmail = this.result.result; this.result = data;
+          if (this.result.result.length > 0) {
+            this.showsearch = true;
+            this.serchedmail = this.result.result;
+
+          }
+          else {
+            this.showsearch = false;
+          }
+
+
         });
     } else {
       this.showsearch = false;

@@ -233,25 +233,21 @@
 
                                             <modal #participantModal [hideCloseButton]="true" [closeOnOutsideClick]="false">
 
-                                                <modal-content class="custom-mod-cont">
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nullvoid">
-                                                        <div class="row nullvoid" style="border-radius:0px; box-shadow:none !important;">
-                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                                <div class="partpnt_poup">
-                                                                    <h3 class="partagselect"> Participant</h3>
-                                                                    <input type="button" class="btn btn-danger closepar commn_btn cnclbtn d_c" id="" value="Cancel" (click)="participantModal.close()">
-                                                                </div>
+                                                <modal-content class="custom-mod-cont nullvoid">
+                                                    <div _ngcontent-c7="" class="top_popup_header_e_sign">
+                                                      <p _ngcontent-c7="" class="text-center header_popup">Participant</p>
+                                                      <button _ngcontent-c7="" class="popuplog-close" type="button" id="" value="Cancel" (click)="participantModal.close()">x</button>
+                                                    </div>
+                                                    <div class="col-xs-12">
+                                                        <div class="row innerpopup" id="selectpati1">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 selectpati" (click)="addnewparticipantmodal()">
+                                                            <span class="particiapntll partbg" style="display:block;padding: 41px 0px; font-family:'Century Gothic';"> Add New <br> Participants</span>
                                                             </div>
-                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nullvoid" id="selectpati1">
-                                                                <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 selectpati" (click)="addparticipantModal.open();participantModal.close();">
-                      <span  class="particiapntll" style="display:block;padding: 41px 0px; font-family:'Century Gothic';"> Add New Participants</span></div> -->
-                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 selectpati" (click)="addnewparticipantmodal()">
-                                                                    <span class="particiapntll partbg" style="display:block;padding: 41px 0px; font-family:'Century Gothic';"> Add New <br> Participants</span></div>
-
-                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 selectpati" (click)="mycontactsModal.open();participantModal.close();">
-                                                                    <span class="partbg" style="display:block;padding: 41px 0px; font-family:'Century Gothic';"> Add From <br> Contacts</span></div>
-                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 selectpati" (click)="openaddyourself();participantModal.close();">
-                                                                    <span class="particiapntll partbg" style="display:block;padding: 41px 0px; font-family:'Century Gothic';"> Add <br>Yourself</span></div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 selectpati" (click)="mycontactsModal.open();participantModal.close();">
+                                                            <span class="partbg" style="display:block;padding: 41px 0px; font-family:'Century Gothic';"> Add From <br> Contacts</span>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 selectpati" (click)="openaddyourself();participantModal.close();">
+                                                            <span class="particiapntll partbg" style="display:block;padding: 41px 0px; font-family:'Century Gothic';"> Add <br>Yourself</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -262,21 +258,16 @@
 
                                             <modal #addparticipantModal [hideCloseButton]="true" [closeOnOutsideClick]="false">
                                                 <modal-content>
-                                                    <form method="post" novalidate="" [formGroup]="addparticipantForm" (ngSubmit)="addnewparticipant($event)">
-                                                        <div class="">
-                                                            <div class="col-lg-12 nullvoid">
-                                                                <div class="row nullvoid">
-                                                                    <div class="col-lg-12">
-                                                                        <div class="partpnt_poup">
-                                                                            <button type="button" class="btn btn-danger closepar commn_btn cnclbtn d_c" (click)="addparticipantModal.close();">Cancel</button>
-                                                                            <h3 class="partag myparttag">Add New Participant</h3>
-                                                                            <button type="submit" class="btn btn-success addbtnnew d_c" id="parbutton">Add</button>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="main-box infographic-box" style="box-shadow:none !important; border-radius:0px;">
+                                                    <div _ngcontent-c7="" class="top_popup_header_e_sign">
+                                                      <p _ngcontent-c7="" class="text-center header_popup">Add New Participant</p>
+                                                      <button _ngcontent-c7="" class="popuplog-close" type="button" id="" value="Cancel" (click)="participantModal.close()">x</button>
+                                                      <button type="submit" class="btn btn-success addbtnnew_e_sign d_c" id="parbutton">Add</button>
+                                                    </div>
+                                                    <div class="col-xs-12">
+                                                        <div class="row innerpopup" id="selectpati_new">
+                                                            <form method="post" novalidate="" [formGroup]="addparticipantForm" (ngSubmit)="addnewparticipant($event)">
+                                                                <div class="main-box infographic-box" style="box-shadow:none !important; border-radius:0px;">
                                                                         <div class="navbar-collapse nullvoid" style="box-shadow:none !important; border-radius:0px;">
-                                                                            <div class="col-md-12" style="padding:20px 0">
-                                                                                <div class="col-sm-12">
                                                                                     <div class="col-md-2"> <span style="font-size:21px;"><span class="error">*</span>Type:</span>
                                                                                     </div>
                                                                                     <div class="col-md-5 myradiodiv"> &nbsp;&nbsp;&nbsp;
@@ -342,15 +333,11 @@
                                                                                             <span style="color: red" *ngIf="error">{{error}}</span>
                                                                                         </div>
                                                                                     </div>
-
-                                                                                </div>
-                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
+                                                            </form>
                                                         </div>
-                                                    </form>
+                                                    </div>
                                                 </modal-content>
 
                                             </modal>

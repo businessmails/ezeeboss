@@ -145,7 +145,7 @@
               <ul class="nav nav-tabs6">
                 <li class="">
                   <a routerLink="/composefiletransfer">
-                    <span class="iconimg"><img src="assets/img/envelope.png" /></span> &nbsp;&nbsp;
+                    <span class="iconimg"><img src="assets/img/envelope.png" /></span>
                     <span class="pt6">Compose</span>
                   </a>
                 </li>
@@ -154,7 +154,7 @@
                   <a routerLink="/readmailtransfer">
                     <span class="iconimg">
                       <img src="assets/img/message-closed-envelope.png" />
-                    </span> &nbsp;&nbsp;
+                    </span>
                     <span class="pt6">Read Mail</span>
                   </a>
                 </li>
@@ -163,7 +163,7 @@
                   <a routerLink="/senttransfer">
                     <span class="iconimg">
                       <img src="assets/img/sent-mail.png" />
-                    </span> &nbsp;&nbsp;
+                    </span>
                     <span class="pt6">Sent</span>
                   </a>
                 </li>
@@ -171,7 +171,7 @@
                   <a routerLink="/fileTranferTrash">
                     <span class="iconimg">
                       <img src="assets/img/trash.png" />
-                    </span> &nbsp;&nbsp;
+                    </span>
                     <span class="pt6">Trash</span>
                   </a>
                 </li>
@@ -179,7 +179,7 @@
                   <a routerLink="/contacttransfer">
                     <span class="iconimg">
                       <img src="assets/img/phone-receiver.png" />
-                    </span> &nbsp;&nbsp;
+                    </span>
                     <span class="pt6">Contact</span>
                   </a>
                 </li>
@@ -202,13 +202,7 @@
                             <img src="assets/img/refresh.png" class="img-responsive img1" style="width: 25px;">
                           </a>
                         </div>
-                        <div class="smartpadding">
-                          <!--
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 nopadding">
-                                                        <a href="#">
-                                                            <img src="assets/img/smartmail.png" class="img-responsive mailimg" />
-                                                        </a>
-                                                    </div>-->
+                        <div class="smartpadding smartpadding_2" style="float: right;">
                           <div class="col-md-6 col-sm-6 col-xs-12 nopadding c_t">
 
                             <a (click)="contactModal.open()">
@@ -280,12 +274,13 @@
                       <modal #contactModal [hideCloseButton]="true" [closeOnOutsideClick]="false">
 
                         <modal-content class="custom-mod-cont add_m">
-                          <div class="partpnt_poup">
-                            <button type="button" class="btn btn-danger closepar commn_btn cnclbtn d_c"
-                              (click)="contactModal.close();">Cancel</button>
-                            <h3 class="partag myparttag">Add New Contact</h3>
+                          <div class="top_popup_header_file_tranfer">
+                            <button type="button" class="popuplog-close"
+                              (click)="contactModal.close();">x</button>
+                            <h3 class="text-center header_popup">Add New Contact</h3>
                           </div>
-                          <div class="form-group ">
+                          <div class="add_contact_popup">
+                            <div class="form-group ">
                             <label for="inputEmail" class="col-lg-3 control-label1">Name</label>
                             <div class="col-lg-9">
                               <input type="text" class="form-control fpannel" [(ngModel)]="name" (blur)="validatename()"
@@ -320,6 +315,7 @@
                                                             width: 111px !important;
                                                             color: #fff !important;font-weight: 600;">Save</button>
                             </div>
+                          </div>
                           </div>
                         </modal-content>
 

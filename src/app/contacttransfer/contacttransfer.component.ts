@@ -5,6 +5,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 import { AppComponent} from '../app.component';
 import { Identifiers, identifierName } from '@angular/compiler';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-contacttransfer',
@@ -49,9 +50,13 @@ export class ContacttransferComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
-    private AppComponent:AppComponent
-  ) { }
+    private AppComponent:AppComponent,
+    private _location: Location
 
+  ) { }
+ backClicked() {
+    this._location.back();
+  }
   ngOnInit() {
     this.auth.profile().subscribe(user => {
       this.details = user;

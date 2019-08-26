@@ -528,8 +528,12 @@ p.encryption {
     font-size: 18px;
 }
 .commn_text{
+    height: 38px;
+    padding: 6px 12px;
+    font-size: 15px;
+    border: 1px #515252 solid;
     border-radius: 0;
-    margin-bottom: 20px;
+    color: #000;
 }
 
 .lineardiv {
