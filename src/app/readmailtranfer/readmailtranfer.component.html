@@ -9,35 +9,41 @@
 
 <section class="fullpage">
   <div class="container">
-
     <div class="row">
-      <div class="col-xs-12 text-right">
-        <!-- menu start -->
-        <div class="new_custom_drop_down">
-          <li class="dropdown" dropdown>
-            <i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;
+      <div class="col-xs-3"></div>
+      <div class="col-xs-9">
+        <div class="row">
+          <div class="col-xs-6 text-left">
+            <a (click)="backClicked()" class="top_back_button"><i class="fa fa-caret-left"></i><span>Back</span></a> 
+          </div>
+          <div class="col-xs-6 text-right">
+            <!-- menu start -->
+              <div class="new_custom_drop_down">
+                <li class="dropdown" dropdown>
+                  <i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;
 
-            <span class="title">{{fullname}} &nbsp;</span>
-            <a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
-              <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
-            </a>
-            <ul *dropdownMenu class="my_drop_down">
+                  <span class="title">{{fullname}} &nbsp;</span>
+                  <a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
+                    <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
+                  </a>
+                  <ul *dropdownMenu class="my_drop_down">
 
-              <li><a (click)="logout();">Logout</a></li>
+                    <li><a (click)="logout();">Logout</a></li>
 
-              <li><a routerLink="/profile">View Profile</a></li>
+                    <li><a routerLink="/profile">View Profile</a></li>
 
-              <li id=""><a href="#">Change Password</a></li>
+                    <li id=""><a href="#">Change Password</a></li>
 
-              <li><a href="#">Membership Order</a></li>
+                    <li><a href="#">Membership Order</a></li>
 
-            </ul>
-          </li>
-        </div>
+                  </ul> 
+                </li>
+              </div>
         <!-- menu end -->
+          </div>
+        </div>
       </div>
     </div>
-
   </div>
 
 

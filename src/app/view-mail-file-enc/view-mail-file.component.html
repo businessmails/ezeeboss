@@ -326,15 +326,15 @@
        
        <div class="smarteditordiv">
            <!-- editorbox starts -->
-           <div class="col-xs-12">        
+           <div class="col-xs-12 smartfloat">        
                <div class="editorbox">
                 <!-- <div [froalaEditor] [(froalaModel)]="editorContent"></div> -->
                 <quill-editor [theme]="bubble" [(ngModel)] = "innerhtml" [style]="{height: '105px'}"></quill-editor>
                </div>
            </div>
            <!-- editorbox ends -->
-           <div class="col-md-12 col-sm-12 col-xs-12 mobilepd" id="SEndd"> 
-              <button (click)="sendsmartmail()" class="bottom-nextbtn tofloat">SEND</button>
+           <div class="col-md-12 text-right"> 
+              <button (click)="sendsmartmail()" class="all_send_button">SEND</button>
            </div>
            
        </div>
