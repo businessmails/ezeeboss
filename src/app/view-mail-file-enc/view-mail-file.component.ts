@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails, TokenPayload } from '../authentication.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -35,6 +35,20 @@ export class ViewEncMailFileComponent implements OnInit {
   forwardmsg = false;
   attachmentLINK: any;
   hide=false;
+  delname: any;
+  result: any;
+  showsearch: boolean;
+  serchedmail: any;
+  selectedMails: any[];
+    @ViewChild('toemails') toemails: ElementRef;
+   @ViewChild('subjects') subjects: ElementRef;
+   @ViewChild('message') message: ElementRef;
+   @ViewChild('ccemail') ccemail: ElementRef;
+  ccemailerror: string;
+  show: boolean = true;
+  password: string;
+  cc: any;
+  suberror: string;
   constructor(
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
@@ -58,9 +72,13 @@ export class ViewEncMailFileComponent implements OnInit {
             this.data = data;
             // console.log(this.data.data)
             // this.data=this.data
+            this.delname= this.data.data[0].attachment;
             this.attachment = this.data.data[0].attachment+'_ency.pdf';
             this.fromemail = this.email;
             this.toemail = this.data.data[0].to;
+            this.password = this.data.data[0].password;
+            this.cc = this.data.data[0].cc;
+
             this.subject = this.data.data[0].subject;
             this.date = this.data.data[0].dateadded;
             this.innerhtml = this.data.data[0].mailcontent;
@@ -70,7 +88,9 @@ export class ViewEncMailFileComponent implements OnInit {
     })
   }
 
-
+ update(value: string) {
+     this.password = value; 
+    }
   backClicked() {
     this._location.back();
   }
@@ -102,15 +122,35 @@ export class ViewEncMailFileComponent implements OnInit {
   }
 
   removeattachment(name) {
-
+// alert(this.attachment.length)
     for (var i = 0; i < this.attachment.length; i++) {
-      if (this.data.message[i].attachmentname === name) {
+      if (this.data.data[0].attachment === name) {
         this.data.message.splice(i, 1)
       }
     }
   
   }
 
+ccvalidateemail() {
+    var emails = this.ccemail.nativeElement.value;
+    // alert(emails)
+    if(emails==''){
+      return false;
+    }
+    var emailArray = emails.split(",");
+    var invEmails = "";
+    for(var i = 0; i <= (emailArray.length - 1); i++){
+      if(this.checkEmail(emailArray[i])){
+        this.ccemailerror = ''
+            } else{
+              invEmails += emailArray[i] + "\n";
+      }
+    }
+    if(invEmails != ""){
+      this.ccemailerror = 'Invalid Email: ' + invEmails
+     // alert("Invalid emails:\n" + invEmails);
+    }
+   } 
   checkEmail(email) {
     var regExp = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return regExp.test(email);
@@ -118,6 +158,7 @@ export class ViewEncMailFileComponent implements OnInit {
 
   validateemail() {
     var emails = this.toemail;
+    // alert(JSON.stringify(emails))
     var emailArray = emails.split(",");
     var invEmails = "";
     for (var i = 0; i <= (emailArray.length - 1); i++) {
@@ -150,17 +191,42 @@ export class ViewEncMailFileComponent implements OnInit {
       if (invEmails != "") {
         this.emailerror = 'Invalid Email: ' + invEmails
       } else {
+          if(this.toemails.nativeElement.value === '')
+      {
+      this.emailerror = 'Enter a valid Email'
+      return false;
+      }
+      // if(this.subjects.nativeElement.value === '')
+      // {
+      // this.suberror = 'Subject is Required'
+      // return false;
+      // }
         this.loading = true;
+
         this.formData.append('from', this.userid);
         this.formData.append('data', this.innerhtml);
-        this.formData.append('fromemail', this.email);
-        this.formData.append('toemail', this.toemail);
-        this.formData.append('subject', this.subject);
-        this.http.post(this.AppComponent.BASE_URL + '/api/sendsmartmail', this.formData)
+        // this.formData.append('fromemail', this.email);
+        // this.formData.append('toemail', this.toemail);
+         this.formData.append('to',this.toemails.nativeElement.value);
+            this.formData.append('cc',this.ccemail.nativeElement.value);
+            this.formData.append('content',this.message.nativeElement.value);
+            this.formData.append('subject',this.subjects.nativeElement.value);
+        this.formData.append('subject', "FW - "+this.subject);
+        this.formData.append('filelink', this.attachmentLINK);
+        this.formData.append('file', this.delname);
+        this.formData.append('cc', this.cc);
+        this.formData.append('userId', this.userid);
+
+
+
+        this.formData.append('password', this.password);
+
+
+        this.http.post(this.AppComponent.BASE_URL + '/api/frowardEncMail', this.formData)
           .subscribe(data => {
             this.loading = false;
             alert('Mail Sent Successfully');
-            this.router.navigateByUrl('/sentmail');
+            this.router.navigateByUrl('/sentencmail');
           });
       }
 
@@ -168,11 +234,50 @@ export class ViewEncMailFileComponent implements OnInit {
   }
 
 
+  selectmail(email) {
+    // console.log("as")
+    this.selectedMails = [];
+    var str = this.toemails.nativeElement.value.toLowerCase();
+    this.selectedMails = str.split(",");
+    this.selectedMails.pop();
+    // console.log("---",email)
+    if (this.selectedMails.indexOf(email) === -1) {
+      this.selectedMails.push(email);
+      console.log(this.selectedMails.join())
+      this.toemails.nativeElement.value = this.selectedMails.join();
+      this.emailerror = '';
+    }
+    this.serchedmail = [];
+    this.showsearch = false;
+
+  }
 
 
 
+  search(email) {
+    var mailarray = email.split(',');
+    email = mailarray[mailarray.length - 1];
+    if (email != '') {
+      this.http.post(this.AppComponent.BASE_URL + '/api/serchEncmail', { email: email ,userId:this.userid })
+        .subscribe(data => {
+          this.result = data;
+          if(this.result.result.length>0){
+      this.showsearch = true;
 
+          this.serchedmail = this.result.result;
 
+          }
+          else{
+  this.showsearch = false;
+          }
+          
+        });
+    } else {
+      this.showsearch = false;
+      this.serchedmail = []
+    }
+
+  }
 
 
 
