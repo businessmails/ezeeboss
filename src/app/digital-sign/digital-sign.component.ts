@@ -178,6 +178,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
         reportProgress: true, observe: 'events'
       })
       .subscribe( (event: HttpEvent<any>) => {
+        // console.log("event :",event)
         switch (event.type) {
           case HttpEventType.Sent:
             this.slimLoadingBarService.start();
@@ -229,8 +230,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
                 'Object' + (event as any).body.path + ' failed' +
                 '</object>');
                 this.spinnerService.hide();
-               (event as any).body.target.value = '';
-
+               (event as any).target.value = '';
        }
 
       }, error => {
@@ -421,6 +421,8 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
   // ------------------------ add new participant --------------------- //
 
   addnewparticipant() {
+
+    console.log("here jagveer")
     let type = this.addparticipantForm.controls.newtype.value;
     if (type === '') {
       type = 'Remote Signer';

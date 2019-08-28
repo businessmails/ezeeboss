@@ -193,7 +193,7 @@
 
 
                                                    
-                                                    <input #file type="file" (change)="fileChange($event)" class="fileUpload" style="display: none">
+                                                    <input #file type="file" (change)="fileChange($event)" class="fileUpload" style="display: none" accept="application/pdf">
                                                     <!-- <ng2-slim-loading-bar></ng2-slim-loading-bar> -->
                                                     <ng2-slim-loading-bar [color]="'#DAA520'" [height]="'14px'"></ng2-slim-loading-bar>
                                                     <div *ngIf="showMessage">
@@ -260,7 +260,7 @@
                                                 <modal-content>
                                                     <div _ngcontent-c7="" class="top_popup_header_e_sign">
                                                       <p _ngcontent-c7="" class="text-center header_popup">Add New Participant</p>
-                                                      <button _ngcontent-c7="" class="popuplog-close" type="button" id="" value="Cancel" (click)="participantModal.close()">x</button>
+                                                      <button _ngcontent-c7="" class="popuplog-close" type="button" id="" value="Cancel" (click)="addparticipantModal.close()">x</button>
                                                       <button type="submit" class="btn btn-success addbtnnew_e_sign d_c" id="parbutton">Add</button>
                                                     </div>
                                                     <div class="col-xs-12">
