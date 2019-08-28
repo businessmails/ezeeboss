@@ -189,7 +189,7 @@
 
                                                        
                             <ul *ngIf="showsearch">
-                              <li (click)="selectmail(email.email)" *ngFor="let email of serchedmail">{{email.email}}
+                              <li class="pointer"  (click)="selectmail(email.email)" *ngFor="let email of serchedmail">{{email.email}}
                               </li>
                                         </ul>                <span class="error-msg">{{emailerror}}</span>
                                                     </div>
@@ -227,7 +227,7 @@
                                                         <div class="file_preview" *ngIf='!hide'>
                                                             <div class="cross" *ngFor="let item of filesname">
                                                                 {{item.filename}}
-                                                                <span *ngIf="filesname" style=" padding: 0 6px; color: red;">
+                                                                <span class="pointer" *ngIf="filesname" style=" padding: 0 6px; color: red;">
                                                                     <i (click)="removeattachment(item.filename);" class="fa fa-times"
                                                                         aria-hidden="true"></i>
                                                                 </span>
@@ -257,7 +257,7 @@
                                                     </div>
                                                     <div *ngIf="show" class="editorbox s_mail">
                                                         
-                                                        <input type="password" #password (blur)="update(password.value)" class="form-control" name="password" value="" placeholder="Type Your Password Here" autocomplete="off">
+                                                        <input type="password" #password (blur)="update(password.value)" class="form-control" name="password" [value]="" placeholder="Type Your Password Here" autocomplete="off">
                                                     </div>
                                                 </div>
                                                 <!-- editorbox ends -->

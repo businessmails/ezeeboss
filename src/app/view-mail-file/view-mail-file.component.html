@@ -1,4 +1,3 @@
-
 <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/signature.css">  -->
 <!-- <link rel="stylesheet" href="assets/css/mycustom.css">  -->
@@ -10,8 +9,8 @@
 </section>
 
 <section class="fullpage">
-	<div class="container" >
-		<div class="row">
+    <div class="container" >
+        <div class="row">
             <div class="col-xs-3 text-right">
             </div>
       <div class="col-xs-9 text-right">
@@ -51,14 +50,14 @@
   <div class="container">
     <div class="row mt_class">    
       <div class="col-lg-3 col-md-3 col-xs-12 mobilepd">         
-        <!--Instructions & logo part start-->		            
+        <!--Instructions & logo part start-->                   
         <div style="display:block; margin:0 auto;" class="col-lg-12 mobilepd">             
           <a routerLink="/"  data-placement="right" data-toggle="tooltip" data-original-title="" class="homeanchor">
              <span class="pt51 pt567 mobilehomebtn">
               <span class="fa fa-home"></span> Home
              </span>
            </a>           
-        </div>	             
+        </div>               
         <a href="">              
           <img class="img-responsive compose_lock_image" src="../../assets/img/home-01.png"  alt="" data-placement="right">               
         </a>
@@ -80,14 +79,14 @@
             </ul>
           </li>
         </div>
-        <div class="clearfix mymsg"></div>	    <!--Instructions & logo part end-->
+        <div class="clearfix mymsg"></div>      <!--Instructions & logo part end-->
       </div>
       <div class="col-lg-9 col-md-9 col-xs-12" *ngIf="!forwardmsg">
         <div class="inner-part8" style="box-shadow:none !important;">
           <div class="col-lg-12">
             <div class="col-lg-6">
               <p class="view_mwssage_new">VIEW MESSAGE</p>
-            </div>			   
+            </div>             
             <div class="col-lg-6">              
               <p class="smartheading_new">smart<span>MAIL</span></p>
             </div>
@@ -200,7 +199,7 @@
 
 </ul>             
   
-<div id="myTabContent" class="tab-content mobilecontent" style="opacity: 1;" >			  
+<div id="myTabContent" class="tab-content mobilecontent" style="opacity: 1;" >            
 
 
 
@@ -261,21 +260,21 @@
        
        <div class="smarteditordiv">
            <!-- editorbox starts -->
-           <div class="col-xs-12 smartfloat">        
+           <div class="col-xs-12">        
                <div class="editorbox">
                 <!-- <div [froalaEditor] [(froalaModel)]="editorContent"></div> -->
                 <quill-editor [theme]="bubble" [(ngModel)] = "innerhtml" [style]="{height: '105px'}"></quill-editor>
                </div>
            </div>
            <!-- editorbox ends -->
-           <div class="col-md-12 text-right"> 
-              <button (click)="sendsmartmail()" class="all_send_button">SEND</button>
+           <div class="col-md-12 col-sm-12 col-xs-12 mobilepd" id="SEndd"> 
+              <button (click)="sendsmartmail()" class="bottom-nextbtn tofloat">SEND</button>
            </div>
            
        </div>
   
 
-</div>			  
+</div>            
    
 </div>
 
