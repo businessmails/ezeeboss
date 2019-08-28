@@ -136,7 +136,13 @@ export class ReadmailComponent implements OnInit {
         // this.date=res[0];
         this.readdate = this.data2.readdate;
         this.firstreaddate = this.data2.firstreaddate;
-        this.readcount = (parseInt(this.data2.readcount) - 1);
+        if(parseInt(this.data2.readcount)!=1){
+ this.readcount = (parseInt(this.data2.readcount) - 1);
+        }
+       else{
+ this.readcount = (parseInt(this.data2.readcount));
+
+       }
         this.ip = this.data2.ip;
         this.lastreadip = this.data2.lastreadip;
         this.length = this.id.attachmets.length

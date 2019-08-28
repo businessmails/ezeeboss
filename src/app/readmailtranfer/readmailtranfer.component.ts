@@ -126,7 +126,7 @@ clickme(idd) {
     //alert(id)
     this.http.get(this.AppComponent.BASE_URL + '/api/readfiletransfermails/' + idd._id)
       .subscribe(data => {
-        console.log(data)
+        // console.log(data)
         this.id = data;
         this.data2 = this.id.data[0]
         this.fromemail = this.data2.fromemail;
