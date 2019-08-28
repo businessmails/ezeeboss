@@ -1184,7 +1184,7 @@ width: 15px !important;
     padding-top: 4px;
     display: inline-block;
     position: absolute;
-    top: 28px !important;
+    top: 0px !important;
     right: -5px;
     transition: ease 0.25s all;
     -webkit-transform: translate(50%, -50%);

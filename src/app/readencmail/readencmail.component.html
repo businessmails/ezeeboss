@@ -277,45 +277,28 @@
  <modal #info [hideCloseButton]="true" [closeOnOutsideClick]="false">
   
     <modal-content class="custom-mod-cont"> 
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nullvoid">
-            <div class="inner-part mrbt0" style="float:left; width:100%; box-shadow:none;">
-              <div class="col-xs-12">
-                <div class="top_popup_header_en_mail">
-                  <p class="text-center header_popup">Mail Log</p>
-                  <a class="popuplog-close" (click)="close()">x</a>
-                </div>
-              </div>
-              <div class="innerpopup">
-       
-                    <div class="col-xs-6">
-                      <div class="mail_subject">
-                        <span>Subject:</span> {{subject}}  
-                      </div>
-                    </div>
-                    <div class="col-xs-6">
-                      <div class="mail_time">{{dateadded | amDateFormat: 'MM/DD/YYYY'}}</div>
-                    </div>
-                    <div class="col-xs-12">
-                      <p class="mail_info"><b>Message Read By:</b> {{toemail}}</p>
-                      <p class="mail_info"><b>From:</b> {{mail}}</p>
-                      <p class="mail_info"><b>From:</b> {{mail}}</p>
-                    </div>
-                    
-                     
-               
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                 <b class="centertext"   [innerHtml]="mailcontent"></b><br>
-              </div> 
-               
-
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <table class="table table-bordered table-striped" style="border:1px solid;">
-              <thead>
+      <div class="col-xs-12 nullvoid">
+        <div class="top_popup_header_en_mail">
+          <p class="text-center header_popup">Mail Log</p>
+          <a class="popuplog-close" (click)="close()">x</a>
+        </div>
+        <div class="innerpopup">       
+          <div class="col-xs-6">
+            <div class="mail_subject">
+              <span>Subject:</span> {{subject}}  
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="mail_time">{{dateadded | amDateFormat: 'MM/DD/YYYY'}}</div>
+          </div>
+          <div class="col-xs-12">
+            <p class="mail_info"><b>Message Read By:</b> {{toemail}}</p>
+            <p class="mail_info"><b>From:</b> {{mail}}</p>
+            <p class="mail_info"><b [innerHtml]="mailcontent"></b></p>
+            <table class="table table-bordered table-striped" style="border:1px solid;">
               <tr>
                 <th>Mail Read</th>
                 <td align="right">{{readcount}} Time</td>
-              </tr>
-              <tr>
               </tr>
               <tr>
                 <th>Mail Read Date</th>
@@ -342,25 +325,16 @@
                 <td *ngIf="lastreadip !=''"align="right">{{lastreadip}}</td>
                 <td *ngIf="!lastreadip" align="right">{{ip}}</td>
               </tr>
-              
-              </thead>
-              </table>
-            </div>
-                    
-              <div class="message-attachments col-lg-12 col-md-12 col-sm-12 col-xs-12 centertext mrbt0">
-                <p><i style="font-size:22px;" class="fa fa-paperclip m-r-xs"></i>
-                  &nbsp;&nbsp;1&nbsp;&nbsp;Attachment(s)</p>
-                <div class="message-attachment"></div>
-
-              </div>
-              
-              
-             
-             
-              </div>
-            </div>
-          </div>   
-             </modal-content>
+            </table>
+          </div>                   
+          <div class="col-xs-12 centertext mrbt0">
+            <p class="attachment_btn"><i style="font-size:22px;" class="fa fa-paperclip m-r-xs"></i>
+            &nbsp;&nbsp;1&nbsp;&nbsp;Attachment(s)</p>
+            <div class="message-attachment"></div>
+          </div>
+        </div>
+      </div>  
+    </modal-content>
    
 </modal>
 </div>

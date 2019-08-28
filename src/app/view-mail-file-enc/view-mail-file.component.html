@@ -60,7 +60,7 @@
             </a>
           </div>
           <a href="">
-            <img class="img-responsive compose_lock_image" src="../../assets/img/home-01.png" alt=""
+            <img class="img-responsive compose_lock_image" src="../../assets/img/home-04.png" alt=""
               data-placement="right">
           </a>
           <div class="wrapper2">
@@ -95,7 +95,7 @@
                 <p class="view_mwssage_new">VIEW MESSAGE</p>
               </div>
               <div class="col-lg-6">
-                <p class="smartheading_new">smart<span>MAIL</span></p>
+                <p class="smartheading_new">encrypted<span>mail</span></p>
               </div>
             </div>
             <div class="col-lg-12">
@@ -127,7 +127,8 @@
                           <p class="view_mail_attachment"> {{item.attachmentname}}</p>
                         </a>
                       </div> -->
-                   <a [href]="attachmentLINK">{{attachment}}</a>   
+                   <a [href]="attachmentLINK"></a> 
+                   <a target="_blank"[href]="attachmentLINK"><p  class="view_mail_attachment"> {{attachment}}</p></a>  
                     </div>
                   </div>
                   <hr class="line">
@@ -152,7 +153,7 @@
           <div class="inner-part8" style="box-shadow:none !important;">
             <div class="col-lg-12">
               <div class="col-lg-12">
-                <p class="smartheading_new">SMART<span>MAIL</span></p>
+                <p class="smartheading_new">encrypted<span>mail</span></p>
               </div>
             </div>
 
@@ -164,49 +165,22 @@
                 <ul class="nav nav-tabs6">
 
                   <li class="active">
-                    <a routerLink="/composemail">
-                      <span class="iconimg"><img src="assets/img/envelope.png" /></span>
-                      <span class="pt6">Compose</span>
-                    </a>
+                    <a routerLink="/composencryptemail"><span class="iconimg"><img src="assets/img/envelope.png" /></span><span class="pt6">Compose</span></a>
+                  </li>
+                  <li class="">
+                    <a routerLink="/readencmail"><span class="iconimg"><img src="assets/img/message-closed-envelope.png" /></span><span class="pt6">Read Mail</span></a>
                   </li>
 
                   <li class="">
-                    <a routerLink="/readmail">
-                      <span class="iconimg">
-                        <img src="assets/img/message-closed-envelope.png" />
-                      </span>
-
-                      <span class="pt6">Read Mail</span>
-                    </a>
-                  </li>
-
-                  <li class="">
-                    <a routerLink="/sentmail">
-                      <span class="iconimg">
-                        <img src="assets/img/sent-mail.png" />
-                      </span>
-
-                      <span class="pt6">Sent</span>
-                    </a>
-                  </li>
-
-                  <li class="">
-                    <a routerLink="/trashmail">
-                      <span class="iconimg">
-                        <img src="assets/img/trash.png" />
-                      </span>
-
-                      <span class="pt6">Trash</span>
-                    </a>
+                    <a routerLink="/sentencmail"><span class="iconimg"><img src="assets/img/sent-mail.png" />
+                      </span><span class="pt6">Sent</span></a>
                   </li>
                   <li class="">
-                    <a routerLink="/contactmail">
-                      <span class="iconimg">
-                        <img src="assets/img/phone-receiver.png" />
-                      </span>
-
-                      <span class="pt6">Contact</span>
-                    </a>
+                    <a routerLink="/trashencmail"><span class="iconimg"><img src="assets/img/trash.png" />
+                      </span><span class="pt6">Trash</span></a>
+                  </li>
+                  <li class="">
+                    <a routerLink="/contactencmail"><span class="iconimg"><img src="assets/img/phone-receiver.png" /></span><span class="pt6">Contact</span></a>
                   </li>
 
                 </ul>
@@ -269,14 +243,9 @@
                             </div>
                             <div class="col-xs-offset-2 col-xs-10">
                               <div class="file_preview">
-                                <!-- <div *ngFor="let item of attachment" class="cross">
-                                  {{item.attachmentname}}<span *ngIf="attachment"
-                                    style=" padding: 0 6px; color: red;"><i
-                                      (click)="removeattachment(item.attachmentname);" class="fa fa-times"
-                                      aria-hidden="true"></i></span>
-                                </div> -->
-                               
-                               <a [href]="attachmentLINK">{{attachment}} </a> 
+                              <div class="cross">
+                                <a [href]="attachmentLINK">{{attachment}} </a> 
+                              </div>
                               </div>
                             </div>
                           </div>
