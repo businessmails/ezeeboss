@@ -456,8 +456,11 @@ text-align:center;
 	padding:6px 10px;
 	text-decoration:none;
 }
-.smartpadding {display: inline-block; width: auto!important;}
+.smartpadding {display: inline-block;}
+.smartpadding_3 {display: inline-block; width: auto!important;}
 .smartpadding_2 {display: inline-block; width: auto!important; float: right; white-space: nowrap;}
+.smartpadding_4 {display: inline-block; width: auto!important; float: right; white-space: nowrap; padding: 0 0 7px 0!important}
+
 .error-message {
 	PADDING-RIGHT: 8px;
 	PADDING-LEFT: 32px;
@@ -3476,6 +3479,7 @@ button.btn.signbtn.recap_img {
 .popuplog-close {position:absolute; top:-15px; right:-15px;}
 .top_popup_header { background:#378d8b; }
 .top_popup_header_file_tranfer{ background: rgb(188, 123, 57) !important }
+.top_popup_header_en_mail{ background:#521629 !important }
 .top_popup_header_e_sign { background: #5a731b }
 .mail_subject { font-size:20px;     margin-top: 10px;}
 .mail_subject span { font-weight: bold; }
@@ -3500,7 +3504,7 @@ td { color: #000!important; font-weight: 600!important; }
 .view_mail_attachment { width: 100%; background: #f5f5f5; padding: 10px; margin-bottom: 5px;}
 .fileerror { color: red; padding: 10px; margin-top: -5px; display: inline-block; font-weight: 600; }
 .control-label2, .pannel-1 { font-weight: 600!important }
-.top_back_button, a:hover.top_back_button { background: #494d49!important; position: relative; height: 46px; line-height: 46px; display: inline-block; margin-top: 25px; color: #fff; font-size: 22px; padding-left: 20px; padding-right: 20px; }
+.top_back_button, a:hover.top_back_button { background: #494d49!important; position: relative; height: 46px; line-height: 46px; display: inline-block; margin-top: 25px; color: #fff; font-size: 22px; padding-left: 20px; padding-right: 20px; cursor: pointer; }
 .top_back_button i { font-size: 30px; margin-right: 13px; vertical-align: middle; margin-top: -3px; }
 .logoimg img { margin-top: 10px; }
 .pointer { cursor: pointer; }
@@ -3510,3 +3514,7 @@ td { color: #000!important; font-weight: 600!important; }
 #selectpati1, #selectpati_new { padding: 15px 0!important; }
 .addbtnnew_e_sign { background-color: #fff!important; border: 0px; border-radius: 0px ! important; color: #5a731b!important; position: absolute; right: 25px; top: 11px; font-size: 15px!important; box-shadow: 0px 5px 8px 0px #747474 !important; -webkit-box-shadow: 0px 5px 8px 0px #747474 !important; font-weight: 600!important;}
 .add_contact_popup { display: inline-block; padding: 20px; width: 100% }
+.all_send_button { background: #89b345; border: 0; color: #fff; padding: 5px 35px; }
+.smart_trash_box { padding: 7px 0; width: 100%; float: left; }
+.encyt .new_checkbox_2 h5 { padding-left: 25px; }
+.view-outer img { width: 35px; margin: 0 auto; }
