@@ -69,6 +69,8 @@ export class DigitalSignComponent implements OnInit {
   pdferror: String;
   uploadedPercentage=0;
   message:any;
+  message2:any;
+
   showMessage = false;
   percentmessage: any;
   showpercentMessage = false;
@@ -178,7 +180,6 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
         reportProgress: true, observe: 'events'
       })
       .subscribe( (event: HttpEvent<any>) => {
-        // console.log("event :",event)
         switch (event.type) {
           case HttpEventType.Sent:
             this.slimLoadingBarService.start();
@@ -187,45 +188,33 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
          var cx =HttpEventType.Response;
          
          if(cx){
-          // alert(cx)
           this.spinnerService.hide();
          }
             this.slimLoadingBarService.complete();
             this.showMessage = true;
            
-            this.message = "Uploaded Successfully";
-            // console.log("done")
-           
+            this.message2 = "Uploaded Successfully";
              this.showpercentMessage = false;
-            
             break;
           case 1: {
             if (Math.round(this.uploadedPercentage) !== Math.round(event['loaded'] / event['total'] * 100)){
               this.uploadedPercentage = event['loaded'] / event['total'] * 100;
-              // console.log(this.uploadedPercentage)
               this.showpercentMessage= true;
               this.percentmessage = Math.round(this.uploadedPercentage);
-            
-              
               this.slimLoadingBarService.progress = Math.round(this.uploadedPercentage);
-
              if(this.slimLoadingBarService.progress == 100){
               this.spinnerService.show();
              }
-
             }
           }
             break;
           
         }
        if((event as any).body){
-    // console.log("target",event);
         this.pdfpath=(event as any).body.path;
               localStorage.setItem('pdfid', (event as any).body.pdfid);
               localStorage.setItem('pdfpath', (event as any).body.path);
-            
               this.innerHtml = this.domSanitizer.bypassSecurityTrustHtml(
-
                 '<object data="' + 'https://ezeeboss.com:3001' +(event as any).body.path + '" type="application/pdf" class="embed-responsive-item">' +
                 'Object' + (event as any).body.path + ' failed' +
                 '</object>');
@@ -235,7 +224,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
 
       }, error => {
         // console.log(error);
-        this.message = "Something went wrong";
+        this.message2 = "Something went wrong";
         // this.showMessage = true;
         this.slimLoadingBarService.reset();
       });
@@ -253,14 +242,10 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
       '<object data="' + 'https://ezeeboss.com:3001' + this.pdfpath + '" type="application/pdf" class="embed-responsive-item">' +
       'Object' + this.pdfpath + ' failed' +
       '</object>');
-      
-      // this.spinnerService.hide();
-
   }
 
   filedropped(event: UploadEvent) {
     this.files = event.files;
-  
     for (const droppedFile of event.files) {
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
@@ -281,7 +266,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
               case HttpEventType.Response:
                 this.slimLoadingBarService.complete();
                 this.showMessage = true;
-                this.message = "Uploaded Successfully";
+                this.message2 = "Uploaded Successfully";
                  this.showpercentMessage = false;
                 break;
 
@@ -315,7 +300,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
 
           }), error => {
             console.log(error);
-            this.message = "Something went wrong";
+            this.message2 = "Something went wrong";
             this.slimLoadingBarService.reset();
           };
 
@@ -420,9 +405,8 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
 
   // ------------------------ add new participant --------------------- //
 
-  addnewparticipant() {
+  addnewparticipant(e) {
 
-    console.log("here jagveer")
     let type = this.addparticipantForm.controls.newtype.value;
     if (type === '') {
       type = 'Remote Signer';

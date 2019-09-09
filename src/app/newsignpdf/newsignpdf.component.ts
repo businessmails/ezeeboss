@@ -82,7 +82,7 @@ export class NewsignpdfComponent implements OnInit {
   @ViewChild('initialModal') initialModal: any;
   method: any;
   comparetext: any;
-  template: string =`<img src="../../assets/img/ezgif.com-gif-maker.gif" style="margin-left:200px"/>`
+  template: string = `<img src="../../assets/img/ezgif.com-gif-maker.gif" style="margin-left:200px"/>`
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute,
@@ -240,7 +240,7 @@ export class NewsignpdfComponent implements OnInit {
                           const numItems = $('.' + result).length;
 
                           $('.dell').remove();
-                          console.log("jagveer-",classarray[0]);
+                          console.log("jagveer-", classarray[0]);
                           $('.' + classarray[0] + ' div div').append('<br><button type="button" class="signbutton removeme"  style="    background-color: #715632; width: 178px; font-size: 16px !important; padding: 8px 12px;color: white; font-style: unset;border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top:-16px;"><b>Click to Sign</b></button><br>');
 
                           this.conveniancecount = $('.' + result).length;
@@ -268,11 +268,11 @@ export class NewsignpdfComponent implements OnInit {
 
                             $(this).parent().css({
                               'text-transform': 'lowercase'
-  
+
                             });
                             $(this).closest('.' + result).css('border', 'none');
                             const strng = $(this).text();
-                            
+
                             let res = strng.replace('Click to Sign', '');
                             $(this).parent().append('<div style="word-wrap: break-word;text-align: left;font-size: 18px !important; font-style:unset;font-weight: 400;color: rgb(20, 83, 148);">' + res + '</div>');
 
@@ -694,7 +694,7 @@ export class NewsignpdfComponent implements OnInit {
                     $(this).parent().css({
                       // 'font-family': 'serif',
                       'text-transform': 'lowercase'
-              
+
                     });
                     $(this).closest('.' + result).css('border', 'none');
                     // alert($(this).text());
@@ -873,7 +873,7 @@ export class NewsignpdfComponent implements OnInit {
                       const imgsrc = $(this).attr('src');
 
                       var dimens = newFunction(imgsrc);
-    console.log("values",dimens)
+                      console.log("values", dimens)
                       const xhr = new XMLHttpRequest();
                       xhr.responseType = 'arraybuffer';
                       xhr.open('GET', imgsrc);
@@ -902,35 +902,35 @@ export class NewsignpdfComponent implements OnInit {
                     const options = { pagesplit: true };
                     const pdf = new jsPDF('p', 'pt', 'letter');
                     setTimeout(() => {
- 
- var check =localStorage.getItem("imgheight")
- // alert(xy)
- if(check <= "3300" && check >="2550"){
- // alert("equal")
- pdf.internal.scaleFactor = 1.39;
- }
- else if(check<="3508"&& check>="2480"){
- // alert("!")
- pdf.internal.scaleFactor = 1.7;
- }
- else if (check<="4367" && check>="2833"){
- pdf.internal.scaleFactor = 1.62;
- }
- else if (check<="2700" && check>="2250"){
-  pdf.internal.scaleFactor = 1.37;
-  }
 
- else{
- pdf.internal.scaleFactor = 1.36;
- }
- 
- pdf.addHTML($('.inthis'), 0, 0, options, function () {
- pdf.save('Document.pdf');
- // window.location.href = '/landing';
- });
-//  }, 3000);
+                      var check = localStorage.getItem("imgheight")
+                      // alert(xy)
+                      if (check <= "3300" && check >= "2550") {
+                        // alert("equal")
+                        pdf.internal.scaleFactor = 1.39;
+                      }
+                      else if (check <= "3508" && check >= "2480") {
+                        // alert("!")
+                        pdf.internal.scaleFactor = 1.7;
+                      }
+                      else if (check <= "4367" && check >= "2833") {
+                        pdf.internal.scaleFactor = 1.62;
+                      }
+                      else if (check <= "2700" && check >= "2250") {
+                        pdf.internal.scaleFactor = 1.37;
+                      }
 
-                      
+                      else {
+                        pdf.internal.scaleFactor = 1.36;
+                      }
+
+                      pdf.addHTML($('.inthis'), 0, 0, options, function () {
+                        pdf.save('Document.pdf');
+                        // window.location.href = '/landing';
+                      });
+                      //  }, 3000);
+
+
                       // this.loading = false;
                       pdf.addHTML($('.inthis'), 0, 0, options, function () {
                         const blob = pdf.output('blob');
@@ -939,11 +939,11 @@ export class NewsignpdfComponent implements OnInit {
                         xhr.setRequestHeader('Content-Type', 'application/pdf');
                         xhr.send(blob);
                         // this.spinnerService.hide();
-                        this.loading = false;
+                       // this.loading = false;
                         xhr.onreadystatechange = function () {
-                        
+
                           if (this.readyState == 4 && this.status == 200) {
-                            
+
                             alert('Document Sent Successfully');
                             window.location.href = '/completed';
                             // $('#downloaddocbtn').show();
@@ -1047,19 +1047,19 @@ export class NewsignpdfComponent implements OnInit {
 
 function newFunction(imgsrc: string) {
   // getdim(imgsrc);
-  
- var img = new Image();
- 
- img.onload = function(){
-  var height = img.height;
-  var width = img.width;
- // this.asize=
- localStorage.setItem("imgheight", height+","+width);
- console.log(height+"-"+width)
- // return height+','+width
- return "asd"
-  // code here to use the dimensions
- }
- 
- img.src = imgsrc;
- }
+
+  var img = new Image();
+
+  img.onload = function () {
+    var height = img.height;
+    var width = img.width;
+    // this.asize=
+    localStorage.setItem("imgheight", height + "," + width);
+    console.log(height + "-" + width)
+    // return height+','+width
+    return "asd"
+    // code here to use the dimensions
+  }
+
+  img.src = imgsrc;
+}

@@ -72,7 +72,9 @@ export class ViewFileComponent implements OnInit {
   })
 } 
 
-
+ logout() {
+    this.auth.logout();
+  }
  backClicked() {
     this._location.back();
   }

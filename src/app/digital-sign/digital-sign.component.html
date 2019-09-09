@@ -94,12 +94,12 @@
                         <input #file type="file" (change)="fileChange($event)" class="fileUpload"
                             style="display: none" accept="application/pdf">
                             <!-- <ng2-slim-loading-bar></ng2-slim-loading-bar> -->
-                            <input #file type="file" (change)="fileChange($event)" class="fileUpload"
-                              style="display: none">
+                            <!-- <input #file type="file" (change)="fileChange($event)" class="fileUpload"
+                              style="display: none"> -->
                             <ng2-slim-loading-bar [color]="'#DAA520'" [height]="'14px'"></ng2-slim-loading-bar>
                             <div *ngIf="showMessage">
                               <div style="color: #858f03; font-size:20px">
-                                <div class="message">{{message}}</div>
+                                <div class="message">{{message2}}</div>
                               </div>
                             </div>
                             <div *ngIf="showpercentMessage">
@@ -154,24 +154,20 @@
                       </modal>
                       <modal #addparticipantModal [hideCloseButton]="true" [closeOnOutsideClick]="false">
                         <modal-content>
+                          <form method="post" novalidate="" [formGroup]="addparticipantForm"
+                                (ngSubmit)="addnewparticipant($event)">
                           <div _ngcontent-c7="" class="top_popup_header_e_sign">
                             <p _ngcontent-c7="" class="text-center header_popup">Add New Participant</p>
                               <button _ngcontent-c7="" class="popuplog-close" type="button" id="" value="Cancel"
                                 (click)="addparticipantModal.close()">x</button>
                               <button type="submit" class="btn btn-success addbtnnew_e_sign d_c"
                                 id="parbutton">Add</button>
-                          
-                              <p _ngcontent-c7="" class="text-center header_popup">Add New Participant</p>
-                              <button _ngcontent-c7="" class="popuplog-close" type="button" id="" value="Cancel"
-                                (click)="participantModal.close()">x</button>
-                              <button type="submit" class="btn btn-success addbtnnew_e_sign d_c"
-                                id="parbutton">Add</button>
-                            
                           </div>
                           <div class="col-xs-12">
                             <div class="row innerpopup" id="selectpati_new">
-                              <form method="post" novalidate="" [formGroup]="addparticipantForm"
-                                (ngSubmit)="addnewparticipant($event)">
+                              
+                                <!-- <button type="submit" (click)="abc()" class="btn btn-success addbtnnew_e_sign d_c"
+                                id="parbutton">Add</button> -->
                                 <div class="main-box infographic-box"
                                   style="box-shadow:none !important; border-radius:0px;">
                                   <div class="navbar-collapse nullvoid"
@@ -238,9 +234,10 @@
                                     </div>
                                   </div>
                                 </div>
-                              </form>
+                             
                             </div>
                           </div>
+                           </form>
                         </modal-content>
                       </modal>
                       <modal #mycontactsModal [hideCloseButton]="true" [closeOnOutsideClick]="false">
@@ -436,7 +433,7 @@
                                           <div class="col-md-12">
                                             <div class="form-group"> <span class="fontlabel"><span
                                                   class="fontlabel"></span>Subject</span>
-                                              <input type="text" name="subject" [(ngModel)]="address"
+                                              <input type="text" name="subject" [(ngModel)]="subject"
                                                 class="form-control commn_text" tabindex="5">
                                             </div>
                                           </div>
