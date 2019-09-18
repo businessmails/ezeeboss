@@ -3518,3 +3518,5 @@ td { color: #000!important; font-weight: 600!important; }
 .smart_trash_box { padding: 7px 0; width: 100%; float: left; }
 .encyt .new_checkbox_2 h5 { padding-left: 25px; }
 .view-outer img { width: 35px; margin: 0 auto; }
+.text-fontsize, .pd0 textarea { font-weight: bold!important; }
+.signhere .text-fontsize, .initialsign .text-fontsize { font-weight: normal!important; }
