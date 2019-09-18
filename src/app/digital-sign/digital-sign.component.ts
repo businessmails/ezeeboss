@@ -188,6 +188,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
          var cx =HttpEventType.Response;
          
          if(cx){
+          //  console.log("hide........")
           this.spinnerService.hide();
          }
             this.slimLoadingBarService.complete();
@@ -219,7 +220,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
                 'Object' + (event as any).body.path + ' failed' +
                 '</object>');
                 this.spinnerService.hide();
-               (event as any).target.value = '';
+              //  (event as any).target.value = '';
        }
 
       }, error => {
@@ -242,18 +243,32 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
       '<object data="' + 'https://ezeeboss.com:3001' + this.pdfpath + '" type="application/pdf" class="embed-responsive-item">' +
       'Object' + this.pdfpath + ' failed' +
       '</object>');
+      //  alert("clicked")
+       
+        setTimeout(function(){ 
+           this.spinnerService.hide(); 
+           }, 6000);
   }
 
   filedropped(event: UploadEvent) {
     this.files = event.files;
+     this.spinnerService.show();
+     this.spinnerService.hide();
+
     for (const droppedFile of event.files) {
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
          if(fileEntry.name.split('.').pop() === 'pdf' || fileEntry.name.split('.').pop() === 'PDF') {
           this.pdferror = ''
         fileEntry.file((file: File) => {
-      
+      //  const fileList: FileList = event.target.files;
+    // console.log(event.target.files);
+     this.pdfname = fileEntry.name;
+    // console.log("pdfname,",fileEntry.name)
+    // var extension = event.target.files[0].type;
           const formData = new FormData();
+                 this.showpercentMessage = false;
+
           formData.append('filetoupload', file, droppedFile.relativePath);
           this.http.post('https://ezeeboss.com:3001/api/uploadfile', formData,{
             reportProgress: true, observe: 'events'
@@ -264,6 +279,12 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
                 this.slimLoadingBarService.start();
                 break;
               case HttpEventType.Response:
+                  var cx =HttpEventType.Response;
+         
+         if(cx){
+           console.log("hide........")
+          // this.spinnerService.hide();
+         }
                 this.slimLoadingBarService.complete();
                 this.showMessage = true;
                 this.message2 = "Uploaded Successfully";
@@ -271,15 +292,17 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
                 break;
 
               case 1: {
-                if (Math.round(this.uploadedPercentage) !== Math.round(event['loaded'] / event['total'] * 100)){
-                  this.uploadedPercentage = event['loaded'] / event['total'] * 100;
-                  this.showpercentMessage= true;
-                  this.percentmessage = Math.round(this.uploadedPercentage);
-                  this.slimLoadingBarService.progress = Math.round(this.uploadedPercentage);
-                  if(this.slimLoadingBarService.progress == 100){
-                    this.spinnerService.show();
-                   }
-                }
+                 if (Math.round(this.uploadedPercentage) !== Math.round(event['loaded'] / event['total'] * 100)){
+              this.uploadedPercentage = event['loaded'] / event['total'] * 100;
+              this.showpercentMessage= true;
+              this.percentmessage = Math.round(this.uploadedPercentage);
+              this.slimLoadingBarService.progress = Math.round(this.uploadedPercentage);
+             if(this.slimLoadingBarService.progress == 100){
+              this.spinnerService.show();
+             }
+            }else{
+              console.log("inelse")
+            }
                 break;
               }
             }
@@ -292,9 +315,11 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
                   localStorage.setItem('pdfpath', (event as any).body.path);
                   const element: HTMLElement = document.getElementById('showpdf') as HTMLElement;
                   element.click();
+                 
                   (<any>document.getElementsByClassName("drop-zone")[0]).style.zIndex = 0;
-                  this.spinnerService.hide();
-                   (event as any).body.target.value = '';
+
+                this.spinnerService.hide();
+                  //  (event as any).body.target.value = '';
     
            }
 

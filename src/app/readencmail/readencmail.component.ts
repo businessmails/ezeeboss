@@ -176,13 +176,8 @@ export class ReadmailencComponent implements OnInit {
         for (let i = 0; i < this.checkedmails.length; i++) {
           this.checkedid.push({ id: this.checkedmails[i]._id });
         }
-        this.http.post(this.AppComponent.BASE_URL + '/api/removeencmail', { mailid: this.checkedid })
+        this.http.post(this.AppComponent.BASE_URL + '/api/moveencmailstotrash', { mailid: this.checkedid })
           .subscribe(data => {
-            // this.http.post(this.AppComponent.BASE_URL+'/api/getencreadmail', {userid:this.userid})
-            // .subscribe(data => {
-            //   this.mails = data;
-            //   this.sentmails= this.mails.data;
-            // });
             this.page = 0;
             this.getMails(this.page, this.limit)
           });

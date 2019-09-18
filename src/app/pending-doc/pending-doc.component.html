@@ -1,17 +1,10 @@
 
 <div class="wrapper">
     <app-header></app-header>
-    <!-- Left side column. contains the logo and sidebar -->
     <app-main-side-bar></app-main-side-bar>
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      
-        <!-- Content Header (Page header) -->
         <section class="content-header">
-         
         </section>
-       
-        <!-- Main content -->
         <section class="content1">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -21,9 +14,7 @@
                     <div class="box box12">
                         <div class="box-header myhdr">
                             <h3 class="box-title">Pending Document</h3>
-                          
                         </div>
-                        <!-- /.box-header -->
                         <div class="box-body table-responsive no-padding mynewtable">
                             <table class="table table-hover">
                                 <tr class="hdr">
@@ -31,15 +22,11 @@
                                     <th>Doc#</th>
                                     <th>Document Name</th>
                                     <th>Sender</th>
-                                    <!-- <th>Signee Image</th>
-                                    <th>Signee Video</th>
-                                    <th>Signee Location</th> -->
                                     <th>Exp. Date</th>
                                     <th>Action</th>
                                 </tr>
-                                
-
                                 <tr *ngFor="let item of documents" class="unread">
+                                    {{item |json}}
                                     <td>
                                  <div class="checkbox">
                                    <label class="new_checkbox_2">
@@ -50,60 +37,26 @@
                                </td>
                                    <td>{{item._id}}</td>
                                    <td class="docname" >
-                                      
                                     pdf-{{item.documentid}}
-                                  
                                    </td>
-            
                                 <td>{{item.sendername}}</td>
-
-                             
                                    <td *ngIf="item.expiration!=null">{{item.expiration}}</td>
                                    <td *ngIf="item.expiration==null">NA</td>
-
                                    <td>
+
                                       <a routerLink="/newsign/{{this.digitalpath}}/{{item._id}}/{{item.userid}}/{{item.usertosign}}">
                                         <img src="assets/img/view.png" class="img-responsive"/>
                                       </a>
                                       </td>
                                </tr>
-
-
-                               
                             </table>
                         </div>
-                        <!-- /.box-body -->
                     </div>
-                    <!-- /.box -->
                 </div>
             </div>
         </section>
-        <section>
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <form role="form">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <div class="col-md-10 col-sm-10 col-xs-12 inputdiv"><input type="text" class="form-control" id="exampleInputText1" placeholder="Message to sender"></div>
-                            <div class="col-md-2 col-sm-2 col-xs-12">
-                                <button class="sbmitbtn">Submit</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2"></div>
-                </form>
-            </div>
-</section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
     <app-footer></app-footer>
-    <!-- Control Sidebar -->
-    <!-- <app-control-slider></app-control-slider> -->
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 </div>
 
