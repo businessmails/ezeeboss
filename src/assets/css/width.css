@@ -152,129 +152,7 @@ app-root {
 padding:0px !important;
 }
     
-}
-@media only screen and (min-width : 1650px) and (max-width:2802px) {
-
-    .container {
-        width: 2170px !important;
-    }
-    .control-label2 {
-        margin-bottom: 0;
-        padding-top: 11px;
-        /* font-size: 30px; */
-        color: #4d445f;
-        font-weight: normal;
-    }
-    .particiapnt34 {
-        /* font-size: 35px !important; */
-    }
-    div#refnum {
-        margin-left: 0% !important;
-    }
-    .groups_group1{
-        margin-left: 0% !important;
-    }
-    div#datetimepicker11 {
-        width: 100% !important;
-    }
-    div#datetimepicker2{
-         /* width: 100% !important; */
-    }
-    tr.odd {
-        /* font-size: 35px !important; */
-    }
-    nav.navbar.navbar-inverse {
-        height: auto;
-    }
-    img.img-responsive.logo {
-        height: auto;
-        width: 100%;
-    }
-    p.pt10 {
-        font-size: 45px  !important;
-        margin-top: 23px !important;
-        margin-bottom: 16px !important;
-    }
-    .img-portfolio2 {
-        width: 100% !important;
-    }
-    span.title {
-        color: #fff;
-        /* font-size: 40px !important; */
-    }
-    .nav > li > a {
-        padding: 13px 15px !important;
-    }
-    .nav-tabs6 .fa {
-        color: #fff;
-        background: #858f03;
-        padding: 10px 10px;
-        z-index: 100;
-        width: 60px;
-        /* font-size: 30px; */
-    }
-    .fa.fa-users {
-        /* font-size: 30px; */
-    }
-    p.pt10 {
-        /* font-size: 50px ; */
-       
-    }
-    .form-control { 
-        width: 100%;
-        height: 60px;
-        padding: 6px 12px;
-        font-size: 30px;
-        
-    }
-    .search-btn {
-        
-        /* font-size: 30px; */
-    }
-    #hor-zebra {
-        width: 100%;
-        text-align: left;
-        border-collapse: collapse;
-        margin-left: 0px;
-        margin-top: 15px;
-        font-size: 28px;
-    }
-    #hor-zebra td {
-        color: #fff;
-        padding: 10px;
-    }
-    img.img {
-        width: 200px;
-    }
-    .tab-content {
-        margin-left: 60px!important;
-        margin-bottom: 110px !important;
-    }
-    p.pt {
-        /* font-size: 30px; */
-    }
-    footer#footer img {
-        width: 48px;
-    }
-    p.pt51 {
-        /* font-size: 26px !important; */
-    }
-    .table-striped th {
-        /* font-size: 35px !important; */
-    }
-    .digital input {
-        height: 24px;
-        width: 24px;
-    }
-    .ckb{
-        height: 24px;
-        width: 24px;
-    }
-    img.img-responsive.img2 {
-        width: 200px;
-    }
-    }
-    
+}   
     @media only screen and (min-width : 1650px) and (max-width:2202px) {
     .container {
         width: 1770px !important;
@@ -301,7 +179,7 @@ padding:0px !important;
     
     }
     
-    
+    /*
     @media only screen and (max-width: 2560px) and (min-width: 1600px) {
        input.btn.btn-primary{
         font-size:25px !important;
@@ -313,7 +191,7 @@ padding:0px !important;
     checkmark[_ngcontent-c2]::after {
         top: 1.7px;
     }
-}
+}*/
 @media (min-width: 1200px)  {
 .container {
     width: 1200px !important;
