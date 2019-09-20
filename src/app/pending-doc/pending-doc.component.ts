@@ -22,9 +22,10 @@ export class PendingDocComponent implements OnInit {
   documents:any;
   pdfid:any;
   checkeddocuments:any;
-
   digitalpath:any;
   isSelected=false;
+   items: Array<any>;
+ pageOfItems: Array<any>;
   constructor(
    private http: HttpClient,
    private auth: AuthenticationService,
@@ -42,17 +43,22 @@ export class PendingDocComponent implements OnInit {
       this.useremail = this.details.email;
       this.http.post(this.AppComponent.BASE_URL+'/api/docpendingbyme' , {useremail :this.useremail})
       .subscribe(data => {
+
       this.documentdetail = data;
+       this.items = this.documentdetail.message;
       this.documents = this.documentdetail.message;
     //  console.log(this.documents);
       });
     });
   }
-
+  onChangePage(pageOfItems: Array<any>) {
+        // update current page of items
+        this.pageOfItems = pageOfItems;
+    }
   checkAll(ev) {
     this.documents.forEach(x => x.selected = ev.target.checked);
     this.isSelected = true;
-     alert(this.isSelected)
+    //  alert(this.isSelected)
   }
 
   isAllChecked() {
@@ -63,7 +69,7 @@ export class PendingDocComponent implements OnInit {
 
   deletedocument() {
     this.checkeddocuments = this.documents.filter(_ => _.selected);
-    console.log(this.checkeddocuments)
+ 
     if ( this.checkeddocuments.length == 0 ) {
       alert('Please Check At Least One Record');
     }
@@ -73,7 +79,7 @@ export class PendingDocComponent implements OnInit {
        for ( let i = 0; i < this.checkeddocuments.length; i++) {
         this.checkedid.push({_id: this.checkeddocuments[i]._id});
        }
-       this.http.post( this.AppComponent.BASE_URL+'/api/deletemypendingdocuments', {documentid: this.checkedid})
+       this.http.post( this.AppComponent.BASE_URL+'/api/deletemydocuments', {documentid: this.checkedid})
        .subscribe(data => {
         this.http.post(this.AppComponent.BASE_URL+'/api/docpendingbyme' , {useremail :this.useremail})
         .subscribe(data => {
