@@ -18,19 +18,21 @@
                         <div class="box-body table-responsive no-padding mynewtable">
                             <table class="table table-hover">
                                 <tr class="hdr">
-                                    <th></th>
+                                    <th>  <input type="checkbox" name="checked" [checked]="isAllChecked()" (change)="checkAll($event)" ></th>
                                     <th>Doc#</th>
                                     <th>Document Name</th>
                                     <th>Sender</th>
                                     <th>Exp. Date</th>
                                     <th>Action</th>
                                 </tr>
-                                <tr *ngFor="let item of documents" class="unread">
-                                    {{item |json}}
+                                <tr *ngFor="let item of pageOfItems" class="unread">
+                                    <!-- {{item |json}} -->
                                     <td>
                                  <div class="checkbox">
                                    <label class="new_checkbox_2">
-                                     <input type="checkbox" name="checked" [checked]="isAllChecked()" (change)="checkAll($event)" >
+                                    
+                                        <input type="checkbox" name="checked" value="{{item._id}}"
+                                        [(ngModel)]="item.selected">
                                      <span class="checkmark"></span>
                                    </label>
                                  </div>
@@ -40,16 +42,22 @@
                                     pdf-{{item.documentid}}
                                    </td>
                                 <td>{{item.sendername}}</td>
-                                   <td *ngIf="item.expiration!=null">{{item.expiration}}</td>
+                                   <td *ngIf="item.expiration!=null">{{item.expiration | date: 'dd/MM/yyyy'}}</td>
                                    <td *ngIf="item.expiration==null">NA</td>
                                    <td>
 
-                                      <a routerLink="/newsign/{{this.digitalpath}}/{{item._id}}/{{item.userid}}/{{item.usertosign}}">
+                                      <a routerLink="/newsign/{{item.withimage}}/{{this.digitalpath}}/{{item._id}}/{{item.userid}}/{{item.usertosign}}">
                                         <img src="assets/img/view.png" class="img-responsive"/>
                                       </a>
                                       </td>
                                </tr>
                             </table>
+                            <!-- {{items | json}} -->
+                             <!-- <table>
+                            <div *ngFor="let item of pageOfItems">{{item}}</div>
+ </table> -->
+
+                            <jw-pagination [items]="items" [pageSize]=10 (changePage)="onChangePage($event)"></jw-pagination>
                         </div>
                     </div>
                 </div>
