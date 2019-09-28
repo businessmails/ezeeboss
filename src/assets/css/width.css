@@ -336,14 +336,14 @@ padding:0px !important;
     /*     .checkmark {
             height: 32px !important;
             width: 32px !important;
-        } */
+        } 
         .container56 .checkmark:after {
             left: 13px !important;
             top: 7px !important;
             width: 10px !important;
             height: 17px !important;
             border-width: 0 4px 4px 0 !important;
-        }
+        }*/
         .logimg {
             padding: 200px 20px !important;
         }
@@ -744,3 +744,5 @@ padding:0px !important;
     transform: rotate(45deg);
 }
 .forgot_margin { margin-bottom:10px;}
+.mydroppopup { width: 173px!important; margin-left:0!important; }
+i.fa.fa-arrow-down, i.fa.fa-arrow-up { width: 13px; overflow: hidden; line-height: 11px; }
