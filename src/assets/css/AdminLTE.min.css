@@ -6164,7 +6164,7 @@ a.sidebar-toggle {
     position: absolute;
     z-index: 9;
     background: #fff;
-    padding: 10px;
+    padding: 4px;
     box-shadow: 0 0 5px rgba(0,0,0,.5);
     top: 40px;
 }
@@ -6180,7 +6180,7 @@ a.sidebar-toggle {
     opacity: 1;
     font-weight: bold;
 }
-.error-msg-div_2 { bottom:-40px; top:auto;}
+.error-msg-div_2 { bottom:148px; top:auto;}
 .green[_ngcontent-c0] {
     border: 1px solid #f5f1f1 !important;
 }

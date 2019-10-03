@@ -245,15 +245,15 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
       '</object>');
       //  alert("clicked")
        
-        setTimeout(function(){ 
+        // setTimeout(function(){ 
            this.spinnerService.hide(); 
-           }, 6000);
+        //    }, 6000);
   }
 
   filedropped(event: UploadEvent) {
     this.files = event.files;
      this.spinnerService.show();
-     this.spinnerService.hide();
+    //  this.spinnerService.hide();
 
     for (const droppedFile of event.files) {
       if (droppedFile.fileEntry.isFile) {
@@ -282,7 +282,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
                   var cx =HttpEventType.Response;
          
          if(cx){
-           console.log("hide........")
+          //  console.log("hide........")
           // this.spinnerService.hide();
          }
                 this.slimLoadingBarService.complete();
@@ -318,7 +318,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
                  
                   (<any>document.getElementsByClassName("drop-zone")[0]).style.zIndex = 0;
 
-                this.spinnerService.hide();
+                // this.spinnerService.hide();
                   //  (event as any).body.target.value = '';
     
            }

@@ -30,7 +30,6 @@ export class ProfileComponent {
     // this.spinnerService.show();
     this.auth.profile().subscribe(user => {
       this.details = user;
-      //console.log(this.details);
       localStorage.setItem('user_id', this.details._id);
       //this.details.sec_email =this.details.secEmail
       this.spinnerService.hide();
@@ -77,19 +76,7 @@ export class ProfileComponent {
   }
 
   update() {
-    //console.log('chill');
-    //console.log(this.details);
-    // console.log(this.details.phonenumber);
-
-    // console.log(this.details.first_name);
-
-    // console.log(this.details.last_name);
-
-    // console.log(this.details.secEmail);
-    // console.log(this.details);
     this.spinnerService.show();
-
-    // const req = this.http.post('http://127.0.0.1:3000/api/update',
     const req = this.http.post('https://ezeeboss.com:3001/api/update', {
       user_id: localStorage.getItem('user_id'),
       phonenumber: this.details.phonenumber,

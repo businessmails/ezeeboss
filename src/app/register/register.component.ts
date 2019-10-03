@@ -12,7 +12,6 @@ import { Headers } from '@angular/http';
 import { ScrollToService } from 'ng2-scroll-to-el';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { AppComponent } from '../app.component';
-// import { renderer2 } from '@angular/core';
 @Component({
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
@@ -62,42 +61,29 @@ export class RegisterComponent {
   public alphabets = true;
   public dropPasswordTips = true;
   public UpperAlphabets = true;
-  // webcam snapshot trigger
   private trigger: Subject<void> = new Subject<void>();
-  template: string =`<img src="../../assets/img/ezgif.com-gif-maker.gif" style="margin-left:200px"/>`
+  template: string = `<img src="../../assets/img/ezgif.com-gif-maker.gif" style="margin-left:200px"/>`
   @ViewChild('top') public messagescroll: ElementRef;
   @ViewChild('sucess') sucessmessage: any;
   public triggerSnapshot(): void {
     this.trigger.next();
     this.Camera = null;
     this.recapture = true;
-  
+
 
   }
   public toggleWebcam(): void {
-    this.animatecamera=false;
-    // this.withoutImage="selected"
-    // alert(this.withoutImage)
-    // alert()
+    this.credentials.image = null;
+
+    this.animatecamera = false;
     if (this.animatecamerabtn != true) {
       this.animatecamerabtn = true;
-// alert("!")
     }
     else {
-      // alert("d");
-      //this.animatecamerabtn = false;
       this.animatebtn = false;
-
     }
-    // if (this.animatecamera == true) {
-    //   this.animatecamera = false;
-    // }
-    // else {
-    //   this.animatecamera = true;
-    // }
     this.Camera = 'true';
     this.recapture = false;
-    // console.log("im");
     this.showWebcam = !this.showWebcam;
     if (this.webcamImage) {
       this.webcamImage = null;
@@ -105,9 +91,7 @@ export class RegisterComponent {
   }
   public handleImage(webcamImage: WebcamImage): void {
 
-    //  console.info('received webcam image', webcamImage);
     this.webcamImage = webcamImage;
-    //  console.log(JSON.stringify(webcamImage));
     this.credentials.image = webcamImage.imageAsDataUrl;
     this.credentials.imag = 'image';
     this.hideimg = 'hide';
@@ -131,15 +115,11 @@ export class RegisterComponent {
 
   }
   ngOnInit() {
-    //alert()
-    this.credentials.image="none";
+    this.credentials.image = "none";
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        //   alert(position)
-        //   console.log(position.coords.latitude)
         return this.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&sensor=true&key=" + this.AppComponent.GOOGLE_MAP_KEY)
           .subscribe(data => {
-            // console.log(data)
             this.location = data;
             let cityname;
             let statename;
@@ -156,9 +136,7 @@ export class RegisterComponent {
                 }
               }
             }
-            //  console.log(cityname, statename)
             this.cityname = cityname;
-            //     console.log(this.cityname)
           });
       });
     }
@@ -166,96 +144,65 @@ export class RegisterComponent {
   emptycheck() {
     if (this.credentials.fname !== "" && this.credentials.lname !== "" && this.credentials.password !== "" && this.credentials.cpassword !== "" && this.credentials.email && this.credentials.phonenumber !== '') {
       if (this.credentials.image == "none") {
-        // alert("none")
         this.recapture = false;
-     //   alert(this.credentials.image)
         this.animatebtn = true;
       }
       else if (this.credentials.image == '') {
-        // this.animatecamerabtn=true;
         this.animatecamera = true;
-
-        //   alert("empty")
       }
       else {
-        //alert("string64")
         this.animatebtn = true;
-
       }
-
-
     }
-    // else if(this.credentials.fname !=="" && this.credentials.lname !=="" && this.credentials.password !=="" && this.credentials.cpassword !=="" && this.credentials.image =="none" && this.credentials.email && this.credentials.phonenumber !== ''){
-    //   alert("else")
-    // }
   }
   registerwithoutimage() {
-    // alert(this.withoutImage)
-    // alert("this.withoutImage")
-// return;
-// alert(this.animatecamera);
-if(this.animatecamera == false){
-  this.animatecamera=true;
-  this.Camera= false;
-  this.recapture= false;
-}
+    if (this.animatecamera == false) {
+      this.animatecamera = true;
+      this.Camera = false;
+      this.recapture = false;
+    }
     if (this.withoutImage === 'Selected') {
-// alert(this.animatebtn);
-
-// if(this.animatebtn==true){
-this.animatebtn=false;
-// }
-// else{
-  // alert("failing")
-// }
-
+      // console.log("without")
+      //  this.recapture = true;
+        this.showWebcam = false;
+      if (this.webcamImage) {
+        this.recapture = true;
+        console.log("...in")
+        // this.webcamImage = null;
+        //  this.Camera = false;
+      }
+      this.animatebtn = false;
       this.withoutImage = null;
       this.credentials.image = null;
-      // this.emptycheck()
     } else {
+       this.recapture = false;
+      console.log("not null")
       this.withoutImage = 'Selected';
       this.credentials.image = 'none';
       this.emptycheck()
-      // this.
     }
 
   }
-  // this.credentials.lname =null;
-  // this.credentials.email=null;
-  // this.credentials.fname=null;
-  // this.credentials.password=null;
-  // this.credentials.cpassword=null;
-  // this.credentials.phonenumber=null;
-  // this.credentials.image=null;
   scrollToTop(element) {
-    // console.log("element",element);
     this.scrollService.scrollTo(element);
   }
   checkmail() {
-    // const element = this.credentials.selectRootElement('#input1');
-
-    // setTimeout(() => element.focus(), 0);
     this.mailerror = '';
     const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    // console.log( regex.test(this.credentials.email));
     if (regex.test(this.credentials.email)) {
       this.mailerror = null;
       this.emptycheck()
     } else {
-
       this.mailerror = 'Please enter a valid email';
       const element: HTMLElement = document.getElementById('email') as HTMLElement;
-      // element.focus();
     }
 
   }
   lname() {
-    // alert('kkk')
     const empty = this.credentials.lname.length;
     if (empty < 1) {
       this.lnameerror = 'Please enter the Last Name';
       const element: HTMLElement = document.getElementById('lname') as HTMLElement;
-      //  element.focus();
     } else {
       this.lnameerror = null;
       this.emptycheck()
@@ -266,72 +213,47 @@ this.animatebtn=false;
     if (empty < 1) {
       this.fnameerror = 'Please enter the First Name';
       const element: HTMLElement = document.getElementById('fname') as HTMLElement;
-      //  element.focus();
     } else {
       this.fnameerror = null;
       this.emptycheck()
     }
-
-
-
-
   }
   password() {
-    var tests = [/[0-9]/, /[a-z]/, /[A-Z]/, /[^A-Z-0-9]/i]        // ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}
-    // this.jagveer=false;
+    var tests = [/[0-9]/, /[a-z]/, /[A-Z]/, /[^A-Z-0-9]/i]
     const length = this.credentials.password.length;
-    // if (length < 8) {
-    //   this.passworderror = 'Please enter minimum 8 digit Password';
-    //   const element: HTMLElement = document.getElementById('password') as HTMLElement;
-    // //  element.focus();
-    // }else {
-    //   this.passworderror = null;
-
-    // }
-    if(this.credentials.password != null ){
+    if (this.credentials.password != null) {
       let format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-    if(format.test(this.credentials.password)){
-      this.specialChar = false;
-    }
-    else{
-      this.specialChar= true;
-    }
-    
-    let number =/[0-9]/;
-    if(number.test(this.credentials.password)){
-      this.onlyNumber = false;
-    }
-    else{
-      this.onlyNumber = true;
-    }
-    let loweralpha = /[a-z]/;
-    // if(loweralpha.test(this.credentials.password)){
-    //   this.alphabets = false;
-    // }
-    // else{
-    //   this.alphabets = true;
-    // }
-    let upperAlpha= /[A-Z]/;
-    if(upperAlpha.test(this.credentials.password) && loweralpha.test(this.credentials.password)){
-      this.UpperAlphabets = false;
-      this.alphabets = false;
-    }
-    else{
-      this.UpperAlphabets = true;
-      this.alphabets = true;
-    }
-    if(length >= 8){
-      this.eightCharacters = false;
-    }
-    else{
-      this.eightCharacters = true;
-    }
-    
-    }
+      if (format.test(this.credentials.password)) {
+        this.specialChar = false;
+      }
+      else {
+        this.specialChar = true;
+      }
 
-
-
-
+      let number = /[0-9]/;
+      if (number.test(this.credentials.password)) {
+        this.onlyNumber = false;
+      }
+      else {
+        this.onlyNumber = true;
+      }
+      let loweralpha = /[a-z]/;
+      let upperAlpha = /[A-Z]/;
+      if (upperAlpha.test(this.credentials.password) && loweralpha.test(this.credentials.password)) {
+        this.UpperAlphabets = false;
+        this.alphabets = false;
+      }
+      else {
+        this.UpperAlphabets = true;
+        this.alphabets = true;
+      }
+      if (length >= 8) {
+        this.eightCharacters = false;
+      }
+      else {
+        this.eightCharacters = true;
+      }
+    }
 
     if (this.credentials.password == null)
       return -1;
@@ -347,7 +269,6 @@ this.animatebtn=false;
     for (let i in tests)
       if (tests[i].test(this.credentials.password))
         s++;
-    // return s;
     if (s == 0) {
       this.passworderror = 'Very Weak';
       this.passworderrorr = 'Very Weak';
@@ -364,20 +285,15 @@ this.animatebtn=false;
       this.jagveer = true;
     }
     else if (s == 4 && length >= 8) {
-      //this.jagveer=false;
       this.passworderror = '';
       this.dropPasswordTips = false;
       this.passworderrorr = 'Strong';
       this.emptycheck()
-
     }
-    else{
+    else {
       this.dropPasswordTips = true;
     }
-    //this.passworderror =s
-    // console.log(s);
   }
-
   blurr() {
     if (this.passworderror === '') {
       this.jagveer = false;
@@ -385,7 +301,6 @@ this.animatebtn=false;
     }
     else {
       const element: HTMLElement = document.getElementById('password') as HTMLElement;
-      // element.focus();
       this.jagveer = false;
     }
   }
@@ -405,74 +320,45 @@ this.animatebtn=false;
       if (this.credentials.password !== this.credentials.cpassword) {
         this.cpassworderror = 'Passwords does not match!';
         const element: HTMLElement = document.getElementById('cpassword') as HTMLElement;
-        //  element.focus();
       } else {
         this.cpassworderror = null;
         this.emptycheck()
       }
     } else {
-      // console.log(this.passworderrorr);
       this.cpassworderror = this.passworderrorr;
     }
-    // if (this.credentials.password !== this.credentials.cpassword) {
-    //   this.cpassworderror = 'Passwords does not match!';
-    //   const element: HTMLElement = document.getElementById('cpassword') as HTMLElement;
-    //   //  element.focus();
-    // } else {
-    //   this.cpassworderror = null;
-    // }
   }
   number() {
     const length = this.credentials.phonenumber.length;
     if (length < 10) {
       this.phoneerror = 'Please enter minimum 10 digit Phone Number';
       const element: HTMLElement = document.getElementById('number') as HTMLElement;
-      //  element.focus();
     } else {
       this.phoneerror = null;
       this.emptycheck()
     }
-    // console.log(this.phoneerror)
   }
   register() {
-    //  alert("this.withoutImage"+this.withoutImage)
-    //  return;
     this.spinnerService.show();
-    // console.log('im---');
     if (this.withoutImage != null) {
-
       this.credentials.image = 'none';
-      // console.log('yoyo');
     }
-
     if (this.credentials.image === '') {
-
       this.imageerror = 'Image is required';
       this.spinnerService.hide();
       return false;
     } else {
       this.imageerror = null;
-      //      }
-      //  this.loading = true;
-      // this.spinnerService.show();
-      ///////// ------------------------- api to train bot------------------------////////////////
-// console.log(JSON.stringify(this.credentials))
       this.auth.register(this.credentials).subscribe(
-
         user => {
-
-          console.log("user",user);
           if (user.image == 'none') {
-            // console.log('you');
             this.opensuccesspop();
             const newreq = this.http.post('https://ezeeboss.com:3001/api/sendmail', {
               id: user.id,
-              // imageurl: user.imgurl.replace('mybitrade','ezeeboss'),
               imageurl: "none",
               to: user.to,
               name: user.name,
               location: this.cityname,
-              // url: 'https://ezeeboss.com/confirm/' + user.id
               url: 'https://ezeeboss.com/confirm/' + user.id
             })
               .subscribe(
@@ -519,25 +405,17 @@ this.animatebtn=false;
                       to: user.to,
                       name: user.name,
                       location: this.cityname,
-                      // url: 'https://ezeeboss.com/confirm/' + user.id
                       url: 'https://ezeeboss.com/confirm/' + user.id
                     })
                       .subscribe(
                         // tslint:disable-next-line:no-shadowed-variable
                         res => {
-                          //  this.loading = false;
-                          //this.error = 'Your Face Was Not Detected.Please Try Again';
-
                           this.userregistered = user.to;
                           localStorage.clear();
-
                           this.spinnerService.hide();
-
-                          //   this.moveToSpecificView();
                         }
                       );
                     this.userregistered = user.to;
-                    //     console.log(this.userregistered);
                     this.credentials.lname = null;
                     this.credentials.email = null;
                     this.credentials.fname = null;
@@ -547,9 +425,6 @@ this.animatebtn=false;
                     this.credentials.image = null;
                     this.webcamImage = null;
                     localStorage.clear();
-                    // this.scrollToTop(top);
-                    // this.credentials = null;
-                    // this.router.navigateByUrl('/digital_sign');
                   }
                 }
                 , (err) => {
@@ -559,23 +434,22 @@ this.animatebtn=false;
                 });
           }  // else
         }, (err) => {
-          // this.spinnerService.hide();
-          //   this.loading = false;
           this.data = err;
-          // console.log(this.data);
-          // console.error(this.data.error);
-          console.error(this.data.error.err);
           if (this.data.error.err.code === 11000) {
             this.mailerror = 'User With Email or Phone Number Already Registered !!!';
           } else {
             this.error = 'Something Went Wrong.Please Try Again !!!';
             localStorage.clear();
-
           }
 
         });
     }
     // }
+  }
+  hideerror() {
+    setTimeout(function () {
+      this.error = !this.error;
+    }, 6000);
   }
   isFocused() {
     this.jagveer = true;
@@ -584,13 +458,9 @@ this.animatebtn=false;
     this.sucessmessage.open();
     setTimeout(() => {
       var el = document.querySelector('.modal-content');
-      //alert(el)
-      // get the element's parent node
       var parent = el.parentNode;
-
       // move all children out of the element
       while (el.firstChild) parent.insertBefore(el.firstChild, el);
-
       // remove the empty element
       parent.removeChild(el);
     }, 1);
@@ -599,21 +469,15 @@ this.animatebtn=false;
     this.sucessmessage.open();
     setTimeout(() => {
       var el = document.querySelector('.modal-content');
-      //alert(el)
       // get the element's parent node
       var parent = el.parentNode;
-
       // move all children out of the element
       while (el.firstChild) parent.insertBefore(el.firstChild, el);
-
-      // remove the empty element
       parent.removeChild(el);
     }, 1);
 
   }
   success() {
-    //alert();
     this.router.navigate(['login']);
   }
-
 }

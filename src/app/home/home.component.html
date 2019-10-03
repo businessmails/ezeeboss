@@ -1,220 +1,209 @@
-<!-- <div class="container">
-  
-  <h1>Hello there</h1>
-
-  <p>Won't you please <a routerLink="/login">sign in</a> or <a routerLink="/register">register</a>?</p>
-
-</div> -->
 <section class="hdrsec">
-        <div class="container">
-        <nav class="navbar navbar-expand-lg">
-            <div class="navbar-left" style="visibility: hidden;">
-                    <ul class="navbar-nav"> 
-                            <li class="nav-item">
-                                <a class="nav-link" routerLink='/register'>
-                                  <img src="../../assets/img/sign-up.png">
-                              </a>
-                            </li>
-                            <li class="nav-item">
-                                  <a class="nav-link" routerLink='/login'>
-                                   <img src="../../assets/img/log-in.png">
-                                  </a>
-                            </li>
-                        </ul>
-            </div>
-            <a class="navbar-brand" >
-                    <a routerLink='/'>
-                    <div class="logoimg">
-                            <img style="margin-top: 0;"  src="../../assets/img/ezee-logo.png" />
-                        </div>
-                    </a>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg">
+      <div class="navbar-left" style="visibility: hidden;">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/register'>
+              <img src="../../assets/img/sign-up.png">
             </a>
-            <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-expanded="false">
-            <span class="navbar-toggler-icon"></span>
-            </button> --->
-            <div class="navbar-right" id="navbar1">
-              <ul class="navbar-nav"> 
-                  <li class="nav-item">
-                      <a class="nav-link" routerLink='/register'>
-                        <img src="../../assets/img/sign-up.png">
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                        <a class="nav-link" routerLink='/login'>
-                            <img src="../../assets/img/log-in.png">
-                        </a>
-                  </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-        </section>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/login'>
+              <img src="../../assets/img/log-in.png">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <a class="navbar-brand">
+        <a routerLink='/'>
+          <div class="logoimg">
+            <img style="margin-top: 0;" src="../../assets/img/ezee-logo.png" />
+          </div>
+        </a>
+      </a>
+
+      <div class="navbar-right" id="navbar1">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/register'>
+              <img src="../../assets/img/sign-up.png">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/login'>
+              <img src="../../assets/img/log-in.png">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
 
 <div class="slider-outer">
-<div class="container">
-<slideshow #slideshow [imageUrls]="imageUrls" [backgroundSize]="backgroundSize" [height]="height"></slideshow>
-</div>
+  <div class="container">
+    <slideshow #slideshow [imageUrls]="imageUrls" [backgroundSize]="backgroundSize" [height]="height"></slideshow>
+  </div>
 </div>
 
 <style>
-    i.arrow.prev {
+  i.arrow.prev {
     display: none !important;
   }
+
   .arrow-container.prev {
-      position: absolute;
-      top: 42%;
-      background: red;
-      left:0!important;
+    position: absolute;
+    top: 42%;
+    background: red;
+    left: 0 !important;
   }
-  .slideshow-container .arrow-container.next { right: 0px!important; }
+
+  .slideshow-container .arrow-container.next {
+    right: 0px !important;
+  }
+
 </style>
 <div class="clear"></div>
 
 <div class="container">
 
-    <div class="row">
+  <div class="row">
 
-        <div class="col-xs-12">
+    <div class="col-xs-12">
 
-            <div class="latest-trend">
+      <div class="latest-trend">
 
-                <div data-target="#myCarousel" data-slide-to="0" class="active v-line col-xs-12 col-sm-2 nopadding">
+        <div data-target="#myCarousel" data-slide-to="0" class="active v-line col-xs-12 col-sm-2 nopadding">
 
-                    <div class="col-xs-12 latest-trend-box">
+          <div class="col-xs-12 latest-trend-box">
 
-                        <a (click)="setcarouselimage(0)">
+            <a (click)="setcarouselimage(0)">
 
-                            <img src="../../assets/img/home-01.png" class="img-responsive" alt="" />
+              <img src="../../assets/img/home-01.png" class="img-responsive" alt="" />
 
-                        </a>
+            </a>
 
-                    </div>
-
-                </div>
-
-
-
-
-                <div data-target="#myCarousel" data-slide-to="1" class="v-line col-xs-12 col-sm-2 nopadding">
-
-                    <div class="col-xs-12 latest-trend-box">
-
-                        <a (click)="setcarouselimage(1)">
-
-                            <img src="../../assets/img/home-02.png" class="img-responsive" alt="" />
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div data-target="#myCarousel" data-slide-to="2" class="v-line col-xs-12 col-sm-2 nopadding">
-
-                    <div class="col-xs-12 latest-trend-box">
-
-                        <a (click)="setcarouselimage(2)">
-
-                            <img src="../../assets/img/home-03.png" class="img-responsive" alt="" />
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div data-target="#myCarousel" data-slide-to="3" class="v-line col-xs-12 col-sm-2 nopadding">
-
-                    <div class="col-xs-12 latest-trend-box">
-
-                        <a (click)="setcarouselimage(3)">
-
-                            <img src="../../assets/img/home-04.png" class="img-responsive" alt="" />
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <div data-target="#myCarousel" data-slide-to="4" class="v-line col-xs-12 col-sm-2 nopadding">
-
-                    <div class="col-xs-12 latest-trend-box">
-
-                        <a (click)="setcarouselimage(4)">
-
-                            <img src="../../assets/img/home-05.png" class="img-responsive" alt="" />
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
+          </div>
 
         </div>
 
+
+
+
+        <div data-target="#myCarousel" data-slide-to="1" class="v-line col-xs-12 col-sm-2 nopadding">
+
+          <div class="col-xs-12 latest-trend-box">
+
+            <a (click)="setcarouselimage(1)">
+
+              <img src="../../assets/img/home-02.png" class="img-responsive" alt="" />
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <div data-target="#myCarousel" data-slide-to="2" class="v-line col-xs-12 col-sm-2 nopadding">
+
+          <div class="col-xs-12 latest-trend-box">
+
+            <a (click)="setcarouselimage(2)">
+
+              <img src="../../assets/img/home-03.png" class="img-responsive" alt="" />
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <div data-target="#myCarousel" data-slide-to="3" class="v-line col-xs-12 col-sm-2 nopadding">
+
+          <div class="col-xs-12 latest-trend-box">
+
+            <a (click)="setcarouselimage(3)">
+
+              <img src="../../assets/img/home-04.png" class="img-responsive" alt="" />
+
+            </a>
+
+          </div>
+
+        </div>
+
+
+
+        <div data-target="#myCarousel" data-slide-to="4" class="v-line col-xs-12 col-sm-2 nopadding">
+
+          <div class="col-xs-12 latest-trend-box">
+
+            <a (click)="setcarouselimage(4)">
+
+              <img src="../../assets/img/home-05.png" class="img-responsive" alt="" />
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
+  </div>
 
 </div>
 
-<!-- modal start -->
 
-<!-- Button trigger modal -->
-
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-         
-		 Launch demo modal
-         
-		 </button> -->
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
 
-    <div class="modal-dialog" role="document">
+  <div class="modal-dialog" role="document">
 
-        <div class="modal-content mycontnt">
+    <div class="modal-content mycontnt">
 
-            <div class="modal-header">
+      <div class="modal-header">
 
-                <h5 class="modal-title" id="exampleModalLabel">Sign</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Sign</h5>
 
-                <button type="button" class="close nwclose" data-dismiss="modal" aria-label="Close">
-         
-		 <span aria-hidden="true">&times;</span>
-      
-	  </button>
+        <button type="button" class="close nwclose" data-dismiss="modal" aria-label="Close">
 
-            </div>
+          <span aria-hidden="true">&times;</span>
 
-            <div class="modal-body mybdy">
+        </button>
 
-                <div class="midleimg">
+      </div>
 
-                    <img src="../../assets/img/picture.jpg" />
+      <div class="modal-body mybdy">
 
-                </div>
+        <div class="midleimg">
 
-            </div>
-
-            <div class="modal-footer">
-
-                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-
-                <div class="svbtn">
-
-                    <button type="button" class="btn btn-primary">Capture Image</button>
-
-                </div>
-
-            </div>
+          <img src="../../assets/img/picture.jpg" />
 
         </div>
 
+      </div>
+
+      <div class="modal-footer">
+
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+
+        <div class="svbtn">
+
+          <button type="button" class="btn btn-primary">Capture Image</button>
+
+        </div>
+
+      </div>
+
     </div>
+
+  </div>
 
 </div>
 
@@ -224,79 +213,81 @@
 
 <footer id="footer">
 
-    <div class="container">
+  <div class="container">
 
-        <div class="row">
+    <div class="row">
 
-            <div class="col-md-2 col-sm-2 col-xs-12">
+      <div class="col-md-2 col-sm-2 col-xs-12">
 
-                <div id="chatoffimg" class="icon56" style="display:block;"><img src="../../assets/img/chat.png" alt="chat" title="Chat" border="0" onclick="chatWithOFF('1','admin');" style="cursor:pointer; float:left; position:relative;" /></div>
-
-
-                <!-- <link type="text/css" rel="stylesheet" media="all" href="./assets/css/chat.css" /> -->
-                <!--<script type="text/javascript" src="jquery.js"></script>-->
+        <div id="chatoffimg" class="icon56" style="display:block;"><img src="../../assets/img/chat.png" alt="chat"
+            title="Chat" border="0" onclick="chatWithOFF('1','admin');"
+            style="cursor:pointer; float:left; position:relative;" /></div>
 
 
-            </div>
+        <!-- <link type="text/css" rel="stylesheet" media="all" href="./assets/css/chat.css" /> -->
+        <!--<script type="text/javascript" src="jquery.js"></script>-->
+
+
+      </div>
 
 
 
 
 
-            <div class="col-md-5 col-sm-5 col-xs-12">
+      <div class="col-md-5 col-sm-5 col-xs-12">
 
-                <p class="pt">copyright © 2016. all rights reserved </p>
+        <p class="pt">copyright © 2016. all rights reserved </p>
 
-            </div>
+      </div>
 
-            <div class="col-md-5 col-sm-5">
+      <div class="col-md-5 col-sm-5">
 
-                <ul class="list">
+        <ul class="list">
 
-                    <a target="_blank">
+          <a target="_blank">
 
-                        <li><img src="../../assets/img/insta.png" title="Instragram" alt="Instragram"></li>
+            <li><img src="../../assets/img/insta.png" title="Instragram" alt="Instragram"></li>
 
-                    </a>
+          </a>
 
-                    <a target="_blank">
+          <a target="_blank">
 
-                        <li><img src="../../assets/img/fb.png" title="Facebook" alt="Facebook"></li>
+            <li><img src="../../assets/img/fb.png" title="Facebook" alt="Facebook"></li>
 
-                    </a>
+          </a>
 
-                    <a>
+          <a>
 
-                        <li><img src="../../assets/img/twitter.png" title="Twitter" alt="Twitter"></li>
+            <li><img src="../../assets/img/twitter.png" title="Twitter" alt="Twitter"></li>
 
-                    </a>
+          </a>
 
-                    <a target="_blank">
+          <a target="_blank">
 
-                        <li><img src="../../assets/img/google-plus.png" title="Google-Plus" alt="Google-Plus"></li>
+            <li><img src="../../assets/img/google-plus.png" title="Google-Plus" alt="Google-Plus"></li>
 
-                    </a>
+          </a>
 
-                    <a>
+          <a>
 
-                        <li><img src="../../assets/img/you.png" title="YouTube" alt="YouTube"></li>
+            <li><img src="../../assets/img/you.png" title="YouTube" alt="YouTube"></li>
 
-                    </a>
+          </a>
 
-                    <a>
+          <a>
 
-                        <li><img src="../../assets/img/test.png" title="Testimonial" alt="Testimonial"></li>
+            <li><img src="../../assets/img/test.png" title="Testimonial" alt="Testimonial"></li>
 
-                    </a>
+          </a>
 
-                </ul>
+        </ul>
 
-            </div>
+      </div>
 
-
-        </div>
 
     </div>
+
+  </div>
 
 
 
@@ -312,11 +303,11 @@
 
 <div class="shade">
 
-    <div class="popmsg">
+  <div class="popmsg">
 
-        <p style="color:#FFFFFF; text-align:center;font-weight:900;font-size:16px;padding:10px 0; margin:0; " id="ses"></p>
+    <p style="color:#FFFFFF; text-align:center;font-weight:900;font-size:16px;padding:10px 0; margin:0; " id="ses"></p>
 
-    </div>
+  </div>
 
 </div>
 

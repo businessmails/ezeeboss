@@ -57,7 +57,6 @@ export class ActionrequiredComponent implements OnInit {
       this.fullname = this.details.name;
       this.email = this.details.email;
       this.userid = this.details._id;
-      console.log(this.details);
       this.http.get(this.AppComponent.BASE_URL + '/api/mydocuments/' + this.userid)
       .subscribe(data => {
        this.documentdetail = data;
