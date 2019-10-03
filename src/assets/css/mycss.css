@@ -1,4 +1,4 @@
-﻿/* start css 14-10-2014 */
+/* start css 14-10-2014 */
 @font-face {
     font-family: 'bod_pstc_1';
     src: url('../fonts/bod_pstc_1.eot');
@@ -124,8 +124,9 @@ selectdigital {
 	width: 45px !important;
     position: relative !important;
     padding: 0px !important;
-    height: 37px;
+    height: 44px;
 }
+.box3 .calinnerdiv .calbtn { height: 37px; }
 .smartpadding[_ngcontent-c6] .img-responsive.img1[_ngcontent-c6] {
 	width: 25px;
 }
@@ -3520,3 +3521,6 @@ td { color: #000!important; font-weight: 600!important; }
 .view-outer img { width: 35px; margin: 0 auto; }
 .text-fontsize, .pd0 textarea { font-weight: bold!important; }
 .signhere .text-fontsize, .initialsign .text-fontsize { font-weight: normal!important; }
+.complete_page_box { margin: 0 auto; width: 100%; display: block; text-align: center; }
+.complete_page_box ul{ float: left!important; margin: 20px 0!important; }
+ul.pagination { margin-top: 20px!important; margin-bottom: 20px!important; }

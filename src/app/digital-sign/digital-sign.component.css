@@ -703,65 +703,6 @@ display:none;
   color: #414541;
 } 
 
-@media only screen and (max-width: 2560px) and (min-width: 1600px) {
-    .selector.selectorarrow.selectorarrowleft {
-        left: 77% !important;
-    }
-    p.pt10{
-        margin-right: 12px;
-    }
-    ..checkbox label, .radio label{
-        padding-left: 30px !important;
-    }
-    .container56 .checkmark:after {
-        left: 9px !important;
-        top: 3px !important;
-        width: 10px !important;
-        height: 17px !important;
-        border-width: 0 4px 4px 0 !important;
-    }
-    .checkmark{
-        top:7px !important;
-        left: 0 !important;
-        height: 30px !important;
-        width: 30px !important;
-    }
-    .inst-popup {
-        margin-top: -2%;
-        margin-bottom: 134px;
-        font-size: 20px !important;
-     }
-
-.drop-popup {
-    float: left;
-    /* margin-right: 125%; */
-    background: none;
-    width: 100% !important;
-    background: none;
-    width: 250px;
-    overflow: scroll;
-    margin-left: -25px;
-    left: 0px;
-    position: relative;
-    top: 20px;
- }
- span.fa {
-    font-size: 21px !important;
- }
-
- .selector.selectorarrow.selectorarrowleft {
-    left: 78% !important;
-}
-
-.calbtn {
-    padding: 11px 8px !important;
-}
-.calbtn i {
-    font-size: 30px;
-}
-
-
-}
 @media screen and (min-width: 1920px)
 {
 .latest-trend-box a img {
@@ -1311,7 +1252,7 @@ input:checked ~ .checkmark_b:after {
     top: 3px;
     width: 5px;
     height: 10px;
-    border: solid #ea0000;
+    border: solid #414541;
     border-width: 0 2px 2px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
