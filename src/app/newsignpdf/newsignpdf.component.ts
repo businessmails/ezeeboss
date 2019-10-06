@@ -11,6 +11,7 @@ import { timer } from 'rxjs/observable/timer'; // (for rxjs < 6) use 'rxjs/obser
 import { take, map } from 'rxjs/operators';
 import * as jsPDF from 'jspdf';
 import * as html2canvas from 'html2canvas';
+import * as html2pdf from 'html2pdf.js';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 
@@ -65,7 +66,7 @@ export class NewsignpdfComponent implements OnInit {
   error = null;
   showpdf = true;
   withimage = true;
-  showdownload = false;
+  showdownload = true;
   fileslength: any; noofpages: number; countDown
   clas = null;
   conveniancecount: any;
@@ -113,7 +114,7 @@ export class NewsignpdfComponent implements OnInit {
       const usertosign = params['usertosign'];
       this.type = params['type'];
       if (this.type == "ni") {
-        this.method = this.http.get('https://ezeeboss.com:3001/api/finduser/' + usertosign)
+        this.method = this.http.get('http://localhost:3001/api/finduser/' + usertosign)
       }
       else {
         this.method = this.auth.profile()
@@ -132,7 +133,7 @@ export class NewsignpdfComponent implements OnInit {
         this.userinitials = ((this.userinitials.shift() || '') + (this.userinitials.pop() || '')).toUpperCase();
         this.documentid = documentid;
         this.usertosign = usertosign;
-        this.http.get('https://ezeeboss.com:3001/api/checkeligibility/' + this.useremail + '/' + documentid + '/' + userid)
+        this.http.get('http://localhost:3001/api/checkeligibility/' + this.useremail + '/' + documentid + '/' + userid)
           .subscribe(data => {
             this.eligibility = data;
             this.eligible = this.eligibility.data;
@@ -140,7 +141,7 @@ export class NewsignpdfComponent implements OnInit {
             if (this.eligible !== 1) {
               this.router.navigateByUrl('/');
             } else {
-              this.http.get('https://ezeeboss.com:3001/api/getdocument/' + this.userid + '/' + documentid)
+              this.http.get('http://localhost:3001/api/getdocument/' + this.userid + '/' + documentid)
                 .subscribe(
                   data => {
                     this.html = data;
@@ -152,7 +153,7 @@ export class NewsignpdfComponent implements OnInit {
                       this.router.navigateByUrl('/rejectedmassage');
                     } else {
                       this.withimage = this.html.data.withimage;
-                      this.http.post('https://ezeeboss.com:3001/api/pdfdetail', { pdfid: this.html.data.documentid })
+                      this.http.post('http://localhost:3001/api/pdfdetail', { pdfid: this.html.data.documentid })
                         .subscribe(data => {
                           let i: number;
                           this.fileslength = data;
@@ -311,7 +312,7 @@ export class NewsignpdfComponent implements OnInit {
 
   downloadpdf() {
     var htmlString = $('.inthis').html();
-    this.http.post('https://ezeeboss.com:3001/api/genratehtmlfile', {
+    this.http.post('http://localhost:3001/api/genratehtmlfile', {
       html: htmlString,
 
     }).subscribe((res: any) => {
@@ -373,7 +374,7 @@ export class NewsignpdfComponent implements OnInit {
     formData.append('userid', this.usertosign);
     formData.append('docid', this.documentid);
     formData.append('user', this.userid)
-    this.http.post('https://ezeeboss.com:3001/api/uploadvideofile', formData)
+    this.http.post('http://localhost:3001/api/uploadvideofile', formData)
       .subscribe(data => {
       });
     recordRTC.getDataURL(function (dataURL) { });
@@ -440,7 +441,7 @@ export class NewsignpdfComponent implements OnInit {
     this.auth.profile().subscribe(user => {
       this.details = user;
       this.useremail = this.details.email;
-      this.http.post('https://ezeeboss.com:3001/api/email', {
+      this.http.post('http://localhost:3001/api/email', {
         email: this.useremail,
         image: this.imgcap
       }).subscribe((res: any) => {
@@ -495,7 +496,7 @@ export class NewsignpdfComponent implements OnInit {
     this.auth.profile().subscribe(user => {
       this.details = user;
       this.useremail = this.details.email;
-      this.http.post('https://ezeeboss.com:3001/api/email', {
+      this.http.post('http://localhost:3001/api/email', {
         email: this.useremail,
         image: this.credentials.image
       }).subscribe((res: any) => {
@@ -516,7 +517,7 @@ export class NewsignpdfComponent implements OnInit {
 
                 alert("Identity Matched");
               
-                const req = this.http.post('https://ezeeboss.com:3001/api/signeduserimage', { userid: this.usertosign, docid: this.documentid, imagename: this.unknownimage }).subscribe(res => {
+                const req = this.http.post('http://localhost:3001/api/signeduserimage', { userid: this.usertosign, docid: this.documentid, imagename: this.unknownimage }).subscribe(res => {
 
                 });
 
@@ -644,7 +645,7 @@ export class NewsignpdfComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       const documentid = params['documentid'];
       // alert(documentid)
-      this.http.post('https://ezeeboss.com:3001/api/rejectdoc', { docid: documentid, name: this.username })
+      this.http.post('http://localhost:3001/api/rejectdoc', { docid: documentid, name: this.username })
         .subscribe(
           data => {
             this.loading = false;
@@ -662,6 +663,7 @@ export class NewsignpdfComponent implements OnInit {
     if (this.withimage === true) {
       this.stopRecording();
     }
+   
     this.loading = true;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -687,7 +689,10 @@ export class NewsignpdfComponent implements OnInit {
               const documentid = params['documentid'];
               signeddocid = documentid
               const usertosign = params['usertosign'];
-              this.http.post('https://ezeeboss.com:3001/api/updatedoc', { html: $('.gethtml').html(), userid: this.userId, docid: documentid, usertosign: this.usertosign, reciptemail: this.useremail, location: this.cityname })
+              
+
+        
+              this.http.post('http://localhost:3001/api/updatedoc', { html: $('.gethtml').html(), userid: this.userId, docid: documentid, usertosign: this.usertosign, reciptemail: this.useremail, location: this.cityname })
                 .subscribe(
                   data => {
                     const userid = params['userid'];
@@ -715,49 +720,75 @@ export class NewsignpdfComponent implements OnInit {
                       };
                       xhr.send();
                     });
-                    const element = document.getElementById('gethtml');
 
-                    element.scrollIntoView();
-                    const options = { pagesplit: true };
-                    const pdf = new jsPDF('p', 'pt', 'letter');
-                    setTimeout(() => {
+                    var element = document.querySelector(".inthis");
+              const opt = {
+                image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2, logging: true, dpi: 192, letterRendering: true, useCORS: true },
+               
+                pagebreak: { mode: 'avoid-all' },
+               
+              };
+          //html2pdf(element);
+          const doc = html2pdf().from(element).set(opt).outputPdf().then((pdf) => {
+           // console.log(btoa(pdf));
+            var data = new FormData();
+            data.append("data" , btoa(pdf));
+            var xhr = new XMLHttpRequest();
+            xhr.open( 'post', 'http://localhost:3001/api/download/' + userid + '/' + signeddocid, true );
+            xhr.send(data);
+                  xhr.onreadystatechange = function () {
+                  if (this.readyState == 4 && this.status == 200) {
+                    alert('Document Sent Successfully');
+                    window.location.href = '/completed';
+                  }
+                };
+          });;
+                       
+                   
+              //       // const element = document.getElementById('gethtml');
 
-                      var check = localStorage.getItem("imgheight")
-                      if (check <= "3300" && check >= "2550") {
-                        pdf.internal.scaleFactor = 1.39;
-                      }
-                      else if (check <= "3508" && check >= "2480") {
-                        pdf.internal.scaleFactor = 1.7;
-                      }
-                      else if (check <= "4367" && check >= "2833") {
-                        pdf.internal.scaleFactor = 1.62;
-                      }
-                      else if (check <= "2700" && check >= "2250") {
-                        pdf.internal.scaleFactor = 1.37;
-                      }
+              //       // element.scrollIntoView();
+              //       // const options = { pagesplit: true };
+              //       // const pdf = new jsPDF('p', 'pt', 'letter');
+              //       // setTimeout(() => {
 
-                      else {
-                        pdf.internal.scaleFactor = 1.36;
-                      }
+              //       //   var check = localStorage.getItem("imgheight")
+              //       //   if (check <= "3300" && check >= "2550") {
+              //       //     pdf.internal.scaleFactor = 1.39;
+              //       //   }
+              //       //   else if (check <= "3508" && check >= "2480") {
+              //       //     pdf.internal.scaleFactor = 1.7;
+              //       //   }
+              //       //   else if (check <= "4367" && check >= "2833") {
+              //       //     pdf.internal.scaleFactor = 1.62;
+              //       //   }
+              //       //   else if (check <= "2700" && check >= "2250") {
+              //       //     pdf.internal.scaleFactor = 1.37;
+              //       //   }
 
-                      pdf.addHTML($('.inthis'), 0, 0, options, function () {
-                        pdf.save('Document.pdf');
-                      });
-                      // this.loading = false;
-                      pdf.addHTML($('.inthis'), 0, 0, options, function () {
-                        const blob = pdf.output('blob');
-                        const xhr = new XMLHttpRequest();
-                        xhr.open('post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true);
-                        xhr.setRequestHeader('Content-Type', 'application/pdf');
-                        xhr.send(blob);
-                        xhr.onreadystatechange = function () {
-                          if (this.readyState == 4 && this.status == 200) {
-                            alert('Document Sent Successfully');
-                            window.location.href = '/completed';
-                          }
-                        };
-                      });
-                    }, 3000);
+              //       //   else {
+              //       //     pdf.internal.scaleFactor = 1.36;
+              //       //   }
+
+              //       //   pdf.addHTML($('.inthis'), 0, 0, options, function () {
+              //       //     pdf.save('Document.pdf');
+              //       //   });
+              //       //   // this.loading = false;
+              //       //   pdf.addHTML($('.inthis'), 0, 0, options, function () {
+              //       //     const blob = pdf.output('blob');
+              //       //     const xhr = new XMLHttpRequest();
+              //       //     xhr.open('post', 'http://localhost:3001/api/download/' + userid + '/' + signeddocid, true);
+              //       //     xhr.setRequestHeader('Content-Type', 'application/pdf');
+              //       //     xhr.send(blob);
+              //       //     xhr.onreadystatechange = function () {
+              //       //       if (this.readyState == 4 && this.status == 200) {
+              //       //         alert('Document Sent Successfully');
+              //       //        // window.location.href = '/completed';
+              //       //       }
+              //       //     };
+              //       //   });
+              //       // }, 3000);
                   });
             });
           })

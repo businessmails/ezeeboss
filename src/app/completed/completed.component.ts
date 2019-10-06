@@ -56,7 +56,7 @@ export class CompletedComponent implements OnInit {
       this.digitalpath = localStorage.getItem('digitalpath');
       // console.log(this.userid);
 
-      this.http.get('https://ezeeboss.com:3001/api/mycompleteddocuments/' + this.userid)
+      this.http.get('http://localhost:3001/api/mycompleteddocuments/' + this.userid)
       .subscribe(data => {
        this.documentdetail = data;
        this.documents = this.documentdetail.data;
@@ -200,9 +200,9 @@ else{
        for ( let i = 0; i < this.checkeddocuments.length; i++) {
         this.checkedid.push({_id: this.checkeddocuments[i]._id});
        }
-       this.http.post( 'https://ezeeboss.com:3001/api/deletemycompleteddocuments', {documentid: this.checkedid})
+       this.http.post( 'http://localhost:3001/api/deletemycompleteddocuments', {documentid: this.checkedid})
        .subscribe(data => {
-        this.http.get('https://ezeeboss.com:3001/api/mycompleteddocuments/' + this.userid)
+        this.http.get('http://localhost:3001/api/mycompleteddocuments/' + this.userid)
         .subscribe(data => {
           //this.contactModal.close();
           this.documentdetail = data;

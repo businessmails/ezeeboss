@@ -77,9 +77,9 @@ export class AuthenticationService {
     let base;
 
     if (method === 'post') {
-      base = this.http.post(`https://ezeeboss.com:3001/api/${type}`, user);
+      base = this.http.post(`http://localhost:3001/api/${type}`, user);
     } else {
-      base = this.http.get(`https://ezeeboss.com:3001/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      base = this.http.get(`http://localhost:3001/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
     }
    
     const request = base.pipe(

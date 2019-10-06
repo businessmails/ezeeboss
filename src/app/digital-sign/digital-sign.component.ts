@@ -139,12 +139,12 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
         this.lastName = nameArr[nameArr.length - 1];
       }
       this.userid = this.details._id;
-      this.http.get('https://ezeeboss.com:3001/api/documentcount/' + this.userid)
+      this.http.get('http://localhost:3001/api/documentcount/' + this.userid)
         .subscribe(data => {
           this.count = data;
           this.documentcount = 'Ref-' + this.count.data;
           localStorage.setItem('docid', this.documentcount);
-          this.http.get('https://ezeeboss.com:3001/api/mycontacts/' + this.userid)
+          this.http.get('http://localhost:3001/api/mycontacts/' + this.userid)
             // tslint:disable-next-line:no-shadowed-variable
             .subscribe(data => {
               this.showcontacts = data;
@@ -176,7 +176,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
       formData.append('filetoupload', file, file.name);
 
 
-      this.http.post('https://ezeeboss.com:3001/api/uploadfile', formData,{
+      this.http.post('http://localhost:3001/api/uploadfile', formData,{
         reportProgress: true, observe: 'events'
       })
       .subscribe( (event: HttpEvent<any>) => {
@@ -216,7 +216,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
               localStorage.setItem('pdfid', (event as any).body.pdfid);
               localStorage.setItem('pdfpath', (event as any).body.path);
               this.innerHtml = this.domSanitizer.bypassSecurityTrustHtml(
-                '<object data="' + 'https://ezeeboss.com:3001' +(event as any).body.path + '" type="application/pdf" class="embed-responsive-item">' +
+                '<object data="' + 'http://localhost:3001' +(event as any).body.path + '" type="application/pdf" class="embed-responsive-item">' +
                 'Object' + (event as any).body.path + ' failed' +
                 '</object>');
                 this.spinnerService.hide();
@@ -240,7 +240,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
   }
   showpdf() {
     this.innerHtml = this.domSanitizer.bypassSecurityTrustHtml(
-      '<object data="' + 'https://ezeeboss.com:3001' + this.pdfpath + '" type="application/pdf" class="embed-responsive-item">' +
+      '<object data="' + 'http://localhost:3001' + this.pdfpath + '" type="application/pdf" class="embed-responsive-item">' +
       'Object' + this.pdfpath + ' failed' +
       '</object>');
       //  alert("clicked")
@@ -270,7 +270,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
                  this.showpercentMessage = false;
 
           formData.append('filetoupload', file, droppedFile.relativePath);
-          this.http.post('https://ezeeboss.com:3001/api/uploadfile', formData,{
+          this.http.post('http://localhost:3001/api/uploadfile', formData,{
             reportProgress: true, observe: 'events'
           })
           .subscribe( (event: HttpEvent<any>) => {
@@ -374,7 +374,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
     this.spinnerService.show();
    // this.loading = true;
     this.editparticipantModal.open();
-    this.http.get('https://ezeeboss.com:3001/api/contactdetail/' + id)
+    this.http.get('http://localhost:3001/api/contactdetail/' + id)
       .subscribe(data => {
         this.contactdata = data;
         this.editcontacttype = this.contactdata.data[0].type;
@@ -396,7 +396,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
   //------------------------------- update contact -------------------------------// 
 
   editparticipant() {
-    this.http.post('https://ezeeboss.com:3001/api/updatepartcipant',
+    this.http.post('http://localhost:3001/api/updatepartcipant',
         {
           firstName: this.contactfirstName, lastName: this.contactlastName, email: this.contactemail, address: this.contactaddress,
           subject: this.contactsubject, message: this.contactmessage, type: this.editcontacttype,userid:this.userid
@@ -472,7 +472,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
     }
 
     if (!emailalreadyexist) {
-      this.http.post('https://ezeeboss.com:3001/api/addnewparticipant',
+      this.http.post('http://localhost:3001/api/addnewparticipant',
         {
           firstName: firstName, lastName: lastName, email: email, address: address,
           subject: subject, message: message, userId: this.userid, docId: this.documentcount,
@@ -501,7 +501,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
     this.mycontactsModal.close();
     this.spinnerService.show();
     //this.loading = true;
-    this.http.get('https://ezeeboss.com:3001/api/contactdetail/' + id)
+    this.http.get('http://localhost:3001/api/contactdetail/' + id)
       .subscribe(data => {
         this.contactdata = data;
         this.type = 'Remote Signer';
@@ -623,7 +623,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
 
 
     if (!emailalreadyexist) {
-      this.http.post('https://ezeeboss.com:3001/api/addnewparticipant',
+      this.http.post('http://localhost:3001/api/addnewparticipant',
         {
           firstName: firstName, lastName: lastName, email: email, address: address,
           subject: subject, message: message, type: type, userId: this.userid
@@ -710,7 +710,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
     };
   
    
-    this.http.post('https://ezeeboss.com:3001/api/addusertodocument', postdata)
+    this.http.post('http://localhost:3001/api/addusertodocument', postdata)
       .subscribe(data => {
         this.spinnerService.hide();
       //  this.loading = false;
