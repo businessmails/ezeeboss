@@ -77,7 +77,7 @@ export class ProfileComponent {
 
   update() {
     this.spinnerService.show();
-    const req = this.http.post('http://localhost:3001/api/update', {
+    const req = this.http.post('https://ezeeboss.com:3001/api/update', {
       user_id: localStorage.getItem('user_id'),
       phonenumber: this.details.phonenumber,
       email: this.details.email,

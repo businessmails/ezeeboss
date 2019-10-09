@@ -209,7 +209,7 @@ export class LoginComponent implements OnInit {
         this.forgetresponse = 'Please enter a valid email';
         // this.spinnerService.hide();
       } else {
-        const req = this.http.post('http://localhost:3001/api/getuserid', {
+        const req = this.http.post('https://ezeeboss.com:3001/api/getuserid', {
           email: this.forgotemail,
         })
           .subscribe((res: any) => {
@@ -247,7 +247,7 @@ export class LoginComponent implements OnInit {
           }
           this.router.navigateByUrl('/landing');
         } else {
-          const req = this.http.post('http://localhost:3001/api/email', {
+          const req = this.http.post('https://ezeeboss.com:3001/api/email', {
             email: this.credentials.email,
             image: this.credentials.image
           })

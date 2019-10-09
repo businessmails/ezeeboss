@@ -60,7 +60,7 @@ export class PdfComponent implements OnInit {
 
     this.auth.profile().subscribe(user => {
       this.details = user;
-      this.http.get('http://localhost:3001/api/userlist/' + this.details._id + '/' + localStorage.getItem('pdfid'))
+      this.http.get('https://ezeeboss.com:3001/api/userlist/' + this.details._id + '/' + localStorage.getItem('pdfid'))
         .subscribe(data => {
           this.userdata = data;
           this.userlist = this.userdata.data;
@@ -69,7 +69,7 @@ export class PdfComponent implements OnInit {
         });
     });
     const pdfid = localStorage.getItem('pdfid');
-    this.http.post('http://localhost:3001/api/pdfdetail', { pdfid: pdfid })
+    this.http.post('https://ezeeboss.com:3001/api/pdfdetail', { pdfid: pdfid })
       .subscribe((data:any) => {
         // this.pdfimages = data;
         console.log()
@@ -77,12 +77,12 @@ export class PdfComponent implements OnInit {
         this.fileslength = data;
         if(data.fileslength == 1){
           // console.log("Length :", pdfid ,data.fileslength)
-          this.pdfimages.push('http://localhost:3001/uploadedpdf/' + pdfid + '/pdf' + '.png');
+          this.pdfimages.push('https://ezeeboss.com:3001/uploadedpdf/' + pdfid + '/pdf' + '.png');
 
         }
         else{
           for (i = 0; i < data.fileslength; i++) {
-            this.pdfimages.push('http://localhost:3001/uploadedpdf/' + pdfid + '/pdf-' + [i] + '.png');
+            this.pdfimages.push('https://ezeeboss.com:3001/uploadedpdf/' + pdfid + '/pdf-' + [i] + '.png');
           }
         }
        
@@ -96,7 +96,7 @@ export class PdfComponent implements OnInit {
   }
   userselection(uservalue) {
     // alert(uservalue);
-    this.http.get('http://localhost:3001/api/userdetail/' + uservalue)
+    this.http.get('https://ezeeboss.com:3001/api/userdetail/' + uservalue)
       .subscribe(data => {
         // console.log(data);
         this.selected = 'show';
@@ -123,9 +123,9 @@ export class PdfComponent implements OnInit {
 
    // this.loading = true;
     // tslint:disable-next-line:max-line-length
-    // this.http.post('http://localhost:3001/api/savehtml', {html: $('.gethtml').html(), pdfid: localStorage.getItem('pdfid'), userid: this.details._id , docid: localStorage.getItem('docid'), expdate: localStorage.getItem('expdate')})
+    // this.http.post('https://ezeeboss.com:3001/api/savehtml', {html: $('.gethtml').html(), pdfid: localStorage.getItem('pdfid'), userid: this.details._id , docid: localStorage.getItem('docid'), expdate: localStorage.getItem('expdate')})
     // tslint:disable-next-line:max-line-length
-    this.http.post('http://localhost:3001/api/savehtml', { html: $('.gethtml').html(), pdfid: localStorage.getItem('pdfid') })
+    this.http.post('https://ezeeboss.com:3001/api/savehtml', { html: $('.gethtml').html(), pdfid: localStorage.getItem('pdfid') })
       .subscribe(data => {
        // this.loading = false;
        this.spinnerService.hide();
@@ -159,7 +159,7 @@ export class PdfComponent implements OnInit {
     // } else {
 
     // tslint:disable-next-line:max-line-length
-    this.http.post('http://localhost:3001/api/senddocument', { html: $('.gethtml').html(), pdfid: localStorage.getItem('pdfid'), userid: this.details._id,notImage: localStorage.getItem('digitalpath'), pdfpath: localStorage.getItem('pdfpath') })
+    this.http.post('https://ezeeboss.com:3001/api/senddocument', { html: $('.gethtml').html(), pdfid: localStorage.getItem('pdfid'), userid: this.details._id,notImage: localStorage.getItem('digitalpath'), pdfpath: localStorage.getItem('pdfpath') })
       .subscribe(data => {
        // this.loading = false;
       //  alert(localStorage.getItem('pdfpath'))

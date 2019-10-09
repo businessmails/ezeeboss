@@ -22,7 +22,7 @@ export class ConfirmComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       const userid = params['userid'];
       // console.log(params);
-      this.http.get('http://localhost:3001/api/confirmuser/' + userid)
+      this.http.get('https://ezeeboss.com:3001/api/confirmuser/' + userid)
         .subscribe(data => {
           console.log(data);
           this.USER = data;

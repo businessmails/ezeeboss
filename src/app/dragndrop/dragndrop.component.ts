@@ -37,7 +37,7 @@ export class DragndropComponent {
             'security-token': 'mytoken'
           })
           // this.http.post('http://127.0.0.1:3000/api/uploadfile', formData, { headers: headers, responseType: 'blob' })
-          this.http.post('http://localhost:3001/api/uploadfile', formData, { headers: headers, responseType: 'blob' })
+          this.http.post('https://ezeeboss.com:3001/api/uploadfile', formData, { headers: headers, responseType: 'blob' })
          
           .subscribe(data => {
             console.log('i m subscribe')
