@@ -543,7 +543,10 @@ textarea{
 	padding: 10px 0;
 	display: block;
 	font-weight:bold;
+    font-size: 20px
 }	
+.btn_apply { font-size: 20px; color: #fff; background: #515904; padding: 5px 20px; }
+.green_tag i { font-size: 20px; margin-right: 15px; }
 strong.green_tag b {	
 	color: #3a76ce !important;
 }	

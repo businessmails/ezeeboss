@@ -7,20 +7,28 @@
 <section class="fullpage">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 text-right">
-        <div class="new_custom_drop_down" style="z-index:1;">
-          <li class="dropdown" dropdown><i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;<span
+      <div class="col-xs-3"></div>
+      <div class="col-xs-9">
+        <div class="row">
+          <div class="col-xs-6 text-left">
+            <a href="#" class="top_back_button"><i class="fa fa-caret-left"></i><span>Back</span></a> 
+          </div>
+          <div class="col-xs-6 text-right">
+            <div class="new_custom_drop_down" style="z-index:1;">
+              <li class="dropdown" dropdown><i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;<span
               class="title">{{fullname}} &nbsp;</span>
-            <a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
-              <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
-            </a>
-            <ul *dropdownMenu class="my_drop_down">
-              <li><a (click)="logout();">Logout</a></li>
-              <li><a routerLink="/profile">View Profile</a></li>
-              <li id=""><a>Change Password</a></li>
-              <li><a>Membership Order</a></li>
-            </ul>
-          </li>
+                <a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
+                  <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
+                </a>
+                <ul *dropdownMenu class="my_drop_down">
+                  <li><a (click)="logout();">Logout</a></li>
+                  <li><a routerLink="/profile">View Profile</a></li>
+                  <li id=""><a>Change Password</a></li>
+                  <li><a>Membership Order</a></li>
+                </ul>
+              </li>
+            </div>
+          </div>
         </div>
       </div>
     </div>
