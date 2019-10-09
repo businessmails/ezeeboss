@@ -11,6 +11,7 @@ import { timer } from 'rxjs/observable/timer'; // (for rxjs < 6) use 'rxjs/obser
 import { take, map } from 'rxjs/operators';
 import * as jsPDF from 'jspdf';
 import * as html2canvas from 'html2canvas';
+import * as html2pdf from 'html2pdf.js';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 
@@ -65,7 +66,7 @@ export class NewsignpdfComponent implements OnInit {
   error = null;
   showpdf = true;
   withimage = true;
-  showdownload = false;
+  showdownload = true;
   fileslength: any; noofpages: number; countDown
   clas = null;
   conveniancecount: any;
@@ -662,6 +663,7 @@ export class NewsignpdfComponent implements OnInit {
     if (this.withimage === true) {
       this.stopRecording();
     }
+   
     this.loading = true;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -687,6 +689,9 @@ export class NewsignpdfComponent implements OnInit {
               const documentid = params['documentid'];
               signeddocid = documentid
               const usertosign = params['usertosign'];
+              
+
+        
               this.http.post('https://ezeeboss.com:3001/api/updatedoc', { html: $('.gethtml').html(), userid: this.userId, docid: documentid, usertosign: this.usertosign, reciptemail: this.useremail, location: this.cityname })
                 .subscribe(
                   data => {
@@ -715,49 +720,75 @@ export class NewsignpdfComponent implements OnInit {
                       };
                       xhr.send();
                     });
-                    const element = document.getElementById('gethtml');
 
-                    element.scrollIntoView();
-                    const options = { pagesplit: true };
-                    const pdf = new jsPDF('p', 'pt', 'letter');
-                    setTimeout(() => {
+                    var element = document.querySelector(".inthis");
+              const opt = {
+                image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2, logging: true, dpi: 192, letterRendering: true, useCORS: true },
+               
+                pagebreak: { mode: 'avoid-all' },
+               
+              };
+          //html2pdf(element);
+          const doc = html2pdf().from(element).set(opt).outputPdf().then((pdf) => {
+           // console.log(btoa(pdf));
+            var data = new FormData();
+            data.append("data" , btoa(pdf));
+            var xhr = new XMLHttpRequest();
+            xhr.open( 'post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true );
+            xhr.send(data);
+                  xhr.onreadystatechange = function () {
+                  if (this.readyState == 4 && this.status == 200) {
+                    alert('Document Sent Successfully');
+                    window.location.href = '/completed';
+                  }
+                };
+          });;
+                       
+                   
+              //       // const element = document.getElementById('gethtml');
 
-                      var check = localStorage.getItem("imgheight")
-                      if (check <= "3300" && check >= "2550") {
-                        pdf.internal.scaleFactor = 1.39;
-                      }
-                      else if (check <= "3508" && check >= "2480") {
-                        pdf.internal.scaleFactor = 1.7;
-                      }
-                      else if (check <= "4367" && check >= "2833") {
-                        pdf.internal.scaleFactor = 1.62;
-                      }
-                      else if (check <= "2700" && check >= "2250") {
-                        pdf.internal.scaleFactor = 1.37;
-                      }
+              //       // element.scrollIntoView();
+              //       // const options = { pagesplit: true };
+              //       // const pdf = new jsPDF('p', 'pt', 'letter');
+              //       // setTimeout(() => {
 
-                      else {
-                        pdf.internal.scaleFactor = 1.36;
-                      }
+              //       //   var check = localStorage.getItem("imgheight")
+              //       //   if (check <= "3300" && check >= "2550") {
+              //       //     pdf.internal.scaleFactor = 1.39;
+              //       //   }
+              //       //   else if (check <= "3508" && check >= "2480") {
+              //       //     pdf.internal.scaleFactor = 1.7;
+              //       //   }
+              //       //   else if (check <= "4367" && check >= "2833") {
+              //       //     pdf.internal.scaleFactor = 1.62;
+              //       //   }
+              //       //   else if (check <= "2700" && check >= "2250") {
+              //       //     pdf.internal.scaleFactor = 1.37;
+              //       //   }
 
-                      pdf.addHTML($('.inthis'), 0, 0, options, function () {
-                        pdf.save('Document.pdf');
-                      });
-                      // this.loading = false;
-                      pdf.addHTML($('.inthis'), 0, 0, options, function () {
-                        const blob = pdf.output('blob');
-                        const xhr = new XMLHttpRequest();
-                        xhr.open('post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true);
-                        xhr.setRequestHeader('Content-Type', 'application/pdf');
-                        xhr.send(blob);
-                        xhr.onreadystatechange = function () {
-                          if (this.readyState == 4 && this.status == 200) {
-                            alert('Document Sent Successfully');
-                            window.location.href = '/completed';
-                          }
-                        };
-                      });
-                    }, 3000);
+              //       //   else {
+              //       //     pdf.internal.scaleFactor = 1.36;
+              //       //   }
+
+              //       //   pdf.addHTML($('.inthis'), 0, 0, options, function () {
+              //       //     pdf.save('Document.pdf');
+              //       //   });
+              //       //   // this.loading = false;
+              //       //   pdf.addHTML($('.inthis'), 0, 0, options, function () {
+              //       //     const blob = pdf.output('blob');
+              //       //     const xhr = new XMLHttpRequest();
+              //       //     xhr.open('post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true);
+              //       //     xhr.setRequestHeader('Content-Type', 'application/pdf');
+              //       //     xhr.send(blob);
+              //       //     xhr.onreadystatechange = function () {
+              //       //       if (this.readyState == 4 && this.status == 200) {
+              //       //         alert('Document Sent Successfully');
+              //       //        // window.location.href = '/completed';
+              //       //       }
+              //       //     };
+              //       //   });
+              //       // }, 3000);
                   });
             });
           })
