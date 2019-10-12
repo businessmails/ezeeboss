@@ -201,6 +201,22 @@ text-align:center;
 	padding-left: 6px;
 	font-weight: normal;
 }
+.after_mail_cam_img { width: 100%; }
+.camera_first_image { position: relative; }
+.camera_first_image .textmain_here { width: 170px; color: #715732; text-align: center; border-radius: 6px;padding: 5px 0; }
+.textmain_here .tooltiptext{ color: #715732; text-align: center; }
+
+.mail_cameradiv {
+    background-color: #848f02;
+    padding: 45px 70px 0;
+    width: 100%;
+    float: left;
+    -webkit-box-shadow: 0px 0px 23px 0px #0000005e;
+ 	margin-bottom: 80px;
+    box-shadow: 0px 0px 23px 0px #0000005e;
+}
+.mail_cameradiv .webcam-wrapper { padding: 0; }
+.mail_cameradiv .webcam-wrapper video { transform: scaleX(-1); }
 .clear {
 	min-height:10px;
 }
@@ -3524,3 +3540,10 @@ td { color: #000!important; font-weight: 600!important; }
 .complete_page_box { margin: 0 auto; width: 100%; display: block; text-align: center; }
 .complete_page_box ul{ float: left!important; margin: 20px 0!important; }
 ul.pagination { margin-top: 20px!important; margin-bottom: 20px!important; }
+.top_information { font-size: 22px; color: #fff; font-weight: 600px; text-align: left; }
+.rject_if { font-size: 20px; color: #fff; font-weight: 600px; text-align: left; margin-top: 30px; }
+.reject_if_btn { padding: 10px 25px; font-size: 20px; border:0; color: white; -webkit-box-shadow: 0px 0px 9px 0px #333; box-shadow: 0px 0px 9px 0px #333; border-radius: 5px; background-color  :#cc3100; margin-top: 10px;}
+.rject_if b, .exit_if b { display: block; }
+.exit_if { font-size: 20px; color: #fff; font-weight: 600px; text-align: left; margin-top: 30px; }
+.exit_if_btn { padding: 10px 25px; font-size: 20px; color: white; -webkit-box-shadow: 0px 0px 9px 0px #333; box-shadow: 0px 0px 9px 0px #333; border-radius: 5px; background-color :#B59848; margin-top: 10px;     display: inline-block;}
+.position-relative { position: relative; }

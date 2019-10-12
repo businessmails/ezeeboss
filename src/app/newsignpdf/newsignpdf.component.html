@@ -11,28 +11,32 @@
 
     <div class="col-md-3"></div>
     <div class="col-md-6 col-sm-12 col-xs-12">
-        <div class="cameradiv">
+        <div class="mail_cameradiv">
 
             <div class="form-group nwlbl formdiv">
                 <input type="hidden" class="form-control" (change)="onImageChangeFromFile($event)" [(ngModel)]="credentials.imag" [value]="credentials.imag ? credentials.imag : null"
                     name="webcamImage" id="webcamImage" required>
          
 
-                <div class="fropicture" *ngIf="!showWebcam && !webcamImage">
-                    <div class="capimg tooltip12">
-                        <span class="tooltiptext">Click on camera icon to capture your image
-                            <br />
-                            <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
-                        </span>
+                <div class="" *ngIf="!showWebcam && !webcamImage">
+                    <div class="after_mail_cam_img tooltip12">
                         <img id="fgdfg" src="../../assets/img/images.png" style="width: 100%;" />
                     </div>
                     <!-- <i class="fa fa-plus-circle" aria-hidden="true"></i> -->
-                    <img  type="button" (click)="toggleWebcam();" src="../../assets/img/camm11.png" class="regimg regimg pulse-button pulse" />
+                    <div class="camera_first_image">
+                        <div class="textmain_here">
+                            <span class="tooltiptext">Click on camera icon to capture your image
+                            <br />
+                            <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
+                            </span>
+                            <img  type="button" (click)="toggleWebcam();" src="../../assets/img/camm11.png" class="regimg regimg pulse-button pulse" />
+                        </div>
+                    </div>
                 </div>
                 <div style="height: 100%; width: 100%">
                     <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"></webcam>
-                    <div id="poping" class="capimg" *ngIf="webcamImage">
-                        <img [src]="webcamImage.imageAsDataUrl" name="image" [(ngModel)]="credentials.image" ngDefaultControl>
+                    <div id="poping" class="new_cap" *ngIf="webcamImage">
+                        <img [src]="webcamImage.imageAsDataUrl" style="transform: scaleX(-1);" name="image" [(ngModel)]="credentials.image" ngDefaultControl>
                     </div>
                   
                 </div>
@@ -72,13 +76,13 @@
 <!-- 2nd view start -->
 
 <section *ngIf="showpdf" class="pdfsection1">
-    <div class="col-md-4 col-sm-4 col-xs-12 display" >
+    <div class="col-sm-4 col-xs-12" >
         <div class="cameradiv pd0withposition newwithposition">
 
             <div class="form-group nwlbl formdiv">
 
                     <div class="fropicture" *ngIf="!showWebcamcapture && !webcamImageCapture" style="display:none">
-                            <div class="capimg tooltip12">
+                            <div class="after_mail_cam_img tooltip12">
                                 <span class="tooltiptext">Click on camera icon to capture your image
                                     <br />
                                     <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
@@ -103,67 +107,47 @@
               
 
                 <div class="signdiv" style="width:100%;">
-                    <h4>
-                        <span>
-                            <b>{{clicks}}</b>
-                        </span> signatures in {{noofpages}} pages</h4>
-                    <div class="form-group">
-                      
-                        <button type="button" (click)="rejectdocument()" class="btn signbtn fullwdth rejectbtn" style="width: 250px;padding: 10px;
-                        font-size: 18px;color: white;border: 1px solid #fff;-webkit-box-shadow: 0px 0px 9px 0px #333;
-                        box-shadow: 0px 0px 9px 0px #333;border-radius: 2px;margin: 20px 0;background-color  :#cc3100;">Reject</button>
+                    <div class="top_information">
+                        <b>{{clicks}}</b> signatures in {{noofpages}} pages
                     </div>
-                   
-                </div>
-
-                <div class="signdiv" style="width:100%;">
-                    <h4>
-                           <span>
-                            <b>
-                                If you choose to REJECT   </b>
-                        </span> it will terminate the process and you can not return to page</h4>
-                    <div class="form-group">
-                      
+                    <div class="rject_if">
+                        <h4>
+                            <b>If you choose to REJECT</b>
+                         it will terminate the process and you can not return to page
+                        </h4>
+                        <div class="form-group">
+                            <button type="button" (click)="rejectdocument()" class="reject_if_btn">Reject</button>
+                        </div>
+                    </div>
+                    <div class="exit_if">
+                        <h4>
+                            <b>If you choose to EXIT</b>
+                         it will terminate the process and you can not return to page
+                        </h4>
+                        <div class="form-group">
+                            <a routerLink='/landing' class="exit_if_btn">Exit</a>
+                        </div>
+                    </div>
+                    <div class="signdiv" style="width:100%;">
+                        <div class="form-group">                      
                             <div id="checkCount" (click)="getCount()"></div>
                             <div style="display: none" class=" stickit thefixeddiv" id="senddocbtn">
-                                <div class="col-md-12">
-                                    <span class="col-md-6 col-sm-12 col-xs-12" style="font-family: 'Century Gothic' !important; font-size: 22px">Click Complete, to Send the Document.
+                                <div class="col-md-6 col-sm-12 col-xs-12" style="font-family: 'Century Gothic' !important; font-size: 22px; padding-top: 11px;">Click Send, to complete the Document.
                                         <!--Textboxes will be added here -->
-                                    </span>
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                        <div class="right_btn_pannel">
-                                           <a class="btn signbtn pulse-button pulse green" (click)='updatesignature();' id="senddocbtn">SEND</a>
-                                           <a href="/landing"></a>
-                                            
-                                        </div>
-                        
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="right_btn_pannel">
+                                        <a class="btn signbtn pulse-button pulse green" (click)='updatesignature();' id="senddocbtn">SEND</a>
+                                        <a href="/landing"></a>
                                     </div>
                                 </div>
                             </div>
-                       
-                            
-                            
-                            
-                            <a routerLink='/landing'><button type="button" class="btn signbtn fullwdth exittbtn" style="width: 250px;font-size: 18px;color: white; background-color: #B59848; border: 1px solid #fff; 
-                            -webkit-box-shadow: 0px 0px 9px 0px #333;
-                                box-shadow: 0px 0px 9px 0px #333;border-radius: 2px;margin: 20px 0;">Exit</button></a>
-  <h4>
-    <span>
-     <b>
-         If you choose to EXIT   </b>
- </span> you may return to page at a later date</h4>
-
- 
-
-                
+                        </div>                    
                     </div>
-                    
+                    <div class="error-msg-div position-relative">
+                        <span calss="error-msg">{{error}}</span>
+                    </div>
                 </div>
-                <div class="error-msg-div">
-                    <span calss="error-msg">{{error}}</span>
-                </div>
-
-
             </div>
 
         </div>
