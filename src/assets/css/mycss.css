@@ -202,21 +202,15 @@ text-align:center;
 	font-weight: normal;
 }
 .after_mail_cam_img { width: 100%; }
-.camera_first_image { position: relative; }
-.camera_first_image .textmain_here { width: 170px; color: #715732; text-align: center; border-radius: 6px;padding: 5px 0; }
-.textmain_here .tooltiptext{ color: #715732; text-align: center; }
+.camera_first_image { position: absolute; top: calc(50% - 115px); left: 0; width: 100%; text-align: center; }
+.camera_first_image .textmain_here { color: #715732; text-align: center; border-radius: 6px;padding: 5px 0; }
+.camera_first_image img{ width: 150px; }
+.textmain_here .tooltiptext{ color: #715732; text-align: center; display: block; width: 140px; margin: 0 auto 30px; font-size: 16px; font-weight: 600; }
 
-.mail_cameradiv {
-    background-color: #848f02;
-    padding: 45px 70px 0;
-    width: 100%;
-    float: left;
-    -webkit-box-shadow: 0px 0px 23px 0px #0000005e;
- 	margin-bottom: 80px;
-    box-shadow: 0px 0px 23px 0px #0000005e;
-}
-.mail_cameradiv .webcam-wrapper { padding: 0; }
+.mail_cameradiv {display: block; width: 140px; margin: 0 auto; background-color: #848f02; padding: 45px 70px; width: 100%; float: left; -webkit-box-shadow: 0px 0px 23px 0px #0000005e; margin-bottom: 80px; box-shadow: 0px 0px 23px 0px #0000005e; }
+.mail_cameradiv .webcam-wrapper { margin:  0; }
 .mail_cameradiv .webcam-wrapper video { transform: scaleX(-1); }
+.new_btn_css{ height: 50px; margin-top: 30px; }
 .clear {
 	min-height:10px;
 }
@@ -3531,7 +3525,7 @@ td { color: #000!important; font-weight: 600!important; }
 #selectpati1, #selectpati_new { padding: 15px 0!important; }
 .addbtnnew_e_sign { background-color: #fff!important; border: 0px; border-radius: 0px ! important; color: #5a731b!important; position: absolute; right: 25px; top: 11px; font-size: 15px!important; box-shadow: 0px 5px 8px 0px #747474 !important; -webkit-box-shadow: 0px 5px 8px 0px #747474 !important; font-weight: 600!important;}
 .add_contact_popup { display: inline-block; padding: 20px; width: 100% }
-.all_send_button { background: #89b345; border: 0; color: #fff; padding: 5px 35px; }
+.all_send_button { background: #89b345; border: 0; color: #fff; padding: 0px 35px; height: 30px; line-height: 30px; }
 .smart_trash_box { padding: 7px 0; width: 100%; float: left; }
 .encyt .new_checkbox_2 h5 { padding-left: 25px; }
 .view-outer img { width: 35px; margin: 0 auto; }
