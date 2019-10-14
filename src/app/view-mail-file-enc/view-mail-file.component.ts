@@ -82,7 +82,7 @@ export class ViewEncMailFileComponent implements OnInit {
             this.subject = this.data.data[0].subject;
             this.date = this.data.data[0].dateadded;
             this.innerhtml = this.data.data[0].mailcontent;
-            this.attachmentLINK =  this.data.data[0].attachment+'/'+this.data.data[0].attachment+'_ency.pdf';
+            this.attachmentLINK = this.AppComponent.BASE_URL +'/encrypted_pdf/'+ this.data.data[0].attachment+'/'+this.data.data[0].attachment+'_ency.pdf';
           });
       })
     })

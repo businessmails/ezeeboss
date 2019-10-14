@@ -5,6 +5,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent} from '../app.component';
 import { INgxMyDpOptions, IMyDateModel } from 'ngx-mydatepicker';
 import { timingSafeEqual } from 'crypto';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-completed',
@@ -42,8 +43,12 @@ export class CompletedComponent implements OnInit {
 
   constructor(
    private http: HttpClient,
-   private auth: AuthenticationService
- ) { }
+   private auth: AuthenticationService,
+  private _location: Location
+  ) { }
+ backClicked() {
+    this._location.back();
+  }
   // constructor() { }
 
   ngOnInit() {

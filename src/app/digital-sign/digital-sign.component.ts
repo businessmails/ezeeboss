@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core'; 
-import { HttpClient ,HttpEvent,HttpEventType} from '@angular/common/http';
+import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
+import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { UploadEvent, UploadFile, FileSystemFileEntry } from 'ngx-file-drop';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -18,6 +18,7 @@ import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 // import { DialogService } from 'ng2-bootstrap-modal';
 // import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-digital-sign',
@@ -29,7 +30,7 @@ export class DigitalSignComponent implements OnInit {
   details: UserDetails;
   innerHtml: SafeHtml;
   pdfpath: any;
-  pdfname:any;
+  pdfname: any;
   loading = false;
   files: UploadFile[] = [];
   fullname: String;
@@ -67,9 +68,9 @@ export class DigitalSignComponent implements OnInit {
   isdisabled = false;
   adduserresult: any;
   pdferror: String;
-  uploadedPercentage=0;
-  message:any;
-  message2:any;
+  uploadedPercentage = 0;
+  message: any;
+  message2: any;
 
   showMessage = false;
   percentmessage: any;
@@ -80,7 +81,8 @@ export class DigitalSignComponent implements OnInit {
     dateFormat: 'mm-dd-yyyy',
     closeSelectorOnDocumentClick: false
   };
-template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style="margin-left:200px"/>`
+  template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style="margin-left:200px"/>`;
+
   model: any = { jsdate: new Date() };
   @ViewChild('addparticipantModal') addparticipantModal: any;
   @ViewChild('contactdetailModal') contactdetailModal: any;
@@ -96,10 +98,15 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private spinnerService: Ng4LoadingSpinnerService,
-    public progressService:NgProgress,
-    private slimLoadingBarService: SlimLoadingBarService
+    public progressService: NgProgress,
+    private slimLoadingBarService: SlimLoadingBarService,
     // private dialogService: DialogService
+    private _location: Location
+
   ) { }
+ backClicked() {
+    this._location.back();
+  }
   addparticipantForm = this.fb.group({
     newtype: ['', Validators.required],
     firstName: ['', Validators.required],
@@ -155,85 +162,84 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
             });
         });
     });
-  
+
   }
 
   fileChange(event) {
-    
+
     const fileList: FileList = event.target.files;
-    // console.log(event.target.files);
-     this.pdfname = event.target.files[0].name;
-    // console.log(pdfname)
+    this.pdfname = event.target.files[0].name;
     var extension = event.target.files[0].type;
-    if(extension == 'application/pdf') {
-    if (fileList.length > 0) {
-      this.pdferror = '';
-      const file: File = fileList[0];
-      const formData: FormData = new FormData();
-     
-      this.showMessage = false;
-      this.showpercentMessage = false;
-      formData.append('filetoupload', file, file.name);
+    if (extension == 'application/pdf') {
+      if (fileList.length > 0) {
+        this.pdferror = '';
+        const file: File = fileList[0];
+        const formData: FormData = new FormData();
+
+        this.showMessage = false;
+        this.showpercentMessage = false;
+        formData.append('filetoupload', file, file.name);
 
 
-      this.http.post('https://ezeeboss.com:3001/api/uploadfile', formData,{
-        reportProgress: true, observe: 'events'
-      })
-      .subscribe( (event: HttpEvent<any>) => {
-        switch (event.type) {
-          case HttpEventType.Sent:
-            this.slimLoadingBarService.start();
-            break;
-          case HttpEventType.Response:
-         var cx =HttpEventType.Response;
-         
-         if(cx){
-          //  console.log("hide........")
-          this.spinnerService.hide();
-         }
-            this.slimLoadingBarService.complete();
-            this.showMessage = true;
-           
-            this.message2 = "Uploaded Successfully";
-             this.showpercentMessage = false;
-            break;
-          case 1: {
-            if (Math.round(this.uploadedPercentage) !== Math.round(event['loaded'] / event['total'] * 100)){
-              this.uploadedPercentage = event['loaded'] / event['total'] * 100;
-              this.showpercentMessage= true;
-              this.percentmessage = Math.round(this.uploadedPercentage);
-              this.slimLoadingBarService.progress = Math.round(this.uploadedPercentage);
-             if(this.slimLoadingBarService.progress == 100){
-              this.spinnerService.show();
-             }
+        this.http.post('https://ezeeboss.com:3001/api/uploadfile', formData, {
+          reportProgress: true, observe: 'events'
+        })
+          .subscribe((event: HttpEvent<any>) => {
+            switch (event.type) {
+              case HttpEventType.Sent:
+                this.slimLoadingBarService.start();
+                break;
+              case HttpEventType.Response:
+                var cx = HttpEventType.Response;
+
+                if (cx) {
+                  //  console.log("hide........")
+                  this.spinnerService.hide();
+                }
+                this.slimLoadingBarService.complete();
+                this.showMessage = true;
+
+                this.message2 = "Uploaded Successfully";
+                this.showpercentMessage = false;
+                break;
+              case 1: {
+                if (Math.round(this.uploadedPercentage) !== Math.round(event['loaded'] / event['total'] * 100)) {
+                  this.uploadedPercentage = event['loaded'] / event['total'] * 100;
+                  this.showpercentMessage = true;
+                  this.percentmessage = Math.round(this.uploadedPercentage);
+                  this.slimLoadingBarService.progress = Math.round(this.uploadedPercentage);
+                  if (this.slimLoadingBarService.progress == 100) {
+                    this.spinnerService.show();
+                  }
+                }
+              }
+                break;
+
             }
-          }
-            break;
-          
-        }
-       if((event as any).body){
-        this.pdfpath=(event as any).body.path;
+            if ((event as any).body) {
+              this.pdfpath = (event as any).body.path;
               localStorage.setItem('pdfid', (event as any).body.pdfid);
               localStorage.setItem('pdfpath', (event as any).body.path);
               this.innerHtml = this.domSanitizer.bypassSecurityTrustHtml(
-                '<object data="' + 'https://ezeeboss.com:3001' +(event as any).body.path + '" type="application/pdf" class="embed-responsive-item">' +
+                '<object data="' + 'https://ezeeboss.com:3001' + (event as any).body.path + '" type="application/pdf" class="embed-responsive-item">' +
                 'Object' + (event as any).body.path + ' failed' +
                 '</object>');
-                this.spinnerService.hide();
+              this.spinnerService.hide();
               //  (event as any).target.value = '';
-       }
+            }
 
-      }, error => {
-        // console.log(error);
-        this.message2 = "Something went wrong";
-        // this.showMessage = true;
-        this.slimLoadingBarService.reset();
-      });
-        }
-     
+          }, error => {
+            // console.log(error);
+            this.message2 = "Something went wrong";
+            // this.showMessage = true;
+                 this.spinnerService.hide();
+            this.slimLoadingBarService.reset();
+          });
+      }
+
     }
   }
-  
+
   clear() {
     this.innerHtml = '';
     this.pdfpath = '';
@@ -243,96 +249,98 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
       '<object data="' + 'https://ezeeboss.com:3001' + this.pdfpath + '" type="application/pdf" class="embed-responsive-item">' +
       'Object' + this.pdfpath + ' failed' +
       '</object>');
-      //  alert("clicked")
-       
-        // setTimeout(function(){ 
-           this.spinnerService.hide(); 
-        //    }, 6000);
+    //  alert("clicked")
+
+    // setTimeout(function(){ 
+    this.spinnerService.hide();
+    //    }, 6000);
   }
 
   filedropped(event: UploadEvent) {
+    this.spinnerService.show();
+
     this.files = event.files;
-     this.spinnerService.show();
     //  this.spinnerService.hide();
 
     for (const droppedFile of event.files) {
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
-         if(fileEntry.name.split('.').pop() === 'pdf' || fileEntry.name.split('.').pop() === 'PDF') {
+        if (fileEntry.name.split('.').pop() === 'pdf' || fileEntry.name.split('.').pop() === 'PDF') {
           this.pdferror = ''
-        fileEntry.file((file: File) => {
-      //  const fileList: FileList = event.target.files;
-    // console.log(event.target.files);
-     this.pdfname = fileEntry.name;
-    // console.log("pdfname,",fileEntry.name)
-    // var extension = event.target.files[0].type;
-          const formData = new FormData();
-                 this.showpercentMessage = false;
+          fileEntry.file((file: File) => {
+            //  const fileList: FileList = event.target.files;
+            // console.log(event.target.files);
+            this.pdfname = fileEntry.name;
+            // console.log("pdfname,",fileEntry.name)
+            // var extension = event.target.files[0].type;
+            const formData = new FormData();
+            this.showpercentMessage = false;
 
-          formData.append('filetoupload', file, droppedFile.relativePath);
-          this.http.post('https://ezeeboss.com:3001/api/uploadfile', formData,{
-            reportProgress: true, observe: 'events'
-          })
-          .subscribe( (event: HttpEvent<any>) => {
-            switch (event.type) {
-              case HttpEventType.Sent:
-                this.slimLoadingBarService.start();
-                break;
-              case HttpEventType.Response:
-                  var cx =HttpEventType.Response;
-         
-         if(cx){
-          //  console.log("hide........")
-          // this.spinnerService.hide();
-         }
-                this.slimLoadingBarService.complete();
-                this.showMessage = true;
-                this.message2 = "Uploaded Successfully";
-                 this.showpercentMessage = false;
-                break;
+            formData.append('filetoupload', file, droppedFile.relativePath);
+            this.http.post('https://ezeeboss.com:3001/api/uploadfile', formData, {
+              reportProgress: true, observe: 'events'
+            })
+              .subscribe((event: HttpEvent<any>) => {
+                switch (event.type) {
+                  case HttpEventType.Sent:
+                    this.slimLoadingBarService.start();
+                    break;
+                  case HttpEventType.Response:
+                    var cx = HttpEventType.Response;
 
-              case 1: {
-                 if (Math.round(this.uploadedPercentage) !== Math.round(event['loaded'] / event['total'] * 100)){
-              this.uploadedPercentage = event['loaded'] / event['total'] * 100;
-              this.showpercentMessage= true;
-              this.percentmessage = Math.round(this.uploadedPercentage);
-              this.slimLoadingBarService.progress = Math.round(this.uploadedPercentage);
-             if(this.slimLoadingBarService.progress == 100){
-              this.spinnerService.show();
-             }
-            }else{
-              console.log("inelse")
-            }
-                break;
-              }
-            }
+                    if (cx) {
+                      //  console.log("hide........")
+                      // this.spinnerService.hide();
+                    }
+                    this.slimLoadingBarService.complete();
+                    this.showMessage = true;
+                    this.message2 = "Uploaded Successfully";
+                    this.showpercentMessage = false;
+                    break;
 
-           if((event as any).body){
-            //  console.log((event as any).body)
-            this.pdfpath=(event as any).body.path;
-            this.pdfid=(event as any).body.pdfid;
+                  case 1: {
+                    if (Math.round(this.uploadedPercentage) !== Math.round(event['loaded'] / event['total'] * 100)) {
+                      this.uploadedPercentage = event['loaded'] / event['total'] * 100;
+                      this.showpercentMessage = true;
+                      this.percentmessage = Math.round(this.uploadedPercentage);
+                      this.slimLoadingBarService.progress = Math.round(this.uploadedPercentage);
+                      if (this.slimLoadingBarService.progress == 100) {
+                        this.spinnerService.show();
+                      }
+                    } else {
+                      console.log("inelse")
+                    }
+                    break;
+                  }
+                }
+
+                if ((event as any).body) {
+                  //  console.log((event as any).body)
+                  this.pdfpath = (event as any).body.path;
+                  this.pdfid = (event as any).body.pdfid;
                   localStorage.setItem('pdfid', (event as any).body.pdfid);
                   localStorage.setItem('pdfpath', (event as any).body.path);
                   const element: HTMLElement = document.getElementById('showpdf') as HTMLElement;
                   element.click();
-                 
+
                   (<any>document.getElementsByClassName("drop-zone")[0]).style.zIndex = 0;
 
-                // this.spinnerService.hide();
+                  // this.spinnerService.hide();
                   //  (event as any).body.target.value = '';
-    
-           }
 
-          }), error => {
-            console.log(error);
-            this.message2 = "Something went wrong";
-            this.slimLoadingBarService.reset();
-          };
+                }
 
-        });
-      } else {
-        this.pdferror = 'Please Upload Pdf Files Only';
-      }
+              }), error => {
+                console.log(error);
+                this.spinnerService.hide();
+                this.message2 = "Something went wrong";
+                this.slimLoadingBarService.reset();
+              };
+
+          });
+        } else {
+          this.pdferror = 'Please Upload Pdf Files Only';
+        }
       } else {
       }
     }
@@ -368,11 +376,11 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
     this.error = null;
   }
 
-   // --------------------------- edit contacts ---------------------//
+  // --------------------------- edit contacts ---------------------//
 
-   editcontacts(id: String) {
+  editcontacts(id: String) {
     this.spinnerService.show();
-   // this.loading = true;
+    // this.loading = true;
     this.editparticipantModal.open();
     this.http.get('https://ezeeboss.com:3001/api/contactdetail/' + id)
       .subscribe(data => {
@@ -385,11 +393,11 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
         this.contactaddress = this.contactdata.data[0].address;
         this.contactsubject = this.contactdata.data[0].subject;
         this.contactmessage = this.contactdata.data[0].message;
-      this.spinnerService.hide();
+        this.spinnerService.hide();
       }, err => {
         this.error = err;
         this.spinnerService.hide();
-      
+
       });
   }
 
@@ -397,34 +405,34 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
 
   editparticipant() {
     this.http.post('https://ezeeboss.com:3001/api/updatepartcipant',
-        {
-          firstName: this.contactfirstName, lastName: this.contactlastName, email: this.contactemail, address: this.contactaddress,
-          subject: this.contactsubject, message: this.contactmessage, type: this.editcontacttype,userid:this.userid
-        })
-        .subscribe(data => {
-         var index = this.contacts.findIndex(x => x.id==this.contactid);
-         this.contacts[index].name = this.contactfirstName + ' ' + this.contactlastName;
-         this.contacts[index].id = this.contactid;
-         this.contacts[index].type = this.editcontacttype;
-         this.contacts[index].email = this.contactemail;  
-         this.editparticipantModal.close(); 
-             })
+      {
+        firstName: this.contactfirstName, lastName: this.contactlastName, email: this.contactemail, address: this.contactaddress,
+        subject: this.contactsubject, message: this.contactmessage, type: this.editcontacttype, userid: this.userid
+      })
+      .subscribe(data => {
+        var index = this.contacts.findIndex(x => x.id == this.contactid);
+        this.contacts[index].name = this.contactfirstName + ' ' + this.contactlastName;
+        this.contacts[index].id = this.contactid;
+        this.contacts[index].type = this.editcontacttype;
+        this.contacts[index].email = this.contactemail;
+        this.editparticipantModal.close();
+      })
 
   }
 
-  changepriority(nowpriority,newpriority) {
-  const name = this.contacts[nowpriority].name;
-  const id = this.contacts[nowpriority].id;
-  const type= this.contacts[nowpriority].type;
-  const email= this.contacts[nowpriority].email;
-  this.contacts[nowpriority].name = this.contacts[newpriority].name;
-  this.contacts[nowpriority].id = this.contacts[newpriority].id;
-  this.contacts[nowpriority].type = this.contacts[newpriority].type;
-  this.contacts[nowpriority].email = this.contacts[newpriority].email;
-  this.contacts[newpriority].name = name;
-  this.contacts[newpriority].id = id;
-  this.contacts[newpriority].type = type;
-  this.contacts[newpriority].email = email;
+  changepriority(nowpriority, newpriority) {
+    const name = this.contacts[nowpriority].name;
+    const id = this.contacts[nowpriority].id;
+    const type = this.contacts[nowpriority].type;
+    const email = this.contacts[nowpriority].email;
+    this.contacts[nowpriority].name = this.contacts[newpriority].name;
+    this.contacts[nowpriority].id = this.contacts[newpriority].id;
+    this.contacts[nowpriority].type = this.contacts[newpriority].type;
+    this.contacts[nowpriority].email = this.contacts[newpriority].email;
+    this.contacts[newpriority].name = name;
+    this.contacts[newpriority].id = id;
+    this.contacts[newpriority].type = type;
+    this.contacts[newpriority].email = email;
 
   }
 
@@ -485,7 +493,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
             this.addparticipantForm.reset();
             this.addparticipantModal.close();
           } else {
-            this.error ='This Email is already in your Contacts.You can add from there!!!';
+            this.error = 'This Email is already in your Contacts.You can add from there!!!';
           }
         }, err => {
           this.error = 'Something Went Wrong.Please Try Again !!!';
@@ -511,11 +519,11 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
         this.contactemail = this.contactdata.data[0].email;
         this.contactdetailModal.open();
         this.spinnerService.hide();
-       // this.loading = false;
+        // this.loading = false;
       }, err => {
         this.error = err;
         this.spinnerService.hide();
-      //  this.loading = false;
+        //  this.loading = false;
       });
   }
 
@@ -577,7 +585,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
 
   addyourself(form) {
     this.isdisabled = true;
-   // console.log(form.type);
+    // console.log(form.type);
     let type = form.type;
     if (type === null) {
       type = 'Remote Signer';
@@ -632,8 +640,8 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
           this.contactList = data;
           console.log("this.contactList->", this.contactList)
           if (this.contactList.message === 1 || this.contactList.message === 2) {
-             // arr.push(item);
-          
+            // arr.push(item);
+
             this.contacts.push({ name: firstName + ' ' + lastName, type: type, email: email, id: this.contactList.id });
             console.log("data pushed", this.contacts);
             // this.addparticipantForm.reset();
@@ -654,7 +662,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
     this.isdisabled = false;
     this.addyourselfModal.open();
   }
- 
+
   // ----------------------------- delete contact --------------------------- //
 
   deletecontact(email: String) {
@@ -674,23 +682,25 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
     }
   }
 
-  addzindex(){
-    (<any>document.getElementsByClassName("drop-zone")[0]).style.zIndex = 1;  }
+  addzindex() {
+    this.spinnerService.show();
+    (<any>document.getElementsByClassName("drop-zone")[0]).style.zIndex = 1;
+  }
 
   // ----------------------------------------- add users to document -------------------------- //
 
   adduserstodocument() {
 
-   // this.loading = true;
-   this.spinnerService.show();
+    // this.loading = true;
+    this.spinnerService.show();
     let withimage = true;
     this.activatedRoute.params.subscribe((params: Params) => {
       const type = params['type'];
-      if(type == 'wi') {
-         withimage = true
+      if (type == 'wi') {
+        withimage = true
       }
       else {
-         withimage = false
+        withimage = false
       }
     })
 
@@ -704,22 +714,22 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
       docid: localStorage.getItem('docid'),
       expdate: localStorage.getItem('expdate'),
       usertosign: this.adduserarray,
-      sendername:this.fullname,
+      sendername: this.fullname,
       priority: this.priority,
       withimage: withimage
     };
-  
-   
+
+
     this.http.post('https://ezeeboss.com:3001/api/addusertodocument', postdata)
       .subscribe(data => {
         this.spinnerService.hide();
-      //  this.loading = false;
+        //  this.loading = false;
         this.adduserresult = data;
         if (this.adduserresult.message === 'success') {
           this.router.navigateByUrl('/pdfsign');
         } else {
-         // this.loading = false;
-       this.spinnerService.hide();
+          // this.loading = false;
+          this.spinnerService.hide();
           alert(this.adduserresult.message);
         }
         // console.log(data);
@@ -749,7 +759,7 @@ template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style=
     this.participantModal.close();
   }
   priorityreq(event) {
-    if ( event.target.checked ) {
+    if (event.target.checked) {
       this.priority = true;
     } else {
       this.priority = false;

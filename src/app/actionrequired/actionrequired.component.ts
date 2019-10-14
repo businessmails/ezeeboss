@@ -5,6 +5,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent} from '../app.component';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { INgxMyDpOptions, IMyDateModel } from 'ngx-mydatepicker';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-actionrequired',
@@ -46,7 +47,12 @@ export class ActionrequiredComponent implements OnInit {
     private auth: AuthenticationService,
     private AppComponent: AppComponent,
     private router: Router,
+  private _location: Location
+
   ) { }
+ backClicked() {
+    this._location.back();
+  }
 
   ngOnInit() {
     this.digitalpath = localStorage.getItem('digitalpath');

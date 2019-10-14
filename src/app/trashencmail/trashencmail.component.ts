@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails, TokenPayload} from '../authentication.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent} from '../app.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-trashencmail',
@@ -23,9 +24,13 @@ export class TrashencmailComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
-    private AppComponent:AppComponent
-  ) { }
+    private AppComponent:AppComponent,
+    public _location: Location
 
+  ) { }
+  backClicked() {
+    this._location.back();
+  }
   ngOnInit() {
     this.auth.profile().subscribe(user => {
       this.details = user;

@@ -4,6 +4,7 @@ import { AuthenticationService, UserDetails } from '../authentication.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { AppComponent} from '../app.component';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -35,9 +36,12 @@ export class ContactListComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private spinnerService: Ng4LoadingSpinnerService,
-    private AppComponent: AppComponent
-  ) {}
-
+    private AppComponent: AppComponent,
+  private _location: Location
+  ) { }
+ backClicked() {
+    this._location.back();
+  }
   ngOnInit() {
     this.digitalpath = localStorage.getItem('digitalpath')
     this.auth.profile().subscribe(user => {

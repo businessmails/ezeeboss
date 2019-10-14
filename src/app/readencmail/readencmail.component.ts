@@ -117,7 +117,10 @@ export class ReadmailencComponent implements OnInit {
       //   });
     });
   }
+backclicked(){
+    this._location.back();
 
+}
   clickme(id) {
     //alert(id)
     console.log('clicked',id)

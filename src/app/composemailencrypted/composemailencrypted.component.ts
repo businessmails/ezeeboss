@@ -4,6 +4,8 @@ import { AuthenticationService, UserDetails, TokenPayload} from '../authenticati
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent} from '../app.component';
 import { Router } from '@angular/router'
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-composemail',
   templateUrl: './composemailencrypted.component.html',
@@ -42,7 +44,9 @@ export class ComposemailencryptedComponent implements OnInit {
     private http: HttpClient,
     private auth: AuthenticationService,
     private AppComponent:AppComponent,
-    private router: Router
+    private router: Router,
+    public _location: Location
+
   ) { }
 
   ngOnInit() {
@@ -54,7 +58,9 @@ export class ComposemailencryptedComponent implements OnInit {
 
     });
   }
-
+  backClicked() {
+    this._location.back();
+  }
   fileChange(fileInput: any) {
    if(this.filerror !=""){
     this.filerror ="";

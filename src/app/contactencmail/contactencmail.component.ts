@@ -4,6 +4,7 @@ import { AuthenticationService, UserDetails, TokenPayload} from '../authenticati
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 import { AppComponent} from '../app.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-contactencmail',
@@ -27,7 +28,10 @@ export class ContactencmailComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
-    private AppComponent:AppComponent) { }
+    private AppComponent:AppComponent,
+    private _location: Location
+    
+    ) { }
 
   ngOnInit() {
     this.auth.profile().subscribe(user => {
@@ -42,6 +46,10 @@ export class ContactencmailComponent implements OnInit {
        this.mycsvcontact = this.csvcontacts.data;
      });
     });
+  }
+
+backClicked() {
+    this._location.back();
   }
 
   uploadcsvcontacts(event) {
