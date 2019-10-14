@@ -421,7 +421,7 @@ padding:0px !important;
             background-repeat: no-repeat;
             background-size: 100%;
             border: 1px solid transparent;
-            height: auto;
+            /*height: auto;*/
             width: 100%;
             float: left;   
         }        

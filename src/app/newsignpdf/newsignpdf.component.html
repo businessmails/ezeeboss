@@ -18,7 +18,7 @@
                     name="webcamImage" id="webcamImage" required>
          
 
-                <div class="" *ngIf="!showWebcam && !webcamImage">
+                <div class="all_camera_main" *ngIf="!showWebcam && !webcamImage">
                     <div class="after_mail_cam_img tooltip12">
                         <img id="fgdfg" src="../../assets/img/images.png" style="width: 100%;" />
                     </div>
@@ -42,11 +42,15 @@
                 </div>
                 <div class="signdiv" style="width:100%;">
                     <div class="form-group">
-                        
-                        <button type="button" *ngIf="camera" (click)="triggerSnapshot();" class="btn signbtn pulse-button pulse green">Capture</button>
-                        <button *ngIf="imagecaptured" (click)="toggleWebcam();" type="button" class="btn signbtn fullwdth c_a">Capture Again</button>
-                        <button *ngIf="imagecaptured" (click)="verifyuser();" type="button" class="btn signbtn pulse-button pulse green v_b">Accept</button>
-
+                        <div class="col-md-12">
+                            <button type="button" *ngIf="camera" (click)="triggerSnapshot();" class="btn pulse-button pulse green new_btn_css">Capture</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button *ngIf="imagecaptured" (click)="toggleWebcam();" type="button" class="btn fullwdth c_a">Capture Again</button>    
+                        </div>
+                        <div class="col-md-6">
+                            <button *ngIf="imagecaptured" (click)="verifyuser();" type="button" class="btn pulse-button pulse green v_b">Accept</button>  
+                        </div>
                     </div>
                
                 </div>

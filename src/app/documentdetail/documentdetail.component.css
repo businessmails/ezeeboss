@@ -121,8 +121,13 @@ footer {
 }
 
 .box3 {
-    background: #a68734 !important;
+        padding: 6px 20px 20px;
+    background: #414541 !important;
+    border: none !important;
 }
+.box3 input { border-radius: 0; border: 2px solid #414541; margin-bottom: 20px; }
+.calinput { float: left; border: 3px #414541 solid !important; border-radius: 0; }
+.calinnerdiv .calinput { width: 80% !important; }
 
 .boxtab {
     margin-top: 2% !important;
@@ -177,26 +182,84 @@ display: inline-block;
     font-size: 18px;
     color: #5e6e03;
 }
-.calinput{
-    float:left;
-    width:84% !important;
-    border: 3px #b49948 solid !important;
-    border-radius: 0;
-}
-
-/* .calbtn {
-    padding: 5px 8px ;
-    width: 16% !important;
-    position: absolute !important;
-    right: 14px !important;
-}
-.calbtn {
-    padding: 5px 8px !important;
-    float: left;
-    color: #858f03;
-    margin-left: 3px;
-    width: 14%;
-    background-color: #e8e8e8;
-    border: 3px solid #b59848;
-    position: absolute;
-} */
+    .tooltip-inner {
+        width: 125px;
+        background: #b59848;
+        padding: 5px 5px 5px 5px;
+        font-size: 14px;
+        font-weight: bolder;
+        height: auto;
+    }
+    
+    .largefilep {
+        position: fixed;
+        width: 100%;
+        opacity: 0.6;
+        filter: alpha(opacity=60);
+        top: 0px;
+        min-height: 200px;
+        height: 100%;
+        z-index: 9999999999;
+        background: #2c846d;
+        font-size: 20px;
+        text-align: center;
+        display: none;
+    }
+    
+    .encryptfilep {
+        position: fixed;
+        width: 100%;
+        opacity: 0.6;
+        filter: alpha(opacity=60);
+        top: 0px;
+        min-height: 200px;
+        height: 100%;
+        z-index: 9999999999;
+        background: #5b4f71;
+        font-size: 20px;
+        text-align: center;
+        display: none;
+    }
+    
+    .digitalfilep {
+        position: fixed;
+        width: 100%;
+        opacity: 0.6;
+        filter: alpha(opacity=60);
+        top: 0px;
+        min-height: 200px;
+        height: 100%;
+        z-index: 9999999999;
+        background: #96450e;
+        font-size: 20px;
+        text-align: center;
+        display: none;
+    }
+    
+    .dropdown-menu {
+        left: 25%;
+        min-width: 100px;
+        margin-top: 0%;
+    }
+    
+    .caret {
+        color: #b49948;
+    }
+    
+    @media screen and (min-width: 1920px) {
+        .latest-trend-box a img {
+            width: 195px;
+        }
+    }
+    
+    @media screen and (max-width: 699px) {
+        .hide_mob {
+            display: none;
+        }
+    }
+    
+    @media screen and (min-width: 699px) {
+        .lm {
+            display: none;
+        }
+    }

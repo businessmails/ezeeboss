@@ -1,281 +1,92 @@
-<!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/signature.css"> -->
-<!-- <link rel="stylesheet" href="assets/css/mycustom.css">  -->
-<style>
-    .tooltip-inner {
-        width: 125px;
-        background: #b59848;
-        padding: 5px 5px 5px 5px;
-        font-size: 14px;
-        font-weight: bolder;
-        height: auto;
-    }
-    
-    .largefilep {
-        position: fixed;
-        width: 100%;
-        opacity: 0.6;
-        filter: alpha(opacity=60);
-        top: 0px;
-        min-height: 200px;
-        height: 100%;
-        z-index: 9999999999;
-        background: #2c846d;
-        font-size: 20px;
-        text-align: center;
-        display: none;
-    }
-    
-    .encryptfilep {
-        position: fixed;
-        width: 100%;
-        opacity: 0.6;
-        filter: alpha(opacity=60);
-        top: 0px;
-        min-height: 200px;
-        height: 100%;
-        z-index: 9999999999;
-        background: #5b4f71;
-        font-size: 20px;
-        text-align: center;
-        display: none;
-    }
-    
-    .digitalfilep {
-        position: fixed;
-        width: 100%;
-        opacity: 0.6;
-        filter: alpha(opacity=60);
-        top: 0px;
-        min-height: 200px;
-        height: 100%;
-        z-index: 9999999999;
-        background: #96450e;
-        font-size: 20px;
-        text-align: center;
-        display: none;
-    }
-    
-    .dropdown-menu {
-        left: 25%;
-        min-width: 100px;
-        margin-top: 0%;
-    }
-    
-    .caret {
-        color: #b49948;
-    }
-    
-    @media screen and (min-width: 1920px) {
-        .latest-trend-box a img {
-            width: 195px;
-        }
-    }
-    
-    @media screen and (max-width: 699px) {
-        .hide_mob {
-            display: none;
-        }
-    }
-    
-    @media screen and (min-width: 699px) {
-        .lm {
-            display: none;
-        }
-    }
-</style>
-
-
-
-
-
 <section class="hdrsec">
-    <div class="logoimg">
-        <!-- <img src="../../assets/img/ezee-logo.png" /> -->
-        <a routerLink='/'><img src="../../assets/img/ezee-logo.png" /></a>
-
-    </div>
-
-
-
-
+  <div class="logoimg">
+    <a routerLink='/landing'><img src="../../assets/img/ezee-logo.png" /></a>
+  </div>
 </section>
-
-
-<div class="container">
-
-    <div class="list-part myprofile mobilename" style="z-index: 1;max-width: 250px;min-width: 250px;">
-
-        <li class="dropdown" dropdown>
-
-
-
-            <i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;
-
-            <span class="title">{{fullname}} &nbsp;</span>
-            <a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
-                <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
-            </a>
-
-            <ul *dropdownMenu class="dropdown-menu mobilemenu">
-
-                <li><a (click)="logout();">Logout</a></li>
-
-                <li><a routerLink="/profile">View Profile</a></li>
-
-                <li id=""><a>Change Password</a></li>
-
-                <li><a>Membership Order</a></li>
-
-            </ul>
-
-        </li>
-
+<section class="fullpage">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-9">
+                <div class="row">
+                    <div class="col-xs-6 text-left">
+                        <a href="#" class="top_back_button"><i class="fa fa-caret-left"></i><span>Back</span></a> 
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <div class="new_custom_drop_down" style="z-index:1;">
+                            <li class="dropdown" dropdown><i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;<span class="title">{{fullname}} &nbsp;</span>
+                                <a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
+                                    <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
+                                </a>
+                                <ul *dropdownMenu class="my_drop_down">
+                                    <li><a (click)="logout();">Logout</a></li>
+                                    <li><a routerLink="/profile">View Profile</a></li>
+                                    <li id=""><a>Change Password</a></li>
+                                    <li><a>Membership Order</a></li>
+                                </ul>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-</div>
-
-
-
-
-
-
-<div class="container">
-
-
-
-        <div class="col-lg-2 col-md-2 col-xs-12">
-
-            <!--Instructions & logo part start-->
-
-            <div style="display:block; margin:0 auto;" class="col-lg-12">
-
-                <a data-placement="right" data-toggle="tooltip" data-original-title="">
-                    <p class="pt51 pt567">&nbsp;&nbsp;
-                        <span class="fa fa-home"></span> &nbsp;Home</p>
-                </a>
-
-            </div>
-
-            <a href="digital_signature.html">
-
-                <img class="img-responsive img-portfolio2" src="../../assets/img/signature.png" style="margin-top:10%;" alt="" data-placement="right">
-
-            </a>
-
-
-
-
-
-            <style type="text/css">
-                .arrow-top {
-                    top: -1px;
-                }
-            </style>
-
-            <div class="wrapper2">
-
-                <li style="list-style:none; cursor:pointer;" class="toggle">
-
-                    <a style="cursor: pointer;" class="list-part2" id="showhide" data-placement="right">
-
-                        <span class="title2">INSTRUCTIONS</span>
-
+    <div class="container">
+        <div class="row mt_class">
+            <div class="col-lg-3 col-md-3 col-xs-12 mobilepd">
+                <div style="display:block; margin:0 auto;" class="col-lg-12 mobilepd">
+                    <a data-placement="right" data-toggle="tooltip" data-original-title="">
+                        <span class="pt51 pt567 mobilehomebtn">
+                            <span class="fa fa-home"></span> Home
+                        </span>
                     </a>
+                </div>
+                <a href="">
+                    <img class="img-responsive compose_lock_image" src="../../assets/img/home-02.png" alt="" data-placement="right">
+                </a>
+                <div class="wrapper2">
+                    <li style="list-style:none; cursor:pointer;" class="toggle">
+                        <a style="cursor: pointer;" class="list-part2 mobilehomebtn" id="showhide" data-placement="right">
+                            <span class="title2">INSTRUCTIONS</span>
+                        </a>
+                        <ul style="display:none;" class="drop-popup" id="slidediv">
+                            <div class="arrow-top">
+                                <img src="../../assets/img/arrow-top.png">
+                            </div>
+                            <div class="inst-popup" style="font-family: Century Gothic; font-size: 14px; text-align: left; font-weight: bold; color: #333;">
 
-                    <ul style="display:none;" class="drop-popup" id="slidediv">
-
-                        <div class="arrow-top">
-                            <img src="../../assets/img/arrow-top.png">
-                        </div>
-
-                        <div class="inst-popup" style="font-family: Century Gothic; font-size: 14px; text-align: left; font-weight: bold; color: #333;">
-
-                            <ul style="list-style: none; padding: 0;">
-
-                                <li style="margin-bottom: 10px;">Step 1: Upload or drag and drop PDF file.</li>
-
-                                <li style="margin-bottom: 10px;">Step 2: Check box, if you require an expiration date (not mandatory).</li>
-
-                                <li style="margin-bottom: 10px;">Step 3: Add participants.</li>
-
-                                <li style="margin-bottom: 10px;">Step 4: You can rearrange signing order under "priority". Click on arrow up or down to change signing order (not mandatory). Click next to complete.</li>
-
-
-                            </ul>
-
-                        </div>
-
-                    </ul>
-
-                </li>
-
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="margin-bottom: 10px;">Step 1: Upload or drag and drop PDF file.</li>
+                                    <li style="margin-bottom: 10px;">Step 2: Check box, if you require an expiration date (not mandatory).</li>
+                                    <li style="margin-bottom: 10px;">Step 3: Add participants.</li>
+                                    <li style="margin-bottom: 10px;">Step 4: You can rearrange signing order under "priority". Click on arrow up or down to change signing order (not mandatory). Click next to complete.</li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </li>
+                </div>
             </div>
-
-
-            <div class="clearfix"></div>
-            <!--Instructions & logo part end-->
-
+            <div></div>
         </div>
 
         <div class="col-lg-10 col-md-10 col-xs-12">
-
-            <div class="inner-part8" style="box-shadow:none !important;background: #5e6e03 !important;">
-
-                <div class="col-lg-12">
-
+            <div class="inner-part8" style="background: rgb(90,115,27) !important">
+                <div class="col-lg-12 p_bottom">
                     <div class="col-lg-12">
-
-                        <p class="pt10 encryption">e-signature</p>
+                        <p class="smartheading_new">Electronic <span>signature</span></p>
                     </div>
                 </div>
 
                 <div class="col-lg-12">
-
                     <div class="tabs-left">
-
-                        <style type="text/css">
-                            .active span.pt6 {
-                                color: #fff !important;
-                            }
-                            
-                            .tabs6 {
-                                background: #7a6220 !important;
-                            }
-                        </style>
-
                         <ul class="nav nav-tabs6" style="background-color: #7a6220 !important">
+                            <li class=""><a routerLink="/digital_sign/{{digitalpath}}"><span class="iconimg"><img src="assets/img/pdficon.png"/></span>&nbsp;&nbsp;<span class="pt6">Compose</span></a></li>
 
-                            <li class="">
-                                <a>
-                                    <span class="iconimg">
-                                    <img src="assets/img/pdficon.png"/>
-                                </span>
-                                    <a routerLink="/digital_sign/{{digitalpath}}"> <span class="pt6">Compose</span></a>
-                                </a>
-                            </li>
+                            <li class=""><a routerLink="/actionrequired"><span class="iconimg"><img src="assets/img/x.png"/></span>&nbsp;&nbsp;<span class="pt6">Action Required</span></a></li>
 
-                            <li class="">
-                                <a>
-                                    <span class="iconimg"><img _ngcontent-c2="" src="assets/img/x.png"></span>
-                                    <a routerLink="/actionrequired"> <span class="pt6">Action Required</span></a>
-                                </a>
-                            </li>
+                            <li class="active"><a routerLink="/completed"><span class="iconimg"><img src="assets/img/right.png"/></span>&nbsp;&nbsp;<span class="pt6">Completed</span></a></li>
 
-                            <li>
-                                <a>
-                                    <span class="iconimg"><img  src="assets/img/right.png"></span>
-                                    <a routerLink="/completed"> <span class="pt6">Completed</span></a>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a>
-                                    <span class="iconimg"><img src="assets/img/usersicon.png"></span>
-                                    &nbsp;&nbsp;
-                                    <span class="pt6">Contact</span>
-                                </a>
-                            </li>
+                            <li class=""><a routerLink="/contact_list"><span class="iconimg"><img src="assets/img/usersicon.png"/></span>&nbsp;&nbsp;<span class="pt6">Contact</span></a></li>
 
                         </ul>
 
@@ -289,109 +100,42 @@
 
                                         <form method="get" action="">
 
-                                            <div class="box3" style="border-radius:0px;">
-
-                                                <div class="col-lg-12 col-md-12 col-xs-12">
-
-                                                    <div class="col-lg-12 col-md-12 col-xs-12">
-
-                                                        <div id="imaginary_container" class="group17">
-
-                                                            <div class="input-group stylish-input-group group123">
-
-                                                                <input type="text" name="search" style="border-radius:0px; font-family:&#39;Century Gothic&#39;;" class="form-control" placeholder="Search by user name or doc name" [(ngModel)]="Search" id="searchaction" (keyup)="searchDocument()">
-
-                                                                <span class="input-group-addon " style="border-radius:0px;">
-
-                                                                    <!--<button type="submit"> <span class="glyphicon glyphicon-search"></span> </button>-->
-
-                                                                </span>
-                                                            </div>
-
-                                                        </div>
-
+                                            <div id="seetor_bar" class="box3" style="border-radius:0px;">
+                                                <div class="col-lg-12" style="padding-left: 0; padding-right: 0">
+                                                    <div id="imaginary_container" class="form-group">
+                                                        <input type="text" name="search" style="border-radius:0px; font-family:&#39;Century Gothic&#39;;" class="form-control" placeholder="Search by user name or doc name" [(ngModel)]="Search" id="searchaction" (keyup)="searchDocument()">
                                                     </div>
-                                                    <div class="col-lg-1 col-md-1 col-xs-12"> </div>
+                                                </div>
 
+                                                <div class="col-md-6" style="padding-left: 0; padding-right: 0" >
+                                                    <div class="calinnerdiv">
+                                                        <input class="form-control pannel calinput" #date placeholder="Select a date" ngx-mydatepicker name="mydate" [(ngModel)]="fromdate" [options]="myOptions" #dp="ngx-mydatepicker" (dateChanged)="onDateChanged($event)" />
+                                                        <button type="button" class="calbtn" (click)="dp.toggleCalendar()">
+                                                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                                                         </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6" style="padding-left: 0; padding-right: 0">
+                                                    <div class="calinnerdiv">
+                                                        <input class="form-control pannel calinput" #date placeholder="Select a date" ngx-mydatepicker name="todate" [(ngModel)]="todate" [options]="myOptions" #dpto="ngx-mydatepicker" (dateChanged)="ondateChanged($event)" />
+                                                        <button type="button" class="calbtn" (click)="dpto.toggleCalendar()">
+                                                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                                                         </button>
+                                                    </div>
                                                 </div>
 
                                                 <div class="col-lg-12 col-md-12 col-xs-12">
-
-
-                                                    <div class="col-lg-6 col-md-6 col-xs-12">
-
-                                                        <div class="form-group">
-
-                                                            <div class="input-group date group12" id="datetimepicker11">
-
-                                                                <input class="form-control pannel calinput" #date placeholder="Select a date" ngx-mydatepicker name="mydate" [(ngModel)]="fromdate" [options]="myOptions" #dp="ngx-mydatepicker" (dateChanged)="onDateChanged($event)" />
-                                                                <button type="button" class="calbtn" (click)="dp.toggleCalendar()">
-                                                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                                 </button>
-
-
-                                                                <!-- <span class="Zebra_DatePicker_Icon_Wrapper" style="display: block; position: relative; float: left; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%;">
-                                                                    <input type="text" name="startdate" style="border-radius: 0px; font-family: &quot;Century Gothic&quot;; border: 0px; position: relative; top: auto; right: auto; bottom: auto; left: auto;"
-                                                                        class="form-control" id="fromdate" placeholder="From:"
-                                                                        readonly="readonly">
-                                                                    <button type="button" class="Zebra_DatePicker_Icon Zebra_DatePicker_Icon_Inside_Right" style="top: 3px; right: 0px;">Pick a date</button>
-                                                                </span> -->
-
-                                                            </div>
-
-                                                        </div>
-
+                                                    <div align="center">
+                                                        <button type="submit" class="search-btn" data-placement="top" (click)="searchDocument()">SEARCH</button>
                                                     </div>
-
-                                                    <div class="col-lg-5 col-md-5 col-xs-12">
-
-                                                        <div class="form-group">
-                                                             <div class="input-group date group12" id="datetimepicker2">
-                                                                <input class="form-control pannel calinput" #date placeholder="Select a date" ngx-mydatepicker name="todate" [(ngModel)]="todate" [options]="myOptions" #dpto="ngx-mydatepicker" (dateChanged)="ondateChanged($event)" />
-
-
-
-                                                                <button type="button" class="calbtn" (click)="dpto.toggleCalendar()">
-                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                 </button>
-                                                            </div>
-                                                            <!-- <div class="input-group date group12" id="datetimepicker2" style="margin-top:8%; width:215px;">
-
-                                                                <span class="Zebra_DatePicker_Icon_Wrapper" style="display: block; position: relative; float: left; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%;">
-                                                                    <input type="text" name="todate" style="border-radius: 0px; font-family: &quot;Century Gothic&quot;; border: 0px; position: relative; top: auto; right: auto; bottom: auto; left: auto;"
-                                                                        class="form-control" id="todate" placeholder="To:" readonly="readonly">
-                                                                    <button type="button" class="Zebra_DatePicker_Icon Zebra_DatePicker_Icon_Inside_Right" style="top: 3px; right: 0px;">Pick a date</button>
-                                                                </span>
-
-                                                            </div> -->
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div class="col-lg-1 col-md-1 col-xs-12"> </div>
-
                                                 </div>
-
-                                                <div class="col-lg-12 col-md-12 col-xs-12" style="">
-
-                                                    <div class="col-lg-1 col-md-1 col-xs-12"> </div>
-
-                                                    <div class="col-lg-10 col-md-10 col-xs-12">
-
-                                                        <div align="center" style=" padding: 10px;">
-                                                            <button type="submit" style="border-radius:0px; font-family:'Century Gothic'; margin-left:-15px;" class="search-btn" data-placement="top" (click)="searchDocument()">SEARCH</button>
-                                                            <!--<input type="submit" value="Search" name="sub" class="btn btn-success" style="background: #337ab7;">-->
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-1 col-md-1 col-xs-12"> </div>
-
-                                                </div>
+                                            </div>
+                                                
 
                                                 <div class="clearfix"></div>
 
-                                            </div>
+                                            
 
                                         </form>
 
@@ -556,9 +300,8 @@
 
         </div>
  
-</div>
-
-
+</div>    
+</section>
 
 <footer id="footer">
     <div class="container">
