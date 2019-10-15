@@ -212,7 +212,7 @@ export class NewsignpdfComponent implements OnInit {
                           const numItems = $('.' + result).length;
 
                           $('.dell').remove();
-                          $('.' + classarray[0] + ' div div').append('<br><button type="button" class="signbutton removeme"  style="    background-color: #715632; width: 178px; font-size: 16px !important; padding: 8px 12px;color: white; font-style: unset;border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top:-16px;"><b>Click to Sign</b></button><br>');
+                          $('.' + classarray[0] + ' div div').append('<br><button type="button" class="signbutton removeme"  style="font-family: AbadiMTStdExtraLight_1,sans-serif !important; font-weight:normal;  background-color: #715632; width: 178px; font-size: 16px !important; padding: 8px 12px;color: white; font-style: unset;border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top:-16px;"><b>Click to Sign</b></button><br>');
 
                           this.conveniancecount = $('.' + result).length;
                           var clickLength = $('.' + result).length;
@@ -243,9 +243,9 @@ export class NewsignpdfComponent implements OnInit {
                             $(this).parent().append('<div style="word-wrap: break-word;text-align: left;font-size: 18px !important; font-style:unset;font-weight: 400;color: rgb(20, 83, 148);">' + res + '</div>');
 
                             if ($('.' + classarray[number]).hasClass('gettext')) {
-                              $('.' + classarray[number]).next('div').append('<br><button type="button" class="signbutton removeme" style="background-color: #715632; width:170px; font-size: 18px !important; font-style:unset;padding: 8px 12px; color: white; border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top: -15px;float: left;"><b>Click to Sign</b></button><br>');
+                              $('.' + classarray[number]).next('div').append('<br><button type="button" class="signbutton removeme" style="font-family: AbadiMTStdExtraLight_1,sans-serif !important; font-weight:normal;  background-color: #715632; width: 178px; font-size: 16px !important; padding: 8px 12px;color: white; font-style: unset;border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top:-16px;"><b>Click to Sign</b></button><br>');
                             }
-                            $('.' + classarray[number] + ' div div').append('<br><button type="button" class="signbutton removeme" style="background-color: #715632; width:170px; font-size: 18px !important;font-style:unset; padding: 8px 12px; color: white; border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top: -5px;float: left;"><b>Click to Sign</b></button><br>');
+                            $('.' + classarray[number] + ' div div').append('<br><button type="button" class="signbutton removeme" style="font-family: AbadiMTStdExtraLight_1,sans-serif !important; font-weight:normal;  background-color: #715632; width: 178px; font-size: 16px !important; padding: 8px 12px;color: white; font-style: unset;border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top:-16px;"><b>Click to Sign</b></button><br>');
                             const x = $('.' + classarray[number]).position();
                             if (number < clickLength) {
                               $('html, body').animate({
@@ -565,7 +565,7 @@ export class NewsignpdfComponent implements OnInit {
                   $('textarea').not('.' + result).prop('disabled', true);
                   const numItems = $('.' + result).length;
                   $('.dell').remove();
-                  $('.' + classarray[0] + ' div div').append('<br><button type="button" class="signbutton removeme" style="background-color: #715632; width:140px; font-size: 18px !important; padding: 8px 12px; color: white;font-style:unset; border: none; box-shadow: -1px 0px 5px 0px #191919;"><b>Click to Sign</b></button><br>');
+                  $('.' + classarray[0] + ' div div').append('<br><button type="button" class="font-family: AbadiMTStdExtraLight_1,sans-serif !important; font-weight:normal;  background-color: #715632; width: 178px; font-size: 16px !important; padding: 8px 12px;color: white; font-style: unset;border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top:-16px;"><b>Click to Sign</b></button><br>');
                   this.conveniancecount = $('.' + result).length;
                   const y = $('.' + classarray[0]).position();
                   $('html, body').animate({
@@ -594,7 +594,7 @@ export class NewsignpdfComponent implements OnInit {
                     if ($('.' + classarray[number]).hasClass('gettext')) {
                       $('.' + classarray[number]).next('div').append('<br><button type="button" class="signbutton removeme" style="background-color: #715632; width:160px; font-size: 18px !important; padding: 8px 12px; color: white;font-style:unset; border: none; box-shadow: -1px 0px 5px 0px #191919;"><b>Click to Sign</b></button><br>');
                     }
-                    $('.' + classarray[number] + ' div div').append('<br><button type="button" class="signbutton removeme" style="background-color: #715632; width:160px; font-size: 18px !important; padding: 8px 12px; color: white;font-style:unset; border: none; box-shadow: -1px 0px 5px 0px #191919;"><b>Click to Sign</b></button><br>');
+                    $('.' + classarray[number] + ' div div').append('<br><button type="button" class="signbutton removeme" style="font-family: AbadiMTStdExtraLight_1,sans-serif !important; font-weight:normal;  background-color: #715632; width: 178px; font-size: 16px !important; padding: 8px 12px;color: white; font-style: unset;border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top:-16px;"><b>Click to Sign</b></button><br>');
 
                     const x = $('.' + classarray[number]).position();
                     if (number < clickLength) {

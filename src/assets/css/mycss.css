@@ -3534,10 +3534,19 @@ td { color: #000!important; font-weight: 600!important; }
 .complete_page_box { margin: 0 auto; width: 100%; display: block; text-align: center; }
 .complete_page_box ul{ float: left!important; margin: 20px 0!important; }
 ul.pagination { margin-top: 20px!important; margin-bottom: 20px!important; }
-.top_information { font-size: 22px; color: #fff; font-weight: 600px; text-align: left; }
-.rject_if { font-size: 20px; color: #fff; font-weight: 600px; text-align: left; margin-top: 30px; }
+.top_information { font-size: 22px; color: #fff; font-weight: 600; text-align: left; }
+.rject_if h4{ font-size: 17px; color: #fff; font-weight: 600px; text-align: left; margin-top: 30px; }
 .reject_if_btn { padding: 10px 25px; font-size: 20px; border:0; color: white; -webkit-box-shadow: 0px 0px 9px 0px #333; box-shadow: 0px 0px 9px 0px #333; border-radius: 5px; background-color  :#cc3100; margin-top: 10px;}
+.rject_if, .exit_if{ text-align: left; }
 .rject_if b, .exit_if b { display: block; }
-.exit_if { font-size: 20px; color: #fff; font-weight: 600px; text-align: left; margin-top: 30px; }
+.exit_if h4{ font-size: 17px; color: #fff; font-weight: 600px; text-align: left; margin-top: 30px; }
 .exit_if_btn { padding: 10px 25px; font-size: 20px; color: white; -webkit-box-shadow: 0px 0px 9px 0px #333; box-shadow: 0px 0px 9px 0px #333; border-radius: 5px; background-color :#B59848; margin-top: 10px;     display: inline-block;}
 .position-relative { position: relative; }
+
+.printbtn { display: none!important; }
+@media only screen and (max-width: 2560px) and (min-width: 1440px)
+{
+	.rject_if h4, .exit_if h4 { font-size: 25px; }
+	.reject_if_btn, .exit_if_btn { font-size: 25px; }
+	.top_information { font-size: 30px; }
+}
