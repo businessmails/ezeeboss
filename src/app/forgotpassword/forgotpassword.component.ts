@@ -56,7 +56,7 @@ parent.removeChild(el);
   changepwd() {
     //  alert(this.userid)
       this.spinnerService.show();
-      const req = this.http.post('https://ezeeboss.com:3001/api/chnagepwd', {
+      const req = this.http.post('http://localhost:3001/api/chnagepwd', {
         password: this.password,
         id : this.userid
       })

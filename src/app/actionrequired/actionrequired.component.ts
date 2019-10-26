@@ -117,7 +117,7 @@ alert("Failed to send Reminder");
 //   needToSignDocument(){
 //   console.log(this.details._id)
 //   console.log(localStorage.getItem('digitalpath'));
-//     this.http.post('https://ezeeboss.com:3001/api/resendEmail', { 
+//     this.http.post('http://localhost:3001/api/resendEmail', { 
 //     pdfid: localStorage.getItem('pdfid'), userid: this.details._id,notImage: localStorage.getItem('digitalpath'),pdfpath: localStorage.getItem('pdfpath') }).subscribe(data => {
 // alert("email sent successfully");
 //     })
