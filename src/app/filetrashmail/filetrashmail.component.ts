@@ -123,7 +123,7 @@ export class FileTransferTrashmailComponent implements OnInit {
         for (let i = 0; i < this.checkedmails.length; i++) {
           this.checkedid.push({ id: this.checkedmails[i]._id });
         }
-        this.http.post(this.AppComponent.BASE_URL + '/api/movesmartmailstosent', { mailid: this.checkedid })
+        this.http.post(this.AppComponent.BASE_URL + '/api/movefilemailstosent', { mailid: this.checkedid })
           .subscribe(data => {
 
             this.getmails(this.page, this.limit)

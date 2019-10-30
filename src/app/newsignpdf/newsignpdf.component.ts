@@ -720,16 +720,19 @@ export class NewsignpdfComponent implements OnInit {
                       };
                       xhr.send();
                     });
-
                     var element = document.querySelector(".inthis");
+console.log(element)
+
               const opt = {
                 image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2, logging: true, dpi: 192, letterRendering: true, useCORS: true },
-               
+            html2canvas:  { scale: 0, logging: true, dpi: 192, letterRendering: true, useCORS: true },
+                 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
                 pagebreak: { mode: 'avoid-all' },
                
               };
           //html2pdf(element);
+// element.toString();
+          // let numbrz = element.match(new RegExp("str", "g")) || []).length) //logs 4
           const doc = html2pdf().from(element).set(opt).outputPdf().then((pdf) => {
            // console.log(btoa(pdf));
             var data = new FormData();

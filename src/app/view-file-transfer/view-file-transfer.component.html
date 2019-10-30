@@ -257,9 +257,15 @@
                                                         <span style="font-family:&#39;Century Gothic&#39;; color:#000; font-size:15px;">Use comma(,) to separate email id, avoid spacing between email ids.</span>
                                                     </div>
                                                     <label for="inputEmail" class="col-lg-2 control-label1 lable2">To:</label>
-                                                    <div class="col-lg-10">
+                                                    <div class="col-lg-10 custom_ul_new">
                                                         
                                                         <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" #toemails class="form-control ui-autocomplete-input" name="emailid" id="emailid" value="" autocomplete="off">
+
+                                                         <ul *ngIf="showsearch">
+                              <li class="pointer" (click)="selectmail(email.email)" *ngFor="let email of serchedmail">{{email.email}}
+                              </li>
+
+                            </ul>
 
                                                     </div>
                                                 </div>

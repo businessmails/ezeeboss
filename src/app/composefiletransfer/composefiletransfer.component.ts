@@ -33,6 +33,7 @@ export class ComposefiletransferComponent implements OnInit {
   showsearch: boolean;
   result: any;
   filerror: string;
+  passwordError: string;
 
   constructor(
     private http: HttpClient,
@@ -169,7 +170,16 @@ export class ComposefiletransferComponent implements OnInit {
       return false;
       //  alert(this.formData.getAll("uploads[]"))
     }
-
+    else{
+      this.filerror = ""
+    }
+//  this.password.nativeElement.value
+if (this.password.nativeElement.value === '') {
+      this.passwordError = 'Enter a Password'
+    }
+    else{
+this.passwordError ="";
+    }
     if (this.toemail.nativeElement.value === '') {
       this.emailerror = 'Enter a valid Email'
     }

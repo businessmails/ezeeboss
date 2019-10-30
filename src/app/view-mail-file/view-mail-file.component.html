@@ -1,6 +1,4 @@
-<!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/signature.css">  -->
-<!-- <link rel="stylesheet" href="assets/css/mycustom.css">  -->
+
 <div id="printcontent">
 <section class="hdrsec">
   <div class="logoimg">
@@ -221,21 +219,28 @@
                  <input  type="text"  [(ngModel)] = "email" class="form-control" name="from" >
                </div>
            </div>
-           
+        
              <div class="form-group smartfloat">
                <div class="col-md-10 col-md-offset-2">
                     <span style="font-family:&#39;Century Gothic&#39;; color:#000; font-size:15px;">Use comma(,) to separate email id, avoid spacing between email ids.</span>
                 </div>
                <label for="inputEmail" class="col-lg-2 control-label1 lable2">To:</label>
-               <div class="col-lg-10">
-                 <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" (blur)="validateemail()" [(ngModel)] = "forwardtoemail" class="form-control ui-autocomplete-input" name="emailid"  value=""  autocomplete="off">
+               <div class="col-lg-10 custom_ul_new" >
+                 <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" (blur)="validateemail()" (keyup)="search($event.target.value)" [(ngModel)] = "forwardtoemail" #toemail class="form-control ui-autocomplete-input" name="emailid"  value=""  autocomplete="off">
+
+                 <ul *ngIf="showsearch">
+                                <li class="pointer" (click)="selectmail(email.email)" *ngFor="let email of serchedmail">{{email.email}}
+                                </li>
+
+                              </ul>
+
                     <span class="error-msg">{{emailerror}}</span>
                </div>
              </div>
              <div class="form-group smartfloat">
                <label for="inputEmail" class="col-lg-2 control-label1">Subject:</label>
                <div class="col-lg-10">
-                 <input type="text" [(ngModel)]="subject" class="form-control" name="subject" value="Fw: {{subject}}">
+                 <input type="text" [(ngModel)]="subject" class="form-control" name="subject" value="{{subject}}">
                
                </div>
              </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails, TokenPayload } from '../authentication.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -18,7 +18,7 @@ export class ViewMailFileComponent implements OnInit {
   email: string;
   data: any;
   fromemail: string;
-  toemail: string;
+  // toemail: string;
   forwardtoemail: string;
   subject: string;
   date: string;
@@ -33,6 +33,12 @@ export class ViewMailFileComponent implements OnInit {
   noofattachment: number;
   formData: FormData = new FormData();
   forwardmsg = false;
+  result: any;
+  showsearch: boolean;
+  serchedmail: any;
+  selectedMails: any[];
+    @ViewChild('toemail') toemail: ElementRef;
+  // @ViewChild('subject') subject: ElementRef;
   constructor(
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
@@ -54,11 +60,12 @@ export class ViewMailFileComponent implements OnInit {
         this.http.get(this.AppComponent.BASE_URL + '/api/viewsmartmail/' + mailid)
           // this.http.get(this.AppComponent.BASE_URL+'/api/viewsmartmail/'+ mailid)
           .subscribe(data => {
+            // console.log(data)
             this.data = data;
             this.attachment = this.data.message;
             this.fromemail = this.data.message[0].fromemail;
             this.toemail = this.data.message[0].toemail;
-            this.subject = this.data.message[0].subject;
+            this.subject = 'Fw : '+ this.data.message[0].subject;
             this.date = this.data.message[0].date;
             this.innerhtml = this.data.message[0].data;
             this.noofattachment = this.data.message[0].noofattachments;
@@ -108,24 +115,6 @@ export class ViewMailFileComponent implements OnInit {
         this.data.message.splice(i, 1)
       }
     }
-    // var attachfiles=[];
-    // attachfiles=this.formData.getAll("uploads[]"); 
-
-    // for(var i=0;i<attachfiles.length;i++) {
-    // //  alert(this.filesname[i].filename)
-    //  if(this.filesname[i].filename === name) {
-    //    this.filesname.splice(i,1);
-    //  }
-    //  if(attachfiles[i].name === name) {
-    //    attachfiles.splice(i,1);
-    //    break;
-    //  }
-
-    // }
-    //  this.formData.delete("uploads[]");
-    //  for(let i =0; i < attachfiles.length; i++){
-    //    this.formData.append("uploads[]", attachfiles[i], attachfiles[i]['name']);
-    // }     
   }
 
   checkEmail(email) {
@@ -134,7 +123,8 @@ export class ViewMailFileComponent implements OnInit {
   }
 
   validateemail() {
-    var emails = this.toemail;
+    // alert()
+    var emails = this.toemail.nativeElement.value.toLowerCase();
     var emailArray = emails.split(",");
     var invEmails = "";
     for (var i = 0; i <= (emailArray.length - 1); i++) {
@@ -146,16 +136,61 @@ export class ViewMailFileComponent implements OnInit {
     }
     if (invEmails != "") {
       this.emailerror = 'Invalid Email: ' + invEmails
-      // alert("Invalid emails:\n" + invEmails);
     }
   }
 
+    selectmail(email) {
+    // alert(email)
+    this.selectedMails = [];
+    var str = this.toemail.nativeElement.value.toLowerCase();
+    this.selectedMails = str.split(",");
+    this.selectedMails.pop();
+    if (this.selectedMails.indexOf(email) === -1) {
+      // console.log("element doesn't exist");
+      this.selectedMails.push(email);
+      this.toemail.nativeElement.value = this.selectedMails.join();
+      this.emailerror = '';
+    }
+
+
+    this.serchedmail = [];
+    this.showsearch = false;
+
+  }
+
+ search(email) {
+
+    var mailarray = email.split(',');
+    email = mailarray[mailarray.length - 1];
+    if (email != '') {
+      this.http.post(this.AppComponent.BASE_URL + '/api/serchmail', { email: email,userId:this.userid })
+        .subscribe(data => {
+          this.result = data;
+          // this.serchedmail = this.result.result; this.result = data;
+          if (this.result.result.length > 0) {
+            this.showsearch = true;
+            this.serchedmail = this.result.result;
+
+          }
+          else {
+            this.showsearch = false;
+          }
+
+
+        });
+    } else {
+      this.showsearch = false;
+      this.serchedmail = []
+    }
+
+  }
   sendsmartmail() {
-    if (this.toemail == '') {
+    if (this.toemail.nativeElement.value.toLowerCase() == '') {
       this.emailerror = 'Enter a valid Email'
     }
     else {
-      var emails = this.toemail;
+      // console.log(this.toemail)
+      var emails = this.toemail.nativeElement.value.toLowerCase();
       var emailArray = emails.split(",");
       var invEmails = "";
       for (var i = 0; i <= (emailArray.length - 1); i++) {
@@ -165,6 +200,11 @@ export class ViewMailFileComponent implements OnInit {
           invEmails += emailArray[i] + "\n";
         }
       }
+      console.log("---",this.forwardtoemail)
+      if(this.forwardtoemail=='' || this.forwardtoemail==undefined){
+         this.emailerror = 'Invalid Email';
+         return
+      }
       if (invEmails != "") {
         this.emailerror = 'Invalid Email: ' + invEmails
         // alert("Invalid emails:\n" + invEmails);
@@ -173,8 +213,12 @@ export class ViewMailFileComponent implements OnInit {
         this.formData.append('from', this.userid);
         this.formData.append('data', this.innerhtml);
         this.formData.append('fromemail', this.email);
-        this.formData.append('toemail', this.toemail);
+        this.formData.append('toemail', this.forwardtoemail);
         this.formData.append('subject', this.subject);
+        this.formData.append('forwarded', "yes");
+        if(this.attachment.length>0){
+ this.formData.append('attach','/var/www/html/ezee_api_21july/mailattachments/mailattachments/'+this.data.message[0].attachments );
+        }
         this.http.post(this.AppComponent.BASE_URL + '/api/sendsmartmail', this.formData)
           .subscribe(data => {
             this.loading = false;
