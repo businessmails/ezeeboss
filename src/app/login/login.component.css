@@ -144,7 +144,7 @@ span.tooltiptext.camera {
     .checkmark {
         height: 20px !important;
         width: 20px !important;
-        top: 4px !important;
+        top: 0px !important;
     }
     .container56 .checkmark:after {
         left: 8px !important;
@@ -451,7 +451,7 @@ span.tooltiptext.camera {
 
 .checkmark {
     position: absolute;
-    top: 0;
+    top: 1px;
     left: 0;
     height: 18px;
     width: 18px;

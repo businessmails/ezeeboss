@@ -1028,7 +1028,7 @@ width: 15px !important;
     border-color: #ccc;
 }  
 .smartmovebtn{
-    background-color: #8ec230;
+    background-color: #521629;
     color: #fff;
     border: none;
     border-radius: 0;
@@ -1043,7 +1043,7 @@ width: 15px !important;
 } */
 .smartemptybtn{
 	color: #fff;
-    background-color: #cc3100;
+    background-color: rgb(65, 69, 65);
 	border: none;
     border-radius: 0;
     font-size: 14px;
