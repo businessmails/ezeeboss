@@ -49,7 +49,7 @@ export class DicomViewerComponent implements OnInit {
       const file: File = fileList[0];
       const formData: FormData = new FormData();
       formData.append('filetoupload', file, file.name);
-      this.http.post('https://ezeeboss.com:3001/api/uploaddicomfile/'+this.userid, formData).subscribe(data=>{
+      this.http.post('http://localhost:3001/api/uploaddicomfile/'+this.userid, formData).subscribe(data=>{
         console.log(data);
         // this.name=data.filename;
         // console.log("nn",this.name)

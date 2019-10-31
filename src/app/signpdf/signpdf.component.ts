@@ -74,14 +74,14 @@ export class SignpdfComponent implements OnInit {
         this.username = this.details.name;
         this.documentid = documentid;
         this.usertosign = usertosign;
-        this.http.get('https://ezeeboss.com:3001/api/checkeligibility/' + this.useremail + '/' + documentid + '/' + userid)
+        this.http.get('http://localhost:3001/api/checkeligibility/' + this.useremail + '/' + documentid + '/' + userid)
           .subscribe(data => {
             this.eligibility = data;
             this.eligible = this.eligibility.data;
             if (this.eligible !== 1) {
               this.router.navigateByUrl('/');
             } else {
-              this.http.get('https://ezeeboss.com:3001/api/getdocument/' + this.userid + '/' + documentid)
+              this.http.get('http://localhost:3001/api/getdocument/' + this.userid + '/' + documentid)
                 .subscribe(
                   // tslint:disable-next-line:no-shadowed-variable
                   data => {
@@ -132,7 +132,7 @@ export class SignpdfComponent implements OnInit {
     this.auth.profile().subscribe(user => {
       this.details = user;
       this.useremail = this.details.email;
-      this.http.post('https://ezeeboss.com:3001/api/email', {
+      this.http.post('http://localhost:3001/api/email', {
         email: this.useremail,
         image: this.credentials.image
       }).subscribe((res: any) => {
@@ -151,7 +151,7 @@ export class SignpdfComponent implements OnInit {
                 this.error = 'Failed To Recognise You.Please Try Again';
               } else {
 
-                const req = this.http.post('https://ezeeboss.com:3001/api/signeduserimage', { userid: this.usertosign, docid: this.documentid, imagename: this.unknownimage }).subscribe(res => {
+                const req = this.http.post('http://localhost:3001/api/signeduserimage', { userid: this.usertosign, docid: this.documentid, imagename: this.unknownimage }).subscribe(res => {
 
                 })
 
@@ -240,7 +240,7 @@ export class SignpdfComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       const documentid = params['documentid'];
       alert(localStorage.getItem('pdfpath'))
-      this.http.post('https://ezeeboss.com:3001/api/updatedoc', { html: $('.gethtml').html(), userid: this.userid, docid: documentid ,pdfpath:localStorage.getItem('pdfpath')})
+      this.http.post('http://localhost:3001/api/updatedoc', { html: $('.gethtml').html(), userid: this.userid, docid: documentid ,pdfpath:localStorage.getItem('pdfpath')})
         .subscribe(
           data => {
 
