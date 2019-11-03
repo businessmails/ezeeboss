@@ -157,9 +157,7 @@
               <div class="form-group">
                 <input type="password" class="form-control gt" id='cpassword' (keyup)='cpassword()' name="cpassword"
                   placeholder="Confirm Password*" [(ngModel)]="credentials.cpassword" required>
-                <!-- <div class="alert alert-danger" *ngIf="credentials.cpassword != credentials.password"> Password and Confirm password do not match</div> -->
-                <!-- <span *ngIf="credentials.cpassword === credentials.password"> MATCHED{{credentials.cpassword}} </span> -->
-                <!-- <input type="text" class="form-control" id="" placeholder="Confirm Password"> -->
+            
                 <span>
                   <i class="fa fa-lock" aria-hidden="true"></i>
                 </span>
@@ -203,14 +201,13 @@
                         </h4>
                       </div>
                       <div class="clearfix"></div>
-                      <!-- <img [ngClass]="{'red': animatecamera }"  src="../../assets/img/images.png" />-->
+                      
                       <img [ngClass]="{'red': animatecamera }" />
 
                       <img [ngClass]="{'pulse-button  pulse': animatecamera }" type="button" *ngIf="!recapture"
                         (click)="toggleWebcam();" src="../../assets/img/camm11.png" class="" />
                     </div>
-                    <!-- *ngIf="!hideimg" -->
-                    <!-- <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"></webcam> -->
+                    
                   </div>
                 </div>
 

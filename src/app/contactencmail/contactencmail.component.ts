@@ -133,7 +133,7 @@ backClicked() {
    var options = { 
       headers: ["Id","Name", "Company", "Email","Contact","Email Sent"]
     };
-   new Angular5Csv(this.mycsvcontact, 'Report',options);
+   new Angular5Csv(this.mycsvcontact, 'Encrypted_contect',options);
 
   }
 

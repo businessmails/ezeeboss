@@ -45,8 +45,8 @@ export class PendingDocComponent implements OnInit {
       .subscribe(data => {
 
       this.documentdetail = data;
-       this.items = this.documentdetail.message;
-      this.documents = this.documentdetail.message;
+       this.items = this.documentdetail.message.reverse();
+      this.documents = this.documentdetail.message.reverse();
     //  console.log(this.documents);
       });
     });
@@ -84,7 +84,7 @@ export class PendingDocComponent implements OnInit {
         this.http.post(this.AppComponent.BASE_URL+'/api/docpendingbyme' , {useremail :this.useremail})
         .subscribe(data => {
         this.documentdetail = data;
-        this.documents = this.documentdetail.message;
+        this.documents = this.documentdetail.message.reverse();
           if(this.documents == ''){
             $('#checkId').hide();
             $('#DeleteID').hide();

@@ -46,7 +46,7 @@ export class DocumentdetailComponent implements OnInit {
       this.http.get('https://ezeeboss.com:3001/api/documentdetail/' + documentid)
         .subscribe(data => {
           this.documentdetail = data;
-          this.documents = this.documentdetail.data;
+          this.documents = this.documentdetail.data.reverse();
           this.filterarray=this.documents;
            console.log(this.documents)
           if(this.documents[0].uservideo == "" && this.documents[0].image == ""){

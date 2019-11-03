@@ -17,7 +17,9 @@
 .p_f label.control-label.col-sm-2 {
     margin: 0;
 }
-
+.img{
+     max-width: 166px;  
+}
 .dropdown-menu{
     right: 0;
     max-width: 166px !important;
@@ -380,3 +382,785 @@ footer {
 		font-size: 11px;
 	}
 }
+
+/*
+
+ ================================== from register
+
+ */
+
+ .ezeelogintext {
+    font-size: 60px;
+}
+.ezeelogintext,.ezeelogintext span {
+    margin-left: 4px;
+    text-transform: uppercase;
+    color: #fff;
+} 
+button.log,button.reg {
+    width: 48%;
+    margin: 0 auto;
+    border: 0px;
+    background: transparent;
+}
+button.log {
+    float: left;
+}
+button.reg {
+    float: right;
+}
+button.log img,button.reg img {
+    width: 100% !important;
+}
+a.navbar-brand {
+    width: 40% !important;
+    text-align: center;
+    height: 130px !important;
+  padding: 0px !important;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.nav-link[_ngcontent-c2] {
+    width: 123px !important;
+    margin-left: 27px !important;
+}
+.ezeelogintext span {
+    font-family: 'bod_pstc_1' !important;
+    font-size: 57px;
+}
+a.reg[_ngcontent-c2],.login[_ngcontent-c2] {
+    width: 48%;
+    margin: 0 auto;
+}
+button {
+    width: 80%;
+}
+a.reg,a.login {
+    width: 48% !important;
+}
+a.reg {
+    float: left;
+}
+a.reg button {
+    float: right;
+}
+a.login button {
+    float:left;
+}
+a.login  {
+    float: right;
+}
+.reg img,.login img {
+    width: 100% !important;
+}
+.reg button,.login button {
+    padding: 0px !important;
+    border: 0px;
+    background: transparent;
+}
+.logimg {
+    text-align: center;
+    padding: 230px 20px;
+}
+a.nav-link[_ngcontent-c2] {
+    width: 123px;
+    margin-left: 27px;
+}
+.logimg img {
+    width: 55%;
+}
+.green {
+    background-color: green !important;
+}
+
+.modal-body.digitalmodalbody {
+    padding: 0px !important;
+}
+
+.ezeelogintext {
+    width: 100%;
+    float: left;
+    padding: 20px;
+    text-align: center;
+}
+img#fgdfg {
+    border: 4px solid #fff !important;
+}
+.ezeelogintext img {
+    width: 84px;
+    position: relative;
+    top: -12px;
+}
+
+.ezeelogintext p {
+    width: 80%;
+    float: left;
+    border-bottom: 2px solid #77ab56;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 29px;
+    color: white;
+    margin: 0px 61px;
+    padding: 17px 0;
+}
+
+.formdiv .form-group input {
+    border: 1px solid #b59748;
+    position: relative;
+    color: #555;
+    font-size: 15px !important;
+    border-radius: 0;
+}
+
+.formdiv .form-group span {
+    position: absolute;
+    right: 26px;
+    color: #715732;
+    top: 6px;
+}
+
+.formdiv .form-group p {
+    text-align: right;
+    color: white;
+}
+
+.formdiv .form-group p a {
+    color: #b6daff;
+}
+
+.formdiv .form-group p a:hover {
+    color: #89c0f9;
+}
+
+.formdiv .checkbox {
+    color: white;
+    margin: 0;
+}
+
+::placeholder {
+    color: #8e8e8e;
+    opacity: 1;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #8e8e8e;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #8e8e8e;
+}
+
+.jsttext {
+    text-align: center;
+    width: 100%;
+    color: white;
+    float: left;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.socialbtns {
+    width: 100%;
+    float: left;
+    padding: 0 112px;
+}
+
+.socialbtns a {
+    width: 50%;
+    float: left;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    padding: 6px;
+    font-size: 17px;
+}
+
+.socialbtns .fbbtn a {
+    background-color: #3b5999;
+}
+
+.socialbtns .googlebtn a {
+    background-color: #de4b39;
+}
+
+.socialbtns .fbbtn a:hover,
+.socialbtns .fbbtn a:active,
+.socialbtns .fbbtn a:focus {
+    background-color: #304a82;
+}
+.loginform-outerdivl {
+	padding: 37px 52px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 21px;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-image: url(../../assets/img/lock-back.png); 
+    background-size: cover;
+    display: flow-root;
+    margin-top: 6%;
+    margin-bottom: 17%;
+}
+.socialbtns .googlebtn a:hover,
+.socialbtns .googlebtn a:focus,
+.socialbtns .googlebtn a:active {
+    background-color: #c53c2b;
+}
+
+.capimg {
+    width: 100%;
+    float: left;
+    height: 379px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+	margin-bottom:9px
+}
+
+.capimg img {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    margin: auto;
+	z-index:9;
+}
+
+
+.capimg img{
+    width: 110px;
+    position: absolute;
+    top: 0px;
+    bottom: 12px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    cursor: pointer;
+}
+.nwlbl {
+    color: white;
+}
+
+
+
+.hdrsec {
+    padding: 0;
+    position: relative;
+}
+
+.drpnw {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 285px;
+    display: none;
+}
+
+
+/*footer start*/
+
+.msgimgdiv {
+    width: 100%;
+    float: left;
+}
+
+.msgimgdiv img {
+    width: 45px;
+    padding-top: 5px;
+}
+
+.copyrighttext {
+    text-align: center;
+}
+
+.copyrighttext p {
+    margin: 0;
+    line-height: 4.3;
+}
+
+footer {
+    background: #fff none repeat scroll 0 0;
+    bottom: 0;
+    left: 0;
+    padding: 2px 0px 0 0 !important;
+    width: 100%;
+    border-top: 2px solid #b59848;
+    border-bottom: 2px solid #b59848;
+}
+
+.social-icondiv {
+    width: 100%;
+    float: left;
+    text-align: right;
+}
+
+.social-icondiv ul li {
+    display: inline-block;
+    line-height: 4;
+}
+
+.social-icondiv ul {
+    padding: 0;
+    margin: 0;
+}
+
+img.ng-untouched.ng-pristine.ng-valid {
+    width: 100%;
+}
+
+video {
+    width: 100% !important;
+}
+
+
+/*footer end*/
+
+
+/*responsive css start*/
+@media only screen and (max-width: 2560px) and (min-width: 1600px) {
+    .formdiv .form-group p a{
+        color: #fff;
+    }
+    .formdiv .form-group p a:hover{
+        color: #fff;
+    }
+    .tooltip124 .tooltiptext1{
+        width: 226px !important;
+        padding: 10px 0 !important ;
+        margin-left: -120px !important;
+        font-size: 26px !important;
+    }
+    .checkmark {
+        height: 26px !important;
+        width: 26px !important;
+        top: 11px !important;
+    }
+    .container56 .checkmark:after {
+        left: 8px !important;
+        top: 3px !important;
+    }
+    
+}
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+    .container {
+
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+    }
+}
+@media only screen and (max-width: 1200px) and (min-width: 320px) {
+    .logoimg img {
+        width: 100%;
+        /* padding:10px !important; */
+    }
+    .hdrsec {
+        background-position-x: -20px;
+    }
+    .remember, .forgot {
+        font-size: 17px !important;
+    }
+}
+
+
+
+@media only screen and (max-width: 1301px) and (min-width: 1151px) {
+    .hdrsec {
+        background-position-x: 0;
+    }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 320px) {
+    .logimg {
+        text-align: center;
+        padding: 10px 0;
+    }
+    .loginform-outerdiv[_ngcontent-c2] {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+    .loginform-outerdiv {
+        margin: 0px;
+        max-width:100% !important;
+    }
+    .ezeelogintext p {
+        width: 100%;
+        margin: 0;
+        padding: 8px 0;
+        margin-bottom: 0px;
+        font-size: 18px;
+    }
+    .ezeelogintext img {
+        width: 43px;
+        top: -5px;
+    }
+    .formdiv form {
+        width: 100%;
+        padding: 0;
+    }
+    .formdiv .form-group p {
+        text-align: center;
+        font-size: 13px;
+    }
+    .socialbtns {
+        padding: 0
+    }
+    .formdiv {
+        padding-bottom: 0px;
+    }
+    .msgimgdiv {
+        text-align: center;
+    }
+    .copyrighttext p {
+        line-height: 1.5;
+    }
+    .social-icondiv ul li img {
+        width: 40px;
+    }
+    .social-icondiv {
+        text-align: center;
+    }
+    .drpnw {
+        display: none;
+    }
+    .capimg {
+        height: 150px;
+    }
+    .fropicture .regimg {
+        width: 79px;
+        top: 144px;
+    }
+    .logimg img {
+        width: 175px;
+    }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+    .ezeelogintext p {
+        width: 100%;
+        margin-bottom: 20px;
+        margin: 0;
+    }
+    .socialbtns {
+        padding: 0;
+    }
+    .social-icondiv ul li img {
+        width: 30px;
+    }
+    .formdiv {
+        padding-bottom: 0px;
+    }
+    .drpnw {
+        top: inherit;
+        width: 226px;
+        display: none;
+    }
+    .loginbtn {
+        width: 78px;
+        margin: 0 10px;
+    }
+    .capimg {
+        height: 225px;
+    }
+    .fropicture .regimg {
+        width: 100px;
+        top: 220px;
+    }
+    .signdiv button {
+        width: 100% !important;
+    }
+    .copyrighttext p {
+        font-size:14px;
+    }
+    .formdiv[_ngcontent-c2] form[_ngcontent-c2] {
+        padding: 0 22px;
+    }
+    .remember, .forgot {
+        font-size: 18px !important;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 992px) {
+    .socialbtns {
+        padding: 0;
+    }
+    .social-icondiv ul li img {
+        width: 30px;
+    }
+    .capimg {
+        height: 225px;
+    }
+    .fropicture .regimg {
+        width: 100px;
+        top: 222px;
+    }
+}
+
+
+/*responsive css end*/
+
+.tooltip12 {
+    /*position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;*/
+}
+
+.tooltip12 .tooltiptext {
+    /* visibility: hidden; */
+    width: 170px;
+    /*background-color: black;*/
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -86px;
+    top: 46px !important;
+	font-weight:bold;
+}
+/* 
+.tooltip12:hover .tooltiptext {
+    visibility: visible;
+} */
+
+
+/* internal css */
+
+.tooltip-inner {
+    width: 125px;
+    background: #b59848;
+    padding: 5px 5px 5px 5px;
+    font-size: 14px;
+    font-weight: bolder;
+    height: auto;
+}
+
+.largefilep {
+    position: fixed;
+    width: 100%;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    top: 0px;
+    min-height: 200px;
+    height: 100%;
+    z-index: 9999999999;
+    background: #2c846d;
+    font-size: 20px;
+    text-align: center;
+    display: none;
+}
+
+.encryptfilep {
+    position: fixed;
+    width: 100%;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    top: 0px;
+    min-height: 200px;
+    height: 100%;
+    z-index: 9999999999;
+    background: #5b4f71;
+    font-size: 20px;
+    text-align: center;
+    display: none;
+}
+
+.digitalfilep {
+    position: fixed;
+    width: 100%;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    top: 0px;
+    min-height: 200px;
+    height: 100%;
+    z-index: 9999999999;
+    background: #96450e;
+    font-size: 20px;
+    text-align: center;
+    display: none;
+}
+
+
+/*.carousel-inner {
+  height: 315px;
+}	*/
+
+.dropdown-menu {
+    left: 25%;
+    min-width: 100px;
+    margin-top: 0%;
+}
+
+.caret {
+    color: #b49948;
+}
+
+@media screen and (min-width: 1920px) {
+    .latest-trend-box a img {
+        width: 195px;
+    }
+}
+
+@media screen and (max-width: 699px) {
+    .hide_mob {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 699px) {
+    .lm {
+        display: none;
+    }
+}
+
+.newrecap {
+    margin: 20px 0 0 !important;
+}
+
+
+/* The container */
+
+.container56 {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Hide the browser's default checkbox */
+
+.container56 input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border: 1px solid #6a4916;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.container56:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.container56 input:checked~.checkmark {
+    background-color: #715732;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.container56 input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.container56 .checkmark:after {
+    left: 7px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+h4#exampleModalLabel {
+    padding: 12px 0 0;
+}
+button#fclose {
+    background: #050505;
+    color: #fff;
+    padding: 3px 7px;
+    position: absolute;
+    right: 6px;
+    top: 5px;
+    opacity: 1;
+    border-radius: 30px;
+    border: 2px solid #fff;
+}
+
+
+
+
+/* tooltip */
+
+.tooltip124 .tooltiptext1 {
+    visibility: hidden;
+    width: 240px;
+    background-color: #b59848;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 86%;
+    left: 39.4%;
+    margin-left: -60px;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    text-transform: lowercase;
+    font-size: 18px;
+}
+.tooltip124 .tooltiptext1::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 13px;
+    border-style: solid;
+    border-color: #b59848 transparent transparent transparent;
+}
+.tooltip124:hover .tooltiptext1{
+    visibility: visible;
+} .formdiv .signbtn {padding:0!important}

@@ -18,6 +18,8 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 let RecordRTC = require('recordrtc/RecordRTC.min');
 let signcount = 0;
 let signeddocid;
+let pages = 0;
+
 @Pipe({ name: 'noSanitize' })
 @Component({
   selector: 'app-signpdf',
@@ -152,12 +154,26 @@ export class NewsignpdfComponent implements OnInit {
                     if (this.html.data.actionrequired == 'Rejected') {
                       this.router.navigateByUrl('/rejectedmassage');
                     } else {
+                      if(this.html.data.expiration != null){
+                      console.log('-->',new Date(this.html.data.expiration));
+                      console.log(new Date())
+                      if(new Date()>new Date(this.html.data.expiration)){
+                        alert("Document is Expired ");
+
+                        console.log("today is greater ");
+                         this.router.navigateByUrl('/landing');
+                      }
+                      if(new Date()<new Date(this.html.data.expiration)){
+                        console.log("today is before ")
+                      }
+                      }
                       this.withimage = this.html.data.withimage;
                       this.http.post('https://ezeeboss.com:3001/api/pdfdetail', { pdfid: this.html.data.documentid })
                         .subscribe(data => {
                           let i: number;
                           this.fileslength = data;
                           this.noofpages = this.fileslength.fileslength;
+                          pages= this.fileslength.fileslength;
                         });
                       if (this.withimage === true) {
                         this.showpdf = false;
@@ -212,7 +228,7 @@ export class NewsignpdfComponent implements OnInit {
                           const numItems = $('.' + result).length;
 
                           $('.dell').remove();
-                          $('.' + classarray[0] + ' div div').append('<br><button type="button" class="signbutton removeme"  style="font-family: AbadiMTStdExtraLight_1,sans-serif !important; font-weight:normal;  background-color: #715632; width: 178px; font-size: 16px !important; padding: 8px 12px;color: white; font-style: unset;border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top:-16px;"><b>Click to Sign</b></button><br>');
+                          $('.' + classarray[0] + ' div div').append('<br><button type="button" class="signbutton removeme"  style="    background-color: #715632; width: 178px; font-size: 16px !important; padding: 8px 12px;color: white; font-style: unset;border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top:-16px;"><b>Click to Sign</b></button><br>');
 
                           this.conveniancecount = $('.' + result).length;
                           var clickLength = $('.' + result).length;
@@ -243,9 +259,9 @@ export class NewsignpdfComponent implements OnInit {
                             $(this).parent().append('<div style="word-wrap: break-word;text-align: left;font-size: 18px !important; font-style:unset;font-weight: 400;color: rgb(20, 83, 148);">' + res + '</div>');
 
                             if ($('.' + classarray[number]).hasClass('gettext')) {
-                              $('.' + classarray[number]).next('div').append('<br><button type="button" class="signbutton removeme" style="font-family: AbadiMTStdExtraLight_1,sans-serif !important; font-weight:normal;  background-color: #715632; width: 178px; font-size: 16px !important; padding: 8px 12px;color: white; font-style: unset;border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top:-16px;"><b>Click to Sign</b></button><br>');
+                              $('.' + classarray[number]).next('div').append('<br><button type="button" class="signbutton removeme" style="background-color: #715632; width:170px; font-size: 18px !important; font-style:unset;padding: 8px 12px; color: white; border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top: -15px;float: left;"><b>Click to Sign</b></button><br>');
                             }
-                            $('.' + classarray[number] + ' div div').append('<br><button type="button" class="signbutton removeme" style="font-family: AbadiMTStdExtraLight_1,sans-serif !important; font-weight:normal;  background-color: #715632; width: 178px; font-size: 16px !important; padding: 8px 12px;color: white; font-style: unset;border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top:-16px;"><b>Click to Sign</b></button><br>');
+                            $('.' + classarray[number] + ' div div').append('<br><button type="button" class="signbutton removeme" style="background-color: #715632; width:170px; font-size: 18px !important;font-style:unset; padding: 8px 12px; color: white; border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top: -5px;float: left;"><b>Click to Sign</b></button><br>');
                             const x = $('.' + classarray[number]).position();
                             if (number < clickLength) {
                               $('html, body').animate({
@@ -565,7 +581,7 @@ export class NewsignpdfComponent implements OnInit {
                   $('textarea').not('.' + result).prop('disabled', true);
                   const numItems = $('.' + result).length;
                   $('.dell').remove();
-                  $('.' + classarray[0] + ' div div').append('<br><button type="button" class="font-family: AbadiMTStdExtraLight_1,sans-serif !important; font-weight:normal;  background-color: #715632; width: 178px; font-size: 16px !important; padding: 8px 12px;color: white; font-style: unset;border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top:-16px;"><b>Click to Sign</b></button><br>');
+                  $('.' + classarray[0] + ' div div').append('<br><button type="button" class="signbutton removeme" style="background-color: #715632; width:140px; font-size: 18px !important; padding: 8px 12px; color: white;font-style:unset; border: none; box-shadow: -1px 0px 5px 0px #191919;"><b>Click to Sign</b></button><br>');
                   this.conveniancecount = $('.' + result).length;
                   const y = $('.' + classarray[0]).position();
                   $('html, body').animate({
@@ -594,7 +610,7 @@ export class NewsignpdfComponent implements OnInit {
                     if ($('.' + classarray[number]).hasClass('gettext')) {
                       $('.' + classarray[number]).next('div').append('<br><button type="button" class="signbutton removeme" style="background-color: #715632; width:160px; font-size: 18px !important; padding: 8px 12px; color: white;font-style:unset; border: none; box-shadow: -1px 0px 5px 0px #191919;"><b>Click to Sign</b></button><br>');
                     }
-                    $('.' + classarray[number] + ' div div').append('<br><button type="button" class="signbutton removeme" style="font-family: AbadiMTStdExtraLight_1,sans-serif !important; font-weight:normal;  background-color: #715632; width: 178px; font-size: 16px !important; padding: 8px 12px;color: white; font-style: unset;border: none; box-shadow: -1px 0px 5px 0px #191919;margin-top:-16px;"><b>Click to Sign</b></button><br>');
+                    $('.' + classarray[number] + ' div div').append('<br><button type="button" class="signbutton removeme" style="background-color: #715632; width:160px; font-size: 18px !important; padding: 8px 12px; color: white;font-style:unset; border: none; box-shadow: -1px 0px 5px 0px #191919;"><b>Click to Sign</b></button><br>');
 
                     const x = $('.' + classarray[number]).position();
                     if (number < clickLength) {
@@ -663,7 +679,10 @@ export class NewsignpdfComponent implements OnInit {
     if (this.withimage === true) {
       this.stopRecording();
     }
-   
+
+    
+    
+  
     this.loading = true;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -720,33 +739,58 @@ export class NewsignpdfComponent implements OnInit {
                       };
                       xhr.send();
                     });
-                    var element = document.querySelector(".inthis");
-console.log(element)
 
-              const opt = {
-                image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 0, logging: true, dpi: 192, letterRendering: true, useCORS: true },
-                 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                pagebreak: { mode: 'avoid-all' },
+                    setTimeout(() => {
+                      $('.pd0').appendTo($(".pdfimg"));
+        
+              for(let i=0;i<$('.pdfimg').length;i++) {
+        
+              html2canvas($(".pdfimg")[i],{letterRendering: true, useCORS: true}).then(function(canvas) {
+              //  console.log(canvas.toDataURL("image/jpeg", 1).replace("data:image/jpeg;base64,", ""))
+          
+                        var data = new FormData();
+                        var img= canvas.toDataURL("image/jpeg", 1).replace("data:image/jpeg;base64,", "");
+                        data.append("data" , img);
+                        data.append("name",i as any);
+                        data.append("noofpages",pages as any);
+                        var xhr = new XMLHttpRequest();
+                        xhr.open( 'post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true );
+                        xhr.send(data);
+                              xhr.onreadystatechange = function () {
+                                if(i = $('.pdfimg').length-1) {
+                              if (this.readyState == 4 && this.status == 200) {
+                                alert('Document Sent Successfully');
+                                window.location.href = '/completed';
+                              } }
+                            };
+        
+                });
+              }
+            }, 2000);
+
+          //           var element = document.querySelector(".inthis");
+          //     const opt = {
+          //       image:        { type: 'jpeg', quality: 0.98 },
+          //   html2canvas:  { scale: 2, logging: true, dpi: 192, letterRendering: true, useCORS: true },
                
-              };
-          //html2pdf(element);
-// element.toString();
-          // let numbrz = element.match(new RegExp("str", "g")) || []).length) //logs 4
-          const doc = html2pdf().from(element).set(opt).outputPdf().then((pdf) => {
-           // console.log(btoa(pdf));
-            var data = new FormData();
-            data.append("data" , btoa(pdf));
-            var xhr = new XMLHttpRequest();
-            xhr.open( 'post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true );
-            xhr.send(data);
-                  xhr.onreadystatechange = function () {
-                  if (this.readyState == 4 && this.status == 200) {
-                    alert('Document Sent Successfully');
-                    window.location.href = '/completed';
-                  }
-                };
-          });;
+          //       pagebreak: { mode: 'avoid-all' },
+               
+          //     };
+          // //html2pdf(element);
+          // const doc = html2pdf().from(element).set(opt).outputPdf().then((pdf) => {
+          //  // console.log(btoa(pdf));
+          //   var data = new FormData();
+          //   data.append("data" , btoa(pdf));
+          //   var xhr = new XMLHttpRequest();
+          //   xhr.open( 'post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true );
+          //   xhr.send(data);
+          //         xhr.onreadystatechange = function () {
+          //         if (this.readyState == 4 && this.status == 200) {
+          //           alert('Document Sent Successfully');
+          //           window.location.href = '/completed';
+          //         }
+          //       };
+          // });;
                        
                    
               //       // const element = document.getElementById('gethtml');

@@ -75,8 +75,10 @@ export class ComposemailencryptedComponent implements OnInit {
          this.hide=false;
          
        const file: File = fileList[i];
-       this.filesname.push({filename:file.name});
-       console.log("file",this.filesname)
+      //  this.filesname.push({filename:file.name});
+       this.filesname=[{filename:file.name}];
+
+      //  console.log("file",this.filesname)
        }
   }
 

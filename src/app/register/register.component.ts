@@ -167,7 +167,7 @@ export class RegisterComponent {
         this.showWebcam = false;
       if (this.webcamImage) {
         this.recapture = true;
-        console.log("...in")
+        // console.log("...in")
         // this.webcamImage = null;
         //  this.Camera = false;
       }
@@ -176,7 +176,7 @@ export class RegisterComponent {
       this.credentials.image = null;
     } else {
        this.recapture = false;
-      console.log("not null")
+      // console.log("not null")
       this.withoutImage = 'Selected';
       this.credentials.image = 'none';
       this.emptycheck()

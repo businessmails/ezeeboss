@@ -175,7 +175,8 @@ export class ComposefiletransferComponent implements OnInit {
     }
 //  this.password.nativeElement.value
 if (this.password.nativeElement.value === '') {
-      this.passwordError = 'Enter a Password'
+      this.passwordError = 'Enter a Password';
+       return false;
     }
     else{
 this.passwordError ="";
