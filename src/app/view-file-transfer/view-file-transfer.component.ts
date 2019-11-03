@@ -36,6 +36,10 @@ export class ViewFileComponent implements OnInit {
   @ViewChild('subjects') subjects: ElementRef;
   @ViewChild('datas') datas: ElementRef;
   @ViewChild('password') password: ElementRef;
+  selectedMails: any[];
+  serchedmail: any[];
+  showsearch: boolean;
+  result: any;
   constructor(
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
@@ -78,6 +82,50 @@ export class ViewFileComponent implements OnInit {
  backClicked() {
     this._location.back();
   }
+
+selectmail(email) {
+    // console.log("as")
+    this.selectedMails = [];
+    var str = this.toemails.nativeElement.value.toLowerCase();
+    this.selectedMails = str.split(",");
+    this.selectedMails.pop();
+    // console.log("---",email)
+    if (this.selectedMails.indexOf(email) === -1) {
+      this.selectedMails.push(email);
+      console.log(this.selectedMails.join())
+      this.toemails.nativeElement.value = this.selectedMails.join();
+      this.emailerror = '';
+    }
+    this.serchedmail = [];
+    this.showsearch = false;
+
+  }
+
+  search(email) {
+    var mailarray = email.split(',');
+    email = mailarray[mailarray.length - 1];
+    if (email != '') {
+
+      this.http.post(this.AppComponent.BASE_URL + '/api/filetransferSerchmail', { email: email, userId: this.userid })
+        .subscribe(data => {
+          this.result = data;
+          if (this.result.result.length > 0) {
+            this.showsearch = true;
+            this.serchedmail = this.result.result;
+
+          }
+          else {
+            this.showsearch = false;
+          }
+
+        });
+    } else {
+      this.showsearch = false;
+      this.serchedmail = []
+    }
+
+  }
+
 
   
 forwardmessage(){

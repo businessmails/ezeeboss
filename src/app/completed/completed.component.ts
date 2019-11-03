@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthenticationService, UserDetails, TokenPayload} from '../authentication.service';
+import { AuthenticationService, UserDetails, TokenPayload } from '../authentication.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { AppComponent} from '../app.component';
+import { AppComponent } from '../app.component';
 import { INgxMyDpOptions, IMyDateModel } from 'ngx-mydatepicker';
 import { timingSafeEqual } from 'crypto';
 import { Location } from '@angular/common';
@@ -28,9 +28,9 @@ export class CompletedComponent implements OnInit {
   checkeddocuments: any;
   filterarray: any;
   x: any;
-  fromdate:any;
+  fromdate: any;
   todate: any;
-  filteredarray=[];
+  filteredarray = [];
   Search: any;
   checkId = true;
 
@@ -42,11 +42,11 @@ export class CompletedComponent implements OnInit {
 
 
   constructor(
-   private http: HttpClient,
-   private auth: AuthenticationService,
-  private _location: Location
+    private http: HttpClient,
+    private auth: AuthenticationService,
+    private _location: Location
   ) { }
- backClicked() {
+  backClicked() {
     this._location.back();
   }
   // constructor() { }
@@ -61,44 +61,44 @@ export class CompletedComponent implements OnInit {
       this.digitalpath = localStorage.getItem('digitalpath');
       // console.log(this.userid);
 
-      this.http.get('http://localhost:3001/api/mycompleteddocuments/' + this.userid)
-      .subscribe(data => {
-       this.documentdetail = data;
-       this.documents = this.documentdetail.data;
-       this.items= this.documents;
-       this.documents.sort((a, b)=>{
-        var keyA = a.date,
-            keyB = b.date;
-        // Compare the 2 dates
-        if(keyA < keyB) return 1;
-        if(keyA > keyB) return -1;
-        return 0;
-    });
-          this.filterarray= this.documents;
-       if(this.documents == ''){
-        $('#checkId').hide();
-        $('#DeleteID').hide();
-        $('#completeRequiredId').hide();
-       }
-       else{
-         $('#checkId').show();
-         $('#DeleteID').show();
-         $('#completeRequiredId').show();
-       }
-      
-   
-      
-      });
+      this.http.get('https://ezeeboss.com:3001/api/mycompleteddocuments/' + this.userid)
+        .subscribe(data => {
+          this.documentdetail = data;
+          this.documents = this.documentdetail.data;
+          this.items = this.documents;
+          this.documents.sort((a, b) => {
+            var keyA = a.date,
+              keyB = b.date;
+            // Compare the 2 dates
+            if (keyA < keyB) return 1;
+            if (keyA > keyB) return -1;
+            return 0;
+          });
+          this.filterarray = this.documents;
+          if (this.documents == '') {
+            $('#checkId').hide();
+            $('#DeleteID').hide();
+            $('#completeRequiredId').hide();
+          }
+          else {
+            $('#checkId').show();
+            $('#DeleteID').show();
+            $('#completeRequiredId').show();
+          }
+
+
+
+        });
     });
   }
-   // ------------------------------------------
+  // ------------------------------------------
 
-   onChangePage(pageOfItems: Array<any>) {
+  onChangePage(pageOfItems: Array<any>) {
     // update current page of items
     this.documents = pageOfItems;
-}
+  }
 
-   logout() {
+  logout() {
     this.auth.logout();
   }
 
@@ -134,51 +134,53 @@ export class CompletedComponent implements OnInit {
     localStorage.setItem('Date', event.formatted);
     // console.log(event.formatted);
   }
-  searchDocument(){
-    this. x = document.getElementById("search");
-    if(this.x.value){
-      this.documents= this.filterarray
+  searchDocument() {
+    this.x = document.getElementById("search");
+ 
+    if (this.x.value) {
+      this.documents = this.filterarray
     }
-  
-    for(let i=0 ; i< this.filterarray.length;i++)
-    {
-        var str = this.filterarray[i].documentid;
-        var checkdate = this.filterarray[i].signedTime.substr(0,10);
-    var n = str.includes(this.x.value);
-    if(n==true){
-        if(this.dateCheck(this.fromdate.formatted,this.todate.formatted,checkdate))
-{
-this.filteredarray.push(this.filterarray[i])
-}
+
+    for (let i = 0; i < this.filterarray.length; i++) {
+      var str = this.filterarray[i].documentid;
+      var checkdate = this.filterarray[i].signedTime.substr(0, 10);
+      var n = str.includes(this.x.value);
+      if(n==true){
+  if (this.fromdate && this.todate) {
+        if (this.dateCheck(this.fromdate.formatted, this.todate.formatted, checkdate)) {
+          this.filteredarray.push(this.filterarray[i])
+        }
+
+        else {
+          // alert("Not Availed");
+
+        }
+
+      }
+      else {
+        this.filteredarray.push(this.filterarray[i])
+      }
+      }
     
-else{
-    // alert("Not Availed");
-
-}
-       
-    }
-    else{
-
-    }
-    if(i==this.filterarray.length-1){
-      this.documents = this.filteredarray;
-    }
+      if (i == this.filterarray.length - 1) {
+        this.documents = this.filteredarray;
+      }
     }
 
-// console.log(this.doc.includes(this.Search));
+    // console.log(this.doc.includes(this.Search));
   }
-  dateCheck(from,to,check) {
+  dateCheck(from, to, check) {
 
-    let fDate,lDate,cDate;
+    let fDate, lDate, cDate;
     fDate = Date.parse(from);
     lDate = Date.parse(to);
     cDate = Date.parse(check);
-    
-    if((cDate <= lDate && cDate >= fDate)) {
-        return true;
+
+    if ((cDate <= lDate && cDate >= fDate)) {
+      return true;
     }
     return false;
-    }
+  }
 
 
 
@@ -190,43 +192,43 @@ else{
   }
 
   isAllChecked() {
-    if(this.isSelected == true)
-    // alert(this.isSelected)
-    return this.documents.every(_ => _.selected);
+    if (this.isSelected == true)
+      // alert(this.isSelected)
+      return this.documents.every(_ => _.selected);
   }
- deletedocument() {
+  deletedocument() {
     this.checkeddocuments = this.documents.filter(_ => _.selected);
-    if ( this.checkeddocuments.length == 0 ) {
+    if (this.checkeddocuments.length == 0) {
       alert('Please Check At Least One Record');
     }
     else {
       if (confirm('Are you sure to delete the selected records')) {
         this.checkedid = [];
-       for ( let i = 0; i < this.checkeddocuments.length; i++) {
-        this.checkedid.push({_id: this.checkeddocuments[i]._id});
-       }
-       this.http.post( 'http://localhost:3001/api/deletemycompleteddocuments', {documentid: this.checkedid})
-       .subscribe(data => {
-        this.http.get('http://localhost:3001/api/mycompleteddocuments/' + this.userid)
-        .subscribe(data => {
-          //this.contactModal.close();
-          this.documentdetail = data;
-          // console.log(this.documentdetail)
-          this.documents = this.documentdetail.data;
-          if(this.documents == ''){
-            $('#checkId').hide();
-            $('#DeleteID').hide();
-            $('#completeRequiredId').hide();
-           }
-           else{
-            $('#checkId').show();
-            $('#DeleteID').show();
-            $('#completeRequiredId').show();
-          }
-        });
-        
-       });
-    }
+        for (let i = 0; i < this.checkeddocuments.length; i++) {
+          this.checkedid.push({ _id: this.checkeddocuments[i]._id });
+        }
+        this.http.post('https://ezeeboss.com:3001/api/deletemycompleteddocuments', { documentid: this.checkedid })
+          .subscribe(data => {
+            this.http.get('https://ezeeboss.com:3001/api/mycompleteddocuments/' + this.userid)
+              .subscribe(data => {
+                //this.contactModal.close();
+                this.documentdetail = data;
+                // console.log(this.documentdetail)
+                this.documents = this.documentdetail.data;
+                if (this.documents == '') {
+                  $('#checkId').hide();
+                  $('#DeleteID').hide();
+                  $('#completeRequiredId').hide();
+                }
+                else {
+                  $('#checkId').show();
+                  $('#DeleteID').show();
+                  $('#completeRequiredId').show();
+                }
+              });
+
+          });
+      }
 
     }
   }

@@ -13,32 +13,32 @@
       <div class="col-xs-9">
         <div class="row">
           <div class="col-xs-6 text-left">
-            <a (click)="backClicked()" class="top_back_button"><i class="fa fa-caret-left"></i><span>Back</span></a> 
+            <a (click)="backClicked()" class="top_back_button"><i class="fa fa-caret-left"></i><span>Back</span></a>
           </div>
           <div class="col-xs-6 text-right">
             <!-- menu start -->
-              <div class="new_custom_drop_down">
-                <li class="dropdown" dropdown>
-                  <i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;
+            <div class="new_custom_drop_down">
+              <li class="dropdown" dropdown>
+                <i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;
 
-                  <span class="title">{{fullname}} &nbsp;</span>
-                  <a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
-                    <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
-                  </a>
-                  <ul *dropdownMenu class="my_drop_down">
+                <span class="title">{{fullname}} &nbsp;</span>
+                <a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
+                  <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
+                </a>
+                <ul *dropdownMenu class="my_drop_down">
 
-                    <li><a (click)="logout();">Logout</a></li>
+                  <li><a (click)="logout();">Logout</a></li>
 
-                    <li><a routerLink="/profile">View Profile</a></li>
+                  <li><a routerLink="/profile">View Profile</a></li>
 
-                    <li id=""><a>Change Password</a></li>
+                  <li id=""><a>Change Password</a></li>
 
-                    <li><a>Membership Order</a></li>
+                  <li><a>Membership Order</a></li>
 
-                  </ul>
-                </li>
-              </div>
-        <!-- menu end -->
+                </ul>
+              </li>
+            </div>
+            <!-- menu end -->
           </div>
         </div>
       </div>
@@ -166,11 +166,11 @@
                 <li class="">
                   <a routerLink="/fileTranferTrash">
                     <span class="iconimg">
-                     <img src="assets/img/trash.png" />
+                      <img src="assets/img/trash.png" />
                     </span><span class="pt6">Trash</span>
                   </a>
                 </li>
-              <li class="">
+                <li class="">
                   <a routerLink="/contacttransfer">
                     <span class="iconimg">
                       <img src="assets/img/phone-receiver.png" />
@@ -216,10 +216,12 @@
                               class="form-control ui-autocomplete-input" name="emailid" id="emailid" value=""
                               autocomplete="off">
                             <ul *ngIf="showsearch">
-                              <li class="pointer" (click)="selectmail(email.email)" *ngFor="let email of serchedmail">{{email.email}}
+                              <li class="pointer" (click)="selectmail(email.email)" *ngFor="let email of serchedmail">
+                                {{email.email}}
                               </li>
 
                             </ul>
+                            <span class="" style="color:red" *ngIf='emailerror'>{{emailerror}}</span>
                           </div>
                         </div>
                         <div class="form-group smartfloat">
@@ -237,18 +239,18 @@
                             <div class="col-md-12 mobilepd">
                               <!-- <a><button   class="bottom-nextbtn addpart">Add Participants</button></a> -->
                               <label for="smartfile" class="bottom-nextbtn smartchoose">Choose File</label>
-                              <input type="file" multiple (change)="fileChange($event)" class="form-control"
-                                id="smartfile" style="display: none;">
-<span class="fileerror" style="color:red" *ngIf='filerror'>{{filerror}}</span>
+                              <input type="file" (change)="fileChange($event)" class="form-control" id="smartfile"
+                                style="display: none;">
+                              <span class="fileerror" style="color:red" *ngIf='filerror'>{{filerror}}</span>
 
-                                
+
                             </div>
                             <div class="col-xs-10 col-xs-offset-2">
                               <div class="file_preview">
                                 <div class="cross" *ngFor="let item of filesname">
-                                  {{item.filename}}<span   class="pointer" *ngIf="filesname" style=" padding: 0 6px; color: red;"><i
-                                      (click)="removeattachment(item.filename);" class="fa fa-times"
-                                      aria-hidden="true"></i></span>
+                                  {{item.filename}}<span class="pointer" *ngIf="filesname"
+                                    style=" padding: 0 6px; color: red;"><i (click)="removeattachment(item.filename);"
+                                      class="fa fa-times" aria-hidden="true"></i></span>
                                 </div>
                               </div>
                             </div>
@@ -271,7 +273,9 @@
                           <input #password
                             style="font-family: 'century gothic' !important; border-radius: 0; border: 1px solid #515252;"
                             type="password" placeholder="Type your password here " name="pass" id="password"
-                            class="form-control pannel">
+                            class="form-control pannel" required>
+  <span class="" style="color:red" *ngIf='passwordError'>{{passwordError}}</span>
+                            
                         </div>
                         <!-- editorbox ends -->
                         <div class="col-xs-12 text-right">

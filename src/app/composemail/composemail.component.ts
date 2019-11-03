@@ -78,7 +78,7 @@ export class ComposemailComponent implements OnInit {
     if (email != '') {
       this.http.post(this.AppComponent.BASE_URL + '/api/serchmail', { email: email,userId:this.userid })
         .subscribe(data => {
-          // this.result = data;
+          this.result = data;
           // this.serchedmail = this.result.result; this.result = data;
           if (this.result.result.length > 0) {
             this.showsearch = true;
@@ -181,8 +181,8 @@ export class ComposemailComponent implements OnInit {
         this.emailerror = 'Invalid Email: ' + invEmails
         // alert("Invalid emails:\n" + invEmails);
       } else {
-        this.loading = true;
-        this.formData.append('from', this.userid);
+      
+        this.formData.append('from', this.userid );
         this.formData.append('data', this.editorContent);
         this.formData.append('fromemail', this.email);
         this.formData.append('toemail', this.toemail.nativeElement.value.toLowerCase());

@@ -1194,3 +1194,15 @@ button.bottom-nextbtn.tofloat[_ngcontent-c3] {
     color: #fff !important;  
     transition: .5s; 
 }
+
+.custom_ul_new { position: relative;}
+.custom_ul_new ul { margin: 0;
+    padding: 0 0 10px 0;
+    list-style: none;
+    border: 1px solid #000;
+    position: absolute;
+    z-index: 9;
+    width: calc(100% - 30px);
+    left: 15px;
+    background: #fff;}
+.custom_ul_new ul li { padding: 10px 10px 0 10px; color: #000; font-weight: 600}

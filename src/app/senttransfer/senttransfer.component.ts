@@ -132,7 +132,9 @@ getReadMails(page, limit) {
        for( let i = 0;i<this.checkedmails.length;i++) {
         this.checkedid.push({id:this.checkedmails[i]._id});
        }
-       this.http.post(this.AppComponent.BASE_URL+'/api/deletefiletransfermail', {mailid:this.checkedid})
+      //  this.http.post(this.AppComponent.BASE_URL+'/api/deletefiletransfermail', movefiletransfermailstotrash
+       this.http.post(this.AppComponent.BASE_URL+'/api/movefiletransfermailstotrash', 
+      {mailid:this.checkedid})
        .subscribe(data => {
            this.getReadMails(this.page, this.limit);
 

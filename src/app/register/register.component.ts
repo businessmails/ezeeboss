@@ -167,7 +167,7 @@ export class RegisterComponent {
         this.showWebcam = false;
       if (this.webcamImage) {
         this.recapture = true;
-        console.log("...in")
+        // console.log("...in")
         // this.webcamImage = null;
         //  this.Camera = false;
       }
@@ -176,7 +176,7 @@ export class RegisterComponent {
       this.credentials.image = null;
     } else {
        this.recapture = false;
-      console.log("not null")
+      // console.log("not null")
       this.withoutImage = 'Selected';
       this.credentials.image = 'none';
       this.emptycheck()
@@ -353,7 +353,7 @@ export class RegisterComponent {
         user => {
           if (user.image == 'none') {
             this.opensuccesspop();
-            const newreq = this.http.post('http://localhost:3001/api/sendmail', {
+            const newreq = this.http.post('https://ezeeboss.com:3001/api/sendmail', {
               id: user.id,
               imageurl: "none",
               to: user.to,
@@ -388,7 +388,7 @@ export class RegisterComponent {
                   this.faceresponse = res;
                   if (this.faceresponse.message === 'Face Not Found') {
                     // tslint:disable-next-line:no-shadowed-variable
-                    const newreq = this.http.post('http://localhost:3001/api/delete', { id: user.id })
+                    const newreq = this.http.post('https://ezeeboss.com:3001/api/delete', { id: user.id })
                       .subscribe(
                         // tslint:disable-next-line:no-shadowed-variable
                         res => {
@@ -399,7 +399,7 @@ export class RegisterComponent {
                       );
                   } else {
                     this.opensuccesspop();
-                    const newreq = this.http.post('http://localhost:3001/api/sendmail', {
+                    const newreq = this.http.post('https://ezeeboss.com:3001/api/sendmail', {
                       id: user.id,
                       imageurl: user.imgurl,
                       to: user.to,

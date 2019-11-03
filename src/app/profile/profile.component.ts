@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { WebcamImage } from 'ngx-webcam';
+import { Observable } from 'rxjs/Observable';
 
 import { Component } from '@angular/core';
 import { AuthenticationService, UserDetails } from '../authentication.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   templateUrl: './profile.component.html',
@@ -21,11 +24,104 @@ export class ProfileComponent {
   public firstname: string;
   public lastname: string;
   public shortname: string;
+  public image: string;
+  private trigger: Subject<void> = new Subject<void>();
+
+  public webcamImage: WebcamImage = null;
+
+  public hideimg = null;
+  public Camera = null;
+  public recapture = null;
+  public showWebcam = false;
+
+  imag: string;
+  public animatebtn = false;
+  public animatecamerabtn = false;
+  public animatecamera = false;
+  withoutImage: string = 'Selected';
+  credentials: any;
+  toggel: boolean = true;
+  oldimage: string;
+  text: string = 'Capture New Image';
   constructor(
     private auth: AuthenticationService,
     private http: HttpClient,
     private spinnerService: Ng4LoadingSpinnerService
   ) { }
+
+
+
+  public triggerSnapshot(): void {
+    this.trigger.next();
+    this.Camera = null;
+    this.recapture = true;
+
+
+  }
+  registerwithoutimage() {
+    if (this.animatecamera == false) {
+      // this.text= '1';
+      this.toggel = false;
+      this.animatecamera = true;
+      this.Camera = false;
+      this.recapture = false;
+    }
+    if (this.withoutImage === 'Selected') {
+      this.text = 'Cancel';
+      this.toggel = false;
+      this.showWebcam = false;
+      if (this.webcamImage) {
+        this.recapture = true;
+        // console.log("...in")
+      }
+      this.animatebtn = false;
+      this.withoutImage = null;
+      this.image = this.oldimage;
+    } else {
+      this.text = 'Capture New Image';
+      this.toggel = true;
+      this.recapture = false;
+      // console.log("not null")
+      this.withoutImage = 'Selected';
+      this.image = this.oldimage;
+    }
+
+  }
+
+  public toggleWebcam(): void {
+    this.toggel = false;
+    // alert()ttoggleWebcamoggleWebcam
+    this.image = null;
+
+    this.animatecamera = false;
+    if (this.animatecamerabtn != true) {
+      this.animatecamerabtn = true;
+    }
+    else {
+      this.animatebtn = false;
+    }
+    this.Camera = 'true';
+    this.recapture = false;
+    this.showWebcam = !this.showWebcam;
+    if (this.webcamImage) {
+      this.webcamImage = null;
+    }
+  }
+  public handleImage(webcamImage: WebcamImage): void {
+
+    this.webcamImage = webcamImage;
+    this.image = webcamImage.imageAsDataUrl;
+    // console.log("image : ", this.image)
+    this.imag = 'image';
+    this.hideimg = 'hide';
+    this.showWebcam = false;
+    // this.emptycheck()
+  }
+  public get triggerObservable(): Observable<void> {
+    return this.trigger.asObservable();
+  }
+
+
   ngOnInit() {
     // this.spinnerService.show();
     this.auth.profile().subscribe(user => {
@@ -35,6 +131,8 @@ export class ProfileComponent {
       this.spinnerService.hide();
       var fullName = this.details.name;
       this.fullname = this.details.name;
+      this.image = 'https://ezeeboss.com:3001/images/' + this.details._id + '/' + user.image;
+      this.oldimage = this.image;
       var nameArr = [];
       var lastName = '';
       var nameArr = [];
@@ -64,7 +162,7 @@ export class ProfileComponent {
   }
   clear() {
     setTimeout(function () {
-      console.log('cleR');
+      // console.log('cleR');
       this.response = false;
       this.class = "";
       this.msg = ""
@@ -76,30 +174,39 @@ export class ProfileComponent {
   }
 
   update() {
+    let img = '';
+    if (!this.toggel) {
+      img = this.image;
+    } else {
+      img = 'none'
+    }
     this.spinnerService.show();
-    const req = this.http.post('http://localhost:3001/api/update', {
+    const req = this.http.post('https://ezeeboss.com:3001/api/update', {
       user_id: localStorage.getItem('user_id'),
       phonenumber: this.details.phonenumber,
       email: this.details.email,
       name: this.details.first_name + " " + this.details.last_name,
       secEmail: this.details.secEmail,
-
+      image: img
     })
       .subscribe(
         res => {
-          console.log(res);
+          // console.log(res);
           this.response = true;
           this.class = "alert alert-success";
           this.msg = "Data updated Sucessfully"
           //   window.location.reload();
           setTimeout(function () {
-            alert('cleR');
+            // alert('cleR');
             this.response = false;
             this.class = "";
             this.msg = ""
           }, 3000);
 
-          this.ngOnInit()
+          this.ngOnInit();
+          this.registerwithoutimage();
+          this.webcamImage = null
+          this.toggel = true
           this.spinnerService.hide();
           let element: HTMLElement = document.getElementById('hidemsg') as HTMLElement;
           element.click();

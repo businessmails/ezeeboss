@@ -37,13 +37,13 @@ constructor(
       this.http.post(this.AppComponent.BASE_URL+'/api/doccompletedbyme' , {useremail :this.email})
       .subscribe(data => {
         this.documentdetail = data;
-        this.documents = this.documentdetail.message;
+        this.documents = this.documentdetail.message.reverse();
       });
 
       this.http.post(this.AppComponent.BASE_URL+'/api/docpendingbyme' , {useremail :this.email})
       .subscribe(data => {
       this.documentdetail = data;
-      this.pendingdocuments = this.documentdetail.message;
+      this.pendingdocuments = this.documentdetail.message.reverse();
       });
             
     });

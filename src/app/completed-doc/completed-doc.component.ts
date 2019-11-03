@@ -47,7 +47,7 @@ export class CompletedDocComponent implements OnInit {
       this.http.post(this.AppComponent.BASE_URL+'/api/doccompletedbyme' , {useremail :this.useremail})
       .subscribe(data => {
         this.documentdetail = data;
-        this.documents = this.documentdetail.message;
+        this.documents = this.documentdetail.message.reverse();
       });
     });
   }
@@ -94,7 +94,7 @@ export class CompletedDocComponent implements OnInit {
         .subscribe(data => {
           console.log("...\...")
         this.documentdetail = data;
-        this.documents = this.documentdetail.message;
+        this.documents = this.documentdetail.message.reverse();
           if(this.documents == ''){
             $('#checkId').hide();
             $('#DeleteID').hide();

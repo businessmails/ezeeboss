@@ -116,7 +116,7 @@ export class NewsignpdfComponent implements OnInit {
       const usertosign = params['usertosign'];
       this.type = params['type'];
       if (this.type == "ni") {
-        this.method = this.http.get('http://localhost:3001/api/finduser/' + usertosign)
+        this.method = this.http.get('https://ezeeboss.com:3001/api/finduser/' + usertosign)
       }
       else {
         this.method = this.auth.profile()
@@ -135,7 +135,7 @@ export class NewsignpdfComponent implements OnInit {
         this.userinitials = ((this.userinitials.shift() || '') + (this.userinitials.pop() || '')).toUpperCase();
         this.documentid = documentid;
         this.usertosign = usertosign;
-        this.http.get('http://localhost:3001/api/checkeligibility/' + this.useremail + '/' + documentid + '/' + userid)
+        this.http.get('https://ezeeboss.com:3001/api/checkeligibility/' + this.useremail + '/' + documentid + '/' + userid)
           .subscribe(data => {
             this.eligibility = data;
             this.eligible = this.eligibility.data;
@@ -143,7 +143,7 @@ export class NewsignpdfComponent implements OnInit {
             if (this.eligible !== 1) {
               this.router.navigateByUrl('/');
             } else {
-              this.http.get('http://localhost:3001/api/getdocument/' + this.userid + '/' + documentid)
+              this.http.get('https://ezeeboss.com:3001/api/getdocument/' + this.userid + '/' + documentid)
                 .subscribe(
                   data => {
                     this.html = data;
@@ -154,8 +154,21 @@ export class NewsignpdfComponent implements OnInit {
                     if (this.html.data.actionrequired == 'Rejected') {
                       this.router.navigateByUrl('/rejectedmassage');
                     } else {
+                      if(this.html.data.expiration != null){
+                      console.log('-->',new Date(this.html.data.expiration));
+                      console.log(new Date())
+                      if(new Date()>new Date(this.html.data.expiration)){
+                        alert("Document is Expired ");
+
+                        console.log("today is greater ");
+                         this.router.navigateByUrl('/landing');
+                      }
+                      if(new Date()<new Date(this.html.data.expiration)){
+                        console.log("today is before ")
+                      }
+                      }
                       this.withimage = this.html.data.withimage;
-                      this.http.post('http://localhost:3001/api/pdfdetail', { pdfid: this.html.data.documentid })
+                      this.http.post('https://ezeeboss.com:3001/api/pdfdetail', { pdfid: this.html.data.documentid })
                         .subscribe(data => {
                           let i: number;
                           this.fileslength = data;
@@ -315,7 +328,7 @@ export class NewsignpdfComponent implements OnInit {
 
   downloadpdf() {
     var htmlString = $('.inthis').html();
-    this.http.post('http://localhost:3001/api/genratehtmlfile', {
+    this.http.post('https://ezeeboss.com:3001/api/genratehtmlfile', {
       html: htmlString,
 
     }).subscribe((res: any) => {
@@ -377,7 +390,7 @@ export class NewsignpdfComponent implements OnInit {
     formData.append('userid', this.usertosign);
     formData.append('docid', this.documentid);
     formData.append('user', this.userid)
-    this.http.post('http://localhost:3001/api/uploadvideofile', formData)
+    this.http.post('https://ezeeboss.com:3001/api/uploadvideofile', formData)
       .subscribe(data => {
       });
     recordRTC.getDataURL(function (dataURL) { });
@@ -444,7 +457,7 @@ export class NewsignpdfComponent implements OnInit {
     this.auth.profile().subscribe(user => {
       this.details = user;
       this.useremail = this.details.email;
-      this.http.post('http://localhost:3001/api/email', {
+      this.http.post('https://ezeeboss.com:3001/api/email', {
         email: this.useremail,
         image: this.imgcap
       }).subscribe((res: any) => {
@@ -499,7 +512,7 @@ export class NewsignpdfComponent implements OnInit {
     this.auth.profile().subscribe(user => {
       this.details = user;
       this.useremail = this.details.email;
-      this.http.post('http://localhost:3001/api/email', {
+      this.http.post('https://ezeeboss.com:3001/api/email', {
         email: this.useremail,
         image: this.credentials.image
       }).subscribe((res: any) => {
@@ -520,7 +533,7 @@ export class NewsignpdfComponent implements OnInit {
 
                 alert("Identity Matched");
               
-                const req = this.http.post('http://localhost:3001/api/signeduserimage', { userid: this.usertosign, docid: this.documentid, imagename: this.unknownimage }).subscribe(res => {
+                const req = this.http.post('https://ezeeboss.com:3001/api/signeduserimage', { userid: this.usertosign, docid: this.documentid, imagename: this.unknownimage }).subscribe(res => {
 
                 });
 
@@ -648,7 +661,7 @@ export class NewsignpdfComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       const documentid = params['documentid'];
       // alert(documentid)
-      this.http.post('http://localhost:3001/api/rejectdoc', { docid: documentid, name: this.username })
+      this.http.post('https://ezeeboss.com:3001/api/rejectdoc', { docid: documentid, name: this.username })
         .subscribe(
           data => {
             this.loading = false;
@@ -698,7 +711,7 @@ export class NewsignpdfComponent implements OnInit {
               
 
         
-              this.http.post('http://localhost:3001/api/updatedoc', { html: $('.gethtml').html(), userid: this.userId, docid: documentid, usertosign: this.usertosign, reciptemail: this.useremail, location: this.cityname })
+              this.http.post('https://ezeeboss.com:3001/api/updatedoc', { html: $('.gethtml').html(), userid: this.userId, docid: documentid, usertosign: this.usertosign, reciptemail: this.useremail, location: this.cityname })
                 .subscribe(
                   data => {
                     const userid = params['userid'];
@@ -741,7 +754,7 @@ export class NewsignpdfComponent implements OnInit {
                         data.append("name",i as any);
                         data.append("noofpages",pages as any);
                         var xhr = new XMLHttpRequest();
-                        xhr.open( 'post', 'http://localhost:3001/api/download/' + userid + '/' + signeddocid, true );
+                        xhr.open( 'post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true );
                         xhr.send(data);
                               xhr.onreadystatechange = function () {
                                 if(i = $('.pdfimg').length-1) {
@@ -769,7 +782,7 @@ export class NewsignpdfComponent implements OnInit {
           //   var data = new FormData();
           //   data.append("data" , btoa(pdf));
           //   var xhr = new XMLHttpRequest();
-          //   xhr.open( 'post', 'http://localhost:3001/api/download/' + userid + '/' + signeddocid, true );
+          //   xhr.open( 'post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true );
           //   xhr.send(data);
           //         xhr.onreadystatechange = function () {
           //         if (this.readyState == 4 && this.status == 200) {
@@ -812,7 +825,7 @@ export class NewsignpdfComponent implements OnInit {
               //       //   pdf.addHTML($('.inthis'), 0, 0, options, function () {
               //       //     const blob = pdf.output('blob');
               //       //     const xhr = new XMLHttpRequest();
-              //       //     xhr.open('post', 'http://localhost:3001/api/download/' + userid + '/' + signeddocid, true);
+              //       //     xhr.open('post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true);
               //       //     xhr.setRequestHeader('Content-Type', 'application/pdf');
               //       //     xhr.send(blob);
               //       //     xhr.onreadystatechange = function () {

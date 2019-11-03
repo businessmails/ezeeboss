@@ -65,7 +65,7 @@ export class VideorecComponent implements OnInit {
                 });
                 const formData: FormData = new FormData();
                 formData.append('filetoupload', file);
-                this.http.post('http://localhost:3001/api/uploadvideofile', formData)
+                this.http.post('https://ezeeboss.com:3001/api/uploadvideofile', formData)
                   .subscribe(data => {
                 
                   });
