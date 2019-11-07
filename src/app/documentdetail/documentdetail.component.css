@@ -19,9 +19,13 @@
 .completed_box img {
     width: 19px;
     margin: 0 auto;
-    display: block;
+    display: inline-block;
 }
-
+.completed_box_green img {
+    width: 19px;
+    margin: 0 auto;
+    display: inline-block;
+}
 .jsttext{
     text-align: center;
     width: 100%;
@@ -125,7 +129,7 @@ footer {
     background: #414541 !important;
     border: none !important;
 }
-.box3 input { border-radius: 0; border: 2px solid #414541; margin-bottom: 20px; }
+.box3 input { border-radius: 0; border: 2px solid #414541; margin-bottom: 0px; }
 .calinput { float: left; border: 3px #414541 solid !important; border-radius: 0; }
 .calinnerdiv .calinput { width: 80% !important; }
 

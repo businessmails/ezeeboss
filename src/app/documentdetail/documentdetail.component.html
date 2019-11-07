@@ -1,355 +1,267 @@
 <section class="hdrsec">
-  <div class="logoimg">
-    <a routerLink='/landing'><img src="../../assets/img/ezee-logo.png" /></a>
-  </div>
+   <div class="logoimg">
+      <a routerLink='/landing'><img src="../../assets/img/ezee-logo.png" /></a>
+   </div>
 </section>
 <section class="fullpage">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-3"></div>
-            <div class="col-xs-9">
-                <div class="row">
-                    <div class="col-xs-6 text-left">
-                        <a href="#" class="top_back_button"><i class="fa fa-caret-left"></i><span>Back</span></a> 
-                    </div>
-                    <div class="col-xs-6 text-right">
-                        <div class="new_custom_drop_down" style="z-index:1;">
-                            <li class="dropdown" dropdown><i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;<span class="title">{{fullname}} &nbsp;</span>
-                                <a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
-                                    <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
-                                </a>
-                                <ul *dropdownMenu class="my_drop_down">
-                                    <li><a (click)="logout();">Logout</a></li>
-                                    <li><a routerLink="/profile">View Profile</a></li>
-                                    <li id=""><a>Change Password</a></li>
-                                    <li><a>Membership Order</a></li>
-                                </ul>
-                            </li>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row mt_class">
-            <div class="col-lg-3 col-md-3 col-xs-12 mobilepd">
-                <div style="display:block; margin:0 auto;" class="col-lg-12 mobilepd">
-                    <a data-placement="right" data-toggle="tooltip" data-original-title="">
-                        <span class="pt51 pt567 mobilehomebtn">
-                            <span class="fa fa-home"></span> Home
-                        </span>
-                    </a>
-                </div>
-                <a href="">
-                    <img class="img-responsive compose_lock_image" src="../../assets/img/home-02.png" alt="" data-placement="right">
-                </a>
-                <div class="wrapper2">
-                    <li style="list-style:none; cursor:pointer;" class="toggle">
-                        <a style="cursor: pointer;" class="list-part2 mobilehomebtn" id="showhide" data-placement="right">
-                            <span class="title2">INSTRUCTIONS</span>
+   <div class="container">
+      <div class="row">
+         <div class="col-xs-3"></div>
+         <div class="col-xs-9">
+            <div class="row">
+               <div class="col-xs-6 text-left">
+                  <a href="#" class="top_back_button"><i class="fa fa-caret-left"></i><span>Back</span></a> 
+               </div>
+               <div class="col-xs-6 text-right">
+                  <div class="new_custom_drop_down" style="z-index:1;">
+                     <li class="dropdown" dropdown>
+                        <i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;<span class="title">{{fullname}} &nbsp;</span>
+                        <a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
+                           <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
                         </a>
-                        <ul style="display:none;" class="drop-popup" id="slidediv">
-                            <div class="arrow-top">
-                                <img src="../../assets/img/arrow-top.png">
-                            </div>
-                            <div class="inst-popup" style="font-family: Century Gothic; font-size: 14px; text-align: left; font-weight: bold; color: #333;">
-
-                                <ul style="list-style: none; padding: 0;">
-                                    <li style="margin-bottom: 10px;">Step 1: Upload or drag and drop PDF file.</li>
-                                    <li style="margin-bottom: 10px;">Step 2: Check box, if you require an expiration date (not mandatory).</li>
-                                    <li style="margin-bottom: 10px;">Step 3: Add participants.</li>
-                                    <li style="margin-bottom: 10px;">Step 4: You can rearrange signing order under "priority". Click on arrow up or down to change signing order (not mandatory). Click next to complete.</li>
-                                </ul>
-                            </div>
+                        <ul *dropdownMenu class="my_drop_down">
+                           <li><a (click)="logout();">Logout</a></li>
+                           <li><a routerLink="/profile">View Profile</a></li>
+                           <li id=""><a>Change Password</a></li>
+                           <li><a>Membership Order</a></li>
                         </ul>
-                    </li>
-                </div>
+                     </li>
+                  </div>
+               </div>
             </div>
-            <div></div>
-        </div>
-
-        <div class="col-lg-10 col-md-10 col-xs-12">
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <div class="row mt_class">
+         <div class="col-lg-3 col-md-3 col-xs-12 mobilepd">
+            <div style="display:block; margin:0 auto;" class="col-lg-12 mobilepd">
+               <a data-placement="right" data-toggle="tooltip" data-original-title="">
+               <span class="pt51 pt567 mobilehomebtn">
+               <span class="fa fa-home"></span> Home
+               </span>
+               </a>
+            </div>
+            <a href="">
+            <img class="img-responsive compose_lock_image" src="../../assets/img/home-02.png" alt="" data-placement="right">
+            </a>
+            <div class="wrapper2">
+               <li style="list-style:none; cursor:pointer;" class="toggle">
+                  <a style="cursor: pointer;" class="list-part2 mobilehomebtn" id="showhide" data-placement="right">
+                  <span class="title2">INSTRUCTIONS</span>
+                  </a>
+                  <ul style="display:none;" class="drop-popup" id="slidediv">
+                     <div class="arrow-top">
+                        <img src="../../assets/img/arrow-top.png">
+                     </div>
+                     <div class="inst-popup" style="font-family: Century Gothic; font-size: 14px; text-align: left; font-weight: bold; color: #333;">
+                        <ul style="list-style: none; padding: 0;">
+                           <li style="margin-bottom: 10px;">Step 1: Upload or drag and drop PDF file.</li>
+                           <li style="margin-bottom: 10px;">Step 2: Check box, if you require an expiration date (not mandatory).</li>
+                           <li style="margin-bottom: 10px;">Step 3: Add participants.</li>
+                           <li style="margin-bottom: 10px;">Step 4: You can rearrange signing order under "priority". Click on arrow up or down to change signing order (not mandatory). Click next to complete.</li>
+                        </ul>
+                     </div>
+                  </ul>
+               </li>
+            </div>
+         </div>
+         <div class="col-lg-9 col-md-9 col-xs-12">
             <div class="inner-part8" style="background: rgb(90,115,27) !important">
-                <div class="col-lg-12 p_bottom">
-                    <div class="col-lg-12">
-                        <p class="smartheading_new">Electronic <span>signature</span></p>
-                    </div>
-                </div>
-
-                <div class="col-lg-12">
-                    <div class="tabs-left">
-                        <ul class="nav nav-tabs6" style="background-color: #7a6220 !important">
-                            <li class=""><a routerLink="/digital_sign/{{digitalpath}}"><span class="iconimg"><img src="assets/img/pdficon.png"/></span>&nbsp;&nbsp;<span class="pt6">Compose</span></a></li>
-
-                            <li class=""><a routerLink="/actionrequired"><span class="iconimg"><img src="assets/img/x.png"/></span>&nbsp;&nbsp;<span class="pt6">Action Required</span></a></li>
-
-                            <li class="active"><a routerLink="/completed"><span class="iconimg"><img src="assets/img/right.png"/></span>&nbsp;&nbsp;<span class="pt6">Completed</span></a></li>
-
-                            <li class=""><a routerLink="/contact_list"><span class="iconimg"><img src="assets/img/usersicon.png"/></span>&nbsp;&nbsp;<span class="pt6">Contact</span></a></li>
-
-                        </ul>
-
-                        <div id="myTabContent" class="tab-content">
-
-                            <div class="tab-pane1 active" id="home">
-
-                                <div class="col-lg-12 col-md-12 col-xs-12">
-
-                                    <div class="table-responsive" style="padding:0px 0px 0px 0px">
-
-                                        <form method="get" action="">
-
-                                            <div id="seetor_bar" class="box3" style="border-radius:0px;">
-                                                <div class="col-lg-12" style="padding-left: 0; padding-right: 0">
-                                                    <div id="imaginary_container" class="form-group">
-                                                        <input type="text" name="search" style="border-radius:0px; font-family:&#39;Century Gothic&#39;;" class="form-control" placeholder="Search by user name or doc name" [(ngModel)]="Search" id="searchaction" (keyup)="searchDocument()">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6" style="padding-left: 0; padding-right: 0" >
-                                                    <div class="calinnerdiv">
-                                                        <input class="form-control pannel calinput" #date placeholder="Select a date" ngx-mydatepicker name="mydate" [(ngModel)]="fromdate" [options]="myOptions" #dp="ngx-mydatepicker" (dateChanged)="onDateChanged($event)" />
-                                                        <button type="button" class="calbtn" (click)="dp.toggleCalendar()">
-                                                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                         </button>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6" style="padding-left: 0; padding-right: 0">
-                                                    <div class="calinnerdiv">
-                                                        <input class="form-control pannel calinput" #date placeholder="Select a date" ngx-mydatepicker name="todate" [(ngModel)]="todate" [options]="myOptions" #dpto="ngx-mydatepicker" (dateChanged)="ondateChanged($event)" />
-                                                        <button type="button" class="calbtn" (click)="dpto.toggleCalendar()">
-                                                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                         </button>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-12 col-md-12 col-xs-12">
-                                                    <div align="center">
-                                                        <button type="submit" class="search-btn" data-placement="top" (click)="searchDocument()">SEARCH</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                
-
-                                                <div class="clearfix"></div>
-
-                                            
-
-                                        </form>
-
+               <div class="col-lg-12 p_bottom">
+                  <div class="col-lg-12">
+                     <p class="smartheading_new">Electronic <span>signature</span></p>
+                  </div>
+               </div>
+               <div class="col-lg-12">
+                  <div class="tabs-left">
+                     <ul class="nav nav-tabs6" style="background-color: #7a6220 !important">
+                        <li class=""><a routerLink="/digital_sign/{{digitalpath}}"><span class="iconimg"><img src="assets/img/pdficon.png"/></span>&nbsp;&nbsp;<span class="pt6">Compose</span></a></li>
+                        <li class=""><a routerLink="/actionrequired"><span class="iconimg"><img src="assets/img/x.png"/></span>&nbsp;&nbsp;<span class="pt6">Action Required</span></a></li>
+                        <li class="active"><a routerLink="/completed"><span class="iconimg"><img src="assets/img/right.png"/></span>&nbsp;&nbsp;<span class="pt6">Completed</span></a></li>
+                        <li class=""><a routerLink="/contact_list"><span class="iconimg"><img src="assets/img/usersicon.png"/></span>&nbsp;&nbsp;<span class="pt6">Contact</span></a></li>
+                     </ul>
+                     <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane1 active" id="home">
+                           <div class="col-lg-12 col-md-12 col-xs-12">
+                              <div class="table-responsive" style="padding:0px 0px 0px 0px">
+                                 <form method="get" action="">
+                                    <div id="seetor_bar" class="box3" style="border-radius:0px;">
+                                       <div class="col-lg-12" style="padding-left: 0; padding-right: 0">
+                                          <div id="imaginary_container" class="form-group">
+                                             <input type="text" name="search" style="border-radius:0px; font-family:&#39;Century Gothic&#39;;" class="form-control" placeholder="Search by user name or doc name" [(ngModel)]="Search" id="searchaction" (keyup)="searchDocument()">
+                                          </div>
+                                       </div>
+                                       <div class="col-md-6" style="padding-left: 0; padding-right: 0" >
+                                          <div class="calinnerdiv">
+                                             <input class="form-control pannel calinput" #date placeholder="Select a date" ngx-mydatepicker name="mydate" [(ngModel)]="fromdate" [options]="myOptions" #dp="ngx-mydatepicker" (dateChanged)="onDateChanged($event)" />
+                                             <button type="button" class="calbtn" (click)="dp.toggleCalendar()">
+                                             <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                                             </button>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-6" style="padding-left: 0; padding-right: 0">
+                                          <div class="calinnerdiv">
+                                             <input class="form-control pannel calinput" #date placeholder="Select a date" ngx-mydatepicker name="todate" [(ngModel)]="todate" [options]="myOptions" #dpto="ngx-mydatepicker" (dateChanged)="ondateChanged($event)" />
+                                             <button type="button" class="calbtn" (click)="dpto.toggleCalendar()">
+                                             <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                                             </button>
+                                          </div>
+                                       </div>
+                                       <div class="col-lg-12 col-md-12 col-xs-12">
+                                          <div align="center">
+                                             <button type="submit" class="search-btn" data-placement="top" (click)="searchDocument()">SEARCH</button>
+                                          </div>
+                                       </div>
                                     </div>
-
-                                </div>
-
-                                <div class="col-lg-12 " style="background:#fff;">
-                                    <div class="box3" style="top: 11px;">
-                                        <div class="col-lg-12 span-box" style="background: #a58734;    border: none;">
-                                            <div ng-repeat="">
-                                                <form method="post" action="" id="" name="myform11">
-
-                                                    <table id="hor-zebra" summary="Employee Pay Sheet" style="width:100%">
-
-                                                        <tbody style="background:  #fff;" *ngFor="let document of documents">
-                                                            <!-- {{document.actionrequired}} -->
-                                                            <!---------------------not completed --------------- -->
-                                                            <div *ngIf="document.actionrequired == 'Not Signed'">
-                                                                <tr>
-
-                                                                    <td colspan="3" style="padding:10px">
-
-                                                                        <label>
-
-                <input type="checkbox" name="" value="MTY=" class="chk">
-
-            </label> &nbsp;&nbsp;
-                                                                        <a target="_blank" href="https://ezeeboss.com:3001/uploadedpdf/{{document.documentid}}/pdf.pdf" class="toolancr" data-toggle="tooltip" data-placement="bottom" data-original-title="click this to see all participants list of this document" aria-describedby="tooltip841003"
-                                                                            style="color: #426cd5;"> 
-                pdf-{{document.documentid}}.pdf</a>
-
-                                                                        <div class="tooltip fade bottom in tooltipp" role="tooltip" id="tooltip841003" style="top: 84px; left: 118.523px; display: none;">
-                                                                            <div class="tooltip-arrow" style="left: 50%;"></div>
-                                                                            <!-- <div class="tooltip-inner">click this to see all participants list of this document</div> -->
-                                                                        </div>
-                                                                    </td>
-
-
-
-                                                                    <td colspan="1">
-
-
-                                                                        <a href="">
-                                                                            <img src="../../assets/img/Layer.png" style=" width: 48px;    margin-bottom: 2px;"> Need to sign</a>
-
-                                                                    </td>
-
-                                                                    <td colspan="1">
-                                                                        <a>
-                                                                            <img src="../../assets/img/waitnin.png" title="click this to see document detail" data-toggle="tooltip" data-placement="bottom">
-                                                                        </a>
-                                                                    </td>
-
-                                                                </tr>
-
-                                                                <tr class="odd" style="background: #fac701;border: none;">
-
-                                                                    <td style="text-align: left; padding-left: 10px" colspan="5">Need To Sign: {{document.firstName}}({{document.email}})</td>
-                                                                    <td style="text-align: right; padding-right: 10px">
-                                                                        From: {{document.from}}
-                                                                    </td>
-
-                                                                </tr>
-                                                            </div>
-                                                            <!---------------------------   completed ------------------------ -->
-                                                            <div *ngIf="document.actionrequired != 'Not Signed'">
-                                                                <tr>
-
-                                                                    <td colspan="3" style=" padding:10px">
-
-                                                                        <label>
-
-                <input type="checkbox" name="" value="MTY=" class="chk">
-
-            </label>
-                                                                        <a target="_blank" href="https://ezeeboss.com:3001/signedpdf/{{document.docid}}/{{userid}}.pdf" class="toolancr" data-toggle="tooltip" data-placement="bottom" data-original-title="click this to see all participants list of this document" aria-describedby="tooltip841003"
-                                                                            style="color: #426cd5;"> 
-                pdf-{{document.documentid}}.pdf</a>
-
-                                                                        <div class="tooltip fade bottom in tooltipp" role="tooltip" id="tooltip841003" style="top: 84px; left: 118.523px; display: none;">
-                                                                            <div class="tooltip-arrow" style="left: 50%;"></div>
-                                                                            <!-- <div class="tooltip-inner">click this to see all participants list of this document</div> -->
-                                                                        </div>
-                                                                    </td>
-
-
-
-                                                                    <td colspan="1" class="completed_box">
-
-                                                                        <a>
-                                                                            <img src="../../assets/img/succ.png" /> <span>Completed</span>
-                                                                        </a>
-
-                                                                    </td>
-
-
-                                                                    <td colspan="2">
-                                                                        <div *ngIf="showvideo" class="img_o">
-                                                                            <a>
-                                                                                <img src="https://ezeeboss.com:3001/images/login/{{document.image}}" class="person_img"></a>
-                                                                            <!-- <img src="https://ezeeboss.com:3001/images/login/{{document.image}}" style=" width: 100px;    margin-bottom: 2px;"> -->
-                                                                        </div>
-                                                                        <div *ngIf="showvideo" class="video vid_o">
-                                                                            <video controls (click)="toggleVideo()" #videoPlayer>
-                                <source src="https://ezeeboss.com:3001/uploadedvideos/{{document.uservideo}}" type="video/mp4" />
-                            </video>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-
-                                                                <tr class="odd" style="background: #fac701;border: none;">
-
-                                                                    <td style="text-align: left; padding-left: 10px" colspan="5">Signed By: {{document.firstName}}({{document.email}})<br> Time: {{document.signedTime.substr(11,8)}}</td>
-                                                                    <td style="text-align: right; padding-right: 10px">
-                                                                       <br> From: {{document.from}}
-                                                                    </td>
-
-                                                                </tr>
-                                                            </div>
-
-
-
-                                                        </tbody>
-                                                        <br>
-
-
-                                                    </table>
-
-                                                </form>
-                                            </div>
-
-                                        </div>
-
+                                    <div class="clearfix"></div>
+                                 </form>
+                              </div>
+                           </div>
+                           <div class="col-lg-12 " style="background:#fff;">
+                              <div class="box3" style="top: 11px;">
+                                 <div class="col-lg-12 span-box" style="border: none;">
+                                    <div ng-repeat="">
+                                       <form method="post" action="" id="" name="myform11">
+                                          <table id="hor-zebra" summary="Employee Pay Sheet" style="width:100%">
+                                             <tbody style="background:  #fff;" *ngFor="let document of documents">
+                                                <!-- {{document.actionrequired}} -->
+                                                <!---------------------not completed --------------- -->
+                                                <div *ngIf="document.actionrequired == 'Not Signed'">
+                                                   <tr>
+                                                      <td colspan="3" style="padding:10px">
+                                                         <label><input type="checkbox" name="" value="MTY=" class="chk"></label> &nbsp;&nbsp;
+                                                         <a target="_blank" href="https://ezeeboss.com:3001/uploadedpdf/{{document.documentid}}/pdf.pdf" class="toolancr" data-toggle="tooltip" data-placement="bottom" data-original-title="click this to see all participants list of this document" aria-describedby="tooltip841003"
+                                                            style="color: #426cd5;">pdf-{{document.documentid}}.pdf</a>
+                                                         <div class="tooltip fade bottom in tooltipp" role="tooltip" id="tooltip841003" style="top: 84px; left: 118.523px; display: none;">
+                                                            <div class="tooltip-arrow" style="left: 50%;"></div>
+                                                            <!-- <div class="tooltip-inner">click this to see all participants list of this document</div> -->
+                                                         </div>
+                                                      </td>
+                                                      <td colspan="1">
+                                                         <a href="">
+                                                         <img src="../../assets/img/Layer.png" style=" width: 48px;    margin-bottom: 2px;"> Need to sign</a>
+                                                      </td>
+                                                      <td colspan="1">
+                                                         <a>
+                                                         <img src="../../assets/img/waitnin.png" title="click this to see document detail" data-toggle="tooltip" data-placement="bottom">
+                                                         </a>
+                                                      </td>
+                                                   </tr>
+                                                   <tr class="odd" style="background: #fac701;border: none;">
+                                                      <td style="text-align: left; padding-left: 10px" colspan="5">Need To Sign: {{document.firstName}}({{document.email}})</td>
+                                                      <td style="text-align: right; padding-right: 10px">
+                                                         From: {{document.from}}
+                                                      </td>
+                                                   </tr>
+                                                </div>
+                                                <!---------------------------   completed ------------------------ -->
+                                                <div *ngIf="document.actionrequired != 'Not Signed'">
+                                                   <tr>
+                                                      <td colspan="3" style=" padding:10px">
+                                                         <label><input type="checkbox" name="" value="MTY=" class="chk">
+                                                         </label>
+                                                         <a target="_blank" href="https://ezeeboss.com:3001/signedpdf/{{document.docid}}/{{userid}}.pdf" class="toolancr" data-toggle="tooltip" data-placement="bottom" data-original-title="click this to see all participants list of this document" aria-describedby="tooltip841003"
+                                                            style="color: #426cd5;"> pdf-{{document.documentid}}.pdf</a>
+                                                         <div class="tooltip fade bottom in tooltipp" role="tooltip" id="tooltip841003" style="top: 84px; left: 118.523px; display: none;">
+                                                            <div class="tooltip-arrow" style="left: 50%;"></div>
+                                                            <!-- <div class="tooltip-inner">click this to see all participants list of this document</div> -->
+                                                         </div>
+                                                      </td>
+                                                      <td colspan="1" class="completed_box_green" style="padding: 10px;">
+                                                         <a>
+                                                         <img src="../../assets/img/succ.png" /> <span>Completed</span>
+                                                         </a>
+                                                      </td>
+                                                      <td colspan="2">
+                                                         <div *ngIf="showvideo" class="img_o">
+                                                            <a>
+                                                            <img src="https://ezeeboss.com:3001/images/login/{{document.image}}" class="person_img"></a>
+                                                            <!-- <img src="https://ezeeboss.com:3001/images/login/{{document.image}}" style=" width: 100px;    margin-bottom: 2px;"> -->
+                                                         </div>
+                                                         <div *ngIf="showvideo" class="video vid_o">
+                                                            <source src="https://ezeeboss.com:3001/uploadedvideos/{{document.uservideo}}" type="video/mp4" />
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr class="odd" style="background: rgb(90,115,27) !important ;border: none;">
+                                                      <td style="text-align: left; padding-left: 10px" colspan="5">Signed By: {{document.firstName}}({{document.email}})<br> Time: {{document.signedTime.substr(11,8)}}</td>
+                                                      <td style="text-align: right; padding-right: 10px">
+                                                         From: {{document.from}}
+                                                      </td>
+                                                   </tr>
+                                                </div>
+                                             </tbody>
+                                             <br>
+                                          </table>
+                                       </form>
                                     </div>
-                                </div>
-
-                            </div>
-
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                        <!-- /tab-content -->
-
-
-
-                        <div class="clearfix"></div>
-
-                    </div>
-
-                </div>
-
+                     </div>
+                     <!-- /tab-content -->
+                     <div class="clearfix"></div>
+                  </div>
+               </div>
             </div>
-
-        </div>
-
-        <div class="shade">
-
-            <div class="popmsg">
-
-                <p style="color:#FFFFFF; text-align:center;font-weight:900;font-size:16px;padding:10px 0; margin:0;" id="ses"></p>
-
-            </div>
-
-        </div>
- 
-</div>    
+         </div>
+      </div>
+      <div class="shade">
+         <div class="popmsg">
+            <p style="color:#FFFFFF; text-align:center;font-weight:900;font-size:16px;padding:10px 0; margin:0;" id="ses"></p>
+         </div>
+      </div>
+   </div>
 </section>
-
 <footer id="footer">
-    <div class="container">
-        <div class="col-md-2 col-sm-2 col-xs-12">
-            <div class="msgimgdiv">
-                <img src="../../assets/img/chat.png" />
-            </div>
-        </div>
-        <div class="col-md-5 col-sm-5 col-xs-12">
-            <div class="copyrighttext">
-                <p>COPYRIGHT &copy; 2018.ALL RIGHTS RESERVED</p>
-            </div>
-        </div>
-        <div class="col-md-5 col-sm-5 col-xs-12">
-            <div class="social-icondiv">
-                <ul>
-                    <li>
-                        <a>
-                            <img src="../../assets/img/insta.png" />
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <img src="../../assets/img/fb.png" />
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <img src="../../assets/img/twitter.png" />
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <img src="../../assets/img/google-plus.png" />
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <img src="../../assets/img/you.png" />
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <img src="../../assets/img/test.png" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+   <div class="container">
+      <div class="col-md-2 col-sm-2 col-xs-12">
+         <div class="msgimgdiv">
+            <img src="../../assets/img/chat.png" />
+         </div>
+      </div>
+      <div class="col-md-5 col-sm-5 col-xs-12">
+         <div class="copyrighttext">
+            <p>COPYRIGHT &copy; 2018.ALL RIGHTS RESERVED</p>
+         </div>
+      </div>
+      <div class="col-md-5 col-sm-5 col-xs-12">
+         <div class="social-icondiv">
+            <ul>
+               <li>
+                  <a>
+                  <img src="../../assets/img/insta.png" />
+                  </a>
+               </li>
+               <li>
+                  <a>
+                  <img src="../../assets/img/fb.png" />
+                  </a>
+               </li>
+               <li>
+                  <a>
+                  <img src="../../assets/img/twitter.png" />
+                  </a>
+               </li>
+               <li>
+                  <a>
+                  <img src="../../assets/img/google-plus.png" />
+                  </a>
+               </li>
+               <li>
+                  <a>
+                  <img src="../../assets/img/you.png" />
+                  </a>
+               </li>
+               <li>
+                  <a>
+                  <img src="../../assets/img/test.png" />
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </div>
 </footer>
