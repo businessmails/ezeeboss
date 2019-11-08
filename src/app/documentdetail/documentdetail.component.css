@@ -114,22 +114,12 @@ footer {
     margin: 0;
 }
 
-
-.search-btn {
-    background: #7a6220;
-    padding: 10px 40px;
-    color: #fff;
-    border: none;
-    font-size: 14px;
-    box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
-}
-
 .box3 {
         padding: 6px 20px 20px;
     background: #414541 !important;
     border: none !important;
 }
-.box3 input { border-radius: 0; border: 2px solid #414541; margin-bottom: 0px; }
+.box3 input { border-radius: 0; border: 2px solid #414541; margin-bottom: 20px; }
 .calinput { float: left; border: 3px #414541 solid !important; border-radius: 0; }
 .calinnerdiv .calinput { width: 80% !important; }
 
@@ -149,7 +139,14 @@ tbody {
 tbody tr {
     display: inline-table;
 }
-
+.box3 .search-btn{
+    border: none;
+    background-color: rgb(89,169,35);
+    color: white;
+    padding: 9px 35px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
 .thbvft {
     /* display: inline-block; */
     background-color: #a68734;

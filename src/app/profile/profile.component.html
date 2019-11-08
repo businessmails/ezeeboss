@@ -71,9 +71,7 @@
                 <div class="form-group plusdiv">
                   <label class="control-label col-sm-2" for="">Email*</label>
                   <div class="col-sm-10">
-                    <input type="email" disabled name="email" [(ngModel)]="details.email" value="{{ details?.email }}"
-                      class="form-control plus_inpit" required id="">
-                    <a class="add_email_plus"><i class="fa fa-plus custom_plus"></i></a>
+                    <input type="email" disabled name="email" [(ngModel)]="details.email" value="{{ details?.email }}" class="form-control plus_inpit" required id="">
                   </div>
                 </div>
                 <div class="form-group plusdiv">
@@ -96,19 +94,9 @@
                   <div class="col-sm-10">
                     <div *ngIf='toggel' style="transform: scale(-1,1);" class="img">
                       <img class='img-thumbnail' [src]="image" alt='Broken image' />
-
                     </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12 signdiv tooltip124">
-                      <button [ngClass]="{' green pulse-button pulse': animatebtn }" type="button"
-                        (click)="registerwithoutimage();" class="btn signbtn"> {{text}}
-                        <!-- <img src="../../assets/img/signup2.png" /> -->
-
-                      </button>
-                      <!-- <span class="tooltiptext1">Chnage image -->
-
-                      <!-- </span> -->
-                    </div>
-                    <div *ngIf="!withoutImage">
+                    <div class="row">
+                      <div *ngIf="!withoutImage">
                       <div style="transform: scale(-1,1);">
                         <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam">
                         </webcam>
@@ -154,13 +142,24 @@
                       <button *ngIf="Camera" type="button" (click)="triggerSnapshot();" class="btn signbtn recap_img"
                         [ngClass]="{'pulse-button': animatecamerabtn }"><img src="../../assets/img/cap_image.png"
                           class="img-responsive" /></button>
-                      <span class="tooltiptext1">Register using Face Recognition System</span>
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12 signdiv">
                       <button *ngIf="recapture" type="button" (click)="toggleWebcam();"
                         class="btn  signbtn recap_img"><img src="../../assets/img/recap_image.png"
                           class="img-responsive" /></button>
                     </div>
+                    </div>
+                    <button [ngClass]="{' green pulse-button pulse': animatebtn }" type="button"
+                        (click)="registerwithoutimage();" class="btn signbtn_cap"> {{text}}
+                        <!-- <img src="../../assets/img/signup2.png" /> -->
+                      </button>
+                    <div class="col-md-12 col-sm-12 col-xs-12 signdiv tooltip124">
+                      
+                      <!-- <span class="tooltiptext1">Chnage image -->
+
+                      <!-- </span> -->
+                    </div>
+                    
 
 
                   </div>
