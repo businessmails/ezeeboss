@@ -45,7 +45,7 @@ export class PendingDocComponent implements OnInit {
       .subscribe(data => {
 
       this.documentdetail = data;
-       this.items = this.documentdetail.message.reverse();
+       this.items = this.documentdetail.message;
       this.documents = this.documentdetail.message.reverse();
     //  console.log(this.documents);
       });

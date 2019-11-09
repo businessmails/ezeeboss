@@ -632,7 +632,7 @@
                   </div>
                 </div>
               </div>
-              <file-drop (onFileDrop)="filedropped($event)" (onFileOver)="addzindex();" style="background-color: red"
+              <file-drop (onFileDrop)="filedropped($event)" accept="pdf" (onFileLeave)="fileDrop()" (onFileOver)="addzindex();" style="background-color: red"
                 class="filedroptext"> </file-drop>
               <div class="clearfix"></div>
             </div>

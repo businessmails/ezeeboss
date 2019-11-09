@@ -155,16 +155,16 @@ export class NewsignpdfComponent implements OnInit {
                       this.router.navigateByUrl('/rejectedmassage');
                     } else {
                       if(this.html.data.expiration != null){
-                      console.log('-->',new Date(this.html.data.expiration));
-                      console.log(new Date())
+                      // console.log('-->',new Date(this.html.data.expiration));
+                      // console.log(new Date())
                       if(new Date()>new Date(this.html.data.expiration)){
                         alert("Document is Expired ");
 
-                        console.log("today is greater ");
+                        // console.log("today is greater ");
                          this.router.navigateByUrl('/landing');
                       }
                       if(new Date()<new Date(this.html.data.expiration)){
-                        console.log("today is before ")
+                        // console.log("today is before ")
                       }
                       }
                       this.withimage = this.html.data.withimage;

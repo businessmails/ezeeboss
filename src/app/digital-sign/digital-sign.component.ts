@@ -81,7 +81,7 @@ export class DigitalSignComponent implements OnInit {
     dateFormat: 'mm-dd-yyyy',
     closeSelectorOnDocumentClick: false
   };
-  template: string =`<img src="../../assets/img/ezgif.com-gif-makerold.gif" style="margin-left:200px"/>`;
+  template: string = `<img src="../../assets/img/ezgif.com-gif-makerold.gif" style="margin-left:200px"/>`;
 
   model: any = { jsdate: new Date() };
   @ViewChild('addparticipantModal') addparticipantModal: any;
@@ -104,7 +104,7 @@ export class DigitalSignComponent implements OnInit {
     private _location: Location
 
   ) { }
- backClicked() {
+  backClicked() {
     this._location.back();
   }
   addparticipantForm = this.fb.group({
@@ -164,7 +164,10 @@ export class DigitalSignComponent implements OnInit {
     });
 
   }
-
+  fileDrop() {
+    console.log('this.files');
+    this.spinnerService.hide();
+  }
   fileChange(event) {
 
     const fileList: FileList = event.target.files;
@@ -232,7 +235,7 @@ export class DigitalSignComponent implements OnInit {
             // console.log(error);
             this.message2 = "Something went wrong";
             // this.showMessage = true;
-                 this.spinnerService.hide();
+            this.spinnerService.hide();
             this.slimLoadingBarService.reset();
           });
       }
@@ -257,25 +260,24 @@ export class DigitalSignComponent implements OnInit {
   }
 
   filedropped(event: UploadEvent) {
-    this.spinnerService.show();
 
     this.files = event.files;
-    //  this.spinnerService.hide();
+    if (!this.files) {
+      this.spinnerService.hide();
+    }
 
+      if (this.files[0].fileEntry.name.split('.').pop() != 'pdf') {
+      this.spinnerService.hide();
+    } 
     for (const droppedFile of event.files) {
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         if (fileEntry.name.split('.').pop() === 'pdf' || fileEntry.name.split('.').pop() === 'PDF') {
           this.pdferror = ''
           fileEntry.file((file: File) => {
-            //  const fileList: FileList = event.target.files;
-            // console.log(event.target.files);
             this.pdfname = fileEntry.name;
-            // console.log("pdfname,",fileEntry.name)
-            // var extension = event.target.files[0].type;
             const formData = new FormData();
             this.showpercentMessage = false;
-
             formData.append('filetoupload', file, droppedFile.relativePath);
             this.http.post('https://ezeeboss.com:3001/api/uploadfile', formData, {
               reportProgress: true, observe: 'events'
@@ -289,8 +291,7 @@ export class DigitalSignComponent implements OnInit {
                     var cx = HttpEventType.Response;
 
                     if (cx) {
-                      //  console.log("hide........")
-                      // this.spinnerService.hide();
+                      // console.log("hide........")
                     }
                     this.slimLoadingBarService.complete();
                     this.showMessage = true;
@@ -339,6 +340,7 @@ export class DigitalSignComponent implements OnInit {
 
           });
         } else {
+           this.spinnerService.hide();
           this.pdferror = 'Please Upload Pdf Files Only';
         }
       } else {

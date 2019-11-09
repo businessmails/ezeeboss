@@ -81,6 +81,7 @@ export class ProfileComponent {
       this.text = 'Capture New Image';
       this.toggel = true;
       this.recapture = false;
+      this.webcamImage =null;
       // console.log("not null")
       this.withoutImage = 'Selected';
       this.image = this.oldimage;

@@ -1,19 +1,14 @@
 
 <div class="wrapper">
   <app-header></app-header>
-  <!-- Left side column. contains the logo and sidebar -->
   <app-main-side-bar></app-main-side-bar>
-  
   <div class="content-wrapper sd_spce">
-     <!-- Main content -->
-     <!-- <section class="content1"> -->
      <div class="no_container">
       <div class="row hundrnd_cntr">
         <div id="div1" class="col-sm-6" >
 			<div class="cmplt_dsh_hdng">
 				<h2>Completed Document</h2>
 			</div>
-
 			<div class="tble_dvv" *ngFor="let document of documents">
 				<table style="width:100%">
 				  <tr class="bg_clr_tble">
@@ -28,57 +23,38 @@
 				  </tr>
 				</table>
 			</div>
-           
-
         </div>
-		
-		
-        <div id="div2" class="col-sm-6">
+				<div class="col-sm-6">
+        <div id="div2" >
 			<div class="scmd_clndr_hdng">
 				<h2>Calendar</h2>
 			</div>
 			<div class="row cnt_cnt">
-				<div class="col-md-6">
-					<div class="clndrrr"><input type="date"></div>
+				<div class="col-md-5">
+					<div class="clndrrr"><input type="date" [(ngModel)]="today" (change)='datechange($event)'  (ngModelChange)="today = $event" ></div>
 				</div>
-				<div class="col-md-6 no_padding">
+				<div class="col-md-7 no_padding">
 					<div class="ryt_wrk">
-						<div class="same_dc_dsng">
+						<div class="same_dc_dsng" *ngFor='let pen of pendingdocuments_pen'>
+							<!-- {{pen | json}} -->
 							<div class="spn_txt">
-								<span class="txt_up">11</span><br><span class="txt_dwn_up">11</span>
+							
+								<span class="txt_up">{{pen.date | date: 'MM'}}</span><br><span class="txt_dwn_up">{{pen.date | date: 'dd'}}</span>
 							</div>
 							<div class="ryt_sd_txt">
-								<h4>History of the earth</h4>
-								<span class="smll_txt_hfor">09:30</span>
+										<!-- <td class="on_hover_bodr"><a routerLink="/documentdetail/{{document.documentid}}">pdf-{{document.documentid}}</a></td> -->
+								<h4><a routerLink="/documentdetail/{{pen.documentname}}">pdf- {{pen.documentname}}</a></h4>
+								<span class="smll_txt_hfor">{{pen.date | date: 'yyyy'}}</span>
 							</div>
 						</div>
-						<div class="same_dc_dsng aftrr">
-							<div class="spn_txt cng-clr">
-								<span class="txt_up">11</span><br><span class="txt_dwn_up">11</span>
-							</div>
-							<div class="ryt_sd_txt">
-								<h4>History of the earth</h4>
-								<span class="smll_txt_hfor">09:30</span>
-							</div>
-						</div>
-						<div class="same_dc_dsng aftrr">
-							<div class="spn_txt">
-								<span class="txt_up">11</span><br><span class="txt_dwn_up">11</span>
-							</div>
-							<div class="ryt_sd_txt">
-								<h4>History of the earth</h4>
-								<span class="smll_txt_hfor">09:30</span>
-							</div>
-						</div>
+					
 					</div>
 				</div>
 			</div>
 			
 		</div>
-
+		</div>
         </div>
-		
-		
 		<div class="row extra_space">
 			<div class="col-md-4">
 				<div class="four_full" >
@@ -94,15 +70,12 @@
 							<span class="sml_txtt_xxx">
 								<a routerLink="/documentdetail/{{pendingdoc.documentid}}">
 									Pdf-{{pendingdoc.documentid}}</a>
-	
 							</span>
 							<p>{{pendingdoc.sendername}}</p>
 						</div>
 					</div>
-
 				</div>
 			</div>
-			
 			<div class="col-md-8">
 				<div class="eight_fll">
 					<div class="top_bg_for_hdng">
@@ -125,19 +98,8 @@
 				</div>
 			</div>
 		</div>
-    
     </div>
-
-
-
-  <!-- </section> -->
-  <!-- /.content -->
-
   </div>
-
-
-
-
 
 <script>
 /* When the user clicks on the button, 
@@ -160,8 +122,6 @@ window.onclick = function(event) {
   }
 }
 </script>
-
-
   
   <div class="control-sidebar-bg"></div>
 </div>

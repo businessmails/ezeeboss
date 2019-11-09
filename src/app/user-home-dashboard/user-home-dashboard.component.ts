@@ -18,6 +18,9 @@ fullname:String;
 email:String;
 pendingdocuments:any;
 image: String;
+  today: string;
+  documentdetail_pen: any;
+  pendingdocuments_pen: any;
 constructor(
   private http: HttpClient,
   private auth: AuthenticationService,
@@ -25,7 +28,21 @@ constructor(
   private router: Router,
 ) { }
 
+datechange(e){
+console.log(e.target.value);
+
+   this.http.post(this.AppComponent.BASE_URL+'/api/mydocuments/'+ this.userid, {date :e.target.value})
+      .subscribe(data => {
+      this.documentdetail_pen = data;
+      this.pendingdocuments_pen = this.documentdetail_pen.data.reverse();
+      console.log(" this.pendingdocuments_pen:", this.pendingdocuments_pen)
+      });
+
+
+
+}
   ngOnInit() {
+    //  this.today = new Date().toISOString().split('T')[0];
     this.digitalpath = localStorage.getItem('digitalpath');
     
     this.auth.profile().subscribe(user => {
