@@ -3,8 +3,22 @@
   <!-- Left side column. contains the logo and sidebar -->
   <app-main-side-bar></app-main-side-bar>
   <modal #completeddetail [hideCloseButton]="true" [closeOnOutsideClick]="true">
-    <modal-content>
-      <div class="col-lg-10 col-md-10 col-xs-12">
+    <modal-content  class="custom-mod-cont">
+      <div class="col-xs-12 nullvoid">
+        <div class="top_popup_header_es">
+          <p class="text-center header_popup">Detail</p>
+          <a class="popuplog-close">x</a>
+        </div>  
+        <div _ngcontent-c7="" class="col-xs-12">
+          <p _ngcontent-c7="" class="mail_info"><b _ngcontent-c7="">Send By:</b> {{sendername}}</p>
+          <p _ngcontent-c7="" class="mail_info"><b _ngcontent-c7="">Signed Location:</b> {{signedlocation}}</p>
+          <div _ngcontent-c7="" class="mail_info"><b _ngcontent-c7="">Signed Date:</b> {{signeddate  | amDateFormat: 'MM/DD/YYYY'}}</div>
+          <div _ngcontent-c7="" class="mail_info"><b _ngcontent-c7="">Signed Time:</b> {{signedtime | amDateFormat: 'h:mm:ss a'}}</div>
+          <div _ngcontent-c7="" class="mail_info"><b _ngcontent-c7="">Signed IP:</b> {{signedip}}</div>
+        </div>
+
+      </div>
+      <!-- <div class="col-lg-10 col-md-10 col-xs-12">
         <div class="row message-part">
           <div class="inner-part" style="float:left; border-radius:0px; box-shadow:none;width:100%;margin-left:20px;">
             <div class="col-lg-12">
@@ -49,7 +63,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
     </modal-content>

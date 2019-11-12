@@ -180,30 +180,21 @@
               </ul>
 
               <div id="myTabContent" class="tab-content mobilecontent" style="opacity: 1;">
-
-
-
-
                 <div class="tab-pane active" id="home">
                   <div class="col-lg-12 col-md-12 col-xs-12">
-
                     <div class="">
-
                       <span class="smartusericon">
                         <i class="fa fa-user" (click)="useridentity = !useridentity"
                           style="font-size:24px !important; color:#b59848;" aria-hidden="true" data-placement="left"
                           data-toggle="tooltip" data-original-title="Edit your identity"></i>
                       </span>
                       <form class="smartfloatform">
-
                         <div class="form-group smartfloat smartnofloat" *ngIf="useridentity">
-
                           <label for="inputEmail" class="col-lg-2 control-label1">From:</label>
                           <div class="col-lg-10 ">
                             <input type="text" [(ngModel)]="email" class="form-control" name="from">
                           </div>
                         </div>
-
                         <div class="form-group smartfloat">
                           <div class="col-md-10 col-md-offset-2">
                             <span style="font-family:&#39;Century Gothic&#39;; color:#000; font-size:15px;">Use comma(,)
@@ -219,21 +210,16 @@
                               <li class="pointer" (click)="selectmail(email.email)" *ngFor="let email of serchedmail">
                                 {{email.email}}
                               </li>
-
                             </ul>
-                            <span class="" style="color:red" *ngIf='emailerror'>{{emailerror}}</span>
+                            <span class="" style="color: red; font-size: 15px; font-weight: 600;" *ngIf='emailerror'>{{emailerror}}</span>
                           </div>
                         </div>
                         <div class="form-group smartfloat">
                           <label for="inputEmail" class="col-lg-2 control-label1">Subject:</label>
                           <div class="col-lg-10">
                             <input type="text" #subject class="form-control" name="subject" value="">
-
                           </div>
                         </div>
-
-
-
                         <div class="form-group smartfloat">
                           <div class="my_class_editingg">
                             <div class="col-md-12 mobilepd">
@@ -241,9 +227,7 @@
                               <label for="smartfile" class="bottom-nextbtn smartchoose">Choose File</label>
                               <input type="file" (change)="fileChange($event)" class="form-control" id="smartfile"
                                 style="display: none;">
-                              <span class="fileerror" style="color:red" *ngIf='filerror'>{{filerror}}</span>
-
-
+                              <span class="fileerror" style="color: red; font-size: 15px; font-weight: 600;" *ngIf='filerror'>{{filerror}}</span>
                             </div>
                             <div class="col-xs-10 col-xs-offset-2">
                               <div class="file_preview">
@@ -257,65 +241,41 @@
                           </div>
                         </div>
                       </form>
-
                       <div class="smarteditordiv">
                         <!-- editorbox starts -->
                         <div class="col-lg-2"></div>
                         <div class="col-lg-10 col-md-10 col-xs-12">
-
                           <div class="editorbox">
-
                             <textarea #data class="form-control pannel"
                               style="box-shadow:none !important; width:100%; border-radius: 0; border: 1px solid #515252;"
                               rows="3" id="textArea" placeholder="Type your message here" name="msg"></textarea>
                           </div>
-
                           <input #password
                             style="font-family: 'century gothic' !important; border-radius: 0; border: 1px solid #515252;"
                             type="password" placeholder="Type your password here " name="pass" id="password"
                             class="form-control pannel" required>
-  <span class="" style="color:red" *ngIf='passwordError'>{{passwordError}}</span>
-                            
+                            <span class="" style="color: red; font-size: 15px; font-weight: 600;" *ngIf='passwordError'>{{passwordError}}</span>
                         </div>
                         <!-- editorbox ends -->
                         <div class="col-xs-12 text-right">
                           <button (click)="sendmail()" class="all_send_button">SEND</button>
                         </div>
-
                       </div>
-
-
                     </div>
-
                   </div>
-
-
                   <!-- /tab-content -->
-
-
                 </div>
               </div>
-
               <div class="clearfix"></div>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
-
-
       <div class="shade">
-
         <div class="popmsg">
-
           <p style="color:#FFFFFF; text-align:center;font-weight:900;font-size:16px;padding:10px 0; margin:0;" id="ses">
           </p>
-
         </div>
-
       </div>
     </div>
   </div>
