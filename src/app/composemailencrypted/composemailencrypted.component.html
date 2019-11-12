@@ -228,17 +228,13 @@
 
                           </div>
                         </div>
-
-
-
                         <div class="form-group smartfloat">
                           <div class="col-md-12 col-sm-12 col-xs-12 mobilepd">
-
                             <label for="inputEmail" class="col-lg-2 control-label1">PDF Only</label>
                             <label for="smartfile" class="bottom-nextbtn smartchoose">Choose File</label>
                             <input type="file" (change)="fileChange($event)" class="form-control" id="smartfile"
                               style="display: none;" accept="application/pdf" required>
-                            <span style="color:red" *ngIf="filerror">{{filerror}}</span>
+                            <span style="color: red; font-size: 15px; font-weight: 600;" *ngIf="filerror">{{filerror}}</span>
                           </div>
                           <div class="col-xs-offset-2 col-xs-10">
                             <div class="file_preview" *ngIf='!hide'>
@@ -253,20 +249,15 @@
                           </div>
                         </div>
                       </form>
-
                       <div class="smarteditordiv">
                         <!-- editorbox starts -->
                         <div class="col-lg-2"></div>
                         <div class="col-lg-10 col-md-10 col-xs-12 smartfloat">
-
                           <div class="editorbox s_mail">
-
                             <input type="message" #message class="form-control " name="msg" value=""
                               placeholder="Type Your Message Here" autocomplete="off">
-
                           </div>
                           <div class="encyt">
-
                             <label class="new_checkbox_2">
                               <h5>To ENCRYPT using system generated password check box or type your own password in the
                                 box below. </h5>
@@ -275,7 +266,6 @@
                             </label>
                           </div>
                           <div *ngIf="show" class="editorbox s_mail">
-
                             <input type="password" #password (blur)="update(password.value)" class="form-control"
                               name="password" [value]="" placeholder="Type Your Password Here" autocomplete="off">
                           </div>

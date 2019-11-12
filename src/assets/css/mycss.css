@@ -3489,6 +3489,7 @@ button.btn.signbtn.recap_img {
 .custom_plus { position: unset!important;}
 .popuplog-close {position:absolute; top:-15px; right:-15px;}
 .top_popup_header { background:#378d8b; }
+.top_popup_header_es { background: #848f04 }
 .top_popup_header_file_tranfer{ background: rgb(188, 123, 57) !important }
 .top_popup_header_en_mail{ background:#521629 !important }
 .top_popup_header_e_sign { background: #5a731b }
@@ -3548,7 +3549,8 @@ textarea.gettext.appended { background: transparent; }
 a.dashboard_home, a:hover.dashboard_home { margin-top: 8px; display: inline-block; font-size: 25px; color: #fff; padding-left: 50px; font-weight: 600; }
 a.dashboard_home i { margin-right: 10px; }
 .fnt_big img {width: 25px;}
-
+.spiner { opacity: 1!important; color: rgba(0,0,0,.7)!important; }
+.spiner img{ opacity: 1!important; }
 
 
 @media only screen and (max-width: 2560px) and (min-width: 1440px)
