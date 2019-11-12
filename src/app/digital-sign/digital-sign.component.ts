@@ -505,7 +505,10 @@ export class DigitalSignComponent implements OnInit {
     }
   }
   // ------------------------ get contact details ------------- //
-
+close(){
+      this.mycontactsModal.close();
+      this.addparticipantModal.open()
+}
   contactdetail(id: String) {
     this.error = null;
     this.mycontactsModal.close();

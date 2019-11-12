@@ -301,7 +301,7 @@ footer {
     background-image: linear-gradient(to bottom,#b59748 0,#715632 100%);
 }
 /*form end*/
-
+.camra_edit_profile { display: inline-block;  }
 
 /*responsive css start*/
 @media only screen and (max-width: 1200px) and (min-width: 320px){
@@ -361,7 +361,15 @@ footer {
     font-weight: 700;
     padding: 6px !important;
 }
-
+.signbtn_cap {
+    max-width: 166px;
+    max-height: 40px;
+    color: #fff;
+    background: #89b345 !important;
+    font-weight: 700;
+    padding: 6px !important;
+    margin-top: 15px;
+}
 
 @media only screen and (max-width: 991px) and (min-width: 768px){
 	.ezeelogintext p {

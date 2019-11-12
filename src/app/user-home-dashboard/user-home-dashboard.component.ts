@@ -21,6 +21,7 @@ image: String;
   today: string;
   documentdetail_pen: any;
   pendingdocuments_pen: any;
+  nodoc: boolean =false;
 constructor(
   private http: HttpClient,
   private auth: AuthenticationService,
@@ -29,13 +30,15 @@ constructor(
 ) { }
 
 datechange(e){
-console.log(e.target.value);
-
    this.http.post(this.AppComponent.BASE_URL+'/api/mydocuments/'+ this.userid, {date :e.target.value})
       .subscribe(data => {
       this.documentdetail_pen = data;
       this.pendingdocuments_pen = this.documentdetail_pen.data.reverse();
-      console.log(" this.pendingdocuments_pen:", this.pendingdocuments_pen)
+      if(this.pendingdocuments_pen.length<=0){
+        this.nodoc =true;
+      }else{
+        this.nodoc =false;
+      }
       });
 
 

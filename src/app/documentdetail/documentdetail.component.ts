@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails } from '../authentication.service';
 import { INgxMyDpOptions, IMyDateModel } from 'ngx-mydatepicker';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-documentdetail',
@@ -29,8 +30,14 @@ export class DocumentdetailComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
-    private auth: AuthenticationService
+    private auth: AuthenticationService,
+    private _location: Location
+
   ) { }
+
+  backClicked() {
+    this._location.back();
+  }
 
   ngOnInit() {
     this.digitalpath = localStorage.getItem('digitalpath');

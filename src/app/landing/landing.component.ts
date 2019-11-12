@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService, UserDetails } from '../authentication.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-landing',
@@ -11,6 +12,8 @@ export class LandingComponent implements OnInit {
   public confirm = null;
   fullname: String;
   details: any;
+    private _location: Location
+
   constructor(private auth: AuthenticationService,
     // private fb: FormBuilder,
     private router: Router) {
@@ -23,7 +26,9 @@ export class LandingComponent implements OnInit {
       }
     }
   }
-
+  backClicked() {
+    this._location.back();
+  }
   ngOnInit() {
     this.auth.profile().subscribe(user => {
    //   console.log(user)

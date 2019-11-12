@@ -19,9 +19,13 @@
 .completed_box img {
     width: 19px;
     margin: 0 auto;
-    display: block;
+    display: inline-block;
 }
-
+.completed_box_green img {
+    width: 19px;
+    margin: 0 auto;
+    display: inline-block;
+}
 .jsttext{
     text-align: center;
     width: 100%;
@@ -110,16 +114,6 @@ footer {
     margin: 0;
 }
 
-
-.search-btn {
-    background: #7a6220;
-    padding: 10px 40px;
-    color: #fff;
-    border: none;
-    font-size: 14px;
-    box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
-}
-
 .box3 {
         padding: 6px 20px 20px;
     background: #414541 !important;
@@ -145,7 +139,14 @@ tbody {
 tbody tr {
     display: inline-table;
 }
-
+.box3 .search-btn{
+    border: none;
+    background-color: rgb(89,169,35);
+    color: white;
+    padding: 9px 35px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
 .thbvft {
     /* display: inline-block; */
     background-color: #a68734;

@@ -40,6 +40,7 @@ export class ViewFileComponent implements OnInit {
   serchedmail: any[];
   showsearch: boolean;
   result: any;
+  pwderror: string;
   constructor(
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
@@ -102,6 +103,7 @@ selectmail(email) {
   }
 
   search(email) {
+    this.emailerror=null;
     var mailarray = email.split(',');
     email = mailarray[mailarray.length - 1];
     if (email != '') {
@@ -229,9 +231,19 @@ sendsmartmail() {
 
           if(this.toemails.nativeElement.value === '')
       {
-      this.emailerror = 'Enter a valid Email'
+      this.emailerror = 'Enter a valid Email';
+      return;
       }
+     
       else {
+ this.emailerror =null;
+        if(this.password.nativeElement.value ==''){
+ this.pwderror = 'Enter a valid Password';
+ return
+        }
+        else{
+ this.pwderror = null
+        }
         var emails = this.toemails.nativeElement.value;
         var emailArray = emails.split(",");
         var invEmails = "";

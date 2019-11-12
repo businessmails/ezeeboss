@@ -10,42 +10,34 @@
 </section>
 
 <section class="fullpage">
-<div class="container">
-    <div class="row">
-        <div class="col-xs-6 text-left">
-                    <a  (click)="backClicked()" class="top_back_button"><i class="fa fa-caret-left"></i><span>Back</span></a>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-9">
+                <div class="row">
+                    <div class="col-xs-6 text-left">
+                        <a  (click)="backClicked()" class="top_back_button"><i class="fa fa-caret-left"></i><span>Back</span></a>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <div class="new_custom_drop_down" style="z-index: 1;max-width: 250px;min-width: 250px;">
+                            <li class="dropdown" dropdown>
+                                <i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;<span class="title">{{fullname}} &nbsp;</span>
+                                <a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
+                                    <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
+                                </a>
+                                <ul *dropdownMenu class="my_drop_down">
+                                    <li><a (click)="logout();">Logout</a></li>
+                                    <li><a routerLink="/profile">View Profile</a></li>
+                                    <li id=""><a>Change Password</a></li>
+                                    <li><a>Membership Order</a></li>
+                                </ul>
+                            </li>
+                        </div>
+                    </div>
                 </div>
-        <div class="col-xs-12 text-right">
-            <div class="new_custom_drop_down" style="z-index: 1;max-width: 250px;min-width: 250px;">
-                <li class="dropdown" dropdown>
-
-
-
-                    <i class="fa fa-user list5" aria-hidden="true"></i> &nbsp;
-
-                    <span class="title">{{fullname}} &nbsp;</span>
-                    <a style="cursor: pointer;" class="dropdown-toggle" dropdownToggle>
-                        <div class="downarrow mobiledownarrow"><b class="caret"></b></div>
-                    </a>
-
-                    <ul *dropdownMenu class="my_drop_down">
-
-                        <li><a (click)="logout();">Logout</a></li>
-
-                        <li><a routerLink="/profile">View Profile</a></li>
-
-                        <li id=""><a>Change Password</a></li>
-
-                        <li><a>Membership Order</a></li>
-
-                    </ul>
-
-                </li>
             </div>
         </div>
-</div>
-
-</div>
+    </div>
 
 
 
@@ -59,60 +51,34 @@
 
             <div style="display:block; margin:0 auto;" class="col-lg-12 mobilepd">
 
-                <a href="/landing" data-placement="right" data-toggle="tooltip" data-original-title="">
-                    <p class="pt51 pt567"><span class="fa fa-home"></span>Home</p>
+                <a routerLink="/landing" data-placement="right" data-toggle="tooltip" data-original-title="">
+                    <span class="pt51 pt567 mobilehomebtn">
+                       <span class="fa fa-home"></span> Home
+                    </span>
                 </a>
-
             </div>
 
             <a>
-
                 <img class="img-responsive compose_lock_image" src="../../assets/img/home-02.png" style="margin-top:10%;" alt="" data-placement="right">
-            
             </a>
-
-
-
-
-
             <div class="wrapper2">
-
                 <li style="list-style:none; cursor:pointer;" class="toggle">
-
                     <a style="cursor: pointer;" class="list-part2 mobilehomebtn" (click)="showinstructions = !showinstructions" data-placement="right">
-
                         <span class="title2">INSTRUCTIONS</span>
-
                     </a>
-
                     <ul *ngIf="showinstructions" class="drop-popup mydroppopup">
-
                         <div class="arrow-top"><img src="../../assets/img/arrow-top.png"></div>
-
                         <div class="inst-popup instnew" style="font-family: Century Gothic; font-size: 14px; text-align: left; font-weight: bold; color: #333;">
-
                             <ul style="list-style: none; padding: 0;">
-
                                 <li style="margin-bottom: 10px;">Step 1: Upload or drag and drop PDF file.</li>
-
                                 <li style="margin-bottom: 10px;">Step 2: Check box, if you require an expiration date (not mandatory).</li>
-
                                 <li style="margin-bottom: 10px;">Step 3: Add participants.</li>
-
                                 <li style="margin-bottom: 10px;">Step 4: You can rearrange signing order under "priority". Click on arrow up or down to change signing order (not mandatory). Click next to complete.</li>
-
-
                             </ul>
-
                         </div>
-
                     </ul>
-
                 </li>
-
             </div>
-
-
             <div class="clearfix"></div>
             <!--Instructions & logo part end-->
 
@@ -120,12 +86,9 @@
 
         <div class="col-lg-9 col-md-9 col-xs-12">
             <div class="inner-part8" style="box-shadow:none !important; background-color: rgb(90,115,27) !important;">
-
                 <div class="col-lg-12 p_bottom">
-
                     <div class="col-lg-12">
-
-                        <p class="smartheading_new">e-signature</p>
+                        <p class="smartheading_new">Electronic <span>signature</span></p>
                     </div>
                 </div>
 
@@ -200,7 +163,7 @@
                                         </table>
                                         <!-- </form>-->
                                         <div id="top_tip_relative" class="col-lg-6" style="margin-top: 10px; margin-left: -3%;">
-                                            <a href="javascript:void(0)" (click)="deletecontact()">
+                                            <a routerLink="javascript:void(0)" (click)="deletecontact()">
                                                     <button _ngcontent-c17="" class="delbtn"> Delete</button>
                                                 <div class="tol-tip_sec">
                                                     click check box and delete the record

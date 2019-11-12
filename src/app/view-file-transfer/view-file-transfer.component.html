@@ -1,7 +1,7 @@
 <div id="printcontent">
 <section class="hdrsec">
   <div class="logoimg">
-      <a ><img src="assets/img/ezee-logo.png"/></a>
+      <a routerLink='/' ><img src="assets/img/ezee-logo.png"/></a>
   </div>
 </section>
 
@@ -43,7 +43,7 @@
              </span>
            </a>           
         </div>	             
-        <a href="">              
+        <a routerLink="">              
           <img class="img-responsive compose_lock_image" src="../../assets/img/home-03.png"  alt="" data-placement="right">               
         </a>
         <div class="wrapper2">   
@@ -267,6 +267,8 @@
 
                             </ul>
 
+                            <div style="color:red" *ngIf='emailerror'>{{emailerror}}</div>
+
                                                     </div>
                                                 </div>
                                                 <div class="form-group smartfloat">
@@ -307,7 +309,9 @@
                                                         <textarea [(ngModel)] = "innerhtml" #datas class="form-control pannel" style="box-shadow:none !important; width:100%; border-radius: 0; border: 1px solid #515252;" rows="3" id="textArea" placeholder="Type your message here" name="msg"></textarea>
                                                     </div>
 
-                                                    <input #password style="font-family: 'century gothic' !important; border-radius: 0; border: 1px solid #515252;" type="password" placeholder="Type your password here " name="pass" id="password" class="form-control pannel"></div>
+                                                    <input #password style="font-family: 'century gothic' !important; border-radius: 0; border: 1px solid #515252;" type="password" placeholder="Type your password here " name="pass" id="password" class="form-control pannel">
+                                                    <div style="color:red" *ngIf='pwderror'>{{pwderror}}</div>
+                                                    </div>
                                                 <!-- editorbox ends -->
                                              
 

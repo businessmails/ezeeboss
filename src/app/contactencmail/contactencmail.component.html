@@ -1,7 +1,7 @@
 
 <section class="hdrsec">
     <div class="logoimg">
-        <a href="/"><img src="assets/img/ezee-logo.png" /></a>
+        <a routerLink="/"><img src="assets/img/ezee-logo.png" /></a>
     </div>
 </section>
 
@@ -60,7 +60,7 @@
 
                 </div>
 
-                <a href="">
+                <a routerLink="">
 
                     <img class="img-responsive compose_lock_image" src="../../assets/img/home-04.png" alt="" data-placement="right">
 
@@ -236,7 +236,7 @@
                                                             <td><input type="text" class="form-control input-sm" #contact value="{{item.contact}}"></td>
                                                             <td>
                                                                 <span *ngIf="item.mailsent !=0" style="color:red;">
-           <a href=""><font color="green">Mail Sent <br>({{item.mailsent}})</font></a>
+           <a routerLink=""><font color="green">Mail Sent <br>({{item.mailsent}})</font></a>
          </span>
                                                                 <span *ngIf="item.mailsent ==0" style="color:red;">
             <b>No</b>

@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
 }
 
 ngOnInit() {
+  // this.slideshow.goToSlide(0);
   let ele = document.querySelector('.arrow.prev') as HTMLElement;
   ele.classList.remove('arrow')
   ele.classList.remove('left');
@@ -59,7 +60,7 @@ ngOnInit() {
 }
 
     setcarouselimage(image) {
-  
+  console.log(image)
       this.slideshow.goToSlide(image);
     }
 

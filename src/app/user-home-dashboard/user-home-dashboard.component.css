@@ -301,3 +301,8 @@ input[type="date"]::-webkit-inner-spin-button{
 .cnt_cnt.no_padding {
     padding: 19px 0 0;
 }
+::-webkit-clear-button
+{
+    display: none; /* Hide the button */
+    -webkit-appearance: none; /* turn off default browser styling */
+}

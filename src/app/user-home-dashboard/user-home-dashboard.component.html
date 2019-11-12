@@ -35,6 +35,14 @@
 				</div>
 				<div class="col-md-7 no_padding">
 					<div class="ryt_wrk">
+						<div *ngIf='!pendingdocuments_pen'>
+							Please Select date First
+						</div>
+						
+
+							<div *ngIf='nodoc'>
+							 No document avalible
+						</div>
 						<div class="same_dc_dsng" *ngFor='let pen of pendingdocuments_pen'>
 							<!-- {{pen | json}} -->
 							<div class="spn_txt">
