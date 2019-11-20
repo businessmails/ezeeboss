@@ -205,7 +205,7 @@ export class LoginComponent implements OnInit {
       if (!regex.test(this.forgotemail)) {
        // alert(this.forgotemail);
         // console.log('dsd');
-        this.forgeterrorclass = 'text-danger'
+        this.forgeterrorclass = 'text-danger font-b'
         this.forgetresponse = 'Please enter a valid email';
         // this.spinnerService.hide();
       } else {
@@ -215,20 +215,20 @@ export class LoginComponent implements OnInit {
           .subscribe((res: any) => {
           //  alert(res.id);
             this.spinnerService.hide();
-            this.forgeterrorclass = 'text-success';
+            this.forgeterrorclass = 'text-success  font-b';
             this.forgetresponse = 'Please check your email and reset the password!';
             this.button =  true;
           },
             err => {
               this.spinnerService.hide();
-              this.forgeterrorclass = 'text-danger';
+              this.forgeterrorclass = 'text-danger  font-b';
               this.forgetresponse = 'User Not Found';
               console.log('Error occured');
               localStorage.clear();
             });
       }
     } else {
-      this.forgeterrorclass = 'text-danger';
+      this.forgeterrorclass = 'text-danger  font-b';
       this.forgetresponse = 'Email Can`t be empty';
       this.spinnerService.hide();
     }

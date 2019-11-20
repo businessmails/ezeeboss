@@ -3541,7 +3541,7 @@ ul.pagination { margin-top: 20px!important; margin-bottom: 20px!important; }
 .rject_if, .exit_if{ text-align: left; }
 .rject_if b, .exit_if b { display: block; }
 .exit_if h4{ font-size: 17px; color: #fff; font-weight: 600px; text-align: left; margin-top: 30px; }
-.exit_if_btn { padding: 10px 25px; font-size: 20px; color: white; -webkit-box-shadow: 0px 0px 9px 0px #333; box-shadow: 0px 0px 9px 0px #333; border-radius: 5px; background-color :#B59848; margin-top: 10px;     display: inline-block;}
+.exit_if_btn { padding: 10px 25px; font-size: 20px; color: white; -webkit-box-shadow: 0px 0px 9px 0px #333; box-shadow: 0px 0px 9px 0px #333; border-radius: 5px; background-color :#494d49; margin-top: 10px;     display: inline-block;}
 .position-relative { position: relative; }
 .z_new { z-index: 1; }
 .printbtn { display: none!important; }
@@ -3551,6 +3551,11 @@ a.dashboard_home i { margin-right: 10px; }
 .fnt_big img {width: 25px;}
 .spiner { opacity: 1!important; color: rgba(0,0,0,.7)!important; }
 .spiner img{ opacity: 1!important; }
+.modal_f_auto { margin: 0 auto; position: relative; max-width: 500px;}
+.p15 { padding-left: 15px; padding-right: 15px; padding-top: 15px; }
+.p15 p, .p15 label, .p15 span  { margin: 0; }
+.forgeterrorclass { font-weight: 600; }
+.font-b { font-weight: 600; font-size: 16px; }
 
 
 @media only screen and (max-width: 2560px) and (min-width: 1440px)
