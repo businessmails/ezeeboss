@@ -45,8 +45,8 @@
                                    <td *ngIf="item.expiration!=null">{{item.expiration | date: 'dd/MM/yyyy'}}</td>
                                    <td *ngIf="item.expiration==null">NA</td>
                                    <td>
-
-                                      <a routerLink="/newsign/{{item.withimage}}/{{this.digitalpath}}/{{item._id}}/{{item.userid}}/{{item.usertosign}}">
+<!-- {{this.digitalpath}} -->
+                                      <a routerLink="/newsign/{{this.digitalpath}}/{{item._id}}/{{item.userid}}/{{item.usertosign}}">
                                         <img src="assets/img/view.png" class="img-responsive"/>
                                       </a>
                                       </td>

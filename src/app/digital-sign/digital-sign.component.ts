@@ -482,6 +482,7 @@ export class DigitalSignComponent implements OnInit {
     }
 
     if (!emailalreadyexist) {
+      this.spinnerService.show();
       this.http.post('https://ezeeboss.com:3001/api/addnewparticipant',
         {
           firstName: firstName, lastName: lastName, email: email, address: address,
@@ -489,6 +490,7 @@ export class DigitalSignComponent implements OnInit {
           type: type, priority: this.contacts.length + 1, expiration: this.myOptions
         })
         .subscribe(data => {
+          this.spinnerService.hide();
           this.contactList = data;
           if (this.contactList.message === 1) {
             this.contacts.push({ id: this.contactList.id, name: firstName + ' ' + lastName, type: type, email: email });
@@ -643,12 +645,12 @@ close(){
         })
         .subscribe(data => {
           this.contactList = data;
-          console.log("this.contactList->", this.contactList)
+          // console.log("this.contactList->", this.contactList)
           if (this.contactList.message === 1 || this.contactList.message === 2) {
             // arr.push(item);
 
             this.contacts.push({ name: firstName + ' ' + lastName, type: type, email: email, id: this.contactList.id });
-            console.log("data pushed", this.contacts);
+            // console.log("data pushed", this.contacts);
             // this.addparticipantForm.reset();
             this.addyourselfModal.close();
           } else {
@@ -710,7 +712,8 @@ close(){
     })
 
     for (let i = 0; i < this.contacts.length; i++) {
-      this.adduserarray.push({ id: this.contacts[i].id });
+      console.log("-->",this.contacts[i])
+      this.adduserarray.push({ id: this.contacts[i].id ,role:this.contacts[i].type});
     }
 
     let postdata = {
@@ -747,7 +750,7 @@ close(){
   }
 
   addpatipant() {
-    console.log('called');
+    // console.log('called');
     this.firstnameerror = null;
     this.lasterror = null;
     this.emailerror = null;

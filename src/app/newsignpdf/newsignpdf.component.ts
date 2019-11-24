@@ -107,6 +107,7 @@ export class NewsignpdfComponent implements OnInit {
     this.clikStatus = true;
   }
   ngOnInit() {
+
     var ip = window.location.origin;
     this.conveniancecount = 0;
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -154,18 +155,14 @@ export class NewsignpdfComponent implements OnInit {
                     if (this.html.data.actionrequired == 'Rejected') {
                       this.router.navigateByUrl('/rejectedmassage');
                     } else {
-                      if(this.html.data.expiration != null){
-                      // console.log('-->',new Date(this.html.data.expiration));
-                      // console.log(new Date())
-                      if(new Date()>new Date(this.html.data.expiration)){
-                        alert("Document is Expired ");
-
-                        // console.log("today is greater ");
-                         this.router.navigateByUrl('/landing');
-                      }
-                      if(new Date()<new Date(this.html.data.expiration)){
-                        // console.log("today is before ")
-                      }
+                      if (this.html.data.expiration != null) {
+                        if (new Date() > new Date(this.html.data.expiration)) {
+                          alert("Document is Expired ");
+                          this.router.navigateByUrl('/landing');
+                        }
+                        if (new Date() < new Date(this.html.data.expiration)) {
+                          // console.log("today is before ")
+                        }
                       }
                       this.withimage = this.html.data.withimage;
                       this.http.post('https://ezeeboss.com:3001/api/pdfdetail', { pdfid: this.html.data.documentid })
@@ -173,7 +170,7 @@ export class NewsignpdfComponent implements OnInit {
                           let i: number;
                           this.fileslength = data;
                           this.noofpages = this.fileslength.fileslength;
-                          pages= this.fileslength.fileslength;
+                          pages = this.fileslength.fileslength;
                         });
                       if (this.withimage === true) {
                         this.showpdf = false;
@@ -184,6 +181,7 @@ export class NewsignpdfComponent implements OnInit {
 
                         this.initialModal.open();
                         setTimeout(() => {
+
                           $(document).on('blur', '.gettext', function () {
                             $(this).html($(this).val() as any)
                           });
@@ -268,7 +266,7 @@ export class NewsignpdfComponent implements OnInit {
                                 scrollTop: ($('.' + classarray[number]).offset().top + x.top - 100)
                               }, 500);
                             }
-                              $('#checkCount').click()
+                            $('#checkCount').click()
 
                             const now = new Date();
                             const year = '' + now.getFullYear();
@@ -296,7 +294,18 @@ export class NewsignpdfComponent implements OnInit {
 
                           });
 
-                          $('#checkCount').click()
+                          $('#checkCount').click();
+
+                          $('.draggable').each(function (i, obj) {
+                            let topp = $('.draggable').css('top');
+                            let t = parseInt(topp.replace('px', ''));
+                            $(this).css('top', t + 23);
+                          });
+
+                          // var numItem = $('.draggable').length;
+                          // let topp= $(".draggable").css("top");
+                          // let t = parseInt(topp.replace('px',''));
+                          // $(".draggable").css("top" , t+23 );
                         }, 300);
 
                       }
@@ -322,6 +331,9 @@ export class NewsignpdfComponent implements OnInit {
     video.muted = false;
     video.controls = true;
     video.autoplay = false;
+
+
+
   }
 
 
@@ -484,22 +496,15 @@ export class NewsignpdfComponent implements OnInit {
   }
 
   handleImage(webcamImage: WebcamImage): void {
-    // console.info('received webcam image', webcamImage);
     this.webcamImage = webcamImage;
-    // console.log(JSON.stringify(webcamImage));
     this.credentials.image = webcamImage.imageAsDataUrl;
     this.credentials.imag = 'image';
     this.showWebcam = false;
   }
   handleImageCapture(webcamImage: WebcamImage): void {
-    // console.info('received webcam image', webcamImage);
     this.webcamImageCapture = webcamImage;
-    // console.log(JSON.stringify(webcamImage));
     this.imgcap = webcamImage.imageAsDataUrl;
     this.showWebcamcapture = false;
-
-    // this.credentials.imag = 'image';
-    // this.showWebcam = false;
   }
 
   public get triggerObservable(): Observable<void> {
@@ -532,7 +537,7 @@ export class NewsignpdfComponent implements OnInit {
                 this.initialModal.open();
 
                 alert("Identity Matched");
-              
+
                 const req = this.http.post('https://ezeeboss.com:3001/api/signeduserimage', { userid: this.usertosign, docid: this.documentid, imagename: this.unknownimage }).subscribe(res => {
 
                 });
@@ -680,9 +685,9 @@ export class NewsignpdfComponent implements OnInit {
       this.stopRecording();
     }
 
-    
-    
-  
+
+
+
     this.loading = true;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -708,9 +713,9 @@ export class NewsignpdfComponent implements OnInit {
               const documentid = params['documentid'];
               signeddocid = documentid
               const usertosign = params['usertosign'];
-              
 
-        
+
+
               this.http.post('https://ezeeboss.com:3001/api/updatedoc', { html: $('.gethtml').html(), userid: this.userId, docid: documentid, usertosign: this.usertosign, reciptemail: this.useremail, location: this.cityname })
                 .subscribe(
                   data => {
@@ -742,100 +747,31 @@ export class NewsignpdfComponent implements OnInit {
 
                     setTimeout(() => {
                       $('.pd0').appendTo($(".pdfimg"));
-        
-              for(let i=0;i<$('.pdfimg').length;i++) {
-        
-              html2canvas($(".pdfimg")[i],{letterRendering: true, useCORS: true}).then(function(canvas) {
-              //  console.log(canvas.toDataURL("image/jpeg", 1).replace("data:image/jpeg;base64,", ""))
-          
-                        var data = new FormData();
-                        var img= canvas.toDataURL("image/jpeg", 1).replace("data:image/jpeg;base64,", "");
-                        data.append("data" , img);
-                        data.append("name",i as any);
-                        data.append("noofpages",pages as any);
-                        var xhr = new XMLHttpRequest();
-                        xhr.open( 'post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true );
-                        xhr.send(data);
-                              xhr.onreadystatechange = function () {
-                                if(i = $('.pdfimg').length-1) {
+
+                      for (let i = 0; i < $('.pdfimg').length; i++) {
+
+                        html2canvas($(".pdfimg")[i], { letterRendering: true, useCORS: true }).then(function (canvas) {
+                          var data = new FormData();
+                          var img = canvas.toDataURL("image/jpeg", 1).replace("data:image/jpeg;base64,", "");
+                          data.append("data", img);
+                          data.append("name", i as any);
+                          data.append("noofpages", pages as any);
+                          var xhr = new XMLHttpRequest();
+                          xhr.open('post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true);
+                          xhr.send(data);
+                          xhr.onreadystatechange = function () {
+                            if (i = $('.pdfimg').length - 1) {
                               if (this.readyState == 4 && this.status == 200) {
                                 alert('Document Sent Successfully');
                                 window.location.href = '/completed';
-                              } }
-                            };
-        
-                });
-              }
-            }, 2000);
+                              }
+                            }
+                          };
 
-          //           var element = document.querySelector(".inthis");
-          //     const opt = {
-          //       image:        { type: 'jpeg', quality: 0.98 },
-          //   html2canvas:  { scale: 2, logging: true, dpi: 192, letterRendering: true, useCORS: true },
-               
-          //       pagebreak: { mode: 'avoid-all' },
-               
-          //     };
-          // //html2pdf(element);
-          // const doc = html2pdf().from(element).set(opt).outputPdf().then((pdf) => {
-          //  // console.log(btoa(pdf));
-          //   var data = new FormData();
-          //   data.append("data" , btoa(pdf));
-          //   var xhr = new XMLHttpRequest();
-          //   xhr.open( 'post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true );
-          //   xhr.send(data);
-          //         xhr.onreadystatechange = function () {
-          //         if (this.readyState == 4 && this.status == 200) {
-          //           alert('Document Sent Successfully');
-          //           window.location.href = '/completed';
-          //         }
-          //       };
-          // });;
-                       
-                   
-              //       // const element = document.getElementById('gethtml');
+                        });
+                      }
+                    }, 2000);
 
-              //       // element.scrollIntoView();
-              //       // const options = { pagesplit: true };
-              //       // const pdf = new jsPDF('p', 'pt', 'letter');
-              //       // setTimeout(() => {
-
-              //       //   var check = localStorage.getItem("imgheight")
-              //       //   if (check <= "3300" && check >= "2550") {
-              //       //     pdf.internal.scaleFactor = 1.39;
-              //       //   }
-              //       //   else if (check <= "3508" && check >= "2480") {
-              //       //     pdf.internal.scaleFactor = 1.7;
-              //       //   }
-              //       //   else if (check <= "4367" && check >= "2833") {
-              //       //     pdf.internal.scaleFactor = 1.62;
-              //       //   }
-              //       //   else if (check <= "2700" && check >= "2250") {
-              //       //     pdf.internal.scaleFactor = 1.37;
-              //       //   }
-
-              //       //   else {
-              //       //     pdf.internal.scaleFactor = 1.36;
-              //       //   }
-
-              //       //   pdf.addHTML($('.inthis'), 0, 0, options, function () {
-              //       //     pdf.save('Document.pdf');
-              //       //   });
-              //       //   // this.loading = false;
-              //       //   pdf.addHTML($('.inthis'), 0, 0, options, function () {
-              //       //     const blob = pdf.output('blob');
-              //       //     const xhr = new XMLHttpRequest();
-              //       //     xhr.open('post', 'https://ezeeboss.com:3001/api/download/' + userid + '/' + signeddocid, true);
-              //       //     xhr.setRequestHeader('Content-Type', 'application/pdf');
-              //       //     xhr.send(blob);
-              //       //     xhr.onreadystatechange = function () {
-              //       //       if (this.readyState == 4 && this.status == 200) {
-              //       //         alert('Document Sent Successfully');
-              //       //        // window.location.href = '/completed';
-              //       //       }
-              //       //     };
-              //       //   });
-              //       // }, 3000);
                   });
             });
           })

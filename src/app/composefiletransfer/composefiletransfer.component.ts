@@ -5,6 +5,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent } from '../app.component';
 import { Router } from '@angular/router'
 import { Location } from '@angular/common';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 
 @Component({
@@ -34,13 +35,15 @@ export class ComposefiletransferComponent implements OnInit {
   result: any;
   filerror: string;
   passwordError: string;
+ template: string = `<img src="../../assets/img/ezgif.com-gif-makerold.gif" style="margin-left:200px"/>`;
 
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
     private AppComponent: AppComponent,
     private router: Router,
-    public _location: Location
+    public _location: Location,
+    private spinnerService: Ng4LoadingSpinnerService,
 
   ) { }
   backClicked() {
@@ -162,6 +165,9 @@ export class ComposefiletransferComponent implements OnInit {
 
 
   sendmail() {
+
+     this.spinnerService.show();
+     
     //  console.log(this.editorContent)
     var x = this.formData.getAll("uploads[]")
 
@@ -201,6 +207,8 @@ this.passwordError ="";
       } else {
         this.loading = true;
         this.formData.append('from', this.userid);
+        this.formData.append('type', "new");
+
         this.formData.append('data', this.data.nativeElement.value);
         this.formData.append('fromemail', this.email);
         this.formData.append('toemail', this.toemail.nativeElement.value);
@@ -209,6 +217,8 @@ this.passwordError ="";
         this.http.post(this.AppComponent.BASE_URL + '/api/sendfiletransfermail', this.formData)
           .subscribe(data => {
             this.loading = false;
+     this.spinnerService.hide();
+
             alert('Mail sent successfully');
             this.router.navigateByUrl('/senttransfer');
           });

@@ -18,7 +18,7 @@
                   <ul class="participentul">
                     <div *ngFor="let user of userlist">
 
-                      <li *ngIf="user.type == 'Remote Signer'">
+                      <li *ngIf="user.userRole == 'Remote Signer'">
                         <!-- {{user.firstName}} -->
                         <label class="container345">{{user.firstName}} {{user.lastName}}
                           <input type="radio" name="r" ng-model="myVar" value={{user._id}}

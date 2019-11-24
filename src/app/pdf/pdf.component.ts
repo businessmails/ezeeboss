@@ -223,7 +223,7 @@ export class PdfComponent implements OnInit {
 
 
           if ($.trim(ui.draggable[0].innerText) == 'Initial') {
-            canvasElement.append('<div class="dell"><img style="width: 18px;float: right;top: 16px;position: absolute;right: -9px;right: -9px;" src="../../assets/img/cross.svg"></div></div><div class="removediv appended' + ' ' + userid + ' ' + cls + ' initialsign" style="border: 2px solid #858f04;margin-left: 3px;min-width: 28px;height: 30px; padding: 0 10px;z-index:999"><div style="text-align: left;font-size: 19px; font-weight: 400; font-style: unset"><div class="text-fontsize font-sig-name">' + userinitials + '</b></div></div>');
+            canvasElement.append('<div class="dell"><img style="width: 18px;float: right;top: 16px;position: absolute;right: -9px;right: -9px;  " src="../../assets/img/cross.svg"></div></div><div class="removediv appended' + ' ' + userid + ' ' + cls + ' initialsign" style="border: 2px solid #858f04; margin-left: 3px;min-width: 28px;height: 30px; padding: 0 10px;z-index:999"><div style="text-align: left;font-size: 19px; font-weight: 400; font-style: unset"><div class="text-fontsize font-sig-name">' + userinitials + '</b></div></div>');
             $('.removediv').prev('div.form-group').remove();
             if ((appendedusers).includes(userid)) {
             } else {
@@ -240,7 +240,7 @@ export class PdfComponent implements OnInit {
 
           } else if ($.trim(ui.draggable[0].innerText) == 'Name') {
             // tslint:disable-next-line:max-line-length
-            canvasElement.append('<div class="dell"><img style="width: 18px;float: right;top: 16px;position: absolute;right: -9px;right: -9px;" src="../../assets/img/cross.svg"></div></div><div class="removediv appended ' + userid + ' ' + cls + '" style="border: 2px solid #858f04;margin-left: 3px;min-width: 28px;height: 30px; padding: 0 10px"><div style=" text-align: left; font-size: 19px; font-weight: 400; font-style: unset"><div class="text-fontsize">' + username + '</b></div></div></div>');
+            canvasElement.append('<div class="dell"><img style="width: 18px;float: right;top: 16px;position: absolute;right: -9px;right: -9px;  " src="../../assets/img/cross.svg"></div></div><div class="removediv appended ' + userid + ' ' + cls + '" style="border: 2px solid #858f04;  margin-left: 3px;min-width: 28px;height: 30px; padding: 0 10px"><div style=" text-align: left; font-size: 19px; font-weight: 400; font-style: unset"><div class="text-fontsize">' + username + '</b></div></div></div>');
             $('.removediv').prev('div.form-group').remove();
             if ((appendedusers).includes(userid)) {
             } else {
@@ -256,7 +256,7 @@ export class PdfComponent implements OnInit {
           } else if ($.trim(ui.draggable[0].innerText) == 'Email') {
             // alert("h")
             // tslint:disable-next-line:max-line-length
-            canvasElement.append('<div class="dell"><img style="width: 18px;float: right;top: 16px;position: absolute;right: -9px;right: -9px;" src="../../assets/img/cross.svg"></div></div><div  class="removediv appended ' + userid + ' ' + cls + ' " style="border: 2px solid #858f04;margin-left: 3px;min-width: 28px;height: 30px; padding: 0 10px;"><div style="word-wrap: break-word; text-align: left; font-size: 19px; font-weight: 400; font-style: unset"><div class="text-fontsize">' + useremail + '</b></div></div></div>');
+            canvasElement.append('<div class="dell"><img style="width: 18px;float: right;top: 16px;position: absolute;right: -9px;right: -9px;  " src="../../assets/img/cross.svg"></div></div><div  class="removediv appended ' + userid + ' ' + cls + ' " style="border: 2px solid #858f04; margin-left: 3px;min-width: 28px;height: 30px; padding: 0 10px;"><div style="word-wrap: break-word; text-align: left; font-size: 19px; font-weight: 400; font-style: unset"><div class="text-fontsize">' + useremail + '</b></div></div></div>');
             $('.removediv').prev('div.form-group').remove();
             if ((appendedusers).includes(userid)) {
             } else {
@@ -271,7 +271,7 @@ export class PdfComponent implements OnInit {
             }
           } else if ($.trim(ui.draggable[0].innerText) == 'Date') {
             // tslint:disable-next-line:max-line-length
-            canvasElement.append('<div class="dell"><img style="width: 18px;float: right;top: 16px;position: absolute;right: -9px;right: -9px;" src="../../assets/img/cross.svg"></div></div><div class="removediv appended ' + userid + ' ' + cls + ' " style="border: 2px solid #858f04;margin-left: 3px;min-width: 28px;height: 30px; padding: 0 10px; "><div style="word-wrap: break-word; text-align: left; font-size: 19px; font-weight: 400; font-style: unset"><div class="text-fontsize">' + todaydate + '</div> </div></div></div>');
+            canvasElement.append('<div class="dell"><img style="width: 18px;float: right;top: 16px;position: absolute;right: -9px;right: -9px;  " src="../../assets/img/cross.svg"></div></div><div class="removediv appended ' + userid + ' ' + cls + ' " style="border: 2px solid #858f04;margin-left: 3px;min-width: 28px;height: 30px; padding: 0 10px; "><div style="word-wrap: break-word; text-align: left; font-size: 19px; font-weight: 400; font-style: unset"><div class="text-fontsize">' + todaydate + '</div> </div></div></div>');
             $('.removediv').prev('div.form-group').remove();
             if ((appendedusers).includes(userid)) {
             } else {
@@ -286,7 +286,7 @@ export class PdfComponent implements OnInit {
             }
           } else if ($.trim(ui.draggable[0].innerText) == 'Signature') {
             // alert("sign")
-            canvasElement.append('<div class="dell"><img style="width: 18px;float: right;top: 16px;position: absolute;right: -9px;right: -9px;" src="../../assets/img/cross.svg"></div></div><div class="signhere appended ' + userid + ' ' + cls + '" style="border: 2px solid #858f04;margin-left: 3px;height: 30px;  padding: 0 10px;"><div style="word-wrap: break-word; text-align: left; font-size: 19px; font-weight: 400; font-style: unset"><div class="text-fontsize font-sig-name">' + username + '</b></div></div></div>');
+            canvasElement.append('<div class="dell"><img style="width: 18px;float: right;top: 16px;position: absolute;right: -9px;right: -9px;  " src="../../assets/img/cross.svg"></div></div><div class="signhere appended ' + userid + ' ' + cls + '" style="border: 2px solid #858f04; margin-left: 3px;height: 30px;  padding: 0 10px;"><div style="word-wrap: break-word; text-align: left; font-size: 19px; font-weight: 400; font-style: unset"><div class="text-fontsize font-sig-name">' + username + '</b></div></div></div>');
             if ((appendedusers).includes(userid)) {
             } else {
               appendedusers.push(userid);
@@ -304,7 +304,7 @@ export class PdfComponent implements OnInit {
           } else if ($.trim(ui.draggable[0].innerText) == 'Text') {
             // tslint:disable-next-line:max-line-length
             canvasElement.append(
-              '<div class="dell"><img style="width: 18px;float: right;top: 16px;position: absolute;right: -9px;right: -9px;" src="../../assets/img/cross.svg"></div></div><textarea rows="1" border: 2px solid #858f04 ;margin-left: 3px;min-width: 28px;height: 30px;  padding: 0 10px;resize:none;background: transparent;" class="gettext appended " ></textarea><div class=" ' + userid + ' ' + cls + '"><div><div  style="position: absolute;top: 75%; left:5%;"></div></div></div>');
+              '<div class="dell"><img style="width: 18px;float: right;top: 16px;position: absolute;right: -9px;right: -9px;  " src="../../assets/img/cross.svg"></div></div><textarea rows="1" border: 2px solid #858f04 ;margin-left: 3px;min-width: 28px;height: 30px;  padding: 0 10px;resize:none;background: transparent;" class="gettext appended " ></textarea><div class=" ' + userid + ' ' + cls + '"><div><div  style="position: absolute;top: 75%; left:5%;"></div></div></div>');
             if ((appendedusers).includes(userid)) {
             } else {
               appendedusers.push(userid);
@@ -326,6 +326,7 @@ export class PdfComponent implements OnInit {
           } else {
             topvalue = (ui.offset.top - 33);
           }
+          // alert(topvalue)
           // console.log(((ui.offset.left - $(this).offset().left) + 12))
           if (!$(canvasElement[0].lastChild as any).attr('class')) {
 

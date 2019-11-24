@@ -339,6 +339,11 @@ export class RegisterComponent {
     }
   }
   register() {
+    // passworderrorr
+    if(this.passworderrorr != 'Strong'){
+      alert("Password is not Strong enough !")
+      return false
+    }
     this.spinnerService.show();
     if (this.withoutImage != null) {
       this.credentials.image = 'none';
