@@ -95,7 +95,6 @@
                     <div *ngIf='toggel' style="transform: scale(-1,1);" class="img">
                       <img class='img-thumbnail' [src]="image" alt='Broken image' />
                     </div>
-                    <div class="row">
                       <div *ngIf="!withoutImage">
                       <div style="transform: scale(-1,1);">
                         <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam">
@@ -138,16 +137,14 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12 text-center signdiv tooltip124">
-                      <button *ngIf="Camera" type="button" (click)="triggerSnapshot();" class="btn signbtn recap_img"
-                        [ngClass]="{'pulse-button': animatecamerabtn }"><img src="../../assets/img/cap_image.png"
-                          class="img-responsive" /></button>
+                    <div class="signdiv tooltip124">
+                      <button *ngIf="Camera" type="button" (click)="triggerSnapshot();" class="profile_recap recap_img"
+                        [ngClass]="{'pulse-button': animatecamerabtn }"><img src="../../assets/img/cap_image.png" class="image_100" /></button>
                     </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12 signdiv">
+                    <div class="col-xs-12 signdiv">
                       <button *ngIf="recapture" type="button" (click)="toggleWebcam();"
-                        class="btn  signbtn recap_img"><img src="../../assets/img/recap_image.png"
-                          class="img-responsive" /></button>
-                    </div>
+                        class="profile_recap recap_img"><img src="../../assets/img/recap_image.png"
+                          class="image_100" /></button>
                     </div>
                     <button [ngClass]="{' green pulse-button pulse': animatebtn }" type="button"
                         (click)="registerwithoutimage();" class="btn signbtn_cap"> {{text}}
@@ -165,7 +162,8 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-md-12 col-sm-12 col-xs-12 signdiv">
+                  <label _ngcontent-c2="" class="control-label col-sm-2 sr-only" for="">Image</label>
+                  <div class="col-sm-10 signdiv">
                     <button type="submit" class="btn send_edit_profile">Save</button>
                   </div>
                 </div>

@@ -780,7 +780,7 @@ span.title {
 	    padding-left: 20px;
     padding-right: 20px;
 }
-.profile_to_home a
+.profile_to_home a, .profile_to_home a:hover
 {
 	color: #fff;
     font-size: 22px;
