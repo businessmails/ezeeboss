@@ -207,13 +207,12 @@ this.passwordError ="";
       } else {
         this.loading = true;
         this.formData.append('from', this.userid);
-        this.formData.append('type', "new");
-
         this.formData.append('data', this.data.nativeElement.value);
         this.formData.append('fromemail', this.email);
         this.formData.append('toemail', this.toemail.nativeElement.value);
         this.formData.append('subject', this.subject.nativeElement.value);
         this.formData.append('password', this.password.nativeElement.value);
+         this.formData.append('type', "new");
         this.http.post(this.AppComponent.BASE_URL + '/api/sendfiletransfermail', this.formData)
           .subscribe(data => {
             this.loading = false;

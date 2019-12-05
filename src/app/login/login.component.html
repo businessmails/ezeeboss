@@ -206,48 +206,7 @@
             </div>
         </div>
     </div>
-    <modal #forgetpassword [hideCloseButton]="true" [closeOnOutsideClick]="false">
-
-        <modal-content>
-            <div class="forgot_password_popup">
-                <div class="modal-headerr">
-                    <!--data-dismiss="modal" aria-label="Close"-->
-                    <button (click)="forgetpassword.close()" type="button" id="fclose" class="close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                    <h3 class="modal-title forget_passs" id="exampleModalLabel">
-                        <span>forgot your password</span>
-                    </h3>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <form class="" name="forgotlogin" id="forgotlogin" method="post" style="">
-                            <div class="col-lg-12">
-                                <input type="email" class="form-control" placeholder="Enter your email" name="email" [(ngModel)]="forgotemail" id="forgotemail"
-                                    required="">
-                                <label class="error" id="error_forgotemailp" style="font-size:15px"></label>
-                                <label id="loadingwaitf" style="font-size:15px"></label>
-                            </div>
-                            <span id="success" style="font-size:15px;color:#00CC33"></span>
-                            <div class="col-lg-12" style="padding-top:10px">
-                                <input type="button" class="btn btn-primary bg pulse green" (click)="forgetpass()" value="RESET PASSWORD" id="forgotsubmit" name="forgotsubmit">
-                            </div>
-                            <p class="{{forgeterrorclass}}"> {{forgetresponse}}</p>
-                            <!--div *ngIf="button">
-                                <button (click)="forgetpassword.close()" type="button" id="fclose" class="close">
-                                    <span aria-hidden="true">Ok</span>
-                                </button>
-
-                            </div-->
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer" style="border-top: 0px solid #e5e5e5;">
-                </div>
-            </div>
-        </modal-content>
-
-    </modal>
+    
 </section>
 
 <footer id="footer">
@@ -326,7 +285,51 @@
     
     
     </footer>
+<modal #forgetpassword [hideCloseButton]="true" [closeOnOutsideClick]="false">
+ 
+        <modal-content class="">
+            <div class="forgot_password_popup modal-lg modal_f_auto">
+                <div class="modal-headerr">
+                    <!--data-dismiss="modal" aria-label="Close"-->
+                    <button (click)="forgetpassword.close()" type="button" id="fclose" class="close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h3 class="modal-title forget_passs" id="exampleModalLabel">
+                        <span>forgot your password</span>
+                    </h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <form class="" name="forgotlogin" id="forgotlogin" method="post" style="">
+                            <div class="col-lg-12">
+                                <input type="email" class="form-control" placeholder="Enter your email" name="email" [(ngModel)]="forgotemail" id="forgotemail"
+                                    required="">
+                                <div class="p15">
+                                    <p id="success" style="font-size:15px;color:#00CC33; font-weight: 600; margin: 0;"></p>
+                                    <p class="{{forgeterrorclass}}"> {{forgetresponse}}</p>
+                                </div>
+                                <label class="error" id="error_forgotemailp" style="font-size:15px; font-weight: 600;"></label>
+                                <label id="loadingwaitf" style="font-size:15px; font-weight: 600;"></label>
+                            </div>
+                            <div class="col-lg-12" style="padding-top:10px">
+                                <input type="button" class="btn btn-primary bg pulse green" (click)="forgetpass()" value="RESET PASSWORD" id="forgotsubmit" name="forgotsubmit">
+                            </div>
+                            
+                            <!--div *ngIf="button">
+                                <button (click)="forgetpassword.close()" type="button" id="fclose" class="close">
+                                    <span aria-hidden="true">Ok</span>
+                                </button>
 
+                            </div-->
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer" style="border-top: 0px solid #e5e5e5;">
+                </div>
+            </div>
+        </modal-content>
+
+    </modal>
 <style>
 .tooltip12 .tooltiptext {
 

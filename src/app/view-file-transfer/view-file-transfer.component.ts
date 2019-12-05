@@ -259,14 +259,14 @@ export class ViewFileComponent implements OnInit {
       } else {
         this.loading = true;
         this.formData.append('from', this.userid);
-        this.formData.append('type', "frw");
-        this.formData.append('attachments', JSON.stringify(this.attachment));
-
         this.formData.append('data', this.datas.nativeElement.value);
         this.formData.append('fromemail', this.email);
         this.formData.append('toemail', this.toemails.nativeElement.value);
         this.formData.append('subject', this.subjects.nativeElement.value);
         this.formData.append('password', this.password.nativeElement.value);
+         this.formData.append('type', "frw");
+        this.formData.append('attachments', JSON.stringify(this.attachment));
+
         this.http.post(this.AppComponent.BASE_URL + '/api/sendfiletransfermail', this.formData)
           .subscribe(data => {
             this.loading = false;

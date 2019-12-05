@@ -164,6 +164,7 @@ export class NewsignpdfComponent implements OnInit {
                           // console.log("today is before ")
                         }
                       }
+                      
                       this.withimage = this.html.data.withimage;
                       this.http.post('https://ezeeboss.com:3001/api/pdfdetail', { pdfid: this.html.data.documentid })
                         .subscribe(data => {
@@ -180,6 +181,7 @@ export class NewsignpdfComponent implements OnInit {
                         this.loading = false;
 
                         this.initialModal.open();
+                        
                         setTimeout(() => {
 
                           $(document).on('blur', '.gettext', function () {
@@ -297,7 +299,7 @@ export class NewsignpdfComponent implements OnInit {
                           $('#checkCount').click();
 
                           $('.draggable').each(function (i, obj) {
-                            let topp = $('.draggable').css('top');
+                            let topp =  $(this).css('top');
                             let t = parseInt(topp.replace('px', ''));
                             $(this).css('top', t + 23);
                           });
@@ -306,6 +308,11 @@ export class NewsignpdfComponent implements OnInit {
                           // let topp= $(".draggable").css("top");
                           // let t = parseInt(topp.replace('px',''));
                           // $(".draggable").css("top" , t+23 );
+
+                          if(this.html.data.userRole=='Reviewer'){
+                          $('button.signbutton').hide();
+                          console.log("hiding..")
+                      }
                         }, 300);
 
                       }

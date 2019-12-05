@@ -6,6 +6,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent } from '../app.component';
 import { Location } from '@angular/common';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+
 @Component({
   selector: 'app-view-mail-file',
   templateUrl: './view-mail-file.component.html',
@@ -37,7 +39,7 @@ export class ViewMailFileComponent implements OnInit {
   showsearch: boolean;
   serchedmail: any;
   selectedMails: any[];
-    @ViewChild('toemail') toemail: ElementRef;
+  @ViewChild('toemail') toemail: ElementRef;
   // @ViewChild('subject') subject: ElementRef;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -45,10 +47,10 @@ export class ViewMailFileComponent implements OnInit {
     private auth: AuthenticationService,
     private AppComponent: AppComponent,
     private router: Router,
-    private _location: Location
-
+    private _location: Location,
+    private spinnerService: Ng4LoadingSpinnerService,
   ) { }
-
+  template: string = this.AppComponent.template;
   ngOnInit() {
     this.auth.profile().subscribe(user => {
       this.details = user;
@@ -65,7 +67,7 @@ export class ViewMailFileComponent implements OnInit {
             this.attachment = this.data.message;
             this.fromemail = this.data.message[0].fromemail;
             this.toemail = this.data.message[0].toemail;
-            this.subject = 'Fw : '+ this.data.message[0].subject;
+            this.subject = 'Fw : ' + this.data.message[0].subject;
             this.date = this.data.message[0].date;
             this.innerhtml = this.data.message[0].data;
             this.noofattachment = this.data.message[0].noofattachments;
@@ -139,7 +141,7 @@ export class ViewMailFileComponent implements OnInit {
     }
   }
 
-    selectmail(email) {
+  selectmail(email) {
     // alert(email)
     this.selectedMails = [];
     var str = this.toemail.nativeElement.value.toLowerCase();
@@ -158,12 +160,12 @@ export class ViewMailFileComponent implements OnInit {
 
   }
 
- search(email) {
+  search(email) {
 
     var mailarray = email.split(',');
     email = mailarray[mailarray.length - 1];
     if (email != '') {
-      this.http.post(this.AppComponent.BASE_URL + '/api/serchmail', { email: email,userId:this.userid })
+      this.http.post(this.AppComponent.BASE_URL + '/api/serchmail', { email: email, userId: this.userid })
         .subscribe(data => {
           this.result = data;
           // this.serchedmail = this.result.result; this.result = data;
@@ -200,15 +202,17 @@ export class ViewMailFileComponent implements OnInit {
           invEmails += emailArray[i] + "\n";
         }
       }
-      console.log("---",this.forwardtoemail)
-      if(this.forwardtoemail=='' || this.forwardtoemail==undefined){
-         this.emailerror = 'Invalid Email';
-         return
+      // console.log("---",this.forwardtoemail)
+      if (this.forwardtoemail == '' || this.forwardtoemail == undefined) {
+        this.emailerror = 'Invalid Email';
+        return
       }
       if (invEmails != "") {
         this.emailerror = 'Invalid Email: ' + invEmails
         // alert("Invalid emails:\n" + invEmails);
       } else {
+        this.spinnerService.show();
+
         this.loading = true;
         this.formData.append('from', this.userid);
         this.formData.append('data', this.innerhtml);
@@ -216,11 +220,13 @@ export class ViewMailFileComponent implements OnInit {
         this.formData.append('toemail', this.forwardtoemail);
         this.formData.append('subject', this.subject);
         this.formData.append('forwarded', "yes");
-        if(this.attachment.length>0){
- this.formData.append('attach','/var/www/html/ezee_api_21july/mailattachments/mailattachments/'+this.data.message[0].attachments );
+        if (this.attachment.length > 0) {
+          this.formData.append('attach', '/var/www/html/ezee_api_21july/mailattachments/mailattachments/' + this.data.message[0].attachments);
         }
         this.http.post(this.AppComponent.BASE_URL + '/api/sendsmartmail', this.formData)
           .subscribe(data => {
+            this.spinnerService.hide();
+
             this.loading = false;
             alert('Mail Sent Successfully');
             this.router.navigateByUrl('/sentmail');

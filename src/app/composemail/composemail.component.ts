@@ -5,6 +5,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent } from '../app.component';
 import { Router } from '@angular/router'
 import { Location } from '@angular/common';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+
 @Component({
   selector: 'app-composemail',
   templateUrl: './composemail.component.html',
@@ -35,9 +37,11 @@ export class ComposemailComponent implements OnInit {
     private auth: AuthenticationService,
     private AppComponent: AppComponent,
     private router: Router,
-    public _location :Location
-  ) { }
+    public _location :Location,
+    private spinnerService: Ng4LoadingSpinnerService,
 
+  ) { }
+template: string = `<img src="../../assets/img/ezgif.com-gif-makerold.gif" style="margin-left:200px"/>`;
   ngOnInit() {
     this.auth.profile().subscribe(user => {
       this.details = user;
@@ -142,9 +146,7 @@ export class ComposemailComponent implements OnInit {
   }
 
   validateemail() {
-    // this.showsearch = false;
-    // this.serchedmail=[];
-    // this.showsearch=false;
+   
     var emails = this.toemail.nativeElement.value;
     var emailArray = emails.split(",");
     var invEmails = "";
@@ -163,6 +165,7 @@ export class ComposemailComponent implements OnInit {
   }
 
   sendsmartmail() {
+     
     if (this.toemail.nativeElement.value === '') {
       this.emailerror = 'Enter a valid Email'
     }
@@ -181,7 +184,7 @@ export class ComposemailComponent implements OnInit {
         this.emailerror = 'Invalid Email: ' + invEmails
         // alert("Invalid emails:\n" + invEmails);
       } else {
-      
+       this.spinnerService.show();
         this.formData.append('from', this.userid );
         this.formData.append('data', this.editorContent);
         this.formData.append('fromemail', this.email);
@@ -189,6 +192,8 @@ export class ComposemailComponent implements OnInit {
         this.formData.append('subject', this.subject.nativeElement.value);
         this.http.post(this.AppComponent.BASE_URL + '/api/sendsmartmail', this.formData)
           .subscribe(data => {
+      this.spinnerService.hide();
+
             this.loading = false;
             alert('Mail sent successfully');
             this.router.navigateByUrl('/sentmail');
