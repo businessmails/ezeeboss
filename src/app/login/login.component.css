@@ -1,5 +1,5 @@
 .formdiv .form-group input {
-    border: 0px solid #b59748 !important;
+    
     position: relative;
     border-radius: 0px !important;
     color: #000 !important;
@@ -61,6 +61,15 @@ a.login button.signin {
 }
 .ezeelogintext {
     font-size: 60px;
+}
+.ezeelogintext_new{
+    width: 100%;
+    float: left;
+    padding: 0px 10px;
+    text-align: center;
+    border: 5px solid #fff;
+    margin-bottom: 45px;
+    margin-top: 35px;
 }
 button.pulse-button.pulse.green.login2btn,button {
     padding: 0px !important;
@@ -589,3 +598,17 @@ button#fclose {
     margin: auto;
     cursor: pointer;
 }
+
+button.new_sign_div {
+    background: transparent ;
+    border: 0 ;
+    width: 100%;
+}
+button.new_sign_div img {
+    
+    
+    width: auto;
+}
+.or_and_sign { font-size: 20px;  text-align: center; color :#fff; font-weight: 700; text-transform: capitalize;}
+.or_and_sign p { margin-bottom: 0; margin-top: 10px}
+.or_and_sign a { color :#fff;}

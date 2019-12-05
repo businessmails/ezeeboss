@@ -93,6 +93,15 @@ a.nav-link[_ngcontent-c2] {
     padding: 20px;
     text-align: center;
 }
+.ezeelogintext_new {
+    width: 100%;
+    float: left;
+    padding: 0px 10px;
+    text-align: center;
+    border: 5px solid #fff;
+    margin-bottom: 45px;
+    margin-top: 35px;
+}
 img#fgdfg {
     border: 4px solid #fff !important;
 }
@@ -115,7 +124,6 @@ img#fgdfg {
 }
 
 .formdiv .form-group input {
-    border: 1px solid #b59748;
     position: relative;
     color: #555;
     font-size: 15px !important;
@@ -490,6 +498,16 @@ video {
     .copyrighttext p {
         font-size:14px;
     }
+    /* button.new_sign_div { */
+    /* width: 100%;
+    margin: 0 auto;
+    background: transparent;
+    border: 0;
+} */
+
+    .new_sign_div img { width: auto!important;}    
+
+
     .formdiv[_ngcontent-c2] form[_ngcontent-c2] {
         padding: 0 22px;
     }
@@ -517,11 +535,11 @@ video {
 
 /*responsive css end*/
 
-.tooltip12 {
-    /*position: relative;
+/*.tooltip12 {
+    position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;*/
-}
+    border-bottom: 1px dotted black;
+}*/
 
 .tooltip12 .tooltiptext {
     /* visibility: hidden; */
@@ -773,3 +791,13 @@ button#fclose {
 .tooltip124:hover .tooltiptext1{
     visibility: visible;
 } .formdiv .signbtn {padding:0!important}
+
+
+button.new_sign_div {
+    background: transparent ;
+    border: 0 ;
+    width: 100%;
+}
+.or_and_sign { font-size: 20px;  text-align: center; color :#fff; font-weight: 700; text-transform: capitalize;}
+.or_and_sign p { margin-bottom: 0;}
+.or_and_sign a { color :#fff;}

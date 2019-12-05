@@ -441,9 +441,6 @@ a.reg[_ngcontent-c2],.login[_ngcontent-c2] {
     width: 48%;
     margin: 0 auto;
 }
-button {
-    width: 80%;
-}
 a.reg,a.login {
     width: 48% !important;
 }
@@ -1172,3 +1169,5 @@ button#fclose {
 .tooltip124:hover .tooltiptext1{
     visibility: visible;
 } .formdiv .signbtn {padding:0!important}
+.profile_recap { width: 100%; border:0; background: transparent; padding: 0 }
+.image_100 { width: 100% }

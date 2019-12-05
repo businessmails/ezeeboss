@@ -33,32 +33,32 @@
         <ng4-loading-spinner [loadingText]="'Please wait...'" [zIndex]="9999"> </ng4-loading-spinner>
     </div>
     <div class="container">
-        <div class="col-md-5 col-sm-5 col-xs-12">
+        <!-- <div class="col-md-5 col-sm-5 col-xs-12">
             <div class="logimg-login">
                 <a>
                     <img src="../../assets/img/login1.png" />
                 </a>
             </div>
-        </div>
-        <div class="col-md-7 col-sm-7 col-xs-12">
+        </div> -->
+        <div class="col-md-6 col-md-offset-3 col-xs-12">
             <div class="loginform-outerdivlr">
-                <div class="log-reg-btn">
+                <!-- <div class="log-reg-btn">
                     <a class="reg">
                         <button routerLink="/register" class="signup"><img src="../../assets/img/easysignupbtn.png"/></button>
                     </a>
                     <a class="login">
                         <button class="signin"><img src="../../assets/img/easysigninbtn.png"/> </button>
                     </a>
-                </div>
+                </div> -->
                 <div class="formdiv form-sps">
-                    <div class="ezeelogintext">
+                    <div class="ezeelogintext ezeelogintext_new">
                         Ezee<span>signin</span>
                     </div>
                     <div *ngIf="confirm">
                         To verify your profile , Check your registered email and follow the process.
                     </div>
                     <!-- <form action="/action_page.php"> -->
-                    <form (submit)="login()" #formCtrl="ngForm">
+                    <form (submit)="login()" #formCtrl="ngForm" class="row">
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
@@ -153,11 +153,10 @@
 
                <button type="button" *ngIf="recapture" (click)="toggleWebcam();" class="btn  signbtn recap_img"><img _ngcontent-c2="" class="img-responsive" src="../../assets/img/recap_image.png">
 							
-							</button>
-						
-<div class="tooltip124">
-                            <button  *ngIf='withoutimage' [ngClass]="{'pulse-button pulse green': pulsereg }" [disabled]="!formCtrl.form.valid" type="submit" class="btn signbtn">
-                                <img src="../../assets/img/signin.png" /></button>
+							</button>						
+                        <div class="tooltip124 text-center">
+                            <button  *ngIf='withoutimage' [ngClass]="{'pulse-button pulse green': pulsereg }" [disabled]="!formCtrl.form.valid" type="submit" class="new_sign_div">
+                                <img src="../../assets/img/signup.png" /></button>
 									<span *ngIf='withoutimage'  class="tooltiptext1">Ezee Login Without Face Recognition System
                                             
                                             </span>
@@ -168,6 +167,10 @@
                                                             
                                                             </span>
 											</div>
+                                            <div class="or_and_sign">
+                <p>Or</p>
+                <span>Don't have an account ? <a routerLink='//register'>Sign Up</a></span>
+              </div>
 
                         </div>
 
