@@ -79,9 +79,9 @@ a.nav-link[_ngcontent-c2] {
 .logimg img {
     width: 55%;
 }
-.green {
-    background-color: green !important;
-}
+/* .green {
+    background-color: transparent !important;
+} */
 
 .modal-body.digitalmodalbody {
     padding: 0px !important;
@@ -801,3 +801,30 @@ button.new_sign_div {
 .or_and_sign { font-size: 20px;  text-align: center; color :#fff; font-weight: 700; text-transform: capitalize;}
 .or_and_sign p { margin-bottom: 0;}
 .or_and_sign a { color :#fff;}
+.custom_r { width: 100%;}
+.custom_r h3.top_head { padding: 20px;
+    background: #494d48;
+    color: #fff;
+    font-weight: 700;
+    margin: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px; }
+   .custom_r i {
+            text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 70px;
+    padding: 30px 15px;
+    color: #0dd415;
+    text-shadow: 0 0 5px rgba(0,0,0,0.15);
+}
+.custom_r p{
+ text-align: center; font-size: 15px; color: #050505; font-weight: bold; padding: 0 20px;
+}
+.custom_r button{    margin: 0 auto;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 21px;
+    font-size: 16px;
+    font-weight: 700;}
