@@ -98,7 +98,7 @@ a.nav-link[_ngcontent-c2] {
     float: left;
     padding: 0px 10px;
     text-align: center;
-    border: 5px solid #fff;
+    border: 2px solid #fff;
     margin-bottom: 45px;
     margin-top: 35px;
 }
@@ -798,7 +798,7 @@ button.new_sign_div {
     border: 0 ;
     width: 100%;
 }
-.or_and_sign { font-size: 20px;  text-align: center; color :#fff; font-weight: 700; text-transform: capitalize;}
+.or_and_sign { font-size: 20px;  text-align: center; color :#fff; font-weight: 700; text-transform: none;}
 .or_and_sign p { margin-bottom: 0;}
 .or_and_sign a { color :#fff;}
 .custom_r { width: 100%;}

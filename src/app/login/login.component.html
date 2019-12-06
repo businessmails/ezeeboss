@@ -103,7 +103,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">
                             <div class="text-right forgot_margin">
-								<a style="cursor: pointer;" (click)="opensuccesspop()" class="forgot">forgot password?</a>
+								<a style="cursor: pointer;" (click)="opensuccesspop()" class="forgot">Forgot password?</a>
 								<!-- <a>email?</a> -->
                             </div>
                         </div>
@@ -157,9 +157,9 @@
                         <div class="tooltip124 text-center">
                             <button  *ngIf='withoutimage' [ngClass]="{'pulse-button pulse green': pulsereg }" [disabled]="!formCtrl.form.valid" type="submit" class="new_sign_div">
                                 <img src="../../assets/img/signup.png" /></button>
-									<span *ngIf='withoutimage'  class="tooltiptext1">Ezee Login Without Face Recognition System
+									<!-- <span *ngIf='withoutimage'  class="tooltiptext1">Ezee Login Without Face Recognition System
                                             
-                                            </span>
+                                            </span> -->
 
                                             <button  *ngIf='!withoutimage' [ngClass]="{'pulse-button pulse green': pulsereg }" [disabled]="!formCtrl.form.valid" type="submit" class="btn signbtn">
                                                 <img src="../../assets/img/signin2.png" /></button>
@@ -169,7 +169,7 @@
 											</div>
                                             <div class="or_and_sign">
                 <p>Or</p>
-                <span>Don't have an account ? <a routerLink='/register'>Sign Up</a></span>
+                <span>Don't have an account ? <a routerLink='/register'>Sign up</a></span>
               </div>
 
                         </div>
