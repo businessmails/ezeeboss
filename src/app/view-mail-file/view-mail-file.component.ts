@@ -142,7 +142,7 @@ export class ViewMailFileComponent implements OnInit {
   }
 
   selectmail(email) {
-    // alert(email)
+    alert(email)
     this.selectedMails = [];
     var str = this.toemail.nativeElement.value.toLowerCase();
     this.selectedMails = str.split(",");
@@ -151,6 +151,7 @@ export class ViewMailFileComponent implements OnInit {
       // console.log("element doesn't exist");
       this.selectedMails.push(email);
       this.toemail.nativeElement.value = this.selectedMails.join();
+      alert(this.toemail.nativeElement.value)
       this.emailerror = '';
     }
 
@@ -217,7 +218,7 @@ export class ViewMailFileComponent implements OnInit {
         this.formData.append('from', this.userid);
         this.formData.append('data', this.innerhtml);
         this.formData.append('fromemail', this.email);
-        this.formData.append('toemail', this.forwardtoemail);
+        this.formData.append('toemail', emails);
         this.formData.append('subject', this.subject);
         this.formData.append('forwarded', "yes");
         if (this.attachment.length > 0) {

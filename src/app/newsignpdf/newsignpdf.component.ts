@@ -107,7 +107,7 @@ export class NewsignpdfComponent implements OnInit {
     this.clikStatus = true;
   }
   ngOnInit() {
-
+// alert("jagveer")
     var ip = window.location.origin;
     this.conveniancecount = 0;
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -127,7 +127,11 @@ export class NewsignpdfComponent implements OnInit {
           this.details = user.data[0]
         }
         else {
+      
           this.details = user;
+       
+          
+          
         }
         this.userid = this.details._id;
         this.useremail = this.details.email;
@@ -144,6 +148,10 @@ export class NewsignpdfComponent implements OnInit {
             if (this.eligible !== 1) {
               this.router.navigateByUrl('/');
             } else {
+              if(this.details.image=='none'){
+                alert("You Dont have updated your profile kindly set while using update profile section  ");
+                this.router.navigateByUrl('/profile');
+                          }
               this.http.get('https://ezeeboss.com:3001/api/getdocument/' + this.userid + '/' + documentid)
                 .subscribe(
                   data => {

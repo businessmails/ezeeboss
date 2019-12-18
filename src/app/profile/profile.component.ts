@@ -43,6 +43,7 @@ export class ProfileComponent {
   toggel: boolean = true;
   oldimage: string;
   text: string = 'Capture New Image';
+  noimage: boolean = false;
   constructor(
     private auth: AuthenticationService,
     private http: HttpClient,
@@ -132,7 +133,14 @@ export class ProfileComponent {
       this.spinnerService.hide();
       var fullName = this.details.name;
       this.fullname = this.details.name;
-      this.image = 'https://ezeeboss.com:3001/images/' + this.details._id + '/' + user.image;
+      console.log(user.image)
+      if (user.image == 'none') {
+        this.noimage=true;
+      }else{
+        this.noimage=false;
+        this.image = 'https://ezeeboss.com:3001/images/' + this.details._id + '/' + user.image;
+      }
+      
       this.oldimage = this.image;
       var nameArr = [];
       var lastName = '';

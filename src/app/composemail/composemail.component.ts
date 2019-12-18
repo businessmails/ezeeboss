@@ -190,6 +190,8 @@ template: string = `<img src="../../assets/img/ezgif.com-gif-makerold.gif" style
         this.formData.append('fromemail', this.email);
         this.formData.append('toemail', this.toemail.nativeElement.value.toLowerCase());
         this.formData.append('subject', this.subject.nativeElement.value);
+        this.formData.append('forwarded', 'no');
+
         this.http.post(this.AppComponent.BASE_URL + '/api/sendsmartmail', this.formData)
           .subscribe(data => {
       this.spinnerService.hide();

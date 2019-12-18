@@ -7,7 +7,7 @@
       <div class="col-xs-12 nullvoid">
         <div class="top_popup_header_es">
           <p class="text-center header_popup">Detail</p>
-          <a class="popuplog-close">x</a>
+          <a (click)="completeddetail.close()" class="popuplog-close">x</a>
         </div>  
         <div _ngcontent-c7="" class="col-xs-12">
           <p _ngcontent-c7="" class="mail_info"><b _ngcontent-c7="">Send By:</b> {{sendername}}</p>
@@ -76,6 +76,7 @@
       <div class="row"> 
         <div class="col-md-12 col-sm-12 col-xs-12">
           <!-- <button class="delbtn"><i class="fa fa-trash" (click)="deletedocument()" aria-hidden="true"></i> Delete</button> -->
+          <a _ngcontent-c3="" (click)="backClicked()"  class="inner_back"><i _ngcontent-c3="" class="fa fa-angle-left"></i>Back</a>
           <button class="delbtn" type="button" (click)="deletedocument()"><i class="fa fa-trash"></i> Delete</button>
         </div>
         <div class="col-xs-12">
@@ -128,6 +129,7 @@
                   </td>
                   <td class="videotd" *ngIf="item.uservideo!=''">
                     <div class="dpbx" (click)="videoModal.open();setvideourl(item.uservideo)">
+                      {{item.uservideo}}
                       <img src="https://ezeeboss.com:3001/images/login/{{item.userimage}}" />
                     </div>
                   </td>
@@ -152,6 +154,7 @@
     </section>
     <modal #videoModal [closeOnOutsideClick]="false">
       <modal-content class="custom-mod-cont">
+        
         <video width="320" height="240" controls autoplay>
           <source src="https://ezeeboss.com:3001/uploadedvideos/{{videourl}}" type="video/webm">
           Your browser does not support the video tag.

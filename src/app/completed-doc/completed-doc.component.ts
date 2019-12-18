@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails, TokenPayload} from '../authentication.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent} from '../app.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-completed-doc',
@@ -31,7 +32,9 @@ export class CompletedDocComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private auth: AuthenticationService,
-    private AppComponent:AppComponent
+    private AppComponent:AppComponent,
+    private _location: Location
+
 
   ) { }
  onChangePage(pageOfItems: Array<any>) {
@@ -63,7 +66,9 @@ export class CompletedDocComponent implements OnInit {
   setvideourl(url) {
     this.videourl = url;
     }
-
+    backClicked() {
+      this._location.back();
+    }
   checkAll(ev) {
     this.documents.forEach(x => x.selected = ev.target.checked);
     this.isSelected = true;

@@ -15,6 +15,7 @@ export interface UserDetails {
   phonenumber: string;
   sec_email: string;
   secEmail: string;
+  image: string;
 }
 
 interface TokenResponse {

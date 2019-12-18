@@ -123,7 +123,6 @@ const routes: Routes = [
   { path: 'videorec', component: VideorecComponent },
   { path: 'composemail', component: ComposemailComponent },
   { path: 'composencryptemail', component: ComposemailencryptedComponent },
-
   { path: 'readmail', component: ReadmailComponent },
   { path: 'readencmail', component: ReadmailencComponent },
   { path: 'sentmail', component: SentmailComponent },

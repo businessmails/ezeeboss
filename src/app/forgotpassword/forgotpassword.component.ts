@@ -21,7 +21,7 @@ export class ForgotpasswordComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
-      console.log('user-', params['userid'])
+     // console.log('user-', params['userid'])
       this.userid = params['userid'];
       if (this.userid == null){
         this.router.navigate(['']);
@@ -55,6 +55,12 @@ parent.removeChild(el);
 
   changepwd() {
     //  alert(this.userid)
+    if(this.password != this.cpassword){
+      alert('Password and Confirm passowrd Do not match !');
+      return 
+    }
+
+   
       this.spinnerService.show();
       const req = this.http.post('https://ezeeboss.com:3001/api/chnagepwd', {
         password: this.password,

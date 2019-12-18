@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class DashbordHeaderComponent implements OnInit {
-
-  constructor() { }
+  private _location: Location;
+  constructor() {
+    
+   }
 
   ngOnInit() {
   }
-
+  backClicked() {
+ 
+    this._location.back();
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -12,6 +13,8 @@ export class NewDocumentComponent implements OnInit {
   hideme:any;
   constructor(
         private router: Router,
+        private _location: Location
+
   ) { }
 
   ngOnInit() {
@@ -32,7 +35,9 @@ export class NewDocumentComponent implements OnInit {
       this.hideme = null;
     }
   }
-
+  backClicked() {
+    this._location.back();
+  }
   opendocument(path) {
     this.router.navigateByUrl('/digital_sign/'+path);
     localStorage.setItem('digitalpath',path)

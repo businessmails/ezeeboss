@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails, TokenPayload} from '../authentication.service';
 import { AppComponent} from '../app.component';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-user-home-dashboard',
   templateUrl: './user-home-dashboard.component.html',
@@ -27,6 +29,8 @@ constructor(
   private auth: AuthenticationService,
   private AppComponent: AppComponent,
   private router: Router,
+  private _location: Location
+
 ) { }
 
 datechange(e){
@@ -67,6 +71,10 @@ datechange(e){
       });
             
     });
+  }
+
+  backClicked() {
+    this._location.back();
   }
   }
 

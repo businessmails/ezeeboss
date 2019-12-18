@@ -188,3 +188,15 @@
         min-height: 279px !important;
     }
 }
+
+.inner_back{
+	background: #494d49;
+    padding: 5px 20px;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 15px;
+}
+.inner_back i{margin-right: 5px;
+    font-weight: 600;}

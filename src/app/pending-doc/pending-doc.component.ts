@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthenticationService, UserDetails, TokenPayload} from '../authentication.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent} from '../app.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-pending-doc',
@@ -29,7 +30,9 @@ export class PendingDocComponent implements OnInit {
   constructor(
    private http: HttpClient,
    private auth: AuthenticationService,
-   private AppComponent:AppComponent
+   private AppComponent:AppComponent,
+   private _location: Location
+
 
  ) { }
 
@@ -60,7 +63,9 @@ export class PendingDocComponent implements OnInit {
     this.isSelected = true;
     //  alert(this.isSelected)
   }
-
+  backClicked() {
+    this._location.back();
+  }
   isAllChecked() {
     if(this.isSelected == true)
     // alert(this.isSelected)
