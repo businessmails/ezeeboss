@@ -64,7 +64,8 @@ export class CompletedDocComponent implements OnInit {
    this.signedip = ip;
   }
   setvideourl(url) {
-    this.videourl = url;
+    // alert(url)
+    this.videourl = `https://ezeeboss.com:3001/uploadedvideos/`+url;
     }
     backClicked() {
       this._location.back();

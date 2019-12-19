@@ -129,7 +129,7 @@
                   </td>
                   <td class="videotd" *ngIf="item.uservideo!=''">
                     <div class="dpbx" (click)="videoModal.open();setvideourl(item.uservideo)">
-                      {{item.uservideo}}
+                    
                       <img src="https://ezeeboss.com:3001/images/login/{{item.userimage}}" />
                     </div>
                   </td>
@@ -137,10 +137,15 @@
                   <td *ngIf="item.expiration!=null">{{item.expiration}}</td>
                   <td *ngIf="item.expiration==null">NA</td>
                   <td>
-                    <a
+                    <!-- <a
                       (click)="setdetail(item.sendername,item.location,item.signedTime,item.signedTime,item.ip);completeddetail.open();">
                       <img src="assets/img/view.png" class="img-responsive" />
-                    </a>
+                    </a> -->
+                    <a routerLink='/documentdetail/{{item.documentid}}'
+                   >
+                    <img src="assets/img/view.png" class="img-responsive" />
+                  </a>
+                    
                   </td>
                 </tr>
               </table>
@@ -156,7 +161,7 @@
       <modal-content class="custom-mod-cont">
         
         <video width="320" height="240" controls autoplay>
-          <source src="https://ezeeboss.com:3001/uploadedvideos/{{videourl}}" type="video/webm">
+          <source src="{{videourl}}" type="video/webm">
           Your browser does not support the video tag.
         </video>
       </modal-content>
