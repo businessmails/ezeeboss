@@ -385,8 +385,4 @@ video {
         padding: 20px 0;
     }
 }
-/*responsive css end*/
-.logoimg img{
-        /* padding: 18px 0; */
-width: 30%;
-    }
+.logoimg img { margin-top: 10px; }

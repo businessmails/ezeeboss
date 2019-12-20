@@ -3501,7 +3501,7 @@ button.btn.signbtn.recap_img {
 .send_edit_profile { float: right; background: rgb(89,169,35); color: #fff; font-size: 16px; padding: 5px 25px!important; text-transform: uppercase!important; border-radius: 0!important; }
 button:hover.send_edit_profile { color:#fff;}
 .forgot_password_popup{border-radius:0px; background:#fff;}
-.forget_passs { font-family:'Century Gothic'; text-align: center; color: #494d49; padding: 15px; font-weight: 600;}
+.forget_passs { font-family:'Century Gothic'; text-align: center; color: #494d49!important; padding: 15px; font-weight: 600;}
 .table>tbody>tr>td, .table>t>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {vertical-align: middle!important;}
 .size_image { max-width: 35px; margin: 0 auto }
 .padd_header { padding-top: 15px; padding-bottom: 15px;  }
@@ -3560,7 +3560,8 @@ a.dashboard_home i { margin-right: 10px; }
 	top: calc(50% - 54px);
     left: calc(50% - 54px);
 }
-
+.my_drop_down li:nth-child(3), .my_drop_down li:nth-child(4){ display: none; }
+.content-header.text-left ol { display: none!important; }
 @media only screen and (max-width: 2560px) and (min-width: 1440px)
 {
 	.rject_if h4, .exit_if h4 { font-size: 25px; }
