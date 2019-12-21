@@ -467,7 +467,7 @@ textarea{
 	
 	
 .signpad {	
-	width: 800px !important;
+	width: 100% !important;
 	height: auto !important;
 	border: 0px solid #aaa !important;
     position: fixed;	
