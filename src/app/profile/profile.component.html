@@ -141,30 +141,32 @@
                       <button *ngIf="Camera" type="button" (click)="triggerSnapshot();" class="profile_recap recap_img"
                         [ngClass]="{'pulse-button': animatecamerabtn }"><img src="../../assets/img/cap_image.png" class="image_100" /></button>
                     </div>
-                    <div class="col-xs-12 signdiv">
+                    <div class="signdiv">
                       <button *ngIf="recapture" type="button" (click)="toggleWebcam();"
                         class="profile_recap recap_img"><img src="../../assets/img/recap_image.png"
                           class="image_100" /></button>
                     </div>
-                    <button [ngClass]="{' green pulse-button pulse': animatebtn }" type="button"
-                        (click)="registerwithoutimage();" class="btn signbtn_cap"> {{text}}
-                        <!-- <img src="../../assets/img/signup2.png" /> -->
-                      </button>
-                    <div class="col-md-12 col-sm-12 col-xs-12 signdiv tooltip124">
-                      
-                      <!-- <span class="tooltiptext1">Chnage image -->
-
-                      <!-- </span> -->
-                    </div>
-                    
-
-
                   </div>
                 </div>
                 <div class="form-group">
                   <label _ngcontent-c2="" class="control-label col-sm-2 sr-only" for="">Image</label>
-                  <div class="col-sm-10 signdiv">
-                    <button type="submit" class="btn send_edit_profile">Save</button>
+                  <div class="col-sm-10">
+                    <div class="row">
+                      <div class="col-sm-4 signdiv">
+                        <button [ngClass]="{' green pulse-button pulse': animatebtn }" type="button"
+                        (click)="registerwithoutimage();" class="btn send_edit_profile" style="width: 100%"> {{text}}
+                        <!-- <img src="../../assets/img/signup2.png" /> -->
+                        </button>
+                      </div>
+                      <div class="col-sm-4 signdiv text-center">
+                        <button [ngClass]="{' green pulse-button pulse': animatebtn }" type="button"
+                        (click)="registerwithoutimage();" class="btn send_edit_profile" style="width: 100%"> Remove Image
+                        </button>
+                      </div>
+                      <div class="col-sm-4 signdiv">
+                        <button type="submit" class="btn send_edit_profile" style="width: 100%">Save</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </form>
