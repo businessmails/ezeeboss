@@ -160,7 +160,9 @@ export class ViewMailFileComponent implements OnInit {
     this.showsearch = false;
 
   }
-
+  logout() {
+    this.auth.logout();
+  }
   search(email) {
 
     var mailarray = email.split(',');

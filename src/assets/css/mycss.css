@@ -1596,7 +1596,7 @@ button.Zebra_DatePicker_Icon_Inside_Right {
 }
 
 text-fontsize ,textarea.gettext.appended {
-	font-size: 12px;
+	font-size: 20px;
 	width: 100%;
 }
 /*.list-part {
@@ -3562,6 +3562,7 @@ a.dashboard_home i { margin-right: 10px; }
 }
 .my_drop_down li:nth-child(3), .my_drop_down li:nth-child(4){ display: none; }
 .content-header.text-left ol { display: none!important; }
+.review_modal br { display: none; }
 @media only screen and (max-width: 2560px) and (min-width: 1440px)
 {
 	.rject_if h4, .exit_if h4 { font-size: 25px; }
