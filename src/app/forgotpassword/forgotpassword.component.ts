@@ -2,6 +2,7 @@ import { Component, OnInit , ViewChild, ElementRef } from '@angular/core';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { HttpClient } from '@angular/common/http';
 import { Router , ActivatedRoute, Params } from '@angular/router';
+
 @Component({
   selector: 'app-forgotpassword',
   templateUrl: './forgotpassword.component.html',
@@ -14,6 +15,7 @@ export class ForgotpasswordComponent implements OnInit {
   public jagveer = false;
   public passworderrorr = null;
   public userid = null;
+  template: string = `<img src="../../assets/img/ezgif.com-gif-makerold.gif" style="margin-left:200px"/>`;
 
   @ViewChild('sucess') sucessmessage: any;
   // tslint:disable-next-line:max-line-length

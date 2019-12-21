@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 import { AuthenticationService, UserDetails } from '../authentication.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { Subject } from 'rxjs/Subject';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './profile.component.html',
@@ -44,13 +45,19 @@ export class ProfileComponent {
   oldimage: string;
   text: string = 'Capture New Image';
   noimage: boolean = false;
+  template: string = `<img src="../../assets/img/ezgif.com-gif-makerold.gif" style="margin-left:200px"/>`;
+
   constructor(
     private auth: AuthenticationService,
     private http: HttpClient,
-    private spinnerService: Ng4LoadingSpinnerService
+    private spinnerService: Ng4LoadingSpinnerService,
+    private router: Router,
   ) { }
 
-
+removeimage(){
+this.noimage=true
+this.toggel=true;
+}
 
   public triggerSnapshot(): void {
     this.trigger.next();
@@ -204,7 +211,9 @@ export class ProfileComponent {
           this.response = true;
           this.class = "alert alert-success";
           this.msg = "Data updated Sucessfully"
+          alert( "Data updated Sucessfully")
           //   window.location.reload();
+          this.router.navigate(['/']);
           setTimeout(function () {
             // alert('cleR');
             this.response = false;

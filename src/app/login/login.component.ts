@@ -45,6 +45,8 @@ export class LoginComponent implements OnInit {
   public forgeterrorclass = null;
   public highlight_login = false;
   loginerror: any;
+  template: string = `<img src="../../assets/img/ezgif.com-gif-makerold.gif" style="margin-left:200px"/>`;
+
   @ViewChild('forgetpassword') forgetpassword: any;
   // webcam snapshot trigger
   private trigger: Subject<void> = new Subject<void>();
@@ -199,7 +201,7 @@ export class LoginComponent implements OnInit {
 
   }
   forgetpass() {
-    // this.spinnerService.show();
+    this.spinnerService.show();
     if (this.forgotemail !== null) {
       const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       if (!regex.test(this.forgotemail)) {
@@ -207,7 +209,7 @@ export class LoginComponent implements OnInit {
         // console.log('dsd');
         this.forgeterrorclass = 'text-danger font-b'
         this.forgetresponse = 'Please enter a valid email';
-        // this.spinnerService.hide();
+        this.spinnerService.hide();
       } else {
         const req = this.http.post('https://ezeeboss.com:3001/api/getuserid', {
           email: this.forgotemail,
@@ -217,6 +219,7 @@ export class LoginComponent implements OnInit {
             this.spinnerService.hide();
             this.forgeterrorclass = 'text-success  font-b';
             this.forgetresponse = 'Please check your email and reset the password!';
+            this.forgotemail='';
             this.button =  true;
           },
             err => {

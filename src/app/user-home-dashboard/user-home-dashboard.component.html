@@ -13,14 +13,14 @@
 			<div class="cmplt_dsh_hdng">
 				<h2>Completed Document</h2>
 			</div>
-			<div class="tble_dvv" *ngFor="let document of documents">
+			<div class="tble_dvv" >
 				<table style="width:100%">
 				  <tr class="bg_clr_tble">
 					<th class="bodr_lft">Document</th>
 					<th colspan="1">Name</th>
 					<th>SignedTime</th>
 				  </tr>
-				  <tr class="td_bg">
+				  <tr class="td_bg" *ngFor="let document of documents">
 					<td class="on_hover_bodr"><a routerLink="/documentdetail/{{document.documentid}}">pdf-{{document.documentid}}</a></td>
 					<td>{{document.sendername}}</td>
 					<td>{{document.signedTime.substr(0,10)}}</td>
