@@ -111,9 +111,7 @@
 }
 .all_camera_main { position: relative; }
 .s_c{height: auto !important; }
-.c_a{ float:left;width:222px !important;}
-
-.v_b{ float:right; width:222px !important;}
+.v_b, button.v_b:hover, button.v_b:focus{ margin-top: 20px; color: #fff!important;}
 .capimg img{
     width: 100%;
     float: left;

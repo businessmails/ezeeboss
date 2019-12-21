@@ -41,14 +41,16 @@
                 </div>
                 <div class="signdiv" style="width:100%;">
                     <div class="form-group">
-                        <div class="col-md-12">
-                            <button type="button" *ngIf="camera" (click)="triggerSnapshot();" class="btn pulse-button pulse green new_btn_css">Capture</button>
-                        </div>
-                        <div class="col-md-6">
-                            <button *ngIf="imagecaptured" (click)="toggleWebcam();" type="button" class="btn fullwdth c_a">Capture Again</button>    
-                        </div>
-                        <div class="col-md-6">
-                            <button *ngIf="imagecaptured" (click)="verifyuser();" type="button" class="btn pulse-button pulse green v_b">Accept</button>  
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4">
+                                <button type="button" *ngIf="camera" (click)="triggerSnapshot();" class="btn pulse-button green v_b" style="width: 100%">Capture</button>
+                            </div>
+                            <div class="col-md-4 col-md-offset-2">
+                                <button *ngIf="imagecaptured" (click)="toggleWebcam();" type="button" class="btn pulse-button green v_b" style="width: 100%">Capture Again</button>    
+                            </div>
+                            <div class="col-md-4">
+                                <button *ngIf="imagecaptured" (click)="verifyuser();" type="button" class="btn pulse-button green v_b" style="width: 100%">Accept</button>  
+                            </div>
                         </div>
                     </div>
                
@@ -61,12 +63,6 @@
 
 
             </div>
-
-
-            <div class="form-group nwlbl">
-            
-            </div>
-
 
         </div>
     </div>
@@ -82,7 +78,7 @@
     <div class="col-sm-4 col-xs-12" >
         <div class="cameradiv pd0withposition newwithposition">
 
-            <div class="form-group nwlbl formdiv">
+            <div class="form-group nwlbl">
 
                     <div class="fropicture" *ngIf="!showWebcamcapture && !webcamImageCapture" style="display:none">
                             <div class="after_mail_cam_img tooltip12">
