@@ -221,8 +221,10 @@ export class ViewMailFileComponent implements OnInit {
         this.formData.append('toemail', emails);
         this.formData.append('subject', this.subject);
         this.formData.append('forwarded', "yes");
+
         if (this.attachment.length > 0) {
           this.formData.append('attach', '/var/www/html/ezee_api_21july/mailattachments/mailattachments/' + this.data.message[0].attachments);
+          this.formData.append('ts',this.data.message[0].attachments.split('/')[0] );
         }
         this.http.post(this.AppComponent.BASE_URL + '/api/sendsmartmail', this.formData)
           .subscribe(data => {

@@ -92,7 +92,7 @@
                 <div class="form-group">
                   <label class="control-label col-sm-2" for="">Image</label>
                   <div class="col-sm-10">
-                    <span *ngIf='!noimage'  (click) = "removeimage()" >Remove image</span>
+                    <!-- <span *ngIf='!noimage'  (click) = "removeimage()" >Remove image</span> -->
                     <div *ngIf='toggel' style="transform: scale(-1,1);" class="img">
                       <img *ngIf='!noimage' class='img-thumbnail' [src]="image" alt='Broken image' />
                     </div>
@@ -160,8 +160,8 @@
                         </button>
                       </div>
                       <div class="col-sm-4 signdiv text-center">
-                        <button [ngClass]="{' green pulse-button pulse': animatebtn }" type="button"
-                        (click)="registerwithoutimage();" class="btn send_edit_profile" style="width: 100%"> Remove Image
+                        <button type="button" *ngIf='!noimage'  (click) = "removeimage()" 
+                      class="btn send_edit_profile" style="width: 100%"> Remove Image
                         </button>
                       </div>
                       <div class="col-sm-4 signdiv">
